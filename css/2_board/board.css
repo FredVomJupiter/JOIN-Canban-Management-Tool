@@ -22,7 +22,7 @@ body {
         gap: 20px !important;
     }
 
-    .bc-board-container {
+    .bc-container {
         max-width: 600px !important;
         flex-wrap: wrap;
         bottom: 20px;
