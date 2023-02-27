@@ -279,6 +279,7 @@ body {
     height: 73px;
     left: 355px;
     top: 171px;
+    z-index: -1;
 }
 
 .sc-title {
@@ -300,6 +301,7 @@ body {
     flex: none;
     order: 1;
     flex-grow: 0;
+    z-index: -1;
 }
 
 .sc-title-text {
@@ -314,6 +316,7 @@ body {
     flex: none;
     order: 2;
     flex-grow: 0;
+    z-index: -1;
 }
 
 .sc-greeting-wrap {
@@ -366,6 +369,7 @@ body {
     width: 580px;
     left: 355px;
     top: 331px;
+    z-index: -1;
 }
 
 .sc-center-topwrap {
