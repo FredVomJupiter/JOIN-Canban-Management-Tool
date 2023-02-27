@@ -407,6 +407,7 @@ body {
     top: 343px;
     overflow-y: scroll;
     z-index: -1;
+    padding-bottom: 10px;
 }
 
 /* One column for: done, feedback, progress & todo */
@@ -667,6 +668,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 35px;
 }
 
 /* Ende Contentbereich */
