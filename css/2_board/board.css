@@ -396,7 +396,7 @@ body {
 }
 
 
-.bc-board-container {
+.bc-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -410,7 +410,7 @@ body {
 }
 
 /* One column for: done, feedback, progress & todo */
-.bc-board-column {
+.bc-column {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -418,7 +418,7 @@ body {
     width: 250px;
 }
 
-.bc-board-top {
+.bc-column-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -427,7 +427,7 @@ body {
     height: 30px;
 }
 
-.bc-board-icon {
+.bc-column-icon {
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
@@ -440,7 +440,7 @@ body {
     height: 30px;
 }
 
-.bc-board-columntitle {
+.bc-column-title {
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -450,7 +450,7 @@ body {
     color: #2A3647;
 }
 
-.bc-board-cardshadow {
+.bc-cardshadow {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -460,7 +460,7 @@ body {
     border-radius: 30px;
 }
 
-.bc-board-cardbackground {
+.bc-cardbackground {
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
@@ -474,7 +474,7 @@ body {
     border-radius: 30px;
 }
 
-.bc-board-cardinner {
+.bc-cardinner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -482,7 +482,7 @@ body {
     width: 211px;
 }
 
-.bc-board-cardtitle {
+.bc-cardcategory {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -500,7 +500,7 @@ body {
     color: #FFFFFF;
 }
 
-.bc-board-cardtext-wrap {
+.bc-cardtext-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -508,7 +508,7 @@ body {
     width: 207px;
 }
 
-.bc-board-cardtext-inner {
+.bc-cardtext-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -517,7 +517,7 @@ body {
     border-radius: 10px;
 }
 
-.bc-board-cardtext-subtitle {
+.bc-cardtitle {
     width: 170px;
     font-family: 'Inter';
     font-style: normal;
@@ -527,7 +527,7 @@ body {
     color: #2A3647;
 }
 
-.bc-board-cardtext-text {
+.bc-cardtext {
     width: 207px;
     font-family: 'Inter';
     font-style: normal;
@@ -537,7 +537,7 @@ body {
     color: #A8A8A8;
 }
 
-.bc-board-progressbar-wrap {
+.bc-progressbar-wrap {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -547,21 +547,21 @@ body {
     height: 14px;
 }
 
-.bc-board-progressbar-outer {
+.bc-progressbar-outer {
     width: 138px;
     height: 8px;
     background: #F4F4F4;
     border-radius: 2px;
 }
 
-.bc-board-progressbar-inner {
+.bc-progressbar-inner {
     width: 138px;
     height: 8px;
     background: #29ABE2;
     border-radius: 2px;
 }
 
-.bc-board-progressbar-text {
+.bc-progressbar-text {
     width: 53px;
     height: 14px;
     font-family: 'Inter';
@@ -572,7 +572,7 @@ body {
     color: #000000;
 }
 
-.bc-board-cardbottom-wrap {
+.bc-cardbottom-wrap {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -582,7 +582,7 @@ body {
     height: 35px;
 }
 
-.bc-board-cardbottom-left {
+.bc-assignments {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -590,7 +590,7 @@ body {
     height: 35px;
 }
 
-.bc-board-cardbottom-left-circleleft {
+.bc-circleleft {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -605,7 +605,7 @@ body {
     border-radius: 58px;
 }
 
-.bc-board-cardbottom-left-circlemiddle {
+.bc-circlemiddle {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -621,7 +621,7 @@ body {
     margin: 0px -6px;
 }
 
-.bc-board-cardbottom-left-circleright {
+.bc-circleright {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -636,7 +636,7 @@ body {
     border-radius: 58px;
 }
 
-.bc-board-cardbottom-left-circle-text {
+.bc-circle-text {
     width: 19px;
     height: 14px;
     font-family: 'Inter';
@@ -647,7 +647,7 @@ body {
     color: #FFFFFF;
 }
 
-.bc-board-cardbottom-right {
+.bc-prio-wrap {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -656,7 +656,7 @@ body {
     height: 32px;
 }
 
-.bc-board-cardbottom-icon {
+.bc-prio-icon {
     width: 17px;
     height: 12px;
 }

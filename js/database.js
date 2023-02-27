@@ -67,6 +67,7 @@ let cards = [
     }
 ];
 
+
 function init() {
     renderCards();
 }
@@ -86,24 +87,24 @@ function renderCards() {
 
 function templateCardHtml(card) {
     return `
-        <div class="bc-board-cardshadow" id="${card.id}">
-            <div class="bc-board-cardbackground">
-                <div class="bc-board-cardinner">
-                    <div class="bc-board-cardtitle" style="background:#FF7A00">${card.group}</div>
-                    <div class="bc-board-cardtext-wrap">
-                        <div class="bc-board-cardtext-inner">
-                            <span class="bc-board-cardtext-subtitle">${card.title}</span>
-                            <span class="bc-board-cardtext-text">${card.text}</span>
+        <div class="bc-cardshadow" id="${card.id}">
+            <div class="bc-cardbackground">
+                <div class="bc-cardinner">
+                    <div class="bc-cardcategory" style="background:#FF7A00">${card.group}</div>
+                    <div class="bc-cardtext-wrap">
+                        <div class="bc-cardtext-inner">
+                            <span class="bc-cardtitle">${card.title}</span>
+                            <span class="bc-cardtext">${card.text}</span>
                         </div>
                     </div>
-                    <div class="bc-board-progressbar-wrap">
+                    <div class="bc-progressbar-wrap">
                         ${templateProgressbarHtml(card)}
                     </div>
-                    <div class="bc-board-cardbottom-wrap">
-                        <div class="bc-board-cardbottom-left">
+                    <div class="bc-cardbottom-wrap">
+                        <div class="bc-assignments">
                             ${templateAssignmentsHtml(card)}
                         </div>
-                        <div class="bc-board-cardbottom-right">
+                        <div class="bc-prio-wrap">
                             ${templatePriorityHtml(card)}
                         </div>
                     </div>
@@ -116,10 +117,10 @@ function templateCardHtml(card) {
 
 function templateProgressbarHtml(card) {
     return `
-        <div class="bc-board-progressbar-outer">
-            <div class="bc-board-progressbar-inner" style="width: 69px"></div>
+        <div class="bc-progressbar-outer">
+            <div class="bc-progressbar-inner" style="width: 69px"></div>
         </div>
-        <span class="bc-board-progressbar-text">1/2 Done</span>
+        <span class="bc-progressbar-text">1/2 Done</span>
     `
 }
 
@@ -127,49 +128,50 @@ function templateProgressbarHtml(card) {
 function templateAssignmentsHtml(card) {
     if (card.assigned.length == 1) {
         return `
-            <div class="bc-board-cardbottom-left-circleleft">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="bc-circleleft">
+                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
         `
     }
     if (card.assigned.length == 2) {
         return `
-            <div class="bc-board-cardbottom-left-circleleft">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="bc-circleleft">
+                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
-            <div class="bc-board-cardbottom-left-circlemiddle">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[1])}</span>
+            <div class="bc-circlemiddle">
+                <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
         `
     }
     if (card.assigned.length == 3) {
         return `
-            <div class="bc-board-cardbottom-left-circleleft">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="bc-circleleft">
+                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
-            <div class="bc-board-cardbottom-left-circlemiddle">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[1])}</span>
+            <div class="bc-circlemiddle">
+                <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
-            <div class="bc-board-cardbottom-left-circleright">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[2])}</span>
+            <div class="bc-circleright">
+                <span class="bc-circle-text">${returnInitials(card.assigned[2])}</span>
             </div>
         `
     }
     if (card.assigned.length > 3) {
         return `
-            <div class="bc-board-cardbottom-left-circleleft">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="bc-circleleft">
+                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
-            <div class="bc-board-cardbottom-left-circlemiddle">
-                <span class="bc-board-cardbottom-left-circle-text">${returnInitials(card.assigned[1])}</span>
+            <div class="bc-circlemiddle">
+                <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
-            <div class="bc-board-cardbottom-left-circleright">
-                <span class="bc-board-cardbottom-left-circle-text">+${card.assigned.length - 2}</span>
+            <div class="bc-circleright">
+                <span class="bc-circle-text">+${card.assigned.length - 2}</span>
             </div>
         `
     }
     
 }
+
 
 /**
  * 
@@ -184,16 +186,16 @@ function returnInitials(name) {
 function templatePriorityHtml(card) {
     if (card.priority == "urgent") {
         return `
-            <img class="bc-board-cardbottom-icon" src="/assets/img/priohigh.svg">
+            <img class="bc-prio-icon" src="/assets/img/priohigh.svg">
         `
     }
     if (card.priority == "medium") {
         return `
-            <img class="bc-board-cardbottom-icon" src="/assets/img/priomedium.svg">
+            <img class="bc-prio-icon" src="/assets/img/priomedium.svg">
         `
     } else {
         return `
-            <img class="bc-board-cardbottom-icon" src="/assets/img/priolow.svg">
+            <img class="bc-prio-icon" src="/assets/img/priolow.svg">
         `
     }
 }
