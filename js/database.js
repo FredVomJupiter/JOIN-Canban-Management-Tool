@@ -75,6 +75,5 @@ let cards = [
 
 const Datastore = require('nedb');
 
-const database = new Datastore('database.db');
+const database = new Datastore('https://www.frederic-rieg.developerakademie.net/JOIN/database.db');
 database.loadDatabase();
-database.insert(cards);

@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join-Board</title>
 
-    <link rel="stylesheet" href="/css/2_board/board.css">
-    <link rel='stylesheet' href='/css/logo.css'>
+    <link rel="stylesheet" href="./css/2_board/board.css">
+    <link rel='stylesheet' href='./css/logo.css'>
 
-    <script src="js/menu-navigation.js"></script>
-    <script src="js/database.js"></script>
-    <script src="js/board.js"></script>
+    <script src="./js/menu-navigation.js"></script>
+    <script src="./js/database.js"></script>
+    <script src="./js/board.js"></script>
 
 </head>
 
@@ -29,7 +29,7 @@
         <!-- Login wrapper rechts oben -->
         <div class="topnav-login-wrap">
 
-            <img class="topnav-help-img" src="/assets/img/help.svg" onclick="openPage('help')">
+            <img class="topnav-help-img" src="./assets/img/help.svg" onclick="openPage('help')">
 
             <!-- Profilbild wrapper -->
             <div class="topnav-profile-wrap">
@@ -37,7 +37,7 @@
                     <div class="topnav-profile-border">
                         <div class="topnav-profile-circle">
 
-                            <img class="topnav-profile-img" src="/assets/img/profilepicture.png"
+                            <img class="topnav-profile-img" src="./assets/img/profilepicture.png"
                                 onclick="openPage('login')">
 
                         </div>
@@ -49,27 +49,27 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <img src="../assets/img/logo_white.svg">
+        <img src="./assets/img/logo_white.svg">
         <div class="sidebar-menu-container">
             <div class="sidebar-menu-option-light" onclick="openPage('summary')">
-                <div><img src="/assets/img/summary_icon.svg"></div>
+                <div><img src="./assets/img/summary_icon.svg"></div>
                 <p class="sidebar-menu-text">Summary</p>
             </div>
             <div class="sidebar-menu-option-dark" onclick="openPage('board')">
-                <div><img src="/assets/img/board_icon_bright.svg"></div>
+                <div><img src="./assets/img/board_icon_bright.svg"></div>
                 <p class="sidebar-menu-text">Board</p>
             </div>
             <div class="sidebar-menu-option-light" onclick="openPage('addtask')">
-                <div><img src="/assets/img/addTask_icon.svg"></div>
+                <div><img src="./assets/img/addTask_icon.svg"></div>
                 <p class="sidebar-menu-text">Add Task</p>
             </div>
             <div class="sidebar-menu-option-light" onclick="openPage('contacts')">
-                <div><img src="/assets/img/contacts_icon.svg"></div>
+                <div><img src="./assets/img/contacts_icon.svg"></div>
                 <p class="sidebar-menu-text">Contacts</p>
             </div>
             <div>
                 <div class="info-logo" onclick="openPage('legal')">
-                    <img src="/assets/img/info_icon.svg">
+                    <img src="./assets/img/info_icon.svg">
                     <p class="sidebar-menu-text">Legal notice</p>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="bc-searchbar-icon-wrap">
                         <div class="bc-searchbar-verticalline"></div>
-                        <img class="bc-searchbar-icon" src="/assets/img/search.svg">
+                        <img class="bc-searchbar-icon" src="./assets/img/search.svg">
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
         <div class="bc-column">
             <div class="bc-column-top">
                 <span class="bc-column-title">To do</span>
-                <img class="bc-column-icon" src="/assets/img/addbtn.svg">
+                <img class="bc-column-icon" src="./assets/img/addbtn.svg">
             </div>
 
             <div class="canvas" id="todo-canvas"></div>
@@ -125,7 +125,7 @@
         <div class="bc-column">
             <div class="bc-column-top">
                 <span class="bc-column-title">In Progress</span>
-                <img class="bc-column-icon" src="/assets/img/addbtn.svg">
+                <img class="bc-column-icon" src="./assets/img/addbtn.svg">
             </div>
 
             <div class="canvas" id="progress-canvas"></div>
@@ -135,7 +135,7 @@
         <div class="bc-column">
             <div class="bc-column-top">
                 <span class="bc-column-title">Awaiting Feedback</span>
-                <img class="bc-column-icon" src="/assets/img/addbtn.svg">
+                <img class="bc-column-icon" src="./assets/img/addbtn.svg">
             </div>
 
             <div class="canvas" id="feedback-canvas"></div>
@@ -146,7 +146,7 @@
         <div class="bc-column">
             <div class="bc-column-top">
                 <span class="bc-column-title">Done</span>
-                <img class="bc-column-icon" src="/assets/img/addbtn.svg">
+                <img class="bc-column-icon" src="./assets/img/addbtn.svg">
             </div>
             
             <div class="canvas" id="done-canvas"></div>
