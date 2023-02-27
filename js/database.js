@@ -1,6 +1,7 @@
 let notes = [
     {
         id: "card0",
+        category: "To do",
         group: "Design",
         title: "Website redesign",
         text: "Modify the contents of the main website...",
@@ -10,6 +11,7 @@ let notes = [
     },
     {
         id: "card1",
+        category: "In Progress",
         group: "Sales",
         title: "Call potential clients with a bananaphone",
         text: "Make the product presentation to prospective buyers",
@@ -19,6 +21,7 @@ let notes = [
     },
     {
         id: "card2",
+        category: "Awaiting Feedback",
         group: "Backoffice",
         title: "Accounting invoices",
         text: "Write open invoices for customer",
@@ -28,6 +31,7 @@ let notes = [
     },
     {
         id: "card3",
+        category: "Awaiting Feedback",
         group: "Media",
         title: "Video cut",
         text: "Edit the new company video",
@@ -37,6 +41,7 @@ let notes = [
     },
     {
         id: "card4",
+        category: "Awaiting Feedback",
         group: "Media",
         title: "Video cut 2",
         text: "Reedit the video",
@@ -46,6 +51,7 @@ let notes = [
     },
     {
         id: "card5",
+        category: "Done",
         group: "Marketing",
         title: "Social media strategy",
         text: "Develop an ad campaign for brand positioning",
@@ -54,3 +60,15 @@ let notes = [
         assigned: ["Anton Mayer", "Horst Buddler"]
     }
 ];
+
+
+//READ
+
+
+//WRITE
+
+
+//EDIT
+
+
+//DELETE
