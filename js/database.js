@@ -118,10 +118,25 @@ function templateCardHtml(card) {
 function templateProgressbarHtml(card) {
     return `
         <div class="bc-progressbar-outer">
-            <div class="bc-progressbar-inner" style="width: 69px"></div>
+            <div class="bc-progressbar-inner" style="width: calc(138px * ${calculateProgressFactor(card)})"></div>
         </div>
-        <span class="bc-progressbar-text">1/2 Done</span>
+        <span class="bc-progressbar-text">${countFinishedSubtasks(card)}/${card.subtask.length} Done</span>
     `
+}
+
+
+function calculateProgressFactor(card) {
+    return countFinishedSubtasks(card) / card.subtask.length;
+}
+
+
+/**
+ * 
+ * @param {object} card 
+ * @returns integer as number of subtasks with status 1.
+ */
+function countFinishedSubtasks(card) {
+    return counter = card.subtask.filter(task => task.status > 0).length;
 }
 
 
@@ -169,14 +184,13 @@ function templateAssignmentsHtml(card) {
             </div>
         `
     }
-    
 }
 
 
 /**
  * 
  * @param {string} name
- * @returns the initial letters of Name and Surname
+ * @returns the initial letters of Name and Surname.
  */
 function returnInitials(name) {
     return name.charAt(0) + name.charAt(name.indexOf(" ") + 1);
