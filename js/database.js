@@ -72,3 +72,9 @@ let cards = [
         subtask: [{ text: "subtask 1", status: 1 }, { text: "subtask 2", status: 0 }, { text: "subtask 3", status: 0 }]
     }
 ];
+
+const Datastore = require('nedb');
+
+const database = new Datastore('database.db');
+database.loadDatabase();
+database.insert(cards);
