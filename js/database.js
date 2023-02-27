@@ -189,14 +189,31 @@ function countFinishedSubtasks(card) {
 
 function templateAssignmentsHtml(card) {
     if (card.assigned.length == 1) {
-        return `
+        return returnOneCircle(card);
+    }
+    if (card.assigned.length == 2) {
+        return returnTwoCircles(card);
+    }
+    if (card.assigned.length == 3) {
+        return returnThreeCircles(card);
+    }
+    if (card.assigned.length > 3) {
+        return returnMoreCircles(card);
+    }
+}
+
+
+function returnOneCircle(card) {
+    return `
             <div class="bc-circleleft">
                 <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
         `
-    }
-    if (card.assigned.length == 2) {
-        return `
+}
+
+
+function returnTwoCircles(card) {
+    return `
             <div class="bc-circleleft">
                 <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
@@ -204,9 +221,11 @@ function templateAssignmentsHtml(card) {
                 <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
         `
-    }
-    if (card.assigned.length == 3) {
-        return `
+}
+
+
+function returnThreeCircles(card) {
+    return `
             <div class="bc-circleleft">
                 <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
@@ -217,9 +236,11 @@ function templateAssignmentsHtml(card) {
                 <span class="bc-circle-text">${returnInitials(card.assigned[2])}</span>
             </div>
         `
-    }
-    if (card.assigned.length > 3) {
-        return `
+}
+
+
+function returnMoreCircles(card) {
+    return `
             <div class="bc-circleleft">
                 <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
@@ -230,7 +251,6 @@ function templateAssignmentsHtml(card) {
                 <span class="bc-circle-text">+${card.assigned.length - 2}</span>
             </div>
         `
-    }
 }
 
 
