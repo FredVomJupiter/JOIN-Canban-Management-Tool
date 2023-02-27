@@ -605,17 +605,6 @@ body {
     border-radius: 58px;
 }
 
-.bc-board-cardbottom-left-circleleft-text {
-    width: 16px;
-    height: 14px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    color: #FFFFFF;
-}
-
 .bc-board-cardbottom-left-circlemiddle {
     box-sizing: border-box;
     display: flex;
@@ -630,17 +619,6 @@ body {
     border: 1px solid #FFFFFF;
     border-radius: 58px;
     margin: 0px -6px;
-}
-
-.bc-board-cardbottom-left-circlemiddle-text {
-    width: 19px;
-    height: 14px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    color: #FFFFFF;
 }
 
 .bc-board-cardbottom-left-circleright {
@@ -658,8 +636,8 @@ body {
     border-radius: 58px;
 }
 
-.bc-board-cardbottom-left-circleright-text {
-    width: 16px;
+.bc-board-cardbottom-left-circle-text {
+    width: 19px;
     height: 14px;
     font-family: 'Inter';
     font-style: normal;
@@ -683,5 +661,12 @@ body {
     height: 12px;
 }
 
+/* canvas for drawing */
+
+.canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 /* Ende Contentbereich */
