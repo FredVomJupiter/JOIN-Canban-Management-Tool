@@ -1,0 +1,226 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    font-size: 21px;
+}
+
+.modal-task-close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    width: 25px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.modal-contact-content {
+    position: relative;
+    display: flex;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.modal-contact--title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 66px 46px;
+    background-color: #2A3647;
+    color: white;
+}
+
+.modal-contact--form {
+    position: relative;
+    display: flex;
+    padding: 120px 50px 120px 70px;
+    background-color: white;
+    align-items: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.contact-form input {
+    width: 422px;
+    height: 45px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 21px;
+    padding-right: 55px;
+    background-position: calc(100% - 18px);
+}
+
+.contact-form input::placeholder {
+    font-size: 21px;
+}
+
+.input-email {
+    background-image: url("../assets/img/add_contact/mail-icon.png");
+    background-repeat: no-repeat;
+}
+
+.input-profile {
+    background-image: url("../assets/img/add_contact/profile-icon.png");
+    background-repeat: no-repeat;
+}
+
+.input-phone {
+    background-image: url('../assets/img/add_contact/phone-icon.png');
+    background-repeat: no-repeat;
+}
+
+.input-validation {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    padding-left: 15px;
+}
+
+.contact-title {
+    width: 366px;
+    height: 73px;
+    /* Version 2/t1 */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    /* or 73px */
+    /* white */
+    color: #FFFFFF;
+}
+
+.contact-subtitle {
+    width: 371px;
+    height: 32px;
+    /* Version 2/t5 */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+    /* or 32px */
+    /* white */
+    color: #FFFFFF;
+}
+
+.contact-submit-btns {
+    display: flex;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+#contact-save-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+#contact-save-btn button {
+    height: unset;
+    padding: 12px 60px;
+}
+
+.user-badge {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: var(--shadow-badge);
+    overflow: hidden;
+    margin-right: 80px;
+}
+
+.user-badge span {
+    font-size: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.user-badge img {
+    width: 100%;
+
+   /* position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 86px;
+    top: 161px;*/
+}
+
+.clear-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 136px;
+    height: 61px;
+    font-size: 21px;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Inter';
+    color: #2A3647;
+    background-color: #F6F7F8;
+    transition: 100ms ease-in-out;
+}
+
+.clear-btn:hover {
+    color: #29ABE2;
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+.create-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 10px;
+    gap: 10px;
+    height: 61px;
+    background: #2A3647;
+    color: #FFFFFF;
+    font-size: 21px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: 100ms ease-in-out;
+    font-family: 'Inter';
+}
+
+.create-btn:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+}

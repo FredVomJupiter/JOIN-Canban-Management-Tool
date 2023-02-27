@@ -1,0 +1,331 @@
+body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+.login-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #F6F7F8;
+}
+
+.login-signup-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: flex-start;
+    gap: 35px;
+    width: 100vw;
+    padding-top: 67px;
+    padding-right: 114px;
+}
+
+.login-signup-text {
+    width: 161px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.login-signup-button {
+    cursor: pointer;
+    padding: 4px 16px;
+    gap: 10px;
+    width: 100px;
+    height: 51px;
+    background: #2a3647;
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+.login-signup-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0px;
+    gap: 35px;
+    width: 652px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.login-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 315px;
+    height: 97px;
+}
+
+.login-title {
+    width: 315px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.login-blueline {
+    width: 150px;
+    height: 00px;
+    border: 3px solid #29ABE2;
+    border-radius: 10px;
+}
+
+.login-input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 29px;
+    width: 422px;
+    height: 171px;
+}
+
+.login-email-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.login-email-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.login-email-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+}
+
+.login-email-input {
+    border: unset;
+    width: 80%;
+    height: 25px;
+    font-family: 'Inter';
+    font-size: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.login-email-input:focus {
+    outline: none;
+}
+
+.login-email-img {
+    width: 20px;
+    height: 18px;
+}
+
+.login-pw-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.login-pw-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.login-pw-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+}
+
+.login-pw-input {
+    border: unset;
+    width: 80%;
+    height: 25px;
+    font-family: 'Inter';
+    font-size: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.login-pw-input:focus {
+    outline: none;
+}
+
+.login-pw-img {
+    width: 18px;
+    height: 21px;
+}
+
+.login-options-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 335px;
+    height: 19px;
+}
+
+.login-options-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 146px;
+    height: 19px;
+}
+
+.login-checkbox {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.login-checkbox-text {
+    width: 110px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+}
+
+.login-forgotpw-link {
+    cursor: pointer;
+    width: 154px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #29ABE2;
+}
+
+.login-buttons-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 341px;
+    height: 51px;
+}
+
+.login-login-button {
+    cursor: pointer;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 145px;
+    height: 51px;
+    background: #2a3647;
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.login-login-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-guestlogin-button {
+    cursor: pointer;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 161px;
+    height: 51px;
+    border-radius: 8px;
+    border: 1px solid #2a3647;
+    background: #FFFFFF;
+    color: #2a3647;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.login-guestlogin-button:hover {
+    color: #29ABE2;
+    border: 2px solid #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

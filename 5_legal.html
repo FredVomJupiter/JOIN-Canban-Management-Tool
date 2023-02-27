@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join-Legal Notice</title>
+
+    <link rel='stylesheet' href='./css/5_legal/legal.css'>
+
+    <script src="js/menu-navigation.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <!-- Topnavigation -->
+    <div class="topnav-container">
+
+        <span class="topnav-text">Kanban Project Management Tool</span>
+
+        <!-- Login wrapper rechts oben -->
+        <div class="topnav-login-wrap">
+
+            <img class="topnav-help-img" src="/assets/img/help.svg" onclick="openPage('help')">
+
+            <!-- Profilbild wrapper -->
+            <div class="topnav-profile-wrap">
+                <div class="topnav-profile-outer">
+                    <div class="topnav-profile-border">
+                        <div class="topnav-profile-circle">
+
+                            <img class="topnav-profile-img" src="../assets/img/profilepicture.png"
+                                onclick="openPage('login')">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="/assets/img/logo_white.svg">
+        <div class="sidebar-menu-container">
+            <div class="sidebar-menu-option-light" onclick="openPage('summary')">
+                <div><img src="/assets/img/summary_icon.svg"></div>
+                <p class="sidebar-menu-text">Summary</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('board')">
+                <div><img src="/assets/img/board_icon.svg"></div>
+                <p class="sidebar-menu-text">Board</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('addtask')">
+                <div><img src="/assets/img/addTask_icon_bright.svg"></div>
+                <p class="sidebar-menu-text">Add Task</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('contacts')">
+                <div><img src="/assets/img/contacts_icon.svg"></div>
+                <p class="sidebar-menu-text">Contacts</p>
+            </div>
+            <div>
+                <div class="info-logo" onclick="openPage('legal')">
+                    <img src="/assets/img/info_icon.svg">
+                    <p class="sidebar-menu-text">Legal notice</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="legal-blackArrow-wrap">
+        <img class="legal-blackArrow-img" src="/assets/img/blackarrow.svg" onclick="openPage('summary')">
+    </div>
+    <div class="legal-title">
+        <span class="legal-title-span">Legal Notice</span>
+    </div>
+
+    <div class="legal-join-container">
+
+        <div class="legal-join-inner">
+
+            <span class="legal-responsible-title">Legally responsible contact person </span>
+            <span class="legal-responsible-txt">
+                Anbieter: Max Mustermann<br>
+                Musterstraße 1<br>
+                80999 München<br>
+                Kontakt: Hubert der Hinkende<br>
+                Telefon: 089/1234567-8<br>
+                Telefax: 089/1234567-9<br>
+                E-Mail: mail@mustermann.de<br>
+                Website: www.mustermann.de<br>
+                Bei redaktionellen Inhalten verantwortlich nach § 55 Abs.2 RStV<br>
+                Moritz Schreiberling<br>
+                Musterstraße 2<br>
+                80999 München
+            </span>
+
+            <span class="legal-content-title">Concerning external links and user-created contents</span>
+            <span class="legal-content-text">
+                The above mentioned persons are not liable for any offending user-created content that third parties
+                post here. This web-app is being checked for offending contents on a regular basis. If offending
+                contents are identfied, they will be removed.
+            </span>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

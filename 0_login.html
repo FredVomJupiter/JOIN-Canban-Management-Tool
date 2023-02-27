@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Join-Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="stylesheet" href="/css/0_login/forgotpw.css">
+    <link rel="stylesheet" href="/css/0_login/login.css">
+    <link rel="stylesheet" href="/css/0_login/messages.css">
+    <link rel="stylesheet" href="/css/0_login/resetpw.css">
+    <link rel="stylesheet" href="/css/0_login/signup.css">
+    <link rel='stylesheet' href='/css/logo.css'>
+
+    <script src="js/menu-navigation.js"></script>
+    <script src='js/main.js'></script>
+
+</head>
+
+<body>
+
+    <div class="login-background">
+
+        <!-- Logo oben links -->
+        <img class="index_logo_BG" src="/assets/img/logo_black.svg">
+
+        <!-- Signup oben rechts -->
+        <div class="login-signup-wrap">
+            <span class="login-signup-text">Not a Join user?</span>
+            <button class="login-signup-button" onclick="openPage('signup')">Sign up</button>
+        </div>
+
+        <!-- Container in der Mitte -->
+        <div class="login-center-container">
+
+            <!-- Title -->
+            <div class="login-title-wrap">
+                <span class="login-title">Log in</span>
+                <vector class="login-blueline"></vector>
+            </div>
+
+            <!-- Input Felder-->
+            <div class="login-input-wrap">
+                <div class="login-email-outer">
+                    <div class="login-email-border">
+                        <div class="login-email-inner">
+                            <input class="login-email-input" type="email" placeholder="Email">
+                            <img class="login-email-img" src="/assets/img/mail.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="login-pw-outer">
+                    <div class="login-pw-border">
+                        <div class="login-pw-inner">
+                            <input class="login-pw-input" type="password" placeholder="Password">
+                            <img class="login-pw-img" src="/assets/img/password.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optionen forgot/reset -->
+            <div class="login-options-wrap">
+                <div class="login-options-left">
+                    <input class="login-checkbox" type="checkbox">
+                    <span class="login-checkbox-text">Remember me</span>
+                </div>
+                <a class="login-forgotpw-link" onclick="openPage('forgotpw')">Forgot my password</a>
+            </div>
+
+            <!-- Buttons unten -->
+            <div class="login-buttons-wrap">
+                <button class="login-login-button" onclick="openPage('summary')">Log in</button>
+                <button class="login-guestlogin-button" onclick="openPage('summary')">Guest Log in</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>

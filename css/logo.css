@@ -1,0 +1,44 @@
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation: moveUpLeft 1.2s ease-in-out forwards;
+    width: 100.03px;
+    height: 121.97px;
+}
+
+.logo_withoutANIMATION {
+    position: absolute;
+    left: 5.35%;
+    right: 87.71%;
+    top: 7.81%;
+    bottom: 80.28%;
+}
+
+.index_logo_BG{
+    cursor: pointer;
+    position: absolute;
+    left: 5.35%;
+    right: 87.71%;
+    top: 7.81%;
+    bottom: 80.28%;
+}
+
+@keyframes moveUpLeft {
+    0% {
+         width: 200.06px;
+         height: 243px;
+     }
+ 
+     100% {
+         left: 7.35%;
+         right: 87.71%;
+         top: 7.81%;
+         bottom: 80.28%;
+         width: 100.03px;
+         height: 121.97px;
+ 
+     }
+ }

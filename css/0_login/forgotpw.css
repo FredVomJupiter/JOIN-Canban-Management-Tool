@@ -1,0 +1,122 @@
+.forgotpw-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #F6F7F8;
+}
+
+.forgotpw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 44px;
+    width: 826px;
+    height: 462px;
+    gap: 35px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.forgotpw-title {
+    width: 626px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.forgotpw-bluearrow {
+    cursor: pointer;
+    position: relative;
+    left: 37px;
+    top: 41px;
+    align-self: flex-start;
+    width: 37px;
+    height: 37px;
+}
+
+.forgotpw-blueline {
+    width: 150px;
+    border: 3px solid #29ABE2;
+    border-radius: 20px;
+}
+
+.forgotpw-text {
+    width: 535px;
+    height: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.forgotpw-input-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    width: 422px;
+    height: 53px;
+    padding: 13px 21px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.forgotpw-input {
+    border: none;
+    outline: none;
+    width: 344px;
+    height: 40px;
+    font-size: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+
+}
+
+.forgotpw-icon {
+    display: flex;
+    width: 20px;
+    height: 18px;
+    background: url("../../assets/img/mail.svg") no-repeat white;
+    background-position: 0px center;
+}
+
+.forgotpw-button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 264px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    border: none;
+}
+
+.forgotpw-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join-Board</title>
+
+    <link rel="stylesheet" href="/css/2_board/board.css">
+    <link rel='stylesheet' href='/css/logo.css'>
+
+    <script src="js/menu-navigation.js"></script>
+
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+    <div class="content-overflow-hider"></div>
+
+    <!-- Topnavigation -->
+    <div class="topnav-container">
+
+        <span class="topnav-text">Kanban Project Management Tool</span>
+
+        <!-- Login wrapper rechts oben -->
+        <div class="topnav-login-wrap">
+
+            <img class="topnav-help-img" src="/assets/img/help.svg" onclick="openPage('help')">
+
+            <!-- Profilbild wrapper -->
+            <div class="topnav-profile-wrap">
+                <div class="topnav-profile-outer">
+                    <div class="topnav-profile-border">
+                        <div class="topnav-profile-circle">
+
+                            <img class="topnav-profile-img" src="/assets/img/profilepicture.png" onclick="openPage('login')">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="../assets/img/logo_white.svg">
+        <div class="sidebar-menu-container">
+            <div class="sidebar-menu-option-light" onclick="openPage('summary')">
+                <div><img src="/assets/img/summary_icon.svg"></div>
+                <p class="sidebar-menu-text">Summary</p>
+            </div>
+            <div class="sidebar-menu-option-dark" onclick="openPage('board')">
+                <div><img src="/assets/img/board_icon_bright.svg"></div>
+                <p class="sidebar-menu-text">Board</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('addtask')">
+                <div><img src="/assets/img/addTask_icon.svg"></div>
+                <p class="sidebar-menu-text">Add Task</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('contacts')">
+                <div><img src="/assets/img/contacts_icon.svg"></div>
+                <p class="sidebar-menu-text">Contacts</p>
+            </div>
+            <div>
+                <div class="info-logo" onclick="openPage('legal')">
+                    <img src="/assets/img/info_icon.svg">
+                    <p class="sidebar-menu-text">Legal notice</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Title on top -->
+    <div class="bc-title-wrap">
+        <!-- Title -->
+        <div class="bc-title-outer">
+            <span class="bc-title">Board</span>
+        </div>
+
+        <div class="bc-topright">
+            <!-- Searchbar -->
+            <div class="bc-searchbar-border">
+                <div class="bc-searchbar-outer">
+                    <div class="bc-searchbar-inner">
+                        <input class="bc-searchbar-text" type="search" placeholder="Find Task">
+                    </div>
+                    <div class="bc-searchbar-icon-wrap">
+                        <div class="bc-searchbar-verticalline"></div>
+                        <img class="bc-searchbar-icon" src="/assets/img/search.svg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- addTask Button -->
+            <div class="bc-addtask-button">
+                <span class="bc-addtask-button-text">Add task</span>
+                <div class="bc-addtask-button-icon-outer">
+                    <div class="bc-addtask-button-icon-inner">+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="bc-board-container">
+
+        <!-- TODO column -->
+        <div class="bc-board-column">
+            <div class="bc-board-top">
+                <span class="bc-board-columntitle">To do</span>
+                <img class="bc-board-icon" src="/assets/img/addbtn.svg">
+            </div>
+            <!-- TODO Card -->
+            <div class="bc-board-cardshadow">
+                <div class="bc-board-cardbackground">
+                    <div class="bc-board-cardinner">
+                        <!-- TODO Card title -->
+                        <div class="bc-board-cardtitle" style="background:#FF7A00">Design</div>
+                        <!-- TODO Card subtitle and text -->
+                        <div class="bc-board-cardtext-wrap">
+                            <div class="bc-board-cardtext-inner">
+                                <span class="bc-board-cardtext-subtitle">Website redesign</span>
+                                <span class="bc-board-cardtext-text">Modify the contents of the main website...</span>
+                            </div>
+                        </div>
+                        <!-- TODO Card progress bar -->
+                        <div class="bc-board-progressbar-wrap">
+                            <div class="bc-board-progressbar-outer">
+                                <div class="bc-board-progressbar-inner" style="width: 69px"></div>
+                            </div>
+                            <span class="bc-board-progressbar-text">1/2 Done</span>
+                        </div>
+                        <!-- TODO Card bottom -->
+                        <div class="bc-board-cardbottom-wrap">
+                            <div class="bc-board-cardbottom-left">
+                                <div class="bc-board-cardbottom-left-circleleft">
+                                    <span class="bc-board-cardbottom-left-circleleft-text">SM</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circlemiddle">
+                                    <span class="bc-board-cardbottom-left-circlemiddle-text">EV</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circleright">
+                                    <span class="bc-board-cardbottom-left-circleright-text">EF</span>
+                                </div>
+                            </div>
+                            <div class="bc-board-cardbottom-right">
+                                <img class="bc-board-cardbottom-icon" src="/assets/img/priolow.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress column -->
+        <div class="bc-board-column">
+            <div class="bc-board-top">
+                <span class="bc-board-columntitle">In Progress</span>
+                <img class="bc-board-icon" src="/assets/img/addbtn.svg">
+            </div>
+            <!-- Progress Card -->
+            <div class="bc-board-cardshadow">
+                <div class="bc-board-cardbackground">
+                    <div class="bc-board-cardinner">
+                        <!-- Progress Card title -->
+                        <div class="bc-board-cardtitle" style="background:#FC71FF">Sales</div>
+                        <!-- Progress Card subtitle and text -->
+                        <div class="bc-board-cardtext-wrap">
+                            <div class="bc-board-cardtext-inner">
+                                <span class="bc-board-cardtext-subtitle">Call potential clients with a
+                                    bananaphone</span>
+                                <span class="bc-board-cardtext-text">Make the product presentation to prospective
+                                    buyers</span>
+                            </div>
+                        </div>
+                        <!-- Progress Card bottom -->
+                        <div class="bc-board-cardbottom-wrap">
+                            <div class="bc-board-cardbottom-left">
+                                <div class="bc-board-cardbottom-left-circleleft">
+                                    <span class="bc-board-cardbottom-left-circleleft-text">AS</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circlemiddle">
+                                    <span class="bc-board-cardbottom-left-circlemiddle-text">DE</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circleright">
+                                    <span class="bc-board-cardbottom-left-circleright-text">+2</span>
+                                </div>
+                            </div>
+                            <div class="bc-board-cardbottom-right">
+                                <img class="bc-board-cardbottom-icon" src="/assets/img/priohigh.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEEDBACK column -->
+        <div class="bc-board-column">
+            <div class="bc-board-top">
+                <span class="bc-board-columntitle">Awaiting Feedback</span>
+                <img class="bc-board-icon" src="/assets/img/addbtn.svg">
+            </div>
+            <!-- Feedback Card -->
+            <div class="bc-board-cardshadow">
+                <div class="bc-board-cardbackground">
+                    <div class="bc-board-cardinner">
+                        <!-- Feedback Card title -->
+                        <div class="bc-board-cardtitle" style="background:#1FD7C1">Backoffice</div>
+                        <!-- Feedback Card subtitle and text -->
+                        <div class="bc-board-cardtext-wrap">
+                            <div class="bc-board-cardtext-inner">
+                                <span class="bc-board-cardtext-subtitle">Accounting invoices</span>
+                                <span class="bc-board-cardtext-text">Write open invoices for customer</span>
+                            </div>
+                        </div>
+                        <!-- Feedback Card bottom -->
+                        <div class="bc-board-cardbottom-wrap">
+                            <div class="bc-board-cardbottom-left">
+                                <div class="bc-board-cardbottom-left-circleleft">
+                                    <span class="bc-board-cardbottom-left-circleleft-text">MB</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circlemiddle">
+                                    <span class="bc-board-cardbottom-left-circlemiddle-text">AM</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circleright">
+                                    <span class="bc-board-cardbottom-left-circleright-text">+3</span>
+                                </div>
+                            </div>
+                            <div class="bc-board-cardbottom-right">
+                                <img class="bc-board-cardbottom-icon" src="/assets/img/priomedium.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Feedback Card -->
+            <div class="bc-board-cardshadow">
+                <div class="bc-board-cardbackground">
+                    <div class="bc-board-cardinner">
+                        <!-- Feedback Card title -->
+                        <div class="bc-board-cardtitle" style="background:#FFC701">Media</div>
+                        <!-- Feedback Card subtitle and text -->
+                        <div class="bc-board-cardtext-wrap">
+                            <div class="bc-board-cardtext-inner">
+                                <span class="bc-board-cardtext-subtitle">Video cut</span>
+                                <span class="bc-board-cardtext-text">Edit the new company video</span>
+                            </div>
+                        </div>
+                        <!-- Feedback Card bottom -->
+                        <div class="bc-board-cardbottom-wrap">
+                            <div class="bc-board-cardbottom-left">
+                                <div class="bc-board-cardbottom-left-circleleft">
+                                    <span class="bc-board-cardbottom-left-circleleft-text">HK</span>
+                                </div>
+                            </div>
+                            <div class="bc-board-cardbottom-right">
+                                <img class="bc-board-cardbottom-icon" src="/assets/img/priomedium.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Feedback Card -->
+            <div class="bc-board-cardshadow">
+                <div class="bc-board-cardbackground">
+                    <div class="bc-board-cardinner">
+                        <!-- Feedback Card title -->
+                        <div class="bc-board-cardtitle" style="background:#FFC701">Media</div>
+                        <!-- Feedback Card subtitle and text -->
+                        <div class="bc-board-cardtext-wrap">
+                            <div class="bc-board-cardtext-inner">
+                                <span class="bc-board-cardtext-subtitle">Video cut</span>
+                                <span class="bc-board-cardtext-text">Edit the new company video</span>
+                            </div>
+                        </div>
+                        <!-- Feedback Card bottom -->
+                        <div class="bc-board-cardbottom-wrap">
+                            <div class="bc-board-cardbottom-left">
+                                <div class="bc-board-cardbottom-left-circleleft">
+                                    <span class="bc-board-cardbottom-left-circleleft-text">HK</span>
+                                </div>
+                            </div>
+                            <div class="bc-board-cardbottom-right">
+                                <img class="bc-board-cardbottom-icon" src="/assets/img/priomedium.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DONE column -->
+        <div class="bc-board-column">
+            <div class="bc-board-top">
+                <span class="bc-board-columntitle">Done</span>
+                <img class="bc-board-icon" src="/assets/img/addbtn.svg">
+            </div>
+            <!-- Done Card -->
+            <div class="bc-board-cardshadow">
+                <div class="bc-board-cardbackground">
+                    <div class="bc-board-cardinner">
+                        <!-- Done Card title -->
+                        <div class="bc-board-cardtitle">Marketing</div>
+                        <!-- Done Card subtitle and text -->
+                        <div class="bc-board-cardtext-wrap">
+                            <div class="bc-board-cardtext-inner">
+                                <span class="bc-board-cardtext-subtitle">Social media
+                                    strategy</span>
+                                <span class="bc-board-cardtext-text">Develop an ad campaign for
+                                    brand positioning</span>
+                            </div>
+                        </div>
+                        <!-- Done Card progress bar -->
+                        <div class="bc-board-progressbar-wrap">
+                            <div class="bc-board-progressbar-outer">
+                                <div class="bc-board-progressbar-inner"></div>
+                            </div>
+                            <span class="bc-board-progressbar-text">3/3 Done</span>
+                        </div>
+                        <!-- Done Card bottom -->
+                        <div class="bc-board-cardbottom-wrap">
+                            <div class="bc-board-cardbottom-left">
+                                <div class="bc-board-cardbottom-left-circleleft">
+                                    <span class="bc-board-cardbottom-left-circleleft-text">BZ</span>
+                                </div>
+                                <div class="bc-board-cardbottom-left-circlemiddle">
+                                    <span class="bc-board-cardbottom-left-circlemiddle-text">RS</span>
+                                </div>
+                            </div>
+                            <div class="bc-board-cardbottom-right">
+                                <img class="bc-board-bardbottom-icon" src="/assets/img/priolow.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

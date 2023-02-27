@@ -1,0 +1,671 @@
+body {
+    margin: 0;
+}
+
+.background {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #F6F7F8;
+    z-index: -50;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+@media only screen and (max-width: 1439px) {
+    .contact-title-text {
+        display: none;
+    }
+
+    .contact-title-line {
+        display: none;
+    }
+
+    .contact-title-container {
+        justify-content: flex-start !important;
+    }
+
+    .contact-addcontact-button {
+        left: 747px !important;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .topnav-container {
+        justify-content: flex-end !important;
+    }
+
+    .topnav-text {
+        display: none;
+    }
+
+}
+
+/* Alles zur navbar oben hier */
+.topnav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px 36px 20px 348px;
+    gap: 34px;
+    position: fixed;
+    height: 89px;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+.topnav-text {
+    width: 335px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.topnav-login-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 26px;
+    width: 106px;
+    height: 49px;
+}
+
+.topnav-help-img {
+    width: 31px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.topnav-profile-wrap {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    width: 49px;
+    height: 49px;
+}
+
+.topnav-profile-outer {
+    width: 49px;
+    height: 49px;
+}
+
+.topnav-profile-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+    height: 49px;
+    padding: 1px;
+    border: 3px solid #2A3647;
+    border-radius: 559px;
+}
+
+.topnav-profile-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46.12px;
+    height: 46.12px;
+}
+
+.topnav-profile-img {
+    border-radius: 559px;
+}
+
+/* Ende zu navbar oben */
+
+/*Alles zur Sidebar oben hier */
+.sidebar {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 66px 20px;
+    gap: 103px;
+    position: fixed;
+    width: 232px;
+    bottom: 0px;
+    left: 0px;
+    top: 0px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.sidebar-menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    width: 232px;
+    height: 229px;
+}
+
+.sidebar-menu-option-dark {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 53px;
+    gap: 20px;
+    width: 232px;
+    height: 46px;
+    background: #091931;
+}
+
+.sidebar-menu-option-light {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 53px;
+    gap: 20px;
+    width: 232px;
+    height: 46px;
+}
+
+.sidebar-menu-option-light:hover {
+    background: #091931;
+}
+
+.sidebar-menu-text {
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+}
+
+.info-logo {
+    cursor: pointer;
+    position: absolute;
+    left: 24%;
+    right: 32%;
+    top: 88%;
+    bottom: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 129px;
+}
+
+.info-logo p {
+    color: white;
+    margin-left: 16px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #CDCDCD;
+}
+
+/* Ende zu sidebar oben */
+
+/* Content section */
+
+.contact-container {
+    position: absolute;
+    width: 453px;
+    height: 935px;
+    left: 232px;
+    top: 89px;
+    background: #FFFFFF;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+    z-index: -1;
+}
+
+.contact-container-inner {
+    position: absolute;
+    width: 357px;
+    height: 1072px;
+    left: 48px;
+    top: 10px;
+    background: #FFFFFF;
+}
+
+.alphabet-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 357px;
+    height: 60px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.alphabet-text {
+    width: 282px;
+    height: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.line-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 12px;
+    gap: 10px;
+    width: 347px;
+    height: 28px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.line {
+    width: 323px;
+    height: 0px;
+    border: 1px solid #D1D1D1;
+    border-radius: 3px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contact-template-wrap {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 35px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.contact-template-circle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 42px;
+    height: 42px;
+    background: #FFFFFF;
+    border-radius: 45px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    background: #FF7A00;
+    border: 1px solid #FFFFFF;
+}
+
+.contact-template-textwrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.contact-template-name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contact-template-email {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #007CEE;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.contact-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    width: 569px;
+    height: 73px;
+    left: 743px;
+    top: 171px;
+}
+
+.contact-title {
+    width: 274px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    color: #000000;
+    z-index: -1;
+}
+
+.contact-title-line {
+    width: 0px;
+    height: 59px;
+    border: 3px solid #29ABE2;
+    border-radius: 15px;
+}
+
+.contact-title-text {
+    height: 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+}
+
+.contact-canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+    position: absolute;
+    width: 461px;
+    height: 364px;
+    left: 750px;
+    top: 326px;
+    z-index: -1;
+}
+
+.contact-canvas-titlewrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 54px;
+    width: 461px;
+    height: 120px;
+}
+
+.contact-canvas-circlewrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 120px;
+    height: 120px;
+    background: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 70px;
+    z-index: -3;
+}
+
+.contact-canvas-circletext {
+    position: absolute;
+    width: 80px;
+    height: 28.57px;
+    left: 20px;
+    top: 45.71px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 47px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    z-index: -1;
+}
+
+.contact-canvas-circleorange {
+    width: 120px;
+    height: 120px;
+    border-radius: 70px;
+    background: #FF7A00;
+    z-index: -2;
+}
+
+.contact-canvas-namewrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    width: 287px;
+    height: 88px;
+}
+
+.contact-canvas-name {
+    width: 287px;
+    height: 56px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 47px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.contact-canvas-addtaskwrap {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    width: 128px;
+    height: 19px;
+}
+
+.contact-canvas-addtask-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.contact-canvas-addtast-text {
+    width: 100px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #29ABE2;
+}
+
+.contact-canvas-infowrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 59px;
+    width: 392.85px;
+    height: 74px;
+}
+
+.contact-canvas-info-text {
+    width: 207px;
+    height: 74px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.contact-canvas-info-editwrap {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    width: 126.85px;
+    height: 29.34px;
+}
+
+.contact-canvas-info-edittext {
+    width: 100px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #2A3647;
+}
+
+.contact-canvas-detailswrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.contact-canvas-innerwrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contact-canvas-innertitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.contact-canvas-email {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #007CEE;
+}
+
+.contact-canvas-phone {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.contact-addcontact-button {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    position: absolute;
+    width: 195px;
+    height: 53px;
+    left: 1195px;
+    top: 907px;
+    background: #2A3647;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.contact-addcontact-button-text {
+    width: 135px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.contact-addcontact-button-icon {
+    width: 33px;
+    height: 29.71px;
+}
+
+.contact-addcontact-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #29ABE2;
+}

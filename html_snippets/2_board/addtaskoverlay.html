@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Task</title>
+  <link rel="stylesheet" href="../../css/2_board/addtaskoverlay.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="add-task-container">
+    <div class="add-task-main">
+      <div class="add-task-headline-container">
+        <span class="headline">Add Task</span>
+      </div>
+      <div class="form-container-container">
+        <div>
+          <div class="add-form">
+            <label class="font-family">Title</label>
+            <input class="font-family" type="text" placeholder="Enter a title">
+          </div>
+          <div class="add-form description">
+            <label class="font-family">Descriptions</label>
+            <textarea placeholder="Enter a Description"></textarea>
+          </div>
+
+
+          <div class="add-form">
+            <div class="category-container">
+              <label class="category-label font-family">Category</label>
+              <div class="categories">
+                <div>
+                  <div class="category-line font-family">Select task
+                    Category</div>
+                  <img src="assets\img\dropdown.svg">
+                </div>
+                <div class="category-line"></div>
+                <div class="category-line">
+                </div>
+                <div class="category-line">
+                </div>
+              </div>
+            </div>
+            <div class="add-form">
+              <div class="category-container">
+                <label class="category-label">Assigned to<div></div>
+                </label>
+                <div class="assigned-list-container">
+                  <div class="assign-line">
+                    <div class="font-family">Select contacts to assign</div>
+                    <img src="assets\img\dropdown.svg">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-line-vertical"></div>
+        <div>
+          <div class="add-form">
+            <label class="font-family">Due Date<div class="required-message"></div>
+              <div class="required-message"></div>
+            </label>
+            <input class="add-date" type="date">
+            <div class="add-form ">
+              <label class="font-family">Prio<div class="required-message d-none"></div>
+              </label>
+              <div class="prio-container">
+                <div class="prio">
+                  <div class="font-family">Urgent</div>
+                  <img src="assets\img\priohigh.svg" alt="">
+                </div>
+                <div class="prio">
+                  <div class="font-family">Medium</div>
+                  <img src="assets\img\priomedium.svg" alt="">
+                </div>
+                <div class="prio">
+                  <div class="font-family">Low</div>
+                  <img src="assets\img\priolow.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="add-form">
+              <label class="font-family " >Subtasks</label>
+              <div class="addNewSubtask">
+                <div class="subButton">
+                  <button class="font-family" type="button">Add new subtask</button>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="subtasks">
+              <div><input type="checkbox"><span class="font-family" style="font-weight: 400; font-size: 16px;">Subtask 1</span></div>
+            </div>
+            <div class="button-container">
+              <button type="button"><span class="font-family">Clear</span><span>X</span></button>
+              <button class="font-family" type="button">Create Task <img src="assets\img\check.svg"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

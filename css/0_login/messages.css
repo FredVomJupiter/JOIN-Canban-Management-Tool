@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+.resetpw-msg-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 44vh;
+    left: 37vw;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+}
+
+.resetpw-msg-border {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.resetpw-msg-text {
+    width: 270px;
+    height: 28px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.email-confirmation-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    top: 43vh;
+    left: 36vw;
+    width: 424px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+}
+
+.email-confirmation-border {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 13px;
+    width: 424px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.email-confirmation-img {
+    width: 41px;
+    height: 41px;
+}
+
+.email-confirmation-text {
+    width: 340px;
+    height: 28px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
