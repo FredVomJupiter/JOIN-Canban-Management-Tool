@@ -130,7 +130,7 @@ function renderDone() {
 
 function templateCardHtml(card) {
     return `
-        <div class="bc-cardshadow" id="${card.id}">
+        <div class="bc-cardshadow" id="${card.id}" onclick="showCardDetails(${card.id})">
             <div class="bc-cardbackground">
                 <div class="bc-cardinner">
                     <div class="bc-cardcategory" style="background:${card.color}">${card.group}</div>
@@ -284,4 +284,16 @@ function templatePriorityHtml(card) {
             <img class="bc-prio-icon" src="/assets/img/priolow.svg">
         `
     }
+}
+
+
+function showCardDetails(cardId) {
+    let overlay = document.getElementById("overlay");
+    overlay.classList.remove("d-none");
+}
+
+
+function closeTaskOverlay () {
+    let overlay = document.getElementById("overlay");
+    overlay.classList.add("d-none");
 }
