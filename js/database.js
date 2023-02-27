@@ -187,6 +187,11 @@ function countFinishedSubtasks(card) {
 }
 
 
+/**
+ * 
+ * @param {object} card 
+ * @returns html template of circles with initials from Name & Surname of assigned persons
+ */
 function templateAssignmentsHtml(card) {
     if (card.assigned.length == 1) {
         return returnOneCircle(card);
