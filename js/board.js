@@ -196,16 +196,16 @@ function returnInitials(name) {
 function templatePriorityHtml(card) {
     if (card.priority == "urgent") {
         return `
-            <img class="bc-prio-icon" src="/assets/img/priohigh.svg">
+            <img class="bc-prio-icon" src="./assets/img/priohigh.svg">
         `
     }
     if (card.priority == "medium") {
         return `
-            <img class="bc-prio-icon" src="/assets/img/priomedium.svg">
+            <img class="bc-prio-icon" src="./assets/img/priomedium.svg">
         `
     } else {
         return `
-            <img class="bc-prio-icon" src="/assets/img/priolow.svg">
+            <img class="bc-prio-icon" src="./assets/img/priolow.svg">
         `
     }
 }
