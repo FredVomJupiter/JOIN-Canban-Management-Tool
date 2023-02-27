@@ -1,25 +1,5 @@
 function init() {
     renderCards();
-    saveJSON();
-}
-
-function saveJSON() {
-    const data = fs.readFileSync('database.json', 'utf-8');
-
-    if(data.length !== 0){
-        var parsedData = JSON.parse(data);
-    }
-    else{
-        parsedData = [];
-    }
-
-
-    parsedData.push(data);
-
-    const NewData = JSON.stringify(parsedData, null, 4);
-
-    // Write new data to accounts.json
-    fs.writeFileSync('database.json', NewData);
 }
 
 
@@ -238,7 +218,7 @@ function showCardDetails(cardId) {
 }
 
 
-function closeTaskOverlay () {
+function closeTaskOverlay() {
     let overlay = document.getElementById("overlay");
     overlay.classList.add("d-none");
 }
