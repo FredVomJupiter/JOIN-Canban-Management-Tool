@@ -7,7 +7,8 @@ let notes = [
         text: "Modify the contents of the main website...",
         date: 05-08-2022,
         priority: "low",
-        assigned: ["Anton Mayer", "Horst Buddler", "Ibrahimovic Zoltan"]
+        assigned: ["Anton Mayer", "Horst Buddler", "Ibrahimovic Zoltan"],
+        subtask: [{text: "subtask 1", status: 1}, {text: "subtask 2", status: 0}]
     },
     {
         id: "card1",
@@ -17,7 +18,8 @@ let notes = [
         text: "Make the product presentation to prospective buyers",
         date: 06-07-2022,
         priority: "urgent",
-        assigned: ["Anton Mayer", "Horst Buddler", "Ibrahimovic Zoltan"]
+        assigned: ["Anton Mayer", "Horst Buddler", "Ibrahimovic Zoltan"],
+        subtask: []
     },
     {
         id: "card2",
@@ -27,7 +29,8 @@ let notes = [
         text: "Write open invoices for customer",
         date: 22-07-2022,
         priority: "medium",
-        assigned: ["Anton Mayer", "Horst Buddler", "Ibrahimovic Zoltan"]
+        assigned: ["Anton Mayer", "Horst Buddler", "Ibrahimovic Zoltan"],
+        subtask: []
     },
     {
         id: "card3",
@@ -37,7 +40,8 @@ let notes = [
         text: "Edit the new company video",
         date: 06-09-2022,
         priority: "medium",
-        assigned: ["Anton Mayer"]
+        assigned: ["Anton Mayer"],
+        subtask: []
     },
     {
         id: "card4",
@@ -47,7 +51,8 @@ let notes = [
         text: "Reedit the video",
         date: 06-10-2022,
         priority: "medium",
-        assigned: ["Anton Mayer"]
+        assigned: ["Anton Mayer"],
+        subtask: []
     },
     {
         id: "card5",
@@ -57,7 +62,8 @@ let notes = [
         text: "Develop an ad campaign for brand positioning",
         date: 06-07-2022,
         priority: "low",
-        assigned: ["Anton Mayer", "Horst Buddler"]
+        assigned: ["Anton Mayer", "Horst Buddler"],
+        subtask: [{text: "subtask 1", status: 1}, {text: "subtask 2", status: 0}]
     }
 ];
 
