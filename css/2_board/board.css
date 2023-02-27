@@ -696,8 +696,6 @@ body {
     gap: 25px;
     isolation: isolate;
     position: relative;
-    width: 623px;
-    height: 824px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
