@@ -321,7 +321,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0px;
     gap: 3px;
     position: absolute;
     width: 385px;

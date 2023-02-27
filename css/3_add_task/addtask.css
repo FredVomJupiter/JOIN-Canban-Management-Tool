@@ -19,26 +19,6 @@ body {
 
 @media only screen and (max-width: 1439px) {
 
-    .top-vanisher {
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
-        height: 290px;
-        background: #F6F7F8;
-        z-index: 0;
-    }
-
-    .bottom-vanisher {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        height: 120px;
-        background: #F6F7F8;
-        z-index: 0;
-    }
-
     .addtask-title-wrap {
         z-index: 0;
     }
@@ -779,4 +759,27 @@ body {
 .addtask-button-createicon {
     width: 18px;
     height: 18px;
+}
+
+
+/** scroll-y content vanisher **/
+
+.top-vanisher {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 290px;
+    background: #F6F7F8;
+    z-index: 0;
+}
+
+.bottom-vanisher {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 120px;
+    background: #F6F7F8;
+    z-index: 0;
 }
