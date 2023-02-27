@@ -56,6 +56,14 @@ body {
     }
 }
 
+@media only screen and (max-height: 1014px) {
+    .addtask-button-container {
+        position: fixed !important;
+        bottom: 40px !important;
+        top: unset !important;
+    }
+}
+
 /* Alles zur navbar oben hier */
 .topnav-container {
     display: flex;
@@ -674,7 +682,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     gap: 4px;
-    position: absolute;
+    position: fixed;
     width: 338px;
     height: 61px;
     left: 984px;
