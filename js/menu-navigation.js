@@ -7,14 +7,17 @@ let pages = [
     "summary",
     "board",
     "addtask",
-    "contacts"
+    "contacts",
+    "legal",
+    "help"
 ]
 
 let menus = [
     "menu-summary",
     "menu-board",
     "menu-addtask",
-    "menu-contacts"
+    "menu-contacts",
+    "menu-legal",
 ]
 
 
@@ -23,8 +26,10 @@ function openPage(pageName) {
     removeDarkMenu();
     let page = document.getElementById(`${pageName}`);
     page.classList.remove('d-none');
-    let menupoint = document.getElementById(`menu-${pageName}`);
-    menupoint.classList.add('sidebar-menu-option-dark')
+    if (pageName != 'help') {
+        let menupoint = document.getElementById(`menu-${pageName}`);
+        menupoint.classList.add('sidebar-menu-option-dark');
+    }
 }
 
 

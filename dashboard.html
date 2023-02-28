@@ -49,7 +49,7 @@
                 <div><img src="./assets/img/contacts_icon.svg"></div>
                 <p class="sidebar-menu-text">Contacts</p>
             </div>
-            <div class="sidebar-menu-option-light" style="margin-top: 140px"  id="menu-legal"onclick="openPage('legal')">
+            <div class="sidebar-menu-option-light" style="margin-top: 140px" id="menu-legal" onclick="openPage('legal')">
                 <div><img src="./assets/img/info_icon.svg"></div>
                 <p class="sidebar-menu-text">Legal notice</p>
             </div>
@@ -59,7 +59,7 @@
     <!-- Content Container for summary, board, addtask, contacts -->
     <div class="container">
 
-        <main class="summary" id="summary">
+        <main class="summary d-none" id="summary">
 
             <!-- Title on top -->
             <div class="summary-title-wrap">
@@ -503,6 +503,116 @@
                 <img class="contact-addcontact-button-icon" src="./assets/img/addcontact.svg">
             </div>
 
+        </main>
+
+        <main class="legal d-none" id="legal">
+
+            <!-- Content -->
+            <div class="legal-title">
+                <span class="legal-title-span">Legal Notice</span>
+            </div>
+
+            <div class="legal-join-inner">
+                <div class="legal-blackArrow-wrap">
+                    <img src="./assets/img/blackarrow.svg" onclick="openPage('summary')">
+                </div>
+
+                <span class="legal-responsible-title">Legally responsible contact person </span>
+                <span class="legal-responsible-txt">
+                    Anbieter: Max Mustermann<br>
+                    Musterstraße 1<br>
+                    80999 München<br>
+                    Kontakt: Hubert der Hinkende<br>
+                    Telefon: 089/1234567-8<br>
+                    Telefax: 089/1234567-9<br>
+                    E-Mail: mail@mustermann.de<br>
+                    Website: www.mustermann.de<br>
+                    Bei redaktionellen Inhalten verantwortlich nach § 55 Abs.2 RStV<br>
+                    Moritz Schreiberling<br>
+                    Musterstraße 2<br>
+                    80999 München
+                </span>
+
+                <span class="legal-content-title">Concerning external links and user-created contents</span>
+                <span class="legal-content-text">
+                    The above mentioned persons are not liable for any offending user-created content that third parties
+                    post here. This web-app is being checked for offending contents on a regular basis. If offending
+                    contents are identfied, they will be removed.
+                </span>
+
+            </div>
+
+        </main>
+
+        <main class="help d-none" id="help">
+
+            <!-- Content -->
+            <div class="help-title">
+                <span class="help-title-span">Help</span>
+            </div>
+
+            <div class="help-join-inner">
+                <div class="help-blackArrow-wrap">
+                    <img src="./assets/img/blackarrow.svg" onclick="openPage('summary')">
+                </div>
+
+                <span class="help-whatIsJoin-title">
+                    What is Join?
+                </span>
+
+                <span class="help-whatIsJoin-txt">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa
+                    eget,
+                    ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis.
+                    Vestibulum
+                    eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis
+                    nulla
+                    at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In
+                    auctor
+                    dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque
+                    libero
+                    erat, pharetra a neque et, imperdiet semper justo.
+                </span>
+
+                <span class="help-howToUseIt-title">How to use it</span>
+
+                <div class="help-howToUseIt-wrap">
+
+                    <div class="help-howToUseIt-inner">
+
+                        <span class="help-howToUseIt-number">1.</span>
+
+                        <span class="help-howToUseIt-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu
+                            velit
+                            sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non,
+                            varius aliquam mauris.
+                        </span>
+
+                    </div>
+
+                    <div class="help-howToUseIt-inner">
+
+                        <span class="help-howToUseIt-number">2.</span>
+
+                        <span class="help-howToUseIt-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna.
+                        </span>
+
+                    </div>
+
+                    <div class="help-howToUseIt-inner">
+
+                        <span class="help-howToUseIt-number">3.</span>
+
+                        <span class="help-howToUseIt-text">Nunc erat justo, hendrerit vel enim vitae, feugiat
+                            mattis
+                            dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus
+                            congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
+                        </span>
+                    </div>
+                </div>
+            </div>
         </main>
 
     </div>
