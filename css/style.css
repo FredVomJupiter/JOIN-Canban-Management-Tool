@@ -705,7 +705,7 @@ body {
 }
 
 .summary-center-bottom-todo:hover .summary-center-bottom-todo-icon {
-    background-image: url("../../assets/img/todo_white.svg");
+    background-image: url("../assets/img/todo_white.svg");
 }
 
 .summary-center-bottom-done:hover {
@@ -722,7 +722,7 @@ body {
 }
 
 .summary-center-bottom-done:hover .summary-center-bottom-done-icon {
-    background-image: url("../../assets/img/done_white.svg");
+    background-image: url("../assets/img/done_white.svg");
 }
 /** End Summary Content **/
 
