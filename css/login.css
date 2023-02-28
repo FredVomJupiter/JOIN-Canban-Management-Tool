@@ -1,0 +1,839 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+.logo-wrap {
+    position: absolute;
+    left: 5.35%;
+    right: 87.71%;
+    top: 7.81%;
+    bottom: 80.28%;
+    width: 100.03px;
+}
+
+.logo {
+    position: absolute;
+    left: 5.35%;
+    right: 87.71%;
+    top: 7.81%;
+    bottom: 80.28%;
+    width: 100.03px;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #F6F7F8;
+}
+
+.d-none {
+    display: none;
+}
+
+/** Login **/
+.login-signup-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: flex-start;
+    gap: 35px;
+    width: 100vw;
+    padding-top: 67px;
+    padding-right: 114px;
+}
+
+.login-signup-text {
+    width: 161px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.login-signup-button {
+    cursor: pointer;
+    padding: 4px 16px;
+    gap: 10px;
+    width: 100px;
+    height: 51px;
+    background: #2a3647;
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+.login-signup-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0px;
+    gap: 35px;
+    width: 652px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.login-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 315px;
+    height: 97px;
+}
+
+.login-title {
+    width: 315px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.login-blueline {
+    width: 150px;
+    height: 00px;
+    border: 3px solid #29ABE2;
+    border-radius: 10px;
+}
+
+.login-input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 29px;
+    width: 422px;
+    height: 171px;
+}
+
+.login-email-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.login-email-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.login-email-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+}
+
+.login-email-input {
+    border: unset;
+    width: 80%;
+    height: 25px;
+    font-family: 'Inter';
+    font-size: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.login-email-input:focus {
+    outline: none;
+}
+
+.login-email-img {
+    width: 20px;
+    height: 18px;
+}
+
+.login-pw-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.login-pw-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.login-pw-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+}
+
+.login-pw-input {
+    border: unset;
+    width: 80%;
+    height: 25px;
+    font-family: 'Inter';
+    font-size: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.login-pw-input:focus {
+    outline: none;
+}
+
+.login-pw-img {
+    width: 18px;
+    height: 21px;
+}
+
+.login-options-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 335px;
+    height: 19px;
+}
+
+.login-options-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 146px;
+    height: 19px;
+}
+
+.login-checkbox {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.login-checkbox-text {
+    width: 110px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+}
+
+.login-forgotpw-link {
+    cursor: pointer;
+    width: 154px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #29ABE2;
+}
+
+.login-buttons-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 341px;
+    height: 51px;
+}
+
+.login-login-button {
+    cursor: pointer;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 145px;
+    height: 51px;
+    background: #2a3647;
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.login-login-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-guestlogin-button {
+    cursor: pointer;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 161px;
+    height: 51px;
+    border-radius: 8px;
+    border: 1px solid #2a3647;
+    background: #FFFFFF;
+    color: #2a3647;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.login-guestlogin-button:hover {
+    color: #29ABE2;
+    border: 2px solid #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/** Forgot Password **/
+.forgotpw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 44px;
+    width: 826px;
+    height: 462px;
+    gap: 35px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.forgotpw-title {
+    width: 626px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.forgotpw-bluearrow {
+    cursor: pointer;
+    position: relative;
+    left: 37px;
+    top: 41px;
+    align-self: flex-start;
+    width: 37px;
+    height: 37px;
+}
+
+.forgotpw-blueline {
+    width: 150px;
+    border: 3px solid #29ABE2;
+    border-radius: 20px;
+}
+
+.forgotpw-text {
+    width: 535px;
+    height: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.forgotpw-input-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    width: 422px;
+    height: 53px;
+    padding: 13px 21px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.forgotpw-input {
+    border: none;
+    outline: none;
+    width: 344px;
+    height: 40px;
+    font-size: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+
+}
+
+.forgotpw-icon {
+    display: flex;
+    width: 20px;
+    height: 18px;
+    background: url("../../assets/img/mail.svg") no-repeat white;
+    background-position: 0px center;
+}
+
+.forgotpw-button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 264px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    border: none;
+}
+
+.forgotpw-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/** Reset Password **/
+.resetpw-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F6F7F8;
+    width: 100vw;
+    height: 100vh;
+}
+
+.resetpw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-bottom: 44px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.resetpw-arrow-wrap {
+    position: relative;
+    align-self: flex-start;
+    width: 37px;
+    height: 37px;
+    left: -44px;
+    top: 35px;
+}
+
+.resetpw-arrow-img {
+    cursor: pointer;
+}
+
+.resetpw-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 24px;
+    margin-bottom: 35px;
+    width: 627px;
+    height: 97px;
+}
+
+.resetpw-blueline {
+    width: 150px;
+    height: 0px;
+    border: 3px solid #29ABE2;
+    border-radius: 10px;
+}
+
+.resetpw-title {
+    width: 627px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.resetpw-text {
+    width: 589px;
+    height: 25px;
+    margin-bottom: 35px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.resetpw-input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 29px;
+    width: 422px;
+    height: 171px;
+    margin-bottom: 35px;
+}
+
+.resetpw-input-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.resetpw-input-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.resetpw-input {
+    border: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+}
+
+.resetpw-input:focus {
+    outline: none;
+}
+
+.resetpw-btn-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 264px;
+    height: 51px;
+}
+
+.resetpw-btn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 264px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    border: unset;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.resetpw-btn:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/** Signup **/
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    width: 652px;
+    height: 559px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.signup-bluearrow {
+    position: relative;
+    left: 37px;
+    top: 41px;
+    align-self: flex-start;
+    width: 37px;
+    height: 37px;
+}
+
+.signup-bluearrow-img {
+    cursor: pointer;
+}
+
+.signup-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 315px;
+    height: 97px;
+}
+
+.signup-title {
+    width: 315px;
+    height: 73px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+}
+
+.signup-blueline {
+    width: 150px;
+    height: 2px;
+    border: 2px solid #29ABE2;
+    border-radius: 20px;
+}
+
+.signup-inputs-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 29px;
+    width: 422px;
+    height: 271px;
+}
+
+.signup-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.signup-input-name {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background: url(../../assets/img/username.svg)no-repeat scroll 7px 7px;
+    background-position: calc(100% - 18px);
+}
+
+.signup-input-name:focus {
+    outline: none;
+}
+
+.signup-email {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.signup-input-email {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background: url(../../assets/img/mail.svg)no-repeat scroll 7px 7px;
+    background-position: calc(100% - 18px);
+}
+
+.signup-input-email:focus {
+    outline: none;
+}
+
+.signup-password {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.signup-input-password {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background: url(../../assets/img/password.svg)no-repeat scroll 7px 7px;
+    background-position: calc(100% - 18px);
+    margin-bottom: 35px;
+}
+
+.signup-input-password:focus {
+    outline: none;
+}
+
+.signup-button-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 100%;
+    height: 51px;
+    flex: none;
+}
+
+.signup-button {
+    width: 145px;
+    height: 51px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    background: #2A3647;
+    border-radius: 8px;
+    border: unset;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

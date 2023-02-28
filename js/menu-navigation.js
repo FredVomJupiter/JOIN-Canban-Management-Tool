@@ -20,6 +20,9 @@ let menus = [
     "menu-legal",
 ]
 
+function openLogin() {
+    window.open('./login.html', '_self');
+}
 
 function openPage(pageName) {
     hidePages();
