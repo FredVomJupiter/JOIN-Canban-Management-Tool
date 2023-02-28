@@ -85,21 +85,31 @@
                 <span class="forgotpw-title">I forgot my password</span>
 
                 <div class="forgotpw-blueline"></div>
-                <span class="forgotpw-text">Don't worry! We will send you an email with the instructions to reset your password.
+                <span class="forgotpw-text">Don't worry! We will send you an email with the instructions to reset your
+                    password.
                 </span>
                 <div class="forgotpw-input-wrap">
                     <input class="forgotpw-input" type="text" placeholder="Email">
                     <div class="forgotpw-icon"></div>
                 </div>
-                <button class="forgotpw-button" onclick="openPage('resetpw')">Send me the mail</button>
+                <button class="forgotpw-button" onclick="sendMessage('mail')">Send me the mail</button>
             </div>
+
+            <!-- email confirmation msg -->
+            <div class="forgotpw-confirmation-outer" id="messageMail">
+                <div class="forgotpw-confirmation-border">
+                    <img src="./assets/img/sent.svg">
+                    <span class="forgotpw-confirmation-text">An E-mail has been sent to you</span>
+                </div>
+            </div>
+
         </main>
 
         <!-- Resetpw Page -->
         <main class="d-none" id="resetpw">
             <!-- Container Middle -->
             <div class="resetpw-container">
-                
+
                 <div class="resetpw-arrow-wrap" onclick="openPage('login')">
                     <img class="resetpw-arrow-img" src="./assets/img/bluearrow.svg">
                 </div>
@@ -129,10 +139,18 @@
 
                 <!--Continue button -->
                 <div class="resetpw-btn-wrap">
-                    <button class="resetpw-btn" onclick="openPage('login')">Continue</button>
+                    <button class="resetpw-btn" onclick="sendMessage('messageReset')">Continue</button>
                 </div>
 
             </div>
+
+            <!-- Confirmation msg for resetpw -->
+            <div class="resetpw-msg-outer" id="messageReset">
+                <div class="resetpw-msg-border">
+                    <span class="resetpw-msg-text">You reset your password</span>
+                </div>
+            </div>
+
         </main>
 
         <!-- Signup Page -->
@@ -141,7 +159,8 @@
             <div class="signup-container">
 
                 <div class="signup-bluearrow">
-                    <img class="signup-bluearrow-img" src="./assets/img/bluearrow.svg" alt="bluearrow" onclick="openPage('login')">
+                    <img class="signup-bluearrow-img" src="./assets/img/bluearrow.svg" alt="bluearrow"
+                        onclick="openPage('login')">
                 </div>
 
                 <!-- Title -->

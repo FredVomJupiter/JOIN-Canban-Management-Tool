@@ -470,6 +470,41 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.forgotpw-confirmation-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 42vw;
+    bottom: -100px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+}
+
+.forgotpw-confirmation-border {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 74px;
+    width: 424px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.forgotpw-confirmation-text {
+    width: 330px;
+    height: 28px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    color: #FFFFFF;
+}
+
 /** Reset Password **/
 .resetpw-background {
     display: flex;
@@ -635,6 +670,48 @@ body {
 .resetpw-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.resetpw-msg-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -100px;
+    left: 43vw;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+}
+
+.resetpw-msg-border {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 13px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.resetpw-msg-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+/** Animation of email & resetpw message **/
+.animate {
+    transition: all 225ms ease-out;
+    bottom: 5%;
 }
 
 /** Signup **/
