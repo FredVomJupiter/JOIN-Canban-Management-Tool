@@ -889,7 +889,7 @@ body {
     height: 15px;
 }
 
-/* BOARD container */
+/* Overflow foreground for content */
 .content-overflow-hider {
     position: fixed;
     top: 0;
@@ -900,7 +900,7 @@ body {
     z-index: 0;
 }
 
-
+/* Board Card Container */
 .board-container {
     display: flex;
     align-items: flex-start;
