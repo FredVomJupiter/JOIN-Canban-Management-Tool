@@ -54,22 +54,22 @@ function renderDone() {
 
 function templateCardHtml(card) {
     return `
-        <div class="bc-cardshadow" id="${card.id}" onclick="showCardDetails('${card.id}')">
-            <div class="bc-cardbackground">
-                <div class="bc-cardinner">
-                    <div class="bc-cardcategory" style="background:${card.color}">${card.group}</div>
-                    <div class="bc-cardtext-wrap">
-                        <div class="bc-cardtext-inner">
-                            <span class="bc-cardtitle">${card.title}</span>
-                            <span class="bc-cardtext">${card.text}</span>
+        <div class="board-cardshadow" id="${card.id}" onclick="showCardDetails('${card.id}')">
+            <div class="board-cardbackground">
+                <div class="board-cardinner">
+                    <div class="board-cardcategory" style="background:${card.color}">${card.group}</div>
+                    <div class="board-cardtext-wrap">
+                        <div class="board-cardtext-inner">
+                            <span class="board-cardtitle">${card.title}</span>
+                            <span class="board-cardtext">${card.text}</span>
                         </div>
                     </div>
                     ${templateProgressbarHtml(card)}
-                    <div class="bc-cardbottom-wrap">
-                        <div class="bc-assignments">
+                    <div class="board-cardbottom-wrap">
+                        <div class="board-assignments">
                             ${templateAssignmentsHtml(card)}
                         </div>
-                        <div class="bc-prio-wrap">
+                        <div class="board-prio-wrap">
                             ${templatePriorityHtml(card)}
                         </div>
                     </div>
@@ -83,11 +83,11 @@ function templateCardHtml(card) {
 function templateProgressbarHtml(card) {
     if (card.subtask.length > 0) {
         return `
-            <div class="bc-progressbar-wrap">
-                <div class="bc-progressbar-outer">
-                    <div class="bc-progressbar-inner" style="width: calc(138px * ${calculateProgressFactor(card)})"></div>
+            <div class="board-progressbar-wrap">
+                <div class="board-progressbar-outer">
+                    <div class="board-progressbar-inner" style="width: calc(138px * ${calculateProgressFactor(card)})"></div>
                 </div>
-                <span class="bc-progressbar-text">${countFinishedSubtasks(card)}/${card.subtask.length} Done</span>
+                <span class="board-progressbar-text">${countFinishedSubtasks(card)}/${card.subtask.length} Done</span>
             </div>
         `
     } else {
@@ -134,8 +134,8 @@ function templateAssignmentsHtml(card) {
 
 function returnOneCircle(card) {
     return `
-            <div class="bc-circleleft">
-                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="board-circleleft">
+                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
         `
 }
@@ -143,11 +143,11 @@ function returnOneCircle(card) {
 
 function returnTwoCircles(card) {
     return `
-            <div class="bc-circleleft">
-                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="board-circleleft">
+                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
-            <div class="bc-circlemiddle">
-                <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
+            <div class="board-circlemiddle">
+                <span class="board-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
         `
 }
@@ -155,14 +155,14 @@ function returnTwoCircles(card) {
 
 function returnThreeCircles(card) {
     return `
-            <div class="bc-circleleft">
-                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="board-circleleft">
+                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
-            <div class="bc-circlemiddle">
-                <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
+            <div class="board-circlemiddle">
+                <span class="board-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
-            <div class="bc-circleright">
-                <span class="bc-circle-text">${returnInitials(card.assigned[2])}</span>
+            <div class="board-circleright">
+                <span class="board-circle-text">${returnInitials(card.assigned[2])}</span>
             </div>
         `
 }
@@ -170,14 +170,14 @@ function returnThreeCircles(card) {
 
 function returnMoreCircles(card) {
     return `
-            <div class="bc-circleleft">
-                <span class="bc-circle-text">${returnInitials(card.assigned[0])}</span>
+            <div class="board-circleleft">
+                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
             </div>
-            <div class="bc-circlemiddle">
-                <span class="bc-circle-text">${returnInitials(card.assigned[1])}</span>
+            <div class="board-circlemiddle">
+                <span class="board-circle-text">${returnInitials(card.assigned[1])}</span>
             </div>
-            <div class="bc-circleright">
-                <span class="bc-circle-text">+${card.assigned.length - 2}</span>
+            <div class="board-circleright">
+                <span class="board-circle-text">+${card.assigned.length - 2}</span>
             </div>
         `
 }
@@ -196,16 +196,16 @@ function returnInitials(name) {
 function templatePriorityHtml(card) {
     if (card.priority == "urgent") {
         return `
-            <img class="bc-prio-icon" src="./assets/img/priohigh.svg">
+            <img class="board-prio-icon" src="./assets/img/priohigh.svg">
         `
     }
     if (card.priority == "medium") {
         return `
-            <img class="bc-prio-icon" src="./assets/img/priomedium.svg">
+            <img class="board-prio-icon" src="./assets/img/priomedium.svg">
         `
     } else {
         return `
-            <img class="bc-prio-icon" src="./assets/img/priolow.svg">
+            <img class="board-prio-icon" src="./assets/img/priolow.svg">
         `
     }
 }
@@ -235,6 +235,6 @@ function templateOverlayCardHtml(cardId) {
     // .filter returns an array, therefore (although only one card per id exists) card[0] must be called, to acces the key-values
     let card = cards.filter(card => card.id == cardId);
     return `
-        <div class="bc-taskoverlay-category" style="background:${card[0].color}">${card[0].group}</div>
+        <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].group}</div>
     `
 }

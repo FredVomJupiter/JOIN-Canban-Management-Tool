@@ -73,7 +73,7 @@ let cards = [
     }
 ];
 
-const Datastore = require('nedb');
+//const Datastore = require('nedb');
 
-const database = new Datastore('https://www.frederic-rieg.developerakademie.net/JOIN/database.db');
-database.loadDatabase();
+//const database = new Datastore('https://www.frederic-rieg.developerakademie.net/JOIN/database.db');
+//database.loadDatabase();

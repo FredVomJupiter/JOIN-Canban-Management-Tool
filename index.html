@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIN</title>
 
+    <script src="./js/database.js"></script>
+    <script src="./js/board.js"></script>
+
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onload="init();">
 
     <div class="background"></div>
 
@@ -55,7 +58,7 @@
     <!-- Content Container for summary, board, addtask, contacts -->
     <div class="container">
 
-        <main class="summary">
+        <main class="summary d-none">
 
             <!-- Title on top -->
             <div class="summary-title-wrap">
@@ -147,7 +150,92 @@
             </div>
         </main>
 
-        <main class="board d-none">
+        <main class="board">
+
+            <!-- Title on top -->
+            <div class="board-title-wrap">
+                <!-- Title -->
+                <div class="board-title-outer">
+                    <span class="board-title">Board</span>
+                </div>
+
+                <div class="board-topright">
+                    <!-- Searchbar -->
+                    <div class="board-searchbar-border">
+                        <div class="board-searchbar-outer">
+                            <div class="board-searchbar-inner">
+                                <input class="board-searchbar-text" type="search" placeholder="Find Task">
+                            </div>
+                            <div class="board-searchbar-icon-wrap">
+                                <div class="board-searchbar-verticalline"></div>
+                                <img class="board-searchbar-icon" src="./assets/img/search.svg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- addTask Button -->
+                    <div class="board-addtask-button">
+                        <span class="board-addtask-button-text">Add task</span>
+                        <div class="board-addtask-button-icon-outer">
+                            <div class="board-addtask-button-icon-inner">+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="board-container">
+
+                <!-- TODO column -->
+                <div class="board-column">
+                    <div class="board-column-top">
+                        <span class="board-column-title">To do</span>
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                    </div>
+
+                    <div class="canvas" id="todo-canvas"></div>
+                </div>
+
+                <!-- PROGRESS column -->
+                <div class="board-column">
+                    <div class="board-column-top">
+                        <span class="board-column-title">In Progress</span>
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                    </div>
+
+                    <div class="canvas" id="progress-canvas"></div>
+                </div>
+
+                <!-- FEEDBACK column -->
+                <div class="board-column">
+                    <div class="board-column-top">
+                        <span class="board-column-title">Awaiting Feedback</span>
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                    </div>
+
+                    <div class="canvas" id="feedback-canvas"></div>
+                </div>
+
+
+                <!-- DONE column -->
+                <div class="board-column">
+                    <div class="board-column-top">
+                        <span class="board-column-title">Done</span>
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                    </div>
+
+                    <div class="canvas" id="done-canvas"></div>
+                </div>
+
+            </div>
+
+            <!-- Task Overlay -->
+            <div class="board-taskoverlay-background d-none" id="overlay" onclick="closeTaskOverlay()">
+                <div class="board-taskoverlay-container" id="overlayCard">
+
+                </div>
+            </div>
 
         </main>
 

@@ -24,7 +24,7 @@ body {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 /** Top Navigation Bar **/
@@ -726,38 +726,514 @@ body {
 }
 /** End Summary Content **/
 
+/** Board Content **/
 .board {
     display:  flex;
     flex-direction: column;
+    align-items: flex-start;
     box-sizing: border-box;
-    position: fixed;
-    top: 80px;
-    left: 250px;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    overflow-y: scroll;
 }
 
+.board-title-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 474px;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.board-title-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    width: 176px;
+    height: 73px;
+}
+
+.board-title {
+    width: 176px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    color: #000000;
+}
+
+.board-topright {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 35px;
+    width: 423px;
+}
+
+.board-searchbar-border {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 251px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+}
+
+.board-searchbar-outer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 226px;
+    height: 31px;
+}
+
+.board-searchbar-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    width: 100px;
+    height: 19px;
+}
+
+.board-searchbar-text {
+    width: 100px;
+    height: 31px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border: unset;
+    color: #D1D1D1;
+}
+
+.board-searchbar-text:focus {
+    outline: none;
+}
+
+.board-searchbar-icon-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: 43px;
+    height: 31px;
+}
+
+.board-searchbar-verticalline {
+    width: 0px;
+    height: 31px;
+    border: 1px solid #D1D1D1;
+}
+
+.board-searchbar-icon {
+    width: 20.31px;
+    height: 20.31px;
+}
+
+.board-addtask-button {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 137px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 10px;
+}
+
+.board-addtask-button:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.board-addtask-button-text {
+    width: 92px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    color: #FFFFFF;
+    flex: none;
+}
+
+.board-addtask-button-icon-outer {
+    width: 15px;
+    height: 15px;
+}
+
+.board-addtask-button-icon-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    width: 15px;
+    height: 15px;
+}
+
+/* BOARD container */
+.content-overflow-hider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    background: #F6F7F8;
+    z-index: 0;
+}
+
+
+.board-container {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 100px;
+    padding-top: 100px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    overflow-y: scroll;
+    flex-direction: row;
+    justify-content: center;
+    gap: 26px;
+}
+
+/* One column for: done, feedback, progress & todo */
+.board-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    width: 250px;
+}
+
+.board-column-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 230px;
+    height: 30px;
+}
+
+.board-column-icon {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    gap: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.board-column-title {
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+}
+
+.board-cardshadow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 250px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.board-cardbackground {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 19px;
+    gap: 10px;
+    width: 250px;
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
+.board-cardinner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 211px;
+}
+
+.board-cardcategory {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4px 25px;
+    gap: 10px;
+    height: 27px;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.board-cardtext-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 207px;
+}
+
+.board-cardtext-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 207px;
+    border-radius: 10px;
+}
+
+.board-cardtitle {
+    width: 170px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2A3647;
+}
+
+.board-cardtext {
+    width: 207px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #A8A8A8;
+}
+
+.board-progressbar-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 211px;
+    height: 14px;
+}
+
+.board-progressbar-outer {
+    width: 138px;
+    height: 8px;
+    background: #F4F4F4;
+    border-radius: 2px;
+}
+
+.board-progressbar-inner {
+    width: 138px;
+    height: 8px;
+    background: #29ABE2;
+    border-radius: 2px;
+}
+
+.board-progressbar-text {
+    width: 53px;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.board-cardbottom-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 113px;
+    width: 207px;
+    height: 35px;
+}
+
+.board-assignments {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 64px;
+    height: 35px;
+}
+
+.board-circleleft {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background: #4E963D;
+    border: 1px solid #FFFFFF;
+    border-radius: 58px;
+}
+
+.board-circlemiddle {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background: #9327FF;
+    border: 1px solid #FFFFFF;
+    border-radius: 58px;
+    margin: 0px -6px;
+}
+
+.board-circleright {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background: #2A3647;
+    border: 1px solid #FFFFFF;
+    border-radius: 58px;
+}
+
+.board-circle-text {
+    width: 19px;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.board-prio-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+}
+
+.board-prio-icon {
+    width: 17px;
+    height: 12px;
+}
+
+/* canvas for drawing */
+.canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+}
+
+/* Task Overlay */
+.board-taskoverlay-background {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+.board-taskoverlay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 25px;
+    isolation: isolate;
+    position: relative;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.board-taskoverlay-category {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 36.5px;
+    gap: 10px;
+    height: 40px;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+/* Ende Board Content */
+
+
+/** Addtask Content **/
 .addtask {
     display:  flex;
     flex-direction: column;
+    align-items: flex-start;
     box-sizing: border-box;
-    position: fixed;
-    top: 80px;
-    left: 250px;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    overflow-y: scroll;
 }
 
+/** Contacts Content **/
 .contacts {
     display:  flex;
     flex-direction: column;
+    align-items: flex-start;
     box-sizing: border-box;
-    position: fixed;
-    top: 80px;
-    left: 250px;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    overflow-y: scroll;
 }
