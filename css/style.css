@@ -638,7 +638,7 @@ body {
     color: #2A3647;
 }
 
-/* Hover Effekte */
+/* Summary Hover Effects */
 .summary-center-tasks:hover {
     transition: all 225ms ease-in-out;
     width: 180px;
