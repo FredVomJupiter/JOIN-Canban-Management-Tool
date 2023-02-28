@@ -6,7 +6,7 @@ body {
 
 @font-face {
     font-family: 'Inter';
-    src: url('./assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+    src: url('../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
 }
 
 .logo-wrap {
