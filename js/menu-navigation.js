@@ -1,16 +1,47 @@
 let links = {
-    signup: "0_signup_responsive.html",
-    resetpw: "0_resetpw_responsive.html",
-    forgotpw: "0_forgotpw_responsive.html",
-    login: "0_login.html",
-    summary: "1_summary.html",
-    board: "2_board.html",
-    addtask: "3_add_task.html",
-    contacts: "4_contacts.html",
-    legal: "5_legal.html",
-    help: "6_help.html"
+    login: "login.html",
+    summary: "dashboard.html",
 }
 
+let pages = [
+    "summary",
+    "board",
+    "addtask",
+    "contacts"
+]
+
+let menus = [
+    "menu-summary",
+    "menu-board",
+    "menu-addtask",
+    "menu-contacts"
+]
+
+
 function openPage(pageName) {
-    window.open(links[pageName], "_self");
+    hidePages();
+    removeDarkMenu();
+    let page = document.getElementById(`${pageName}`);
+    page.classList.remove('d-none');
+    let menupoint = document.getElementById(`menu-${pageName}`);
+    menupoint.classList.add('sidebar-menu-option-dark')
+}
+
+
+function hidePages() {
+    pages.forEach(page => {
+        let canvas = document.getElementById(`${page}`);
+        canvas.classList.add('d-none');
+    });
+}
+
+
+function removeDarkMenu() {
+    menus.forEach(menu => {
+        let menupoint = document.getElementById(`${menu}`);
+        if (menupoint.classList.contains('sidebar-menu-option-dark')) {
+            menupoint.classList.remove('sidebar-menu-option-dark');
+            menupoint.classList.add('sidebar-menu-option-light');
+        }
+    });
 }

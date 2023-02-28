@@ -9,6 +9,7 @@
 
     <script src="./js/database.js"></script>
     <script src="./js/board.js"></script>
+    <script src="./js/menu-navigation.js"></script>
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -32,23 +33,23 @@
     <div class="sidebar">
         <div><img src="./assets/img/logo_white.svg"></div>
         <div class="sidebar-menu-container">
-            <div class="sidebar-menu-option-dark" onclick="openPage('summary')">
+            <div class="sidebar-menu-option-dark" id="menu-summary" onclick="openPage('summary')">
                 <div><img src="./assets/img/summary_icon_bright.svg"></div>
                 <p class="sidebar-menu-text">Summary</p>
             </div>
-            <div class="sidebar-menu-option-light" onclick="openPage('board')">
+            <div class="sidebar-menu-option-light" id="menu-board" onclick="openPage('board')">
                 <div><img src="./assets/img/board_icon.svg"></div>
                 <p class="sidebar-menu-text">Board</p>
             </div>
-            <div class="sidebar-menu-option-light" onclick="openPage('addtask')">
+            <div class="sidebar-menu-option-light" id="menu-addtask" onclick="openPage('addtask')">
                 <div><img src="./assets/img/addTask_icon.svg"></div>
                 <p class="sidebar-menu-text">Add Task</p>
             </div>
-            <div class="sidebar-menu-option-light" onclick="openPage('contacts')">
+            <div class="sidebar-menu-option-light" id="menu-contacts" onclick="openPage('contacts')">
                 <div><img src="./assets/img/contacts_icon.svg"></div>
                 <p class="sidebar-menu-text">Contacts</p>
             </div>
-            <div class="sidebar-menu-option-light" style="margin-top: 140px" onclick="openPage('legal')">
+            <div class="sidebar-menu-option-light" style="margin-top: 140px"  id="menu-legal"onclick="openPage('legal')">
                 <div><img src="./assets/img/info_icon.svg"></div>
                 <p class="sidebar-menu-text">Legal notice</p>
             </div>
@@ -58,7 +59,7 @@
     <!-- Content Container for summary, board, addtask, contacts -->
     <div class="container">
 
-        <main class="summary d-none">
+        <main class="summary" id="summary">
 
             <!-- Title on top -->
             <div class="summary-title-wrap">
@@ -150,7 +151,7 @@
             </div>
         </main>
 
-        <main class="board d-none">
+        <main class="board d-none" id="board">
 
             <!-- Title on top -->
             <div class="board-title-wrap">
@@ -239,7 +240,7 @@
 
         </main>
 
-        <main class="addtask d-none">
+        <main class="addtask d-none" id="addtask">
 
             <!-- Title -->
             <div class="addtask-title-wrap">
@@ -335,7 +336,7 @@
             </div>
         </main>
 
-        <main class="contacts">
+        <main class="contacts d-none" id="contacts">
 
             <!-- Title -->
             <div class="contact-title-container">
