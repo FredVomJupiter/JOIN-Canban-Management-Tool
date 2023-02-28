@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="topnav">
+        <span class="topnav-text">Kanban Project Management Tool</span>
+
+        <div class="topnav-right">
+            <img class="topnav-help" src="./assets/img/help.svg" onclick="openPage('help')">
+
+            <img class="topnav-profile" src="./assets/img/profilepicture.png" onclick="openPage('login')">
+        </div>
+    </header>
+
+    <!-- Side Navigation Bar -->
+    <div class="sidebar">
+        <div><img src="./assets/img/logo_white.svg"></div>
+        <div class="sidebar-menu-container">
+            <div class="sidebar-menu-option-dark" onclick="openPage('summary')">
+                <div><img src="./assets/img/summary_icon_bright.svg"></div>
+                <p class="sidebar-menu-text">Summary</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('board')">
+                <div><img src="./assets/img/board_icon.svg"></div>
+                <p class="sidebar-menu-text">Board</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('addtask')">
+                <div><img src="./assets/img/addTask_icon.svg"></div>
+                <p class="sidebar-menu-text">Add Task</p>
+            </div>
+            <div class="sidebar-menu-option-light" onclick="openPage('contacts')">
+                <div><img src="./assets/img/contacts_icon.svg"></div>
+                <p class="sidebar-menu-text">Contacts</p>
+            </div>
+            <div class="sidebar-menu-option-light" style="margin-top: 100px" onclick="openPage('legal')">
+                <div><img src="./assets/img/info_icon.svg"></div>
+                <p class="sidebar-menu-text">Legal notice</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Container for summary, board, addtask, contacts -->
+    <div class="container">
+
+        <main class="summary">
+
+            <!-- Title on top -->
+            <div class="summary-title-wrap">
+                <span class="summary-title">Summary</span>
+                <div class="summary-title-line"></div>
+                <span class="summary-title-text">Everything in a nutshell!</span>
+            </div>
+
+            <!-- Greeting on the right -->
+            <div class="summary-greeting-wrap">
+                <span class="summary-greeting">Good morning,</span>
+                <span class="summary-username">Sofia Müller</span>
+            </div>
+
+            <!-- Center content -->
+            <div class="summary-center-container">
+                <!-- TOP part of center content -->
+                <div class="summary-center-topwrap">
+                    <div class="summary-center-tasks">
+                        <div class="summary-center-tasks-inner">
+                            <span class="summary-center-tasks-counter">5</span>
+                            <span class="summary-center-tasks-text">Tasks in Board</span>
+                        </div>
+                    </div>
+                    <div class="summary-center-progress">
+                        <div class="summary-center-progress-inner">
+                            <span class="summary-center-progress-counter">2</span>
+                            <span class="summary-center-progress-text">Tasks in Progress</span>
+                        </div>
+                    </div>
+                    <div class="summary-center-feedback">
+                        <div class="summary-center-feedback-inner">
+                            <span class="summary-center-feedback-counter">2</span>
+                            <span class="summary-center-feedback-text">Awaiting Feedback</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIDDLE part of center content -->
+                <div class="summary-center-middlewrap">
+
+                    <!-- MIDDLE LEFT part -->
+                    <div class="summary-center-middle-left">
+                        <div class="summary-center-middle-left-icon-outer">
+                            <img class="summary-center-middle-left-icon" src="./assets/img/urgent.svg">
+                        </div>
+                        <div class="summary-center-middle-left-counter-outer">
+                            <span class="summary-center-middle-left-counter">1</span>
+                            <span class="summary-center-middle-left-text">Urgent</span>
+                        </div>
+                    </div>
+
+                    <!-- MIDDLE CENTER line-->
+                    <div class="summary-center-middle-line"></div>
+
+                    <!-- MIDDLE RIGHT part -->
+                    <div class="summary-center-middle-right">
+                        <span class="summary-center-middle-right-date">October 16, 2022</span>
+                        <span class="summary-center-middle-right-text">Upcoming deadline</span>
+                    </div>
+                </div>
+
+                <!-- BOTTOM part of center content -->
+                <div class="summary-center-bottomwrap">
+
+                    <!-- TO DO part left -->
+                    <div class="summary-center-bottom-todo">
+                        <div class="summary-center-bottom-todo-iconwrap">
+                            <div class="summary-center-bottom-todo-icon"></div>
+                        </div>
+                        <div class="summary-center-bottom-todo-counter-outer">
+                            <span class="summary-center-bottom-todo-counter">1</span>
+                            <span class="summary-center-bottom-todo-text">To-do</span>
+                        </div>
+                    </div>
+
+                    <!-- DONE part right -->
+                    <div class="summary-center-bottom-done">
+                        <div class="summary-center-bottom-done-iconwrap">
+                            <div class="summary-center-bottom-done-icon"></div>
+                        </div>
+                        <div class="summary-center-bottom-done-counter-outer">
+                            <span class="summary-center-bottom-done-counter">1</span>
+                            <span class="summary-center-bottom-done-text">Done</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <main class="board d-none">
+
+        </main>
+
+        <main class="addtask d-none">
+
+        </main>
+
+        <main class="contacts d-none">
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

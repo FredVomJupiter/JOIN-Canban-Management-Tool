@@ -684,9 +684,9 @@ body {
     gap: 4px;
     position: fixed;
     width: 338px;
-    height: 61px;
+    height: 51px;
     left: 984px;
-    top: 889px;
+    top: 900px;
 }
 
 .addtask-button-inner {
@@ -696,7 +696,7 @@ body {
     align-items: center;
     gap: 25px;
     width: 338px;
-    height: 61px;
+    height: 51px;
 }
 
 .addtask-button-clear {
@@ -709,7 +709,7 @@ body {
     padding: 18px 10px;
     gap: 10px;
     width: 136px;
-    height: 61px;
+    height: 51px;
     border: 1px solid #2A3647;
     border-radius: 10px;
     font-family: 'Inter';
@@ -748,7 +748,7 @@ body {
     padding: 18px 10px;
     gap: 10px;
     width: 177px;
-    height: 61px;
+    height: 51px;
     background: #2A3647;
     border-radius: 10px;
     font-family: 'Inter';
@@ -777,17 +777,17 @@ body {
     left: 0;
     top: 0;
     right: 0;
-    height: 290px;
+    height: 260px;
     background: #F6F7F8;
     z-index: 0;
 }
 
 .bottom-vanisher {
     position: fixed;
-    left: 0;
+    left: 60%;
     bottom: 0;
     right: 0;
-    height: 120px;
+    height: 100px;
     background: #F6F7F8;
     z-index: 0;
 }
