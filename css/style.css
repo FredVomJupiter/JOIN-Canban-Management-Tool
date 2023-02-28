@@ -6,7 +6,7 @@ body {
 
 @font-face {
     font-family: 'Inter';
-    src: url('../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+    src: url('./assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
 }
 
 .background {
@@ -541,7 +541,7 @@ body {
 .summary-center-bottom-todo-icon {
     width: 70px;
     height: 70px;
-    background-image: url("../../assets/img/todo_black.svg");
+    background-image: url("./assets/img/todo_black.svg");
 }
 
 .summary-center-bottom-todo-counter-outer {
@@ -604,7 +604,7 @@ body {
 .summary-center-bottom-done-icon {
     width: 70px;
     height: 70px;
-    background-image: url("../../assets/img/done_black.svg");
+    background-image: url("./assets/img/done_black.svg");
 }
 
 .summary-center-bottom-done-counter-outer {
