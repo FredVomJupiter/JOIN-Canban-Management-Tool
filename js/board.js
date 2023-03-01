@@ -1,5 +1,6 @@
 function init() {
     renderCards();
+    updateCounters()
 }
 
 
@@ -307,4 +308,19 @@ function openAddtaskOverlay() {
     let taskoverlay = document.getElementById('addtaskOverlay');
     taskoverlay.classList.remove('d-none');
     taskoverlay.classList.remove('hidden');
+}
+
+
+function updateCounters() {
+    let tasksCounter = document.getElementById('tasksCounter');
+    tasksCounter.innerHTML = "";
+    tasksCounter.innerHTML = cards.length;
+
+    let progressCounter = document.getElementById('progressCounter');
+    progressCounter.innerHTML = "";
+    progressCounter.innerHTML = cards.filter(card => card.category == "In Progress").length;
+
+    let feedbackCounter = document.getElementById('feedbackCounter');
+    feedbackCounter.innerHTML = "";
+    feedbackCounter.innerHTML = cards.filter(card => card.category == "Awaiting Feedback").length
 }
