@@ -139,7 +139,7 @@ body {
 
 /** Content Container **/
 .container {
-    display:  flex;
+    display: flex;
     flex-direction: column;
     box-sizing: border-box;
     position: fixed;
@@ -152,7 +152,7 @@ body {
 
 /** Summary Content **/
 .summary {
-    display:  flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
@@ -215,7 +215,7 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
-    
+
     color: #2A3647;
 }
 
@@ -226,7 +226,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
-    
+
     color: #29ABE2;
 }
 
@@ -449,7 +449,7 @@ body {
     font-style: normal;
     font-weight: 600;
     font-size: 47px;
-    
+
     text-align: center;
     color: #000000;
 }
@@ -461,7 +461,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    
+
     color: #2A3647;
 }
 
@@ -488,7 +488,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    
+
     color: #2A3647;
 }
 
@@ -499,7 +499,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    
+
     color: #2A3647;
 }
 
@@ -559,7 +559,7 @@ body {
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
-    
+
     text-align: center;
     color: #000000;
 }
@@ -571,7 +571,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    
+
     color: #2A3647;
 }
 
@@ -622,7 +622,7 @@ body {
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
-    
+
     text-align: center;
     color: #000000;
 }
@@ -634,7 +634,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    
+
     color: #2A3647;
 }
 
@@ -724,11 +724,12 @@ body {
 .summary-center-bottom-done:hover .summary-center-bottom-done-icon {
     background-image: url("../assets/img/done_white.svg");
 }
+
 /** End Summary Content **/
 
 /** Board Content **/
 .board {
-    display:  flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
@@ -951,7 +952,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    
+
     color: #2A3647;
 }
 
@@ -1000,7 +1001,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    
+
     color: #FFFFFF;
 }
 
@@ -1027,7 +1028,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    
+
     color: #2A3647;
 }
 
@@ -1037,7 +1038,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    
+
     color: #A8A8A8;
 }
 
@@ -1072,7 +1073,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    
+
     color: #000000;
 }
 
@@ -1147,7 +1148,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    
+
     color: #FFFFFF;
 }
 
@@ -1185,19 +1186,22 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.25);
     z-index: 2;
+    overflow-y: scroll;
 }
 
 .board-taskoverlay-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    box-sizing: border-box;
+    max-width: 500px;
+    max-height: 600px;
     padding: 50px;
     gap: 25px;
-    isolation: isolate;
-    position: relative;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+    overflow-y: scroll;
 }
 
 .board-taskoverlay-category {
@@ -1213,16 +1217,68 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    
+
     color: #FFFFFF;
 }
 
+.board-taskoverlay-title {
+    font-family: 'Inter';
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    color: #2A3647;
+}
+
+.board-taskoverlay-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    color: #000000;
+}
+
+.board-taskoverlay-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.board-taskoverlay-subtitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    color: #000000;
+}
+
+.board-taskoverlay-value {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    color: #000000;
+}
+
+.board-overlay-subtasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.board-taskoverlay-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
 /* Ende Board Content */
 
 
 /** Addtask Content **/
 .addtask {
-    display:  flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
@@ -1724,11 +1780,12 @@ body {
     width: 18px;
     height: 18px;
 }
+
 /* Ende Addtask Content */
 
 /** Contacts Content **/
 .contacts {
-    display:  flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
@@ -2131,7 +2188,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    
+
     color: #FFFFFF;
 }
 
@@ -2145,6 +2202,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: 1px solid #29ABE2;
 }
+
 /** End Contacts Content **/
 
 /** Legal Content **/
@@ -2214,6 +2272,7 @@ body {
     font-size: 16px;
     color: #000000;
 }
+
 /** End Legal Content **/
 
 /** Help Content **/
@@ -2303,4 +2362,5 @@ body {
     font-size: 16px;
     color: #000000;
 }
+
 /** End Help Content **/

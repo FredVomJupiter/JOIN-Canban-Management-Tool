@@ -231,10 +231,64 @@ function renderOverlayCard(cardId) {
 }
 
 
+function stopPropagation(event) {
+    event.stopPropagation();
+}
+
+
 function templateOverlayCardHtml(cardId) {
     // .filter returns an array, therefore (although only one card per id exists) card[0] must be called, to acces the key-values
     let card = cards.filter(card => card.id == cardId);
     return `
         <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].group}</div>
+        <span class="board-taskoverlay-title">${card[0].title}</span>
+        <span class="board-taskoverlay-text">${card[0].text}</span>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${card[0].date}</span></div>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${getPriorityForOverlay(card[0].priority)}</div>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span><div class="board-overlay-subtasks">${getSubtasksForOverlay(card[0].subtask)}</div></div>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
+        ${getAssignedForOverlay(card[0].assigned)}
     `
+}
+
+
+function getPriorityForOverlay(prio) {
+    if (prio == "urgent") {
+        return '<img src="./assets/img/prio_overlay_urgent.svg"></img>';
+    } 
+    if (prio == "medium") {
+        return '<img src="./assets/img/prio_overlay_medium.svg"></img>';
+    } else {
+        return '<img src="./assets/img/prio_overlay_low.svg"></img>';
+    }
+}
+
+
+function getSubtasksForOverlay(subtask) {
+    if (subtask.length > 0) {
+        let lines = "";
+        subtask.forEach(task => {
+            lines += `<span class="board-taskoverlay-value">${task.text} ${task.status == 1 ? "(Done)" : "(To Do)"}</span>`;
+        });
+        return lines;
+    } else {
+        return `<span class="board-taskoverlay-value">none</span>`;
+    }
+}
+
+
+function getAssignedForOverlay(assigned) {
+    let lines = `<div class="board-taskoverlay-box">`;
+    assigned.forEach(person => {
+        lines += `
+            <div class="board-taskoverlay-line">
+                <div class="board-circleleft">
+                    <span class="board-circle-text">${returnInitials(person)}</span>
+                </div>
+                <span class="board-taskoverlay-value">${person}</span>
+            </div>
+        `;
+    });
+    lines += `</div>`;
+    return lines;
 }
