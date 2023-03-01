@@ -212,20 +212,26 @@ function templatePriorityHtml(card) {
 
 
 function showCardDetails(cardId) {
-    let overlay = document.getElementById("overlay");
-    overlay.classList.remove("d-none");
-    renderOverlayCard(cardId)
+    let background = document.getElementById("overlayBackground");
+    background.classList.remove("d-none");
+    renderOverlayCard(cardId);
 }
 
 
-function closeTaskOverlay() {
-    let overlay = document.getElementById("overlay");
-    overlay.classList.add("d-none");
+function closeOverlay() {
+    let background = document.getElementById("overlayBackground");
+    background.classList.add("d-none");
+    let overlayCard = document.getElementById('overlayCard');
+    overlayCard.classList.add('d-none');
+    let taskoverlay = document.getElementById('addtaskOverlay');
+    taskoverlay.classList.add('d-none');
+    taskoverlay.classList.add('hidden');
 }
 
 
 function renderOverlayCard(cardId) {
     let overlayCard = document.getElementById('overlayCard');
+    overlayCard.classList.remove('d-none');
     overlayCard.innerHTML = "";
     overlayCard.innerHTML += templateOverlayCardHtml(cardId);
 }
@@ -240,6 +246,7 @@ function templateOverlayCardHtml(cardId) {
     // .filter returns an array, therefore (although only one card per id exists) card[0] must be called, to acces the key-values
     let card = cards.filter(card => card.id == cardId);
     return `
+        <div class="board-taskoverlay-close-btn" onclick="closeOverlay()">X</div>
         <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].group}</div>
         <span class="board-taskoverlay-title">${card[0].title}</span>
         <span class="board-taskoverlay-text">${card[0].text}</span>
@@ -291,4 +298,13 @@ function getAssignedForOverlay(assigned) {
     });
     lines += `</div>`;
     return lines;
+}
+
+
+function openAddtaskOverlay() {
+    let background = document.getElementById("overlayBackground");
+    background.classList.remove("d-none");
+    let taskoverlay = document.getElementById('addtaskOverlay');
+    taskoverlay.classList.remove('d-none');
+    taskoverlay.classList.remove('hidden');
 }

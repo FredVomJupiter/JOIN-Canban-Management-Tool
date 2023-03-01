@@ -17,6 +17,105 @@
 <body onload="init();">
 
     <div class="background"></div>
+    
+    <!-- All Overlays Are Here -->
+    <div class="overlay-background d-none" id="overlayBackground" onclick="closeOverlay()">
+
+        <!-- Card Overlay -->
+        <div class="board-taskoverlay-container d-none" id="overlayCard" onclick="stopPropagation(event)">
+        </div>
+
+        <!-- Addtask Overlay -->
+        <div class="addtask-overlay-container d-none" id="addtaskOverlay" onclick="stopPropagation(event)">
+            <!-- Content left side -->
+            <div class="addtask-leftcontainer">
+                <div class="addtask-leftcontainer-title">
+                    <span class="addtask-leftcontainer-titletext">Title</span>
+                    <input class="addtask-leftcontainer-titlefield" type="text" placeholder="Enter a title"
+                        required>
+                </div>
+
+                <div class="addtask-leftcontainer-description">
+                    <span class="addtask-leftcontainer-descriptiontext">Description</span>
+                    <textarea class="addtask-leftcontainer-descriptionfield" cols="1" rows="2"
+                        placeholder="Enter a description"></textarea>
+                </div>
+
+                <div class="addtask-leftcontainer-category">
+                    <span class="addtask-leftcontainer-categorytext">Category</span>
+                    <div class="addtask-leftcontainer-categoryfield">
+                        Select task category
+                        <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
+                    </div>
+                </div>
+
+                <div class="addtask-leftcontainer-assigned">
+                    <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
+                    <div class="addtask-leftcontainer-assignedfield">
+                        Select contacts to assign
+                        <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="addtask-line"></div>
+
+            <!-- Content right side -->
+            <div class="addtask-rightcontainer">
+                <div class="addtask-close-btn" onclick="closeOverlay()">X</div>
+                <div class="addtask-rightcontainer-date">
+                    <span class="addtask-rightcontainer-datetext">Due date</span>
+                    <input class="addtask-rightcontainer-datefield" type="date" placeholder="dd/mm/yyyy">
+                </div>
+
+                <div class="addtask-rightcontainer-prio">
+                    <span class="addtask-rightcontainer-priotext">Prio</span>
+                    <div class="addtask-rightcontainer-priobtns">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;">
+                            <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
+                            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
+                        </div>
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;">
+                            <span class="addtask-rightcontainer-priobtns-text">Medium</span>
+                            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
+                        </div>
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;">
+                            <span class="addtask-rightcontainer-priobtns-text">Low</span>
+                            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="addtask-rightcontainer-subtask">
+                    <span class="addtask-rightcontainer-subtasktext">Subtask</span>
+                    <div class="addtask-rightcontainer-subtaskborder">
+                        <input class="addtask-rightcontainer-subtaskfield" type="text"
+                            placeholder="Add new subtask">
+                        <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg">
+                    </div>
+                    <div class="addtask-rightcontainer-subtask-wrap">
+                        <input class="addtask-rightcontainer-subtask-checkbox" type="checkbox">
+                        <span class="addtask-rightcontainer-subtask-checkboxtext">Subtask 1</span>
+                    </div>
+                </div>
+
+                <!-- Buttons bottom right -->
+                <div class="addtask-button-container">
+                    <div class="addtask-button-inner">
+                        <div class="addtask-button-clear">
+                            Clear
+                            <div class="addtask-button-clearicon"></div>
+                        </div>
+                        <div class="addtask-button-createtask">
+                            Add task
+                            <img class="addtask-button-createicon" src="./assets/img/check.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Top Navigation Bar -->
     <header class="topnav">
@@ -49,7 +148,8 @@
                 <div><img src="./assets/img/contacts_icon.svg"></div>
                 <p class="sidebar-menu-text">Contacts</p>
             </div>
-            <div class="sidebar-menu-option-light" style="margin-top: 140px" id="menu-legal" onclick="openPage('legal')">
+            <div class="sidebar-menu-option-light" style="margin-top: 140px" id="menu-legal"
+                onclick="openPage('legal')">
                 <div><img src="./assets/img/info_icon.svg"></div>
                 <p class="sidebar-menu-text">Legal notice</p>
             </div>
@@ -59,6 +159,7 @@
     <!-- Content Container for summary, board, addtask, contacts -->
     <div class="container">
 
+        <!-- SUMMARY -->
         <main class="summary" id="summary">
 
             <!-- Title on top -->
@@ -151,6 +252,7 @@
             </div>
         </main>
 
+        <!-- BOARD -->
         <main class="board d-none" id="board">
 
             <!-- Title on top -->
@@ -175,7 +277,7 @@
                     </div>
 
                     <!-- addTask Button -->
-                    <div class="board-addtask-button">
+                    <div class="board-addtask-button" onclick="openAddtaskOverlay()">
                         <span class="board-addtask-button-text">Add task</span>
                         <div class="board-addtask-button-icon-outer">
                             <div class="board-addtask-button-icon-inner">+
@@ -192,7 +294,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">To do</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
                     </div>
 
                     <div class="canvas" id="todo-canvas"></div>
@@ -202,7 +304,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">In Progress</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
                     </div>
 
                     <div class="canvas" id="progress-canvas"></div>
@@ -212,7 +314,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">Awaiting Feedback</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
                     </div>
 
                     <div class="canvas" id="feedback-canvas"></div>
@@ -223,23 +325,16 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">Done</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
                     </div>
 
                     <div class="canvas" id="done-canvas"></div>
                 </div>
 
             </div>
-
-            <!-- Task Overlay -->
-            <div class="board-taskoverlay-background d-none" id="overlay" onclick="closeTaskOverlay()">
-                <div class="board-taskoverlay-container" id="overlayCard" onclick="stopPropagation(event)">
-
-                </div>
-            </div>
-
         </main>
 
+        <!-- ADDTASK -->
         <main class="addtask d-none" id="addtask">
 
             <!-- Title -->
@@ -265,7 +360,7 @@
                     <div class="addtask-leftcontainer-category">
                         <span class="addtask-leftcontainer-categorytext">Category</span>
                         <div class="addtask-leftcontainer-categoryfield">
-                            Select task Category
+                            Select task category
                             <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
                         </div>
                     </div>
@@ -336,6 +431,7 @@
             </div>
         </main>
 
+        <!-- CONTACTS -->
         <main class="contacts d-none" id="contacts">
 
             <!-- Title -->
@@ -471,7 +567,7 @@
                     </div>
                     <div class="contact-canvas-namewrap">
                         <span class="contact-canvas-name">Anton Mayer</span>
-                        <div class="contact-canvas-addtaskwrap">
+                        <div class="contact-canvas-addtaskwrap" onclick="openAddtaskOverlay()">
                             <img class="contact-canvas-addtask-icon" src="./assets/img/addtask_blue.svg">
                             <span class="contact-canvas-addtast-text">Add task</span>
                         </div>
@@ -505,6 +601,7 @@
 
         </main>
 
+        <!-- LEGAL -->
         <main class="legal d-none" id="legal">
 
             <!-- Content -->
@@ -544,6 +641,7 @@
 
         </main>
 
+        <!-- HELP -->
         <main class="help d-none" id="help">
 
             <!-- Content -->
