@@ -2235,6 +2235,7 @@ body {
     border: 1px solid #29ABE2;
 }
 
+/** Add contact overlay **/
 .addcontact-task-close {
     position: fixed;
     align-self: flex-start;
@@ -2379,7 +2380,6 @@ body {
     padding: 18px 10px;
     gap: 10px;
     width: 136px;
-    height: 61px;
     font-size: 21px;
     border: 1px solid #2A3647;
     border-radius: 10px;
@@ -2415,7 +2415,6 @@ body {
     justify-content: center;
     padding: 18px 10px;
     gap: 10px;
-    height: 61px;
     background: #2A3647;
     color: #FFFFFF;
     font-size: 21px;
