@@ -51,7 +51,7 @@ let cards = [
         group: "Design",
         title: "Website redesign",
         text: "Modify the contents of the main website...",
-        date: new Date("05.08.2022"),
+        date: "",
         priority: "low",
         assigned: ["contact0", "contact1", "contact4", "contact5"],
         subtask: [{ text: "subtask 1", status: 1 }, { text: "subtask 2", status: 0 }]

@@ -333,7 +333,12 @@ function templateOverlayCardHtml(cardId) {
 
 
 function returnFormatedDate(date) {
-    return monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+    if (date) {
+        return monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+    } else {
+        return "No date specified"
+    }
+    
 }
 
 
@@ -651,7 +656,7 @@ function templateContactDetailsHtml(name, email, phone) {
             </div>
             <div class="contact-canvas-innerwrap">
                 <span class="contact-canvas-innertitle">Phone</span>
-                <span class="contact-canvas-phone">+${phone}</span>
+                <span class="contact-canvas-phone">${phone}</span>
             </div>
         </div>
     `;
