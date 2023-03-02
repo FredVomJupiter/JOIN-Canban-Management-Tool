@@ -133,8 +133,9 @@
                     <div class="addcontact-form-input-container">
                         <input class="addcontact-input-email" type="email" placeholder="Email" required>
                     </div>
-                    <input class="addcontact-input-phone" type="tel" placeholder="Phone" pattern='[0-9]{8,10}' required
-                    oninvalid="setCustomValidity('Only numbers with 8-10 digits')">
+                    <input class="addcontact-input-phone" type="tel" placeholder="Phone" pattern='[0-9]{8,10}'
+                    oninvalid="setCustomValidity('Only numbers with min 8 to max 10 digits.')" 
+                    onvalid="setCustomValidity('')">
                     <div class="addcontact-submit-btns">
                         <input class="addcontact-clear-btn" type="button" value="Clear">
                         <input class="addcontact-create-btn" type="submit" value="Create contact">
