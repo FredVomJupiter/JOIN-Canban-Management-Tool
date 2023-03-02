@@ -413,3 +413,12 @@ function countDone() {
 }
 
 // End Functions for Summary Page
+
+// Functions for Contacts Page
+
+function openAddcontactOverlay() {
+    let background = document.getElementById("overlayBackground");
+    background.classList.remove("d-none");
+    let addcontact = document.getElementById('addcontactOverlay');
+    addcontact.classList.remove('d-none');
+}
