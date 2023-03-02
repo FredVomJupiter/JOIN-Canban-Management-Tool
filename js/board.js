@@ -490,12 +490,12 @@ function openEditcontactOverlay(name) {
     let editcontact = document.getElementById('editcontactOverlay');
     editcontact.classList.remove('d-none');
     editcontact.innerHTML = "";
-    editcontact.innerHTML = renderEditcontactOverlay(name);
+    let filtered = contacts.filter(contact => contact.name == name);
+    editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone);
 }
 
 
-function renderEditcontactOverlay(name) {
-    let filtered = contacts.filter(contact => contact.name == name);
+function renderEditcontactOverlay(name, email, phone) {
     return `
         <img class="editcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
         <div class="editcontact-title-container">
@@ -506,16 +506,16 @@ function renderEditcontactOverlay(name) {
         </div>
         <div class="editcontact-form">
             <div class="editcontact-user-badge">
-                <span class="editcontact-username">${returnInitials(filtered[0].name)}</span>
+                <span class="editcontact-username">${returnInitials(name)}</span>
             </div>
             <form class="editcontact-form-right">
                 <div class="editcontact-form-input-container">
-                    <input class="editcontact-input-profile" placeholder="Name" value="${filtered[0].name}">
+                    <input class="editcontact-input-profile" placeholder="Name" value="${name}">
                 </div>
                 <div class="editcontact-form-input-container">
-                    <input class="editcontact-input-email" type="email" placeholder="Email" value="${filtered[0].email}">
+                    <input class="editcontact-input-email" type="email" placeholder="Email" value="${email}">
                 </div>
-                <input class="editcontact-input-phone" type="tel" placeholder="Phone" value="${filtered[0].phone}">
+                <input class="editcontact-input-phone" type="tel" placeholder="Phone" value="${phone}">
                 <div class="editcontact-submit-btns">
                     <div class="editcontact-create-btn">Save
                         <img src="./assets/img/check.svg">
