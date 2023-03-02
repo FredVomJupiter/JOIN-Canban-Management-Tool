@@ -484,11 +484,46 @@ function openAddcontactOverlay() {
 }
 
 
-function openEditcontactOverlay() {
+function openEditcontactOverlay(name) {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
     let editcontact = document.getElementById('editcontactOverlay');
     editcontact.classList.remove('d-none');
+    editcontact.innerHTML = "";
+    editcontact.innerHTML = renderEditcontactOverlay(name);
+}
+
+
+function renderEditcontactOverlay(name) {
+    let filtered = contacts.filter(contact => contact.name == name);
+    return `
+        <img class="editcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
+        <div class="editcontact-title-container">
+            <img src="./assets/img/logo_white.svg" alt="logo">
+            <div class="editcontact-title">Edit contact</div>
+            <div class="editcontact-subtitle">Tasks are better with a team</div>
+            <img src="./assets/img/horizontal_blue_line.svg">
+        </div>
+        <div class="editcontact-form">
+            <div class="editcontact-user-badge">
+                <span class="editcontact-username">${returnInitials(filtered[0].name)}</span>
+            </div>
+            <form class="editcontact-form-right">
+                <div class="editcontact-form-input-container">
+                    <input class="editcontact-input-profile" placeholder="Name" value="${filtered[0].name}">
+                </div>
+                <div class="editcontact-form-input-container">
+                    <input class="editcontact-input-email" type="email" placeholder="Email" value="${filtered[0].email}">
+                </div>
+                <input class="editcontact-input-phone" type="tel" placeholder="Phone" value="${filtered[0].phone}">
+                <div class="editcontact-submit-btns">
+                    <div class="editcontact-create-btn">Save
+                        <img src="./assets/img/check.svg">
+                    </div>
+                </div>
+            </form>
+        </div>
+    `;
 }
 
 
@@ -579,7 +614,7 @@ function templateContactDetailsHtml(name, email, phone) {
 
         <div class="contact-canvas-infowrap">
             <span class="contact-canvas-info-text">Contact Information</span>
-            <div class="contact-canvas-info-editwrap" onclick="openEditcontactOverlay()">
+            <div class="contact-canvas-info-editwrap" onclick="openEditcontactOverlay('${name}')">
                 <img src="./assets/img/black_pencil.svg">
                 <span class="contact-canvas-info-edittext">Edit Contact</span>
             </div>
