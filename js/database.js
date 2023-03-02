@@ -75,36 +75,43 @@ let cards = [
 
 let contacts = [
     {
+        id: "contact0",
         name: "Anton Mayer",
         email: "anton@gmail.com",
         phone: "+49 1111 111 111"
     },
     {
+        id: "contact1",
         name: "Anja Schulz",
         email: "schulz@hotmail.com",
         phone: "+49 2222 222 222"
     },
     {
+        id: "contact2",
         name: "Horst Buddler",
         email: "horsti@gmx.de",
         phone: "+49 3333 333 333"
     },
     {
+        id: "contact3",
         name: "Tefaldine Erigalosimischilli",
         email: "t.erigalosimischilli@aol.com",
         phone: "+49 4444 444 444"
     },
     {
+        id: "contact4",
         name: "Vino Jedentag",
         email: "holladiewaldfee@mail.de",
         phone: "+49 5555 555 555"
     },
     {
+        id: "contact5",
         name: "Ibrahimovic Zoltan",
         email: "zoltan.derschlingel@hotmail.com",
         phone: "+49 6666 666 666"
     },
     {
+        id: "contact6",
         name: "Der Mitdemlangennamenwiekrass",
         email: "der.mitderlangenemailadresse@gmail.de",
         phone: "+49 7777 777 777"

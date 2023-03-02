@@ -2000,6 +2000,7 @@ body {
     display: flex;
     align-items: center;
     color: #FFFFFF;
+    white-space: nowrap;
 }
 
 .contact-template-email {

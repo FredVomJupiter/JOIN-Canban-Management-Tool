@@ -456,12 +456,12 @@ function filterContactByLetter(contacts, letter) {
 
 function templateContactListHtml(contact) {
     return `
-        <div class="contact-template-wrap" onclick="showContact('${contact.name}')">
+        <div class="contact-template-wrap" id="${contact.id}wrap" onclick="showContact('${contact.name}')">
             <div class="contact-template-circle">
                 ${returnInitials(contact.name)}
             </div>
             <div class="contact-template-textwrap">
-                <span class="contact-template-name">${contact.name}</span>
+                <span class="contact-template-name" id="${contact.id}name">${contact.name}</span>
                 <span class="contact-template-email">${contact.email}</span>
             </div>
         </div>
@@ -484,8 +484,20 @@ function templateContactLetter(letter) {
 function showContact(name) {
     let contact = contacts.filter(contact => contact.name == name);
     let contactCanvas = document.getElementById('contactCanvas');
+    markSelectedContact(contact[0].id);
     contactCanvas.innerHTML = "";
     contactCanvas.innerHTML = templateContactDetailsHtml(contact[0].name, contact[0].email, contact[0].phone);
+}
+
+
+function markSelectedContact(id) {
+    renderContactList();
+    let wrapper = document.getElementById(`${id}wrap`);
+    wrapper.classList.remove('contact-template-wrap');
+    wrapper.classList.add('contact-template-wrap-dark');
+    let name = document.getElementById(`${id}name`);
+    name.classList.remove('contact-template-name');
+    name.classList.add('contact-template-name-light');
 }
 
 
