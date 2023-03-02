@@ -7,7 +7,7 @@ function init() {
 }
 
 
-// Render process
+// Render Process for Board Page
 function renderCards() {
     renderTodo();
     renderProgress();
@@ -82,6 +82,7 @@ function templateCardHtml(card) {
         </div>
     `
 }
+// End Render Process for Board Page
 
 
 function templateProgressbarHtml(card) {
@@ -230,6 +231,8 @@ function closeOverlay() {
     let taskoverlay = document.getElementById('addtaskOverlay');
     taskoverlay.classList.add('d-none');
     taskoverlay.classList.add('hidden');
+    let addcontact = document.getElementById('addcontactOverlay');
+    addcontact.classList.add('d-none');
 }
 
 
@@ -313,6 +316,7 @@ function openAddtaskOverlay() {
     taskoverlay.classList.remove('hidden');
 }
 
+// Functions for Summary Page
 
 function updateCounters() {
     countTasks();
@@ -407,3 +411,5 @@ function countDone() {
     doneCounter.innerHTML = "";
     doneCounter.innerHTML = cards.filter(card => card.category == "Done").length;
 }
+
+// End Functions for Summary Page

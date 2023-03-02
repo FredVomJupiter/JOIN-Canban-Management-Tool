@@ -80,17 +80,17 @@
 }
 
 .input-email {
-    background-image: url("../assets/img/add_contact/mail-icon.png");
+    background-image: url("../../assets/img/mail.svg");
     background-repeat: no-repeat;
 }
 
 .input-profile {
-    background-image: url("../assets/img/add_contact/profile-icon.png");
+    background-image: url("../../assets/img/username.svg");
     background-repeat: no-repeat;
 }
 
 .input-phone {
-    background-image: url('../assets/img/add_contact/phone-icon.png');
+    background-image: url('../../assets/img/phone.svg');
     background-repeat: no-repeat;
 }
 
@@ -104,28 +104,20 @@
 .contact-title {
     width: 366px;
     height: 73px;
-    /* Version 2/t1 */
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
-    /* or 73px */
-    /* white */
     color: #FFFFFF;
 }
 
 .contact-subtitle {
     width: 371px;
     height: 32px;
-    /* Version 2/t5 */
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    line-height: 120%;
-    /* or 32px */
-    /* white */
     color: #FFFFFF;
 }
 
@@ -169,12 +161,6 @@
 
 .user-badge img {
     width: 100%;
-
-   /* position: absolute;
-    width: 120px;
-    height: 120px;
-    left: 86px;
-    top: 161px;*/
 }
 
 .clear-btn {
@@ -195,11 +181,23 @@
     transition: 100ms ease-in-out;
 }
 
+.clear-btn-icon {
+    height: 24px;
+    width: 24px;
+    background-image: url('../../assets/img/clear.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .clear-btn:hover {
     color: #29ABE2;
     border: 2px solid #29ABE2;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
+}
+
+.clear-btn:hover .clear-btn-icon {
+    background-image: url('../../assets/img/clear_blue.svg');
 }
 
 .create-btn {
