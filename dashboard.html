@@ -61,7 +61,7 @@
 
             <!-- Content right side -->
             <div class="addtask-rightcontainer">
-                <div class="addtask-close-btn" onclick="closeOverlay()">X</div>
+                <div class="addtask-close-btn" onclick="closeOverlay()"></div>
                 <div class="addtask-rightcontainer-date">
                     <span class="addtask-rightcontainer-datetext">Due date</span>
                     <input class="addtask-rightcontainer-datefield" type="date" placeholder="dd/mm/yyyy">
@@ -128,19 +128,15 @@
                 </div>
                 <form class="addcontact-form-right">
                     <div class="addcontact-form-input-container">
-                        <input class="addcontact-input-profile" placeholder="Name">
+                        <input class="addcontact-input-profile" placeholder="Name" required>
                     </div>
                     <div class="addcontact-form-input-container">
-                        <input class="addcontact-input-email" type="email" placeholder="Email">
+                        <input class="addcontact-input-email" type="email" placeholder="Email" required>
                     </div>
-                    <input class="addcontact-input-phone" type="tel" placeholder="Phone">
+                    <input class="addcontact-input-phone" type="tel" placeholder="Phone" required>
                     <div class="addcontact-submit-btns">
-                        <div class="addcontact-clear-btn">Clear
-                            <div class="addcontact-clear-btn-icon"></div>
-                        </div>
-                        <div class="addcontact-create-btn">Create contact
-                            <img src="./assets/img/check.svg">
-                        </div>
+                        <input class="addcontact-clear-btn" type="button" value="Clear">
+                        <input class="addcontact-create-btn" type="submit" value="Create contact">
                     </div>
                 </form>
             </div>

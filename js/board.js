@@ -84,6 +84,7 @@ function templateCardHtml(card) {
     `
 }
 
+
 function filterCards() {
     let searchField = document.getElementById('searchField').value.toLowerCase();
     let filteredList = [];
@@ -142,7 +143,6 @@ function renderFilteredDone(filteredList) {
         done.innerHTML += templateCardHtml(card);
     });
 }
-// End Render Process for Board Page
 
 
 function templateProgressbarHtml(card) {
@@ -198,9 +198,10 @@ function templateAssignmentsHtml(card) {
 
 
 function returnOneCircle(card) {
+    console.log(returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name));
     return `
             <div class="board-circleleft">
-                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
         `
 }
@@ -209,10 +210,10 @@ function returnOneCircle(card) {
 function returnTwoCircles(card) {
     return `
             <div class="board-circleleft">
-                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
             <div class="board-circlemiddle">
-                <span class="board-circle-text">${returnInitials(card.assigned[1])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[1])[0].name)}</span>
             </div>
         `
 }
@@ -221,13 +222,13 @@ function returnTwoCircles(card) {
 function returnThreeCircles(card) {
     return `
             <div class="board-circleleft">
-                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
             <div class="board-circlemiddle">
-                <span class="board-circle-text">${returnInitials(card.assigned[1])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[1])[0].name)}</span>
             </div>
             <div class="board-circleright">
-                <span class="board-circle-text">${returnInitials(card.assigned[2])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[2])[0].name)}</span>
             </div>
         `
 }
@@ -236,10 +237,10 @@ function returnThreeCircles(card) {
 function returnMoreCircles(card) {
     return `
             <div class="board-circleleft">
-                <span class="board-circle-text">${returnInitials(card.assigned[0])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
             <div class="board-circlemiddle">
-                <span class="board-circle-text">${returnInitials(card.assigned[1])}</span>
+                <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[1])[0].name)}</span>
             </div>
             <div class="board-circleright">
                 <span class="board-circle-text">+${card.assigned.length - 2}</span>
@@ -274,6 +275,8 @@ function templatePriorityHtml(card) {
         `
     }
 }
+
+// End Board Render Process
 
 
 function showCardDetails(cardId) {
@@ -315,16 +318,22 @@ function templateOverlayCardHtml(cardId) {
     // .filter returns an array, therefore (although only one card per id exists) card[0] must be called, to acces the key-values
     let card = cards.filter(card => card.id == cardId);
     return `
-        <div class="board-taskoverlay-close-btn" onclick="closeOverlay()">X</div>
+        <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
         <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].group}</div>
         <span class="board-taskoverlay-title">${card[0].title}</span>
         <span class="board-taskoverlay-text">${card[0].text}</span>
-        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${card[0].date}</span></div>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(card[0].date)}</span></div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${getPriorityForOverlay(card[0].priority)}</div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span><div class="board-overlay-subtasks">${getSubtasksForOverlay(card[0].subtask)}</div></div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
         ${getAssignedForOverlay(card[0].assigned)}
+        <div class="board-taskoverlay-edit"></div>
     `
+}
+
+
+function returnFormatedDate(date) {
+    return monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
 }
 
 
@@ -359,9 +368,9 @@ function getAssignedForOverlay(assigned) {
         lines += `
             <div class="board-taskoverlay-line">
                 <div class="board-circleleft">
-                    <span class="board-circle-text">${returnInitials(person)}</span>
+                    <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == person)[0].name)}</span>
                 </div>
-                <span class="board-taskoverlay-value">${person}</span>
+                <span class="board-taskoverlay-value">${contacts.filter(contact => contact.id == person)[0].name}</span>
             </div>
         `;
     });
@@ -491,11 +500,11 @@ function openEditcontactOverlay(name) {
     editcontact.classList.remove('d-none');
     editcontact.innerHTML = "";
     let filtered = contacts.filter(contact => contact.name == name);
-    editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone);
+    editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone, filtered[0].id);
 }
 
 
-function renderEditcontactOverlay(name, email, phone) {
+function renderEditcontactOverlay(name, email, phone, id) {
     return `
         <img class="editcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
         <div class="editcontact-title-container">
@@ -510,20 +519,35 @@ function renderEditcontactOverlay(name, email, phone) {
             </div>
             <form class="editcontact-form-right">
                 <div class="editcontact-form-input-container">
-                    <input class="editcontact-input-profile" placeholder="Name" value="${name}">
+                    <input class="editcontact-input-profile" placeholder="Name" id="inputName" value="${name}">
                 </div>
                 <div class="editcontact-form-input-container">
-                    <input class="editcontact-input-email" type="email" placeholder="Email" value="${email}">
+                    <input class="editcontact-input-email" type="email" placeholder="Email" id="inputEmail" value="${email}">
                 </div>
-                <input class="editcontact-input-phone" type="tel" placeholder="Phone" value="${phone}">
+                <input class="editcontact-input-phone" type="tel" placeholder="Phone" id="inputPhone" value="${phone}">
                 <div class="editcontact-submit-btns">
-                    <div class="editcontact-create-btn">Save
+                    <div class="editcontact-create-btn" onclick="saveContact('${id}')">Save
                         <img src="./assets/img/check.svg">
                     </div>
                 </div>
             </form>
         </div>
     `;
+}
+
+
+function saveContact(id) {
+    contacts.forEach(contact => {
+        if (contact.id == id) {
+            contact.name = document.getElementById('inputName').value;
+            contact.email = document.getElementById('inputEmail').value;
+            contact.phone = document.getElementById('inputPhone').value;
+        }
+    });
+    closeOverlay();
+    renderContactList();
+    showContact(id);
+    renderCards();
 }
 
 
@@ -550,7 +574,7 @@ function filterContactByLetter(contacts, letter) {
 
 function templateContactListHtml(contact) {
     return `
-        <div class="contact-template-wrap" id="${contact.id}wrap" onclick="showContact('${contact.name}')">
+        <div class="contact-template-wrap" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
             <div class="contact-template-circle">
                 ${returnInitials(contact.name)}
             </div>
@@ -575,8 +599,8 @@ function templateContactLetter(letter) {
 }
 
 
-function showContact(name) {
-    let contact = contacts.filter(contact => contact.name == name);
+function showContact(id) {
+    let contact = contacts.filter(contact => contact.id == id);
     let contactCanvas = document.getElementById('contactCanvas');
     markSelectedContact(contact[0].id);
     contactCanvas.innerHTML = "";
