@@ -148,6 +148,7 @@ body {
     font-size: 16px;
     color: #FFFFFF;
     flex: none;
+    user-select: none;
 }
 
 /** Content Container **/
@@ -1113,6 +1114,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px 8px;
     gap: 10px;
     width: 35px;
@@ -1128,6 +1130,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px 8px;
     gap: 10px;
     width: 35px;
@@ -1144,6 +1147,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px 8px;
     gap: 10px;
     width: 35px;
@@ -1160,7 +1164,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-
     color: #FFFFFF;
 }
 
@@ -1886,9 +1889,6 @@ body {
     gap: 10px;
     width: 357px;
     height: 60px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
 .contact-alphabet-text {
@@ -1901,9 +1901,6 @@ body {
     display: flex;
     align-items: center;
     color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
 .contact-line-container {
@@ -1914,9 +1911,6 @@ body {
     gap: 10px;
     width: 347px;
     height: 28px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 .contact-line {
@@ -1924,12 +1918,10 @@ body {
     height: 0px;
     border: 1px solid #D1D1D1;
     border-radius: 3px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
 .contact-template-wrap {
+    cursor: pointer;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -1938,9 +1930,24 @@ body {
     gap: 35px;
     background: #FFFFFF;
     border-radius: 10px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
+    overflow-x: hidden;
+}
+
+.contact-template-wrap:hover {
+    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+}
+
+.contact-template-wrap-dark {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 35px;
+    border-radius: 10px;
+    overflow-x: hidden;
+    background: #2A3647;
 }
 
 .contact-template-circle {
@@ -1953,9 +1960,6 @@ body {
     height: 42px;
     background: #FFFFFF;
     border-radius: 45px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -1966,6 +1970,8 @@ body {
     color: #FFFFFF;
     background: #FF7A00;
     border: 1px solid #FFFFFF;
+    flex: none;
+    flex-grow: 0;
 }
 
 .contact-template-textwrap {
@@ -1973,9 +1979,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 .contact-template-name {
@@ -1986,9 +1989,17 @@ body {
     display: flex;
     align-items: center;
     color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    white-space: nowrap;
+}
+
+.contact-template-name-light {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
 }
 
 .contact-template-email {
@@ -2000,14 +2011,11 @@ body {
     align-items: center;
     color: #007CEE;
     flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 .contact-canvas {
     display: flex;
     align-items: flex-start;
-    overflow-y: scroll;
     padding-left: 553px;
     padding-top: 100px;
     padding-right: 25px;
@@ -2077,6 +2085,7 @@ body {
     display: flex;
     align-items: center;
     color: #000000;
+    white-space: nowrap;
 }
 
 .contact-canvas-addtaskwrap {
@@ -2744,5 +2753,4 @@ body {
     font-size: 16px;
     color: #000000;
 }
-
 /** End Help Content **/

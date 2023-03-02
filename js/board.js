@@ -1,9 +1,10 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December"];
+    "July", "August", "September", "October", "November", "December"];
 
 function init() {
     renderCards();
-    updateCounters()
+    updateCounters();
+    renderContactList();
 }
 
 
@@ -271,7 +272,7 @@ function templateOverlayCardHtml(cardId) {
 function getPriorityForOverlay(prio) {
     if (prio == "urgent") {
         return '<img src="./assets/img/prio_overlay_urgent.svg"></img>';
-    } 
+    }
     if (prio == "medium") {
         return '<img src="./assets/img/prio_overlay_medium.svg"></img>';
     } else {
@@ -378,7 +379,7 @@ function returnDeadline() {
         let month = mostUrgentDeadline(urgentDeadlines).getMonth();
         let day = mostUrgentDeadline(urgentDeadlines).getDate();
         let year = mostUrgentDeadline(urgentDeadlines).getFullYear();
-        return monthNames[month] + " " + day + ", " +  year;
+        return monthNames[month] + " " + day + ", " + year;
     }
     if (urgentDeadlines.length == 0) {
         return "No urgent";
@@ -396,7 +397,7 @@ function mostUrgentDeadline(urgentDeadlines) {
     urgentDeadlines.forEach(urgent => {
         urgentDatesList.push(urgent.date);
     });
-    urgentDatesList.sort((a,b) => a-b);
+    urgentDatesList.sort((a, b) => a - b);
     return urgentDatesList[0];
 }
 
@@ -413,11 +414,9 @@ function countDone() {
     doneCounter.innerHTML = "";
     doneCounter.innerHTML = cards.filter(card => card.category == "Done").length;
 }
-
 // End Functions for Summary Page
 
 // Functions for Contacts Page
-
 function openAddcontactOverlay() {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
@@ -431,4 +430,99 @@ function openEditcontactOverlay() {
     background.classList.remove("d-none");
     let editcontact = document.getElementById('editcontactOverlay');
     editcontact.classList.remove('d-none');
+}
+
+
+function renderContactList() {
+    let contactList = document.getElementById('contactList');
+    contactList.innerHTML = "";
+    const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Other"];
+    alphabet.forEach(letter => {
+        if (filterContactByLetter(contacts, letter).length > 0) {
+            let filteredContacts = filterContactByLetter(contacts, letter);
+            contactList.innerHTML += templateContactLetter(letter);
+            filteredContacts.forEach(contact => {
+                contactList.innerHTML += templateContactListHtml(contact);
+            });
+        }
+    });
+}
+
+
+function filterContactByLetter(contacts, letter) {
+    return contacts.filter(contact => contact.name.charAt(0) == letter);
+}
+
+
+function templateContactListHtml(contact) {
+    return `
+        <div class="contact-template-wrap" onclick="showContact('${contact.name}')">
+            <div class="contact-template-circle">
+                ${returnInitials(contact.name)}
+            </div>
+            <div class="contact-template-textwrap">
+                <span class="contact-template-name">${contact.name}</span>
+                <span class="contact-template-email">${contact.email}</span>
+            </div>
+        </div>
+    `;
+}
+
+
+function templateContactLetter(letter) {
+    return `
+        <div class="contact-alphabet-wrap">
+            <span class="contact-alphabet-text">${letter}</span>
+        </div>
+        <div class="contact-line-container">
+            <div class="contact-line"></div>
+        </div>
+    `;
+}
+
+
+function showContact(name) {
+    let contact = contacts.filter(contact => contact.name == name);
+    let contactCanvas = document.getElementById('contactCanvas');
+    contactCanvas.innerHTML = "";
+    contactCanvas.innerHTML = templateContactDetailsHtml(contact[0].name, contact[0].email, contact[0].phone);
+}
+
+
+function templateContactDetailsHtml(name, email, phone) {
+    return `
+        <div class="contact-canvas-titlewrap">
+            <div class="contact-canvas-circlewrap">
+                <div class="contact-canvas-circleorange">
+                    <span class="contact-canvas-circletext">${returnInitials(name)}</span>
+                </div>
+            </div>
+            <div class="contact-canvas-namewrap">
+                <span class="contact-canvas-name">${name}</span>
+                <div class="contact-canvas-addtaskwrap" onclick="openAddtaskOverlay()">
+                    <img class="contact-canvas-addtask-icon" src="./assets/img/addtask_blue.svg">
+                    <span class="contact-canvas-addtast-text">Add task</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-canvas-infowrap">
+            <span class="contact-canvas-info-text">Contact Information</span>
+            <div class="contact-canvas-info-editwrap" onclick="openEditcontactOverlay()">
+                <img src="./assets/img/black_pencil.svg">
+                <span class="contact-canvas-info-edittext">Edit Contact</span>
+            </div>
+        </div>
+
+        <div class="contact-canvas-detailswrap">
+            <div class="contact-canvas-innerwrap">
+                <span class="contact-canvas-innertitle">Email</span>
+                <span class="contact-canvas-email">${email}</span>
+            </div>
+            <div class="contact-canvas-innerwrap">
+                <span class="contact-canvas-innertitle">Phone</span>
+                <span class="contact-canvas-phone">+${phone}</span>
+            </div>
+        </div>
+    `;
 }
