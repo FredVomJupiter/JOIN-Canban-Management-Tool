@@ -83,6 +83,65 @@ function templateCardHtml(card) {
         </div>
     `
 }
+
+function filterCards() {
+    let searchField = document.getElementById('searchField').value.toLowerCase();
+    let filteredList = [];
+    cards.forEach(card => {
+        if((card.title.toLowerCase()).includes(searchField) || (card.text.toLowerCase()).includes(searchField)) {
+            filteredList.push(card);
+        }
+    });
+    renderFilteredCards(filteredList);
+}
+
+
+function renderFilteredCards(filteredList) {
+    renderFilteredTodo(filteredList);
+    renderFilteredProgress(filteredList);
+    renderFilteredFeedback(filteredList);
+    renderFilteredDone(filteredList);
+}
+
+
+function renderFilteredTodo(filteredList) {
+    let todo = document.getElementById("todo-canvas");
+    todo.innerHTML = "";
+    let todoCards = filteredList.filter(card => card.category == "To do");
+    todoCards.forEach(card => {
+        todo.innerHTML += templateCardHtml(card);
+    });
+}
+
+
+function renderFilteredProgress(filteredList) {
+    let progress = document.getElementById("progress-canvas");
+    progress.innerHTML = "";
+    let progressCards = filteredList.filter(card => card.category == "In Progress");
+    progressCards.forEach(card => {
+        progress.innerHTML += templateCardHtml(card);
+    });
+}
+
+
+function renderFilteredFeedback(filteredList) {
+    let feedback = document.getElementById("feedback-canvas");
+    feedback.innerHTML = "";
+    let feedbackCards = filteredList.filter(card => card.category == "Awaiting Feedback");
+    feedbackCards.forEach(card => {
+        feedback.innerHTML += templateCardHtml(card);
+    });
+}
+
+
+function renderFilteredDone(filteredList) {
+    let done = document.getElementById("done-canvas");
+    done.innerHTML = "";
+    let doneCards = filteredList.filter(card => card.category == "Done");
+    doneCards.forEach(card => {
+        done.innerHTML += templateCardHtml(card);
+    });
+}
 // End Render Process for Board Page
 
 
