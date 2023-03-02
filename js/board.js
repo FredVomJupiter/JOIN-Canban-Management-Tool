@@ -233,6 +233,8 @@ function closeOverlay() {
     taskoverlay.classList.add('hidden');
     let addcontact = document.getElementById('addcontactOverlay');
     addcontact.classList.add('d-none');
+    let editcontact = document.getElementById('editcontactOverlay');
+    editcontact.classList.add('d-none');
 }
 
 
@@ -421,4 +423,12 @@ function openAddcontactOverlay() {
     background.classList.remove("d-none");
     let addcontact = document.getElementById('addcontactOverlay');
     addcontact.classList.remove('d-none');
+}
+
+
+function openEditcontactOverlay() {
+    let background = document.getElementById("overlayBackground");
+    background.classList.remove("d-none");
+    let editcontact = document.getElementById('editcontactOverlay');
+    editcontact.classList.remove('d-none');
 }
