@@ -12,6 +12,7 @@
     <script defer src="./js/menu-navigation.js"></script>
     <script defer src="./js/addcontact.js"></script>
     <script src="./js/editcontact.js"></script>
+    <script defer src="./js/addtask.js"></script>
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -28,33 +29,32 @@
         </div>
 
         <!-- Add Task Overlay -->
-        <div class="addtask-overlay-container d-none" id="addtaskOverlay" onclick="stopPropagation(event)">
+        <form class="addtask-overlay-container d-none" id="addtaskOverlay" onclick="stopPropagation(event)">
             <!-- Content left side -->
             <div class="addtask-leftcontainer">
                 <div class="addtask-leftcontainer-title">
                     <span class="addtask-leftcontainer-titletext">Title</span>
-                    <input class="addtask-leftcontainer-titlefield" type="text" placeholder="Enter a title" required>
+                    <input class="addtask-leftcontainer-titlefield" type="text" id="addtaskInputTitle"
+                        placeholder="Enter a title">
+                    <div class="error"></div>
                 </div>
 
                 <div class="addtask-leftcontainer-description">
                     <span class="addtask-leftcontainer-descriptiontext">Description</span>
                     <textarea class="addtask-leftcontainer-descriptionfield" cols="1" rows="2"
-                        placeholder="Enter a description"></textarea>
+                        id="addtaskInputDescription" placeholder="Enter a description"></textarea>
+                    <div class="error"></div>
                 </div>
 
                 <div class="addtask-leftcontainer-category">
                     <span class="addtask-leftcontainer-categorytext">Category</span>
-                    <div class="addtask-leftcontainer-categoryfield">
-                        Select task category
-                        <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
+                    <div class="addtask-leftcontainer-categoryfield" id="addtaskInputCategory">Select task category
                     </div>
                 </div>
 
                 <div class="addtask-leftcontainer-assigned">
                     <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
-                    <div class="addtask-leftcontainer-assignedfield">
-                        Select contacts to assign
-                        <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
+                    <div class="addtask-leftcontainer-assignedfield" id="addtaskInputAssigned">Select contacts to assign
                     </div>
                 </div>
             </div>
@@ -66,21 +66,22 @@
                 <div class="addtask-close-btn" onclick="closeOverlay()"></div>
                 <div class="addtask-rightcontainer-date">
                     <span class="addtask-rightcontainer-datetext">Due date</span>
-                    <input class="addtask-rightcontainer-datefield" type="date" placeholder="dd/mm/yyyy">
+                    <input class="addtask-rightcontainer-datefield" type="date" id="addtaskInputDate">
+                    <div class="error"></div>
                 </div>
 
                 <div class="addtask-rightcontainer-prio">
                     <span class="addtask-rightcontainer-priotext">Prio</span>
-                    <div class="addtask-rightcontainer-priobtns">
-                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;">
+                    <div class="addtask-rightcontainer-priobtns" id="addtaskOverlayPrio">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('urgent')">
                             <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
                         </div>
-                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('medium')">
                             <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
                         </div>
-                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('low')">
                             <span class="addtask-rightcontainer-priobtns-text">Low</span>
                             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
                         </div>
@@ -106,14 +107,11 @@
                             Clear
                             <div class="addtask-button-clearicon"></div>
                         </div>
-                        <div class="addtask-button-createtask">
-                            Add task
-                            <img class="addtask-button-createicon" src="./assets/img/check.svg">
-                        </div>
+                        <input class="addtask-button-createtask" type="submit" value="Add task">
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <!-- Add Contact Overlay-->
         <div class="addcontact-content d-none" id="addcontactOverlay" onclick="stopPropagation(event)">
@@ -142,7 +140,8 @@
                         <div class="error"></div>
                     </div>
                     <div class="addcontact-submit-btns">
-                        <input class="addcontact-clear-btn" type="button" value="Clear" onclick="clearNewcontactInputfields()">
+                        <input class="addcontact-clear-btn" type="button" value="Clear"
+                            onclick="clearNewcontactInputfields()">
                         <input class="addcontact-create-btn" type="submit" value="Create contact">
                     </div>
                 </form>
@@ -151,7 +150,7 @@
 
         <!-- Edit Contact Overlay -->
         <div class="editcontact-content d-none" id="editcontactOverlay" onclick="stopPropagation(event)">
-            
+
         </div>
 
     </div>
@@ -306,7 +305,8 @@
                     <div class="board-searchbar-border">
                         <div class="board-searchbar-outer">
                             <div class="board-searchbar-inner">
-                                <input class="board-searchbar-text" id="searchField" type="search" placeholder="Find Task" onkeyup="filterCards()">
+                                <input class="board-searchbar-text" id="searchField" type="search"
+                                    placeholder="Find Task" onkeyup="filterCards()">
                             </div>
                             <div class="board-searchbar-icon-wrap">
                                 <div class="board-searchbar-verticalline"></div>
@@ -462,7 +462,6 @@
                             </div>
                             <div class="addtask-button-createtask">
                                 Add task
-                                <img class="addtask-button-createicon" src="./assets/img/check.svg">
                             </div>
                         </div>
                     </div>
@@ -484,12 +483,12 @@
             <div class="contact-container">
                 <div class="contact-container-inner" id="contactList">
 
-                    
+
                 </div>
             </div>
 
             <div class="contact-canvas" id="contactCanvas">
-                
+
             </div>
 
             <div class="contact-addcontact-button" onclick="openAddcontactOverlay()">

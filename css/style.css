@@ -1375,6 +1375,51 @@ body {
     gap: 50px;
 }
 
+.addtask-leftcontainer-title.success input {
+    border-color: #09c372;
+}
+
+.addtask-leftcontainer-title.error input {
+    border-color: #ff3860;
+}
+
+.addtask-leftcontainer-title .error {
+    color: #ff3860;
+    font-family: 'Inter';
+    font-size: 12px;
+    height: 13px;
+}
+
+.addtask-leftcontainer-description.success textarea {
+    border-color: #09c372;
+}
+
+.addtask-leftcontainer-description.error textarea {
+    border-color: #ff3860;
+}
+
+.addtask-leftcontainer-description .error {
+    color: #ff3860;
+    font-family: 'Inter';
+    font-size: 12px;
+    height: 13px;
+}
+
+.addtask-rightcontainer-date.success input {
+    border-color: #09c372;
+}
+
+.addtask-rightcontainer-date.error textarea {
+    border-color: #ff3860;
+}
+
+.addtask-rightcontainer-date .error {
+    color: #ff3860;
+    font-family: 'Inter';
+    font-size: 12px;
+    height: 13px;
+}
+
 .addtask-leftcontainer {
     display: flex;
     flex-direction: column;
@@ -1498,11 +1543,9 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #000000;
-}
-
-.addtask-leftcontainer-dropdownicon {
-    width: 16px;
-    height: 8px;
+    background-image: url('../../assets/img/dropdown.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 18px);
 }
 
 .addtask-leftcontainer-assigned {
@@ -1544,6 +1587,9 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #000000;
+    background-image: url('../../assets/img/dropdown.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 18px);
 }
 
 .addtask-line {
@@ -1651,6 +1697,15 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #000000;
+}
+
+.redbackground {
+    background: #FF3D00;
+}
+
+.whitetext {
+    font-weight: 700;
+    color: #FFFFFF;
 }
 
 .addtast-rightcontainer-priobtns-icon {
@@ -1818,8 +1873,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
+    padding: 10px;
+    padding-right: 30px;
     width: 177px;
     height: 51px;
     background: #2A3647;
@@ -1829,16 +1884,18 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #FFFFFF;
+    border: none;
+    background-image: url('../../assets/img/check.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 25px);
 }
 
 .addtask-button-createtask:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.addtask-button-createicon {
-    width: 18px;
-    height: 18px;
+    background-image: url('../../assets/img/check.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 25px);
 }
 
 /* Ende Addtask Content */

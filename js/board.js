@@ -389,6 +389,7 @@ function openAddtaskOverlay() {
     let taskoverlay = document.getElementById('addtaskOverlay');
     taskoverlay.classList.remove('d-none');
     taskoverlay.classList.remove('hidden');
+    initNewTask();
 }
 
 // Functions for Summary Page
