@@ -176,3 +176,19 @@ function templateLow() {
         </div>
     `;
 }
+
+
+/**
+ * 
+ * TODO:
+ * 
+ * 1) Selection for Category
+ * 2) Selection for Assignment
+ * 3) Subtasks
+ * 
+ * 4) Saving the data
+ * 
+ * 5) the same for AddTask in Menu
+ * 
+ * 6) Edit Task button
+ */
