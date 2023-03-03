@@ -1,6 +1,7 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
+
 function init() {
     renderCards();
     updateCounters();
@@ -198,7 +199,6 @@ function templateAssignmentsHtml(card) {
 
 
 function returnOneCircle(card) {
-    console.log(returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name));
     return `
             <div class="board-circleleft">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
@@ -324,7 +324,6 @@ function templateOverlayCardHtml(cardId) {
         <span class="board-taskoverlay-text">${card[0].text}</span>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(card[0].date)}</span></div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${getPriorityForOverlay(card[0].priority)}</div>
-        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span><div class="board-overlay-subtasks">${getSubtasksForOverlay(card[0].subtask)}</div></div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
         ${getAssignedForOverlay(card[0].assigned)}
         <div class="board-taskoverlay-edit"></div>

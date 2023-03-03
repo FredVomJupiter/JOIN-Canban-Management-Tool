@@ -40,7 +40,7 @@ let contacts = [
         name: "Der Mitdemlangennamenwiekrass",
         email: "der.mitderlangenemailadresse@gmail.de",
         phone: "+49 7777 777 777"
-    },
+    }
 ];
 
 let cards = [
@@ -62,7 +62,7 @@ let cards = [
         color: "#9327FF",
         group: "Sales",
         title: "Call potential clients with a bananaphone",
-        text: "Make the product presentation to prospective buyers",
+        text: "Make the product presentation to prospective buyers while maintaining calm and drink a coup of tea with the boys from next door. Cheers mate!",
         date: new Date("08/07/2023"),
         priority: "urgent",
         assigned: ["contact0", "contact3", "contact6"],

@@ -1198,14 +1198,13 @@ body {
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
-    max-width: 500px;
+    max-width: 550px;
     max-height: 700px;
     padding: 50px;
     gap: 25px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-    overflow-y: scroll;
     z-index: 51;
 }
 
@@ -1231,7 +1230,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 61px;
+    font-size: 41px;
     color: #2A3647;
 }
 
@@ -1274,9 +1273,14 @@ body {
 
 .board-taskoverlay-box {
     display: flex;
+    height: 300px;
+    max-height: 300px;
+    max-width: 400px;
+    white-space: nowrap;
     flex-direction: column;
     align-items: flex-start;
-    gap: 25px;
+    gap: 10px;
+    overflow: scroll;
 }
 
 .board-taskoverlay-close-btn {
@@ -1285,7 +1289,7 @@ body {
     min-height: 25px;
     min-width: 25px;
     align-self: flex-end;
-    translate: 10px -20px;
+    translate: 25px -20px;
     background-image: url("../../assets/img/clear.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -1293,8 +1297,9 @@ body {
 
 .board-taskoverlay-edit {
     cursor: pointer;
-    display: flex;
+    position: fixed;
     align-self: flex-end;
+    translate: 25px 570px;
     width: 57px;
     min-height: 57px;
     background: #2A3647;
@@ -2306,10 +2311,25 @@ body {
     flex-direction: column;
 }
 
-.addcontact-form-input-container {
+.addcontact-form-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 18px;
+}
+
+.addcontact-form-container.success input {
+    border-color: #09c372;
+}
+
+.addcontact-form-container.error input {
+    border-color: #ff3860;
+}
+
+.addcontact-form-container .error {
+    color: #ff3860;
+    font-family: 'Inter';
+    font-size: 12px;
+    height: 13px;
 }
 
 .addcontact-form input {
@@ -2345,7 +2365,7 @@ body {
 
 input:invalid {
     font-size: 21px;
-    color: red;
+    color: #ff3860;
 }
 
 .addcontact-title {
