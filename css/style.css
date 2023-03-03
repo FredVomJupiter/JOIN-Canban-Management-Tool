@@ -2508,10 +2508,25 @@ input:invalid {
     flex-direction: column;
 }
 
-.editcontact-form-input-container {
+.editcontact-form-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 18px;
+}
+
+.editcontact-form-container.success input {
+    border-color: #09c372;
+}
+
+.editcontact-form-container.error input {
+    border-color: #ff3860;
+}
+
+.editcontact-form-container .error {
+    color: #ff3860;
+    font-family: 'Inter';
+    font-size: 12px;
+    height: 13px;
 }
 
 .editcontact-form input {
@@ -2586,7 +2601,6 @@ input:invalid {
     border: 3px solid white;
     overflow: hidden;
     margin-right: 80px;
-
 }
 
 .editcontact-user-badge span {
@@ -2605,25 +2619,27 @@ input:invalid {
 
 .editcontact-create-btn {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 18px 10px;
+    padding: 18px 10px !important;
+    width: 143px !important;
+    height: 61px !important;
     gap: 10px;
     background: #2A3647;
     color: #FFFFFF;
-    font-size: 21px;
-    border-radius: 10px;
+    border-radius: 10px !important;
     cursor: pointer;
-    border: none;
     transition: 100ms ease-in-out;
     font-family: 'Inter';
-    width: 143px;
+    background-image: url('../../assets/img/check.svg');
+    background-repeat: no-repeat;
 }
 
 .editcontact-create-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
+    background-image: url('../../assets/img/check.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 18px);
 }
 
 /** End Contacts Content **/

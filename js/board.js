@@ -504,11 +504,13 @@ function openEditcontactOverlay(name) {
     editcontact.classList.remove('d-none');
     editcontact.innerHTML = "";
     let filtered = contacts.filter(contact => contact.name == name);
-    editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone, filtered[0].id);
+    editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone);
+    contactId = filtered[0].id;
+    initEditDOM();
 }
 
 
-function renderEditcontactOverlay(name, email, phone, id) {
+function renderEditcontactOverlay(name, email, phone) {
     return `
         <img class="editcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
         <div class="editcontact-title-container">
@@ -519,39 +521,27 @@ function renderEditcontactOverlay(name, email, phone, id) {
         </div>
         <div class="editcontact-form">
             <div class="editcontact-user-badge">
-                <span class="editcontact-username">${returnInitials(name)}</span>
+                <img src="./assets/img/user_guest.svg">
             </div>
-            <form class="editcontact-form-right">
-                <div class="editcontact-form-input-container">
-                    <input class="editcontact-input-profile" placeholder="Name" id="inputName" value="${name}">
+            <form class="editcontact-form-right" id="formEditcontact">
+                <div class="editcontact-form-container">
+                    <input class="editcontact-input-profile" type="text" placeholder="Name" id="editcontactInputName" value="${name}">
+                    <div class="error"></div>
                 </div>
-                <div class="editcontact-form-input-container">
-                    <input class="editcontact-input-email" type="email" placeholder="Email" id="inputEmail" value="${email}">
+                <div class="editcontact-form-container">
+                    <input class="editcontact-input-email" type="text" placeholder="Email" id="editcontactInputEmail" value="${email}">
+                    <div class="error"></div>
                 </div>
-                <input class="editcontact-input-phone" type="tel" placeholder="Phone" id="inputPhone" value="${phone}">
+                <div class="editcontact-form-container">
+                    <input class="editcontact-input-phone" type="text" placeholder="Phone" id="editcontactInputPhone" value="${phone}">
+                    <div class="error"></div>
+                </div>
                 <div class="editcontact-submit-btns">
-                    <div class="editcontact-create-btn" onclick="saveContact('${id}')">Save
-                        <img src="./assets/img/check.svg">
-                    </div>
+                    <input class="editcontact-create-btn" type="submit" value="Save">
                 </div>
             </form>
         </div>
     `;
-}
-
-
-function saveContact(id) {
-    contacts.forEach(contact => {
-        if (contact.id == id) {
-            contact.name = document.getElementById('inputName').value;
-            contact.email = document.getElementById('inputEmail').value;
-            contact.phone = document.getElementById('inputPhone').value;
-        }
-    });
-    closeOverlay();
-    renderContactList();
-    showContact(id);
-    renderCards();
 }
 
 
