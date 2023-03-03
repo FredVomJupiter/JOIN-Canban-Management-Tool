@@ -19,7 +19,6 @@ function initNewTask() {
         assigned: [],
         subtask: []
     };
-    console.log(newTask);
 }
 
 
@@ -81,7 +80,7 @@ const validateTaskInputs = () => {
     }
 
     if (correctTitle & correctDescription & correctDate) {
-        console.log("SAVING DATA");
+        console.log(newTask);
         //saveNewTask();
     }
 };
@@ -120,7 +119,7 @@ function setPriority(type) {
     if (type === 'low') {
         prio.innerHTML = "";
         prio.innerHTML = templateLow();
-        newTask.priority = 'low'
+        newTask.priority = 'low';
     }
 }
 
