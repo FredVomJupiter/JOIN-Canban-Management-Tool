@@ -193,17 +193,18 @@ function templateLow() {
  * 6) Edit Task button
  */
 
+const menuCategory = document.getElementById('addtaskOverlayCategory');
+
 
 function expandCategories(location) {
     if (location === 'overlay') {
-        let menu = document.getElementById('addtaskOverlayCategory');
-        menu.onclick = "";
-        menu.parentElement.classList.add('category-grow');
-        menu.classList.add('categoryfield-grow');
-        menu.innerHTML = "";
-        menu.innerHTML = templateCategoryHeader();
+        menuCategory.onclick = "";
+        menuCategory.parentElement.classList.add('category-grow');
+        menuCategory.classList.add('categoryfield-grow');
+        menuCategory.innerHTML = "";
+        menuCategory.innerHTML = templateCategoryHeader();
         categories.forEach(category => {
-            menu.innerHTML += templateCategories(category);
+            menuCategory.innerHTML += templateCategories(category, location);
         });
     }
 }
@@ -219,9 +220,9 @@ function templateCategoryHeader() {
 }
 
 
-function templateCategories(category) {
+function templateCategories(category, location) {
     return `
-        <div class="addtask-leftcontainer-selection">
+        <div class="addtask-leftcontainer-selection" onclick="selectCategory('${category.name}', '${location}')">
             <span class="addtask-leftcontainer-categorytext">${category.name}</span>
             <div class="addtask-leftcontainer-circle" style="background:${category.color}"></div>
         </div>
@@ -231,11 +232,10 @@ function templateCategories(category) {
 
 function foldCategories(location) {
     if (location === 'overlay') {
-        let menu = document.getElementById('addtaskOverlayCategory');
-        menu.parentElement.classList.remove('category-grow');
-        menu.classList.remove('categoryfield-grow');
-        menu.innerHTML = "";
-        menu.outerHTML = resetCategory();
+        menuCategory.parentElement.classList.remove('category-grow');
+        menuCategory.classList.remove('categoryfield-grow');
+        menuCategory.innerHTML = "";
+        menuCategory.outerHTML = resetCategory();
     }
 }
 
@@ -245,4 +245,11 @@ function resetCategory() {
         <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
         </div>
     `;
+}
+
+
+function selectCategory(categoryName, location) {
+    foldCategories(location);
+    menuCategory.innerText = categoryName;
+    newTask.category = categoryName;
 }
