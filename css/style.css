@@ -1305,7 +1305,7 @@ body {
     background: #2A3647;
     border-radius: 10px;
     background-image: url("../../assets/img/pencil_white.svg");
-    background-repeat:  no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
@@ -1409,7 +1409,7 @@ body {
     border-color: #09c372;
 }
 
-.addtask-rightcontainer-date.error textarea {
+.addtask-rightcontainer-date.error input {
     border-color: #ff3860;
 }
 
@@ -1514,7 +1514,6 @@ body {
 }
 
 .addtask-leftcontainer-categorytext {
-    width: 93px;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -1523,16 +1522,20 @@ body {
     color: #000000;
 }
 
+.category-grow {
+    height: 208px;
+}
+
 .addtask-leftcontainer-categoryfield {
+    transition: all 225ms ease-in-out;
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     padding: 18px 21px;
-    gap: 10px;
     isolation: isolate;
+    gap: 15px;
     width: 422px;
     height: 51px;
     background: #FFFFFF;
@@ -1546,6 +1549,40 @@ body {
     background-image: url('../../assets/img/dropdown.svg');
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
+    overflow-y: scroll;
+}
+
+.categoryfield-grow {
+    transition: all 225ms ease-in-out;
+    height: 153px;
+    background-image: unset;
+    justify-content: flex-start;
+    padding: unset !important;
+    gap: unset !important;
+}
+
+.addtask-leftcontainer-selection {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 20px;
+    width: 380px;
+    height: 51px;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.addtask-leftcontainer-selection:hover {
+    background: #D1D1D1;
+}
+
+.addtask-leftcontainer-circle {
+    display: flex;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    width: 20px;
+    height: 20px;
 }
 
 .addtask-leftcontainer-assigned {
