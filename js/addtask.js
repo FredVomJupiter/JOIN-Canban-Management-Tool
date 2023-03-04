@@ -22,6 +22,9 @@ function initNewTask() {
 }
 
 
+let assigned = [];
+
+
 taskOverlayForm.addEventListener('submit', e => {
     e.preventDefault();
     validateTaskInputs();
@@ -83,7 +86,7 @@ const validateTaskInputs = () => {
         newTask.title = titleValue;
         newTask.text = descriptionValue;
         newTask.date = new Date(dateValue);
-        console.log(newTask);
+        newTask.assigned = copyAssigned();
         saveNewTask();
     }
 };
@@ -193,14 +196,14 @@ function templateLow() {
  * 6) Edit Task button
  */
 
-
+// categories
 
 function expandCategories(location) {
     let menu = document.getElementById('addtaskOverlayCategory');
     if (location === 'overlay') {
         menu.onclick = "";
-        menu.parentElement.classList.add('category-grow');
-        menu.classList.add('categoryfield-grow');
+        menu.parentElement.classList.add('grow');
+        menu.classList.add('field-grow');
         menu.innerHTML = "";
         menu.innerHTML = templateCategoryHeader();
         categories.forEach(category => {
@@ -233,8 +236,8 @@ function templateCategories(category, location) {
 function foldCategories(location) {
     let menu = document.getElementById('addtaskOverlayCategory');
     if (location === 'overlay') {
-        menu.parentElement.classList.remove('category-grow');
-        menu.classList.remove('categoryfield-grow');
+        menu.parentElement.classList.remove('grow');
+        menu.classList.remove('field-grow');
         menu.innerHTML = "";
         menu.outerHTML = resetCategory();
     }
@@ -255,4 +258,114 @@ function selectCategory(categoryName, categoryColor, location) {
     menu.innerHTML = categoryName + `<div class="addtask-leftcontainer-circle" style="background:${categoryColor}"></div>`;
     newTask.category = categoryName;
     newTask.color = categoryColor;
+}
+
+// assignments
+
+function expandAssigned(location) {
+    let menu = document.getElementById('addtaskOverlayAssigned');
+    if (location === 'overlay') {
+        menu.onclick = "";
+        menu.parentElement.classList.add('grow');
+        menu.classList.add('field-grow');
+        menu.innerHTML = "";
+        menu.innerHTML = templateAssignedHeader();
+        contacts.forEach(contact => {
+            menu.innerHTML += templateAssigned(contact);
+        });
+        checkBoxes();
+    }
+}
+
+
+function templateAssignedHeader() {
+    return `
+        <div class="addtask-leftcontainer-selection" onclick="foldAssigned('overlay')">
+            <span class="addtask-leftcontainer-assignedtext">Select contacts to assign</span>
+            <img style="margin-left:100px" src="./assets/img/dropdown.svg">
+        </div>
+    `;
+}
+
+
+function templateAssigned(contact) {
+    return `
+        <div class="addtask-leftcontainer-selection">
+            <span class="addtask-leftcontainer-assignedtext">${contact.name}</span>
+            <input class="addtask-rightcontainer-subtask-checkbox" id="${contact.id}" type="checkbox" onclick="selectAssigned('${contact.id}', '${contact.name}', '${contact.color}')">
+        </div>
+    `;
+}
+
+
+function foldAssigned(location) {
+    let menu = document.getElementById('addtaskOverlayAssigned');
+    if (location === 'overlay') {
+        menu.parentElement.classList.remove('grow');
+        menu.classList.remove('field-grow');
+        menu.innerHTML = "";
+        menu.outerHTML = resetAssigned();
+    }
+}
+
+
+function resetAssigned() {
+    return `
+        <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned" onclick="expandAssigned('overlay')">Select contacts to assign
+        </div>
+    `;
+}
+
+
+function selectAssigned(contactId, contactName, contactColor) {
+    let checkbox = document.getElementById(contactId);
+    if (checkbox.checked) {
+        let assignedPerson = [contactId, `<div class="addtask-leftcontainer-assigned-circle" style="background:${contactColor}">${returnInitials(contactName)}</div>`]
+        assigned.push(assignedPerson);
+        drawAssigned();
+    }
+    if (!checkbox.checked) {
+        let index;
+        assigned.forEach(element => {
+            if (element[0] === contactId) {
+                assigned.splice(assigned.indexOf(element), 1);
+            }
+        });
+        drawAssigned();
+    }
+}
+
+
+function drawAssigned() {
+    let display = document.getElementById('displayAssigned');
+    display.innerHTML = "";
+    if (assigned.length > 0) {
+        assigned.forEach(element => {
+            display.innerHTML += element[1];
+        });
+    }
+}
+
+
+/**
+ * Checkboxes become checked if allready assigned by user previously, otherwise the splice function when unchecking
+ * will not delete the assigned person correctly.
+ */
+function checkBoxes() {
+    assigned.forEach(element => {
+        let checkbox = document.getElementById(element[0]);
+        checkbox.checked = true;
+    });
+}
+
+/**
+ * 
+ * @returns ids of assigned persones without the html template
+ */
+function copyAssigned() {
+    let ids = [];
+    assigned.forEach(element => {
+        ids.push(element[0]);
+    });
+    return ids;
 }
