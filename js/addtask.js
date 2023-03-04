@@ -80,21 +80,22 @@ const validateTaskInputs = () => {
     }
 
     if (correctTitle & correctDescription & correctDate) {
+        newTask.title = titleValue;
+        newTask.text = descriptionValue;
+        newTask.date = new Date(dateValue);
         console.log(newTask);
-        //saveNewTask();
+        saveNewTask();
     }
 };
 
 
 function saveNewTask() {
-    newTask.category = "";
-    newTask.title = document.getElementById('').value;
-    newTask.text = document.getElementById('').value;
-    newTask.date = document.getElementById('').value;
     cards.push(newTask);
+    renderCards();
     closeOverlay();
-    clearNewtaskInputfields();
+    //clearNewtaskInputfields();
     initNewTask();
+    
 }
 
 
@@ -182,7 +183,6 @@ function templateLow() {
  * 
  * TODO:
  * 
- * 1) Selection for Category
  * 2) Selection for Assignment
  * 3) Subtasks
  * 
@@ -193,18 +193,18 @@ function templateLow() {
  * 6) Edit Task button
  */
 
-const menuCategory = document.getElementById('addtaskOverlayCategory');
 
 
 function expandCategories(location) {
+    let menu = document.getElementById('addtaskOverlayCategory');
     if (location === 'overlay') {
-        menuCategory.onclick = "";
-        menuCategory.parentElement.classList.add('category-grow');
-        menuCategory.classList.add('categoryfield-grow');
-        menuCategory.innerHTML = "";
-        menuCategory.innerHTML = templateCategoryHeader();
+        menu.onclick = "";
+        menu.parentElement.classList.add('category-grow');
+        menu.classList.add('categoryfield-grow');
+        menu.innerHTML = "";
+        menu.innerHTML = templateCategoryHeader();
         categories.forEach(category => {
-            menuCategory.innerHTML += templateCategories(category, location);
+            menu.innerHTML += templateCategories(category, location);
         });
     }
 }
@@ -222,7 +222,7 @@ function templateCategoryHeader() {
 
 function templateCategories(category, location) {
     return `
-        <div class="addtask-leftcontainer-selection" onclick="selectCategory('${category.name}', '${location}')">
+        <div class="addtask-leftcontainer-selection" onclick="selectCategory('${category.name}', '${category.color}', '${location}')">
             <span class="addtask-leftcontainer-categorytext">${category.name}</span>
             <div class="addtask-leftcontainer-circle" style="background:${category.color}"></div>
         </div>
@@ -231,11 +231,12 @@ function templateCategories(category, location) {
 
 
 function foldCategories(location) {
+    let menu = document.getElementById('addtaskOverlayCategory');
     if (location === 'overlay') {
-        menuCategory.parentElement.classList.remove('category-grow');
-        menuCategory.classList.remove('categoryfield-grow');
-        menuCategory.innerHTML = "";
-        menuCategory.outerHTML = resetCategory();
+        menu.parentElement.classList.remove('category-grow');
+        menu.classList.remove('categoryfield-grow');
+        menu.innerHTML = "";
+        menu.outerHTML = resetCategory();
     }
 }
 
@@ -248,8 +249,10 @@ function resetCategory() {
 }
 
 
-function selectCategory(categoryName, location) {
+function selectCategory(categoryName, categoryColor, location) {
     foldCategories(location);
-    menuCategory.innerText = categoryName;
+    let menu = document.getElementById('addtaskOverlayCategory');
+    menu.innerHTML = categoryName + `<div class="addtask-leftcontainer-circle" style="background:${categoryColor}"></div>`;
     newTask.category = categoryName;
+    newTask.color = categoryColor;
 }

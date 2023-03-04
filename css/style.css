@@ -1531,8 +1531,8 @@ body {
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     padding: 18px 21px;
     isolation: isolate;
     gap: 15px;
@@ -1557,6 +1557,7 @@ body {
     height: 153px;
     background-image: unset;
     justify-content: flex-start;
+    flex-direction: column;
     padding: unset !important;
     gap: unset !important;
 }
