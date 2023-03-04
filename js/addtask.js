@@ -1,7 +1,7 @@
-const taskForm = document.getElementById('addtaskOverlay');
-const taskTitle = document.getElementById('addtaskInputTitle');
-const taskDescription = document.getElementById('addtaskInputDescription');
-const taskDate = document.getElementById('addtaskInputDate');
+const taskOverlayForm = document.getElementById('addtaskOverlay');
+const taskOverlayTitle = document.getElementById('addtaskOverlayTitle');
+const taskOverlayDescription = document.getElementById('addtaskOverlayDescription');
+const taskOverlayDate = document.getElementById('addtaskOverlayDate');
 
 let newTask = {};
 
@@ -22,7 +22,7 @@ function initNewTask() {
 }
 
 
-taskForm.addEventListener('submit', e => {
+taskOverlayForm.addEventListener('submit', e => {
     e.preventDefault();
     validateTaskInputs();
 });
@@ -47,35 +47,35 @@ const setTaskSuccess = element => {
 }
 
 const validateTaskInputs = () => {
-    const titleValue = taskTitle.value.trim();
-    const descriptionValue = taskDescription.value.trim();
-    const dateValue = taskDate.value;
+    const titleValue = taskOverlayTitle.value.trim();
+    const descriptionValue = taskOverlayDescription.value.trim();
+    const dateValue = taskOverlayDate.value;
 
     let correctTitle = false;
     let correctDescription = false;
     let correctDate = false;
 
     if (titleValue === '') {
-        setTaskError(taskTitle, 'Title is required');
+        setTaskError(taskOverlayTitle, 'Title is required');
         correctTitle = false;
     } else {
-        setTaskSuccess(taskTitle);
+        setTaskSuccess(taskOverlayTitle);
         correctTitle = true;
     }
 
     if (descriptionValue === '') {
-        setTaskError(taskDescription, 'Description is required');
+        setTaskError(taskOverlayDescription, 'Description is required');
         correctDescription = false;
     } else {
-        setTaskSuccess(taskDescription);
+        setTaskSuccess(taskOverlayDescription);
         correctDescription = true;
     }
 
     if (dateValue === '') {
-        setTaskError(taskDate, 'Date is required dd.mm.yyyy');
+        setTaskError(taskOverlayDate, 'Date is required dd.mm.yyyy');
         correctDate = false;
     } else {
-        setTaskSuccess(taskDate);
+        setTaskSuccess(taskOverlayDate);
         correctDate = true;
     }
 
@@ -192,3 +192,57 @@ function templateLow() {
  * 
  * 6) Edit Task button
  */
+
+
+function expandCategories(location) {
+    if (location === 'overlay') {
+        let menu = document.getElementById('addtaskOverlayCategory');
+        menu.onclick = "";
+        menu.parentElement.classList.add('category-grow');
+        menu.classList.add('categoryfield-grow');
+        menu.innerHTML = "";
+        menu.innerHTML = templateCategoryHeader();
+        categories.forEach(category => {
+            menu.innerHTML += templateCategories(category);
+        });
+    }
+}
+
+
+function templateCategoryHeader() {
+    return `
+        <div class="addtask-leftcontainer-selection" onclick="foldCategories('overlay')">
+            <span class="addtask-leftcontainer-categorytext">Select task category</span>
+            <img style="margin-left:140px" src="./assets/img/dropdown.svg">
+        </div>
+    `;
+}
+
+
+function templateCategories(category) {
+    return `
+        <div class="addtask-leftcontainer-selection">
+            <span class="addtask-leftcontainer-categorytext">${category.name}</span>
+            <div class="addtask-leftcontainer-circle" style="background:${category.color}"></div>
+        </div>
+    `;
+}
+
+
+function foldCategories(location) {
+    if (location === 'overlay') {
+        let menu = document.getElementById('addtaskOverlayCategory');
+        menu.parentElement.classList.remove('category-grow');
+        menu.classList.remove('categoryfield-grow');
+        menu.innerHTML = "";
+        menu.outerHTML = resetCategory();
+    }
+}
+
+
+function resetCategory() {
+    return `
+        <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
+        </div>
+    `;
+}

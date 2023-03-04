@@ -34,7 +34,7 @@
             <div class="addtask-leftcontainer">
                 <div class="addtask-leftcontainer-title">
                     <span class="addtask-leftcontainer-titletext">Title</span>
-                    <input class="addtask-leftcontainer-titlefield" type="text" id="addtaskInputTitle"
+                    <input class="addtask-leftcontainer-titlefield" type="text" id="addtaskOverlayTitle"
                         placeholder="Enter a title">
                     <div class="error"></div>
                 </div>
@@ -42,19 +42,19 @@
                 <div class="addtask-leftcontainer-description">
                     <span class="addtask-leftcontainer-descriptiontext">Description</span>
                     <textarea class="addtask-leftcontainer-descriptionfield" cols="1" rows="2"
-                        id="addtaskInputDescription" placeholder="Enter a description"></textarea>
+                        id="addtaskOverlayDescription" placeholder="Enter a description"></textarea>
                     <div class="error"></div>
                 </div>
 
                 <div class="addtask-leftcontainer-category">
                     <span class="addtask-leftcontainer-categorytext">Category</span>
-                    <div class="addtask-leftcontainer-categoryfield" id="addtaskInputCategory">Select task category
+                    <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
                     </div>
                 </div>
 
                 <div class="addtask-leftcontainer-assigned">
                     <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
-                    <div class="addtask-leftcontainer-assignedfield" id="addtaskInputAssigned">Select contacts to assign
+                    <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned">Select contacts to assign
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="addtask-close-btn" onclick="closeOverlay()"></div>
                 <div class="addtask-rightcontainer-date">
                     <span class="addtask-rightcontainer-datetext">Due date</span>
-                    <input class="addtask-rightcontainer-datefield" type="date" id="addtaskInputDate">
+                    <input class="addtask-rightcontainer-datefield" type="date" id="addtaskOverlayDate">
                     <div class="error"></div>
                 </div>
 

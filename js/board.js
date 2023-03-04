@@ -21,7 +21,7 @@ function renderCards() {
 function renderTodo() {
     let todo = document.getElementById("todo-canvas");
     todo.innerHTML = "";
-    let todoCards = cards.filter(card => card.category == "To do");
+    let todoCards = cards.filter(card => card.group == "To do");
     todoCards.forEach(card => {
         todo.innerHTML += templateCardHtml(card);
     });
@@ -31,7 +31,7 @@ function renderTodo() {
 function renderProgress() {
     let progress = document.getElementById("progress-canvas");
     progress.innerHTML = "";
-    let progressCards = cards.filter(card => card.category == "In Progress");
+    let progressCards = cards.filter(card => card.group == "In Progress");
     progressCards.forEach(card => {
         progress.innerHTML += templateCardHtml(card);
     });
@@ -41,7 +41,7 @@ function renderProgress() {
 function renderFeedback() {
     let feedback = document.getElementById("feedback-canvas");
     feedback.innerHTML = "";
-    let feedbackCards = cards.filter(card => card.category == "Awaiting Feedback");
+    let feedbackCards = cards.filter(card => card.group == "Awaiting Feedback");
     feedbackCards.forEach(card => {
         feedback.innerHTML += templateCardHtml(card);
     });
@@ -51,7 +51,7 @@ function renderFeedback() {
 function renderDone() {
     let done = document.getElementById("done-canvas");
     done.innerHTML = "";
-    let doneCards = cards.filter(card => card.category == "Done");
+    let doneCards = cards.filter(card => card.group == "Done");
     doneCards.forEach(card => {
         done.innerHTML += templateCardHtml(card);
     });
@@ -63,7 +63,7 @@ function templateCardHtml(card) {
         <div class="board-cardshadow" id="${card.id}" onclick="showCardDetails('${card.id}')">
             <div class="board-cardbackground">
                 <div class="board-cardinner">
-                    <div class="board-cardcategory" style="background:${card.color}">${card.group}</div>
+                    <div class="board-cardcategory" style="background:${card.color}">${card.category}</div>
                     <div class="board-cardtext-wrap">
                         <div class="board-cardtext-inner">
                             <span class="board-cardtitle">${card.title}</span>
@@ -109,7 +109,7 @@ function renderFilteredCards(filteredList) {
 function renderFilteredTodo(filteredList) {
     let todo = document.getElementById("todo-canvas");
     todo.innerHTML = "";
-    let todoCards = filteredList.filter(card => card.category == "To do");
+    let todoCards = filteredList.filter(card => card.group == "To do");
     todoCards.forEach(card => {
         todo.innerHTML += templateCardHtml(card);
     });
@@ -119,7 +119,7 @@ function renderFilteredTodo(filteredList) {
 function renderFilteredProgress(filteredList) {
     let progress = document.getElementById("progress-canvas");
     progress.innerHTML = "";
-    let progressCards = filteredList.filter(card => card.category == "In Progress");
+    let progressCards = filteredList.filter(card => card.group == "In Progress");
     progressCards.forEach(card => {
         progress.innerHTML += templateCardHtml(card);
     });
@@ -129,7 +129,7 @@ function renderFilteredProgress(filteredList) {
 function renderFilteredFeedback(filteredList) {
     let feedback = document.getElementById("feedback-canvas");
     feedback.innerHTML = "";
-    let feedbackCards = filteredList.filter(card => card.category == "Awaiting Feedback");
+    let feedbackCards = filteredList.filter(card => card.group == "Awaiting Feedback");
     feedbackCards.forEach(card => {
         feedback.innerHTML += templateCardHtml(card);
     });
@@ -139,7 +139,7 @@ function renderFilteredFeedback(filteredList) {
 function renderFilteredDone(filteredList) {
     let done = document.getElementById("done-canvas");
     done.innerHTML = "";
-    let doneCards = filteredList.filter(card => card.category == "Done");
+    let doneCards = filteredList.filter(card => card.group == "Done");
     doneCards.forEach(card => {
         done.innerHTML += templateCardHtml(card);
     });
@@ -319,7 +319,7 @@ function templateOverlayCardHtml(cardId) {
     let card = cards.filter(card => card.id == cardId);
     return `
         <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
-        <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].group}</div>
+        <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].category}</div>
         <span class="board-taskoverlay-title">${card[0].title}</span>
         <span class="board-taskoverlay-text">${card[0].text}</span>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(card[0].date)}</span></div>
@@ -415,14 +415,14 @@ function countTasks() {
 function countProgress() {
     let progressCounter = document.getElementById('progressCounter');
     progressCounter.innerHTML = "";
-    progressCounter.innerHTML = cards.filter(card => card.category == "In Progress").length;
+    progressCounter.innerHTML = cards.filter(card => card.group == "In Progress").length;
 }
 
 
 function countFeedback() {
     let feedbackCounter = document.getElementById('feedbackCounter');
     feedbackCounter.innerHTML = "";
-    feedbackCounter.innerHTML = cards.filter(card => card.category == "Awaiting Feedback").length;
+    feedbackCounter.innerHTML = cards.filter(card => card.group == "Awaiting Feedback").length;
 }
 
 
@@ -478,14 +478,14 @@ function mostUrgentDeadline(urgentDeadlines) {
 function countToDo() {
     let todoCounter = document.getElementById('todoCounter');
     todoCounter.innerHTML = "";
-    todoCounter.innerHTML = cards.filter(card => card.category == "To do").length;
+    todoCounter.innerHTML = cards.filter(card => card.group == "To do").length;
 }
 
 
 function countDone() {
     let doneCounter = document.getElementById('doneCounter');
     doneCounter.innerHTML = "";
-    doneCounter.innerHTML = cards.filter(card => card.category == "Done").length;
+    doneCounter.innerHTML = cards.filter(card => card.group == "Done").length;
 }
 // End Functions for Summary Page
 
