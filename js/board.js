@@ -183,17 +183,21 @@ function countFinishedSubtasks(card) {
  * @returns html template of circles with initials from Name & Surname of assigned persons
  */
 function templateAssignmentsHtml(card) {
+
     if (card.assigned.length == 1) {
         return returnOneCircle(card);
     }
-    if (card.assigned.length == 2) {
+    else if (card.assigned.length == 2) {
         return returnTwoCircles(card);
     }
-    if (card.assigned.length == 3) {
+    else if (card.assigned.length == 3) {
         return returnThreeCircles(card);
     }
-    if (card.assigned.length > 3) {
+    else if (card.assigned.length > 3) {
         return returnMoreCircles(card);
+    }
+    else {
+        return "";
     }
 }
 

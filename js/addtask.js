@@ -5,6 +5,10 @@ const taskOverlayDate = document.getElementById('addtaskOverlayDate');
 
 let newTask = {};
 
+let assigned = [];
+
+let subtasks = [];
+
 
 function initNewTask() {
     newTask = {
@@ -20,11 +24,6 @@ function initNewTask() {
         subtask: []
     };
 }
-
-
-let assigned = [];
-
-let subtasks = [];
 
 
 taskOverlayForm.addEventListener('submit', e => {
@@ -99,9 +98,7 @@ function saveNewTask() {
     cards.push(newTask);
     renderCards();
     closeOverlay();
-    //clearNewtaskInputfields();
-    initNewTask();
-    
+    clearOverlay();
 }
 
 
@@ -155,7 +152,7 @@ function templateMedium() {
             <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 130px;" onclick="setPriority('medium')">
+        <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('medium')">
             <span class="addtask-rightcontainer-priobtns-text whitetext">Medium</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium_white.svg">
         </div>
@@ -177,27 +174,12 @@ function templateLow() {
             <span class="addtask-rightcontainer-priobtns-text">Medium</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 136px;" id="addtaskPrioLow" onclick="setPriority('low')">
+        <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" id="addtaskPrioLow" onclick="setPriority('low')">
             <span class="addtask-rightcontainer-priobtns-text whitetext">Low</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow_white.svg">
         </div>
     `;
 }
-
-
-/**
- * 
- * TODO:
- * 
- * 2) Selection for Assignment
- * 3) Subtasks
- * 
- * 4) Saving the data
- * 
- * 5) the same for AddTask in Menu
- * 
- * 6) Edit Task button
- */
 
 // categories
 
@@ -361,6 +343,7 @@ function checkBoxes() {
     });
 }
 
+
 /**
  * 
  * @returns ids of assigned persones without the html template
@@ -374,22 +357,26 @@ function copyAssigned() {
 }
 
 
+// subtasks
+
 function addSubtask() {
     let subtaskName = document.getElementById('addtaskOverlaySub');
     if (subtaskName.value != "") {
         subtasks.push({name: subtaskName.value, status: 0, id: `subtask${subtasks.length}`});
-        writeAllSubtasks();
+        drawAllSubtasks();
         subtaskName.value = "";
     }
 }
 
 
-function writeAllSubtasks() {
+function drawAllSubtasks() {
     let subtaskBox = document.getElementById('addtaskOverlaySubbox');
     subtaskBox.innerHTML = "";
-    subtasks.forEach(subtask => {
-        subtaskBox.innerHTML +=  templateSubtask(subtask);
-    });
+    if (subtasks.length > 0) {
+        subtasks.forEach(subtask => {
+            subtaskBox.innerHTML +=  templateSubtask(subtask);
+        });
+    }
 }
 
 
@@ -429,3 +416,48 @@ function copySubtasks() {
     });
     return subtaskWithoutId;
 }
+
+
+function clearOverlay() {
+    initNewTask();
+    assigned = [];
+    subtasks = [];
+    taskOverlayTitle.value = "";
+    taskOverlayDescription.value = "";
+    taskOverlayDate.value = "";
+    foldCategories('overlay');
+    drawAssigned();
+    drawAllSubtasks();
+    let prio = document.getElementById('addtaskOverlayPrio');
+    prio.innerHTML = "";
+    prio.innerHTML = drawUnsetPrio();
+}
+
+
+function drawUnsetPrio() {
+    return `
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('urgent')">
+            <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('medium')">
+            <span class="addtask-rightcontainer-priobtns-text">Medium</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('low')">
+            <span class="addtask-rightcontainer-priobtns-text">Low</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
+        </div>
+    `;
+}
+
+
+
+/**
+ * 
+ * TODO:
+ * 
+ * 5) the same for AddTask in Menu
+ * 
+ * 6) Edit Task button
+ */

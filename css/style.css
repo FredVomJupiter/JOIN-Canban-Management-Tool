@@ -1769,6 +1769,14 @@ body {
     background: #FF3D00;
 }
 
+.orangebackground {
+    background: #FFA800;
+}
+
+.greenbackground {
+    background: #7AE229;
+}
+
 .whitetext {
     font-weight: 700;
     color: #FFFFFF;
