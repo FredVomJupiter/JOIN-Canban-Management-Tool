@@ -1864,13 +1864,30 @@ body {
     cursor: pointer;
 }
 
+.gap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.delete {
+    user-select: none;
+    cursor: pointer;
+    font-family: 'Inter';
+}
+
+.delete:hover {
+    color: #FF3D00;
+}
+
 .addtask-rightcontainer-subtask-wrap {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 110px;
     height: 19px;
+    gap: 10px;
 }
 
 .addtask-rightcontainer-subtask-checkbox {
@@ -1882,14 +1899,13 @@ body {
 }
 
 .addtask-rightcontainer-subtask-checkboxtext {
-    width: 74px;
     height: 19px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     color: #000000;
-    flex: none;
+    white-space: nowrap;
 }
 
 .addtask-button-container {
@@ -1945,6 +1961,7 @@ body {
 }
 
 .addtask-button-clearicon {
+    cursor: pointer;
     width: 24px;
     height: 24px;
     background: url("../../assets/img/clear.svg") no-repeat;

@@ -302,6 +302,8 @@ function closeOverlay() {
     addcontact.classList.add('d-none');
     let editcontact = document.getElementById('editcontactOverlay');
     editcontact.classList.add('d-none');
+    // This clears the addtask overlay fields
+    clearOverlay();
 }
 
 

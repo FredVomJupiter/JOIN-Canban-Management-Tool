@@ -389,8 +389,19 @@ function templateSubtask(subtask) {
         <div class="addtask-rightcontainer-subtask-wrap">
             <input class="addtask-rightcontainer-subtask-checkbox" id="${subtask.id}" type="checkbox" onclick="setSubStatus('${subtask.id}')">
             <span class="addtask-rightcontainer-subtask-checkboxtext">${subtask.name}</span>
+            <div class="delete" onclick="deleteSubtask('${subtask.id}')">X</div>
         </div>
     `;
+}
+
+
+function deleteSubtask(subtaskId) {
+    subtasks.forEach(subtask => {
+        if (subtask.id === subtaskId) {
+            subtasks.splice(subtasks.indexOf(subtask), 1);
+        }
+    });
+    drawAllSubtasks();
 }
 
 
