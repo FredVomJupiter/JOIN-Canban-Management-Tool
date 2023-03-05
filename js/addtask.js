@@ -3,6 +3,8 @@ const taskOverlayTitle = document.getElementById('addtaskOverlayTitle');
 const taskOverlayDescription = document.getElementById('addtaskOverlayDescription');
 const taskOverlayDate = document.getElementById('addtaskOverlayDate');
 
+let dropdownOverlayOpen = false;
+
 let newTask = {};
 
 let assigned = [];
@@ -186,6 +188,7 @@ function templateLow() {
 function expandCategories(location) {
     let menu = document.getElementById('addtaskOverlayCategory');
     if (location === 'overlay') {
+        dropdownOverlayOpen = true;
         menu.onclick = "";
         menu.parentElement.classList.add('grow');
         menu.classList.add('field-grow');
@@ -200,7 +203,7 @@ function expandCategories(location) {
 
 function templateCategoryHeader() {
     return `
-        <div class="addtask-leftcontainer-selection" onclick="foldCategories('overlay')">
+        <div class="addtask-leftcontainer-selection fixed" onclick="foldCategories('overlay')">
             <span class="addtask-leftcontainer-categorytext">Select task category</span>
             <img style="margin-left:140px" src="./assets/img/dropdown.svg">
         </div>
@@ -210,7 +213,7 @@ function templateCategoryHeader() {
 
 function templateCategories(category, location) {
     return `
-        <div class="addtask-leftcontainer-selection" onclick="selectCategory('${category.name}', '${category.color}', '${location}')">
+        <div class="addtask-leftcontainer-selection relative" onclick="selectCategory('${category.name}', '${category.color}', '${location}')">
             <span class="addtask-leftcontainer-categorytext">${category.name}</span>
             <div class="addtask-leftcontainer-circle" style="background:${category.color}"></div>
         </div>
@@ -250,6 +253,7 @@ function selectCategory(categoryName, categoryColor, location) {
 function expandAssigned(location) {
     let menu = document.getElementById('addtaskOverlayAssigned');
     if (location === 'overlay') {
+        dropdownOverlayOpen = true;
         menu.onclick = "";
         menu.parentElement.classList.add('grow');
         menu.classList.add('field-grow');
@@ -265,7 +269,7 @@ function expandAssigned(location) {
 
 function templateAssignedHeader() {
     return `
-        <div class="addtask-leftcontainer-selection" onclick="foldAssigned('overlay')">
+        <div class="addtask-leftcontainer-selection fixed" onclick="foldAssigned('overlay')">
             <span class="addtask-leftcontainer-assignedtext">Select contacts to assign</span>
             <img style="margin-left:100px" src="./assets/img/dropdown.svg">
         </div>
@@ -275,7 +279,7 @@ function templateAssignedHeader() {
 
 function templateAssigned(contact) {
     return `
-        <div class="addtask-leftcontainer-selection">
+        <div class="addtask-leftcontainer-selection relative">
             <span class="addtask-leftcontainer-assignedtext">${contact.name}</span>
             <input class="addtask-rightcontainer-subtask-checkbox" id="${contact.id}" type="checkbox" onclick="selectAssigned('${contact.id}', '${contact.name}', '${contact.color}')">
         </div>
@@ -426,6 +430,7 @@ function clearOverlay() {
     taskOverlayDescription.value = "";
     taskOverlayDate.value = "";
     foldCategories('overlay');
+    foldAssigned('overlay');
     drawAssigned();
     drawAllSubtasks();
     let prio = document.getElementById('addtaskOverlayPrio');
@@ -451,6 +456,14 @@ function drawUnsetPrio() {
     `;
 }
 
+
+function foldMenus() {
+    if (dropdownOverlayOpen) {
+        foldCategories('overlay');
+        foldAssigned('overlay');
+        dropdownOverlayOpen = false;
+    }
+}
 
 
 /**

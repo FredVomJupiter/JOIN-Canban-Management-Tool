@@ -1574,6 +1574,18 @@ body {
     border-radius: 10px;
 }
 
+.fixed {
+    position: fixed;
+    background: #FFFFFF;
+    height: 25px;
+    z-index: 5;
+}
+
+.relative {
+    position: relative;
+    top: 60px;
+}
+
 .addtask-leftcontainer-selection:hover {
     background: #D1D1D1;
 }
