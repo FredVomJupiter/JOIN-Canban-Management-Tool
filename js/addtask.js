@@ -24,6 +24,8 @@ function initNewTask() {
 
 let assigned = [];
 
+let subtasks = [];
+
 
 taskOverlayForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -87,6 +89,7 @@ const validateTaskInputs = () => {
         newTask.text = descriptionValue;
         newTask.date = new Date(dateValue);
         newTask.assigned = copyAssigned();
+        newTask.subtask = copySubtasks();
         saveNewTask();
     }
 };
@@ -368,4 +371,61 @@ function copyAssigned() {
         ids.push(element[0]);
     });
     return ids;
+}
+
+
+function addSubtask() {
+    let subtaskName = document.getElementById('addtaskOverlaySub');
+    if (subtaskName.value != "") {
+        subtasks.push({name: subtaskName.value, status: 0, id: `subtask${subtasks.length}`});
+        writeAllSubtasks();
+        subtaskName.value = "";
+    }
+}
+
+
+function writeAllSubtasks() {
+    let subtaskBox = document.getElementById('addtaskOverlaySubbox');
+    subtaskBox.innerHTML = "";
+    subtasks.forEach(subtask => {
+        subtaskBox.innerHTML +=  templateSubtask(subtask);
+    });
+}
+
+
+function templateSubtask(subtask) {
+    return `
+        <div class="addtask-rightcontainer-subtask-wrap">
+            <input class="addtask-rightcontainer-subtask-checkbox" id="${subtask.id}" type="checkbox" onclick="setSubStatus('${subtask.id}')">
+            <span class="addtask-rightcontainer-subtask-checkboxtext">${subtask.name}</span>
+        </div>
+    `;
+}
+
+
+function setSubStatus(subtaskId) {
+    let checkbox = document.getElementById(subtaskId);
+    if (checkbox.checked) {
+        subtasks.forEach(subtask => {
+            if (subtask.id === subtaskId) {
+                subtask.status = 1;
+            }
+        });
+    }
+    if (!checkbox.checked) {
+        subtasks.forEach(subtask => {
+            if (subtask.id === subtaskId) {
+                subtask.status = 0;
+            }
+        });
+    }
+}
+
+
+function copySubtasks() {
+    let subtaskWithoutId = [];
+    subtasks.forEach(subtask => {
+        subtaskWithoutId.push({name: subtask.name, status: subtask.status});
+    });
+    return subtaskWithoutId;
 }
