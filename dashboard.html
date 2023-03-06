@@ -57,7 +57,7 @@
                     <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned" onclick="expandAssigned('overlay')">Select contacts to assign
                     </div>
                 </div>
-                <div class="addtask-leftcontainer-assigned-display" id="displayAssigned"></div>
+                <div class="addtask-leftcontainer-assigned-display" id="displayOverlayAssigned"></div>
             </div>
 
             <div class="addtask-line"></div>
@@ -74,15 +74,15 @@
                 <div class="addtask-rightcontainer-prio">
                     <span class="addtask-rightcontainer-priotext">Prio</span>
                     <div class="addtask-rightcontainer-priobtns" id="addtaskOverlayPrio">
-                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('urgent')">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
                             <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
                         </div>
-                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('medium')">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
                             <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
                         </div>
-                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('low')">
+                        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
                             <span class="addtask-rightcontainer-priobtns-text">Low</span>
                             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
                         </div>
@@ -93,7 +93,7 @@
                     <span class="addtask-rightcontainer-subtasktext">Subtask</span>
                     <div class="addtask-rightcontainer-subtaskborder">
                         <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask" id="addtaskOverlaySub">
-                        <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg" onclick="addSubtask()">
+                        <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg" onclick="addSubtask('overlay')">
                     </div>
                     <div class="gap" id="addtaskOverlaySubbox">
                     </div>
@@ -380,92 +380,87 @@
                 <span class="addtask-title">Add Task</span>
             </div>
 
-            <div class="addtask-container">
+            <form class="addtask-container" id="addtaskMenu" onclick="stopPropagation(event)">
                 <!-- Content left side -->
                 <div class="addtask-leftcontainer">
                     <div class="addtask-leftcontainer-title">
                         <span class="addtask-leftcontainer-titletext">Title</span>
-                        <input class="addtask-leftcontainer-titlefield" type="text" placeholder="Enter a title"
-                            required>
+                        <input class="addtask-leftcontainer-titlefield" type="text" id="addtaskMenuTitle"
+                            placeholder="Enter a title">
+                        <div class="error"></div>
                     </div>
-
+    
                     <div class="addtask-leftcontainer-description">
                         <span class="addtask-leftcontainer-descriptiontext">Description</span>
                         <textarea class="addtask-leftcontainer-descriptionfield" cols="1" rows="2"
-                            placeholder="Enter a description"></textarea>
+                            id="addtaskMenuDescription" placeholder="Enter a description"></textarea>
+                        <div class="error"></div>
                     </div>
-
+    
                     <div class="addtask-leftcontainer-category">
                         <span class="addtask-leftcontainer-categorytext">Category</span>
-                        <div class="addtask-leftcontainer-categoryfield">
-                            Select task category
-                            <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
+                        <div class="addtask-leftcontainer-categoryfield" id="addtaskMenuCategory" onclick="expandCategories('menu')">Select task category
                         </div>
                     </div>
-
+    
                     <div class="addtask-leftcontainer-assigned">
                         <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
-                        <div class="addtask-leftcontainer-assignedfield">
-                            Select contacts to assign
-                            <img class="addtask-leftcontainer-dropdownicon" src="./assets/img/dropdown.svg">
+                        <div class="addtask-leftcontainer-assignedfield" id="addtaskMenuAssigned" onclick="expandAssigned('menu')">Select contacts to assign
                         </div>
                     </div>
+                    <div class="addtask-leftcontainer-assigned-display" id="displayMenuAssigned"></div>
                 </div>
-
+    
                 <div class="addtask-line"></div>
-
+    
                 <!-- Content right side -->
                 <div class="addtask-rightcontainer">
                     <div class="addtask-rightcontainer-date">
                         <span class="addtask-rightcontainer-datetext">Due date</span>
-                        <input class="addtask-rightcontainer-datefield" type="date" placeholder="dd/mm/yyyy">
+                        <input class="addtask-rightcontainer-datefield" type="date" id="addtaskMenuDate">
+                        <div class="error"></div>
                     </div>
-
+    
                     <div class="addtask-rightcontainer-prio">
                         <span class="addtask-rightcontainer-priotext">Prio</span>
-                        <div class="addtask-rightcontainer-priobtns">
-                            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;">
+                        <div class="addtask-rightcontainer-priobtns" id="addtaskMenuPrio">
+                            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
                                 <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
                             </div>
-                            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;">
+                            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
                                 <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
                             </div>
-                            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;">
+                            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
                                 <span class="addtask-rightcontainer-priobtns-text">Low</span>
                                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
                             </div>
                         </div>
                     </div>
-
-                    <div class="addtask-rightcontainer-subtask">
+    
+                    <div class="addtask-rightcontainer-subtask" >
                         <span class="addtask-rightcontainer-subtasktext">Subtask</span>
                         <div class="addtask-rightcontainer-subtaskborder">
-                            <input class="addtask-rightcontainer-subtaskfield" type="text"
-                                placeholder="Add new subtask">
-                            <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg">
+                            <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask" id="addtaskMenuSub">
+                            <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg" onclick="addSubtask('menu')">
                         </div>
-                        <div class="addtask-rightcontainer-subtask-wrap">
-                            <input class="addtask-rightcontainer-subtask-checkbox" type="checkbox">
-                            <span class="addtask-rightcontainer-subtask-checkboxtext">Subtask 1</span>
+                        <div class="gap" id="addtaskMenuSubbox">
                         </div>
                     </div>
-
+    
                     <!-- Buttons bottom right -->
                     <div class="addtask-button-container">
                         <div class="addtask-button-inner">
-                            <div class="addtask-button-clear">
+                            <div class="addtask-button-clear" onclick="clearAddtaskMenu()">
                                 Clear
                                 <div class="addtask-button-clearicon"></div>
                             </div>
-                            <div class="addtask-button-createtask">
-                                Add task
-                            </div>
+                            <input class="addtask-button-createtask" type="submit" value="Add task">
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </main>
 
         <!-- CONTACTS -->

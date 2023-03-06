@@ -1,9 +1,15 @@
+// For all instances of addtask overlay
 const taskOverlayForm = document.getElementById('addtaskOverlay');
 const taskOverlayTitle = document.getElementById('addtaskOverlayTitle');
 const taskOverlayDescription = document.getElementById('addtaskOverlayDescription');
 const taskOverlayDate = document.getElementById('addtaskOverlayDate');
 
-let dropdownOverlayOpen = false;
+// For the addtask in menu only
+const taskMenuForm = document.getElementById('addtaskMenu');
+const taskMenuTitle = document.getElementById('addtaskMenuTitle');
+const taskMenuDescription = document.getElementById('addtaskMenuDescription');
+const taskMenuDate = document.getElementById('addtaskMenuDate');
+
 
 let newTask = {};
 
@@ -12,6 +18,9 @@ let assigned = [];
 let subtasks = [];
 
 
+/**
+ * Everytime user creates a new task, this init will be called => setting standard values for newTask
+ * */
 function initNewTask() {
     newTask = {
         id: "card"+cards.length,
@@ -30,7 +39,13 @@ function initNewTask() {
 
 taskOverlayForm.addEventListener('submit', e => {
     e.preventDefault();
-    validateTaskInputs();
+    validateTaskInputs('overlay');
+});
+
+
+taskMenuForm.addEventListener('submit', e => {
+    e.preventDefault();
+    validateTaskInputs('menu');
 });
 
 
@@ -52,7 +67,18 @@ const setTaskSuccess = element => {
     inputControl.classList.remove('error');
 }
 
-const validateTaskInputs = () => {
+const validateTaskInputs = (where) => {
+    if (where === 'overlay') {
+        overlayValidation();
+    }
+    
+    if (where === 'menu') {
+       menuValidation();
+    }
+};
+
+
+function overlayValidation() {
     const titleValue = taskOverlayTitle.value.trim();
     const descriptionValue = taskOverlayDescription.value.trim();
     const dateValue = taskOverlayDate.value;
@@ -93,7 +119,51 @@ const validateTaskInputs = () => {
         newTask.subtask = copySubtasks();
         saveNewTask();
     }
-};
+}
+
+
+function menuValidation() {
+    const titleValue = taskMenuTitle.value.trim();
+    const descriptionValue = taskMenuDescription.value.trim();
+    const dateValue = taskMenuDate.value;
+
+    let correctTitle = false;
+    let correctDescription = false;
+    let correctDate = false;
+
+    if (titleValue === '') {
+        setTaskError(taskMenuTitle, 'Title is required');
+        correctTitle = false;
+    } else {
+        setTaskSuccess(taskMenuTitle);
+        correctTitle = true;
+    }
+
+    if (descriptionValue === '') {
+        setTaskError(taskMenuDescription, 'Description is required');
+        correctDescription = false;
+    } else {
+        setTaskSuccess(taskMenuDescription);
+        correctDescription = true;
+    }
+
+    if (dateValue === '') {
+        setTaskError(taskMenuDate, 'Date is required dd.mm.yyyy');
+        correctDate = false;
+    } else {
+        setTaskSuccess(taskMenuDate);
+        correctDate = true;
+    }
+
+    if (correctTitle & correctDescription & correctDate) {
+        newTask.title = titleValue;
+        newTask.text = descriptionValue;
+        newTask.date = new Date(dateValue);
+        newTask.assigned = copyAssigned();
+        newTask.subtask = copySubtasks();
+        saveNewTask();
+    }
+}
 
 
 function saveNewTask() {
@@ -101,46 +171,74 @@ function saveNewTask() {
     renderCards();
     closeOverlay();
     clearOverlay();
-}
-
-
-function clearNewtaskInputfields() {
-    document.getElementById('').value = "";
+    clearAddtaskMenu();
 }
 
 
 // Non-validated inputs handled here:
-function setPriority(type) {
+
+// prio
+
+function setPriority(location, type) {
+    location === 'overlay' ? setOverlayPrio(type) : setMenuPrio(type);
+}
+
+
+function setOverlayPrio(type) {
+
     const prio = document.getElementById('addtaskOverlayPrio');
+
     if (type === 'urgent') {
         prio.innerHTML = "";
-        prio.innerHTML = templateUrgent();
+        prio.innerHTML = templateOverlayUrgent();
         newTask.priority = 'urgent';
     }
     if (type === 'medium') {
         prio.innerHTML = "";
-        prio.innerHTML = templateMedium();
-        newTask.priority = 'medium'
+        prio.innerHTML = templateOverlayMedium();
+        newTask.priority = 'medium';
     }
     if (type === 'low') {
         prio.innerHTML = "";
-        prio.innerHTML = templateLow();
+        prio.innerHTML = templateOverlayLow();
         newTask.priority = 'low';
     }
 }
 
 
-function templateUrgent() {
+function setMenuPrio(type) {
+
+    const prio = document.getElementById('addtaskMenuPrio');
+
+    if (type === 'urgent'){
+        prio.innerHTML = "";
+        prio.innerHTML = templateMenuUrgent();
+        newTask.priority = 'urgent';
+    }
+    if (type === 'medium') {
+        prio.innerHTML = "";
+        prio.innerHTML = templateMenuMedium();
+        newTask.priority = 'medium';
+    }
+    if (type === 'low') {
+        prio.innerHTML = "";
+        prio.innerHTML = templateOverlayLow();
+        newTask.priority = 'low';
+    }
+}
+
+
+function templateOverlayUrgent() {
     return `
-        <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 141px;" onclick="setPriority('urgent')">
+        <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
             <span class="addtask-rightcontainer-priobtns-text whitetext">Urgent</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh_white.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" id="addtaskPrioMedium" onclick="setPriority('medium')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
             <span class="addtask-rightcontainer-priobtns-text">Medium</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" id="addtaskPrioLow" onclick="setPriority('low')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
             <span class="addtask-rightcontainer-priobtns-text">Low</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
         </div>
@@ -148,17 +246,17 @@ function templateUrgent() {
 }
 
 
-function templateMedium() {
+function templateOverlayMedium() {
     return `
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('urgent')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
             <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('medium')">
+        <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
             <span class="addtask-rightcontainer-priobtns-text whitetext">Medium</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium_white.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('low')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
             <span class="addtask-rightcontainer-priobtns-text">Low</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
         </div>
@@ -166,17 +264,71 @@ function templateMedium() {
 }
 
 
-function templateLow() {
+function templateOverlayLow() {
     return `
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('urgent')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
             <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" id="addtaskPrioMedium" onclick="setPriority('medium')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
             <span class="addtask-rightcontainer-priobtns-text">Medium</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" id="addtaskPrioLow" onclick="setPriority('low')">
+        <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" onclick="setPriority('overlay', 'low')">
+            <span class="addtask-rightcontainer-priobtns-text whitetext">Low</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow_white.svg">
+        </div>
+    `;
+}
+
+
+function templateMenuUrgent() {
+    return `
+        <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
+            <span class="addtask-rightcontainer-priobtns-text whitetext">Urgent</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh_white.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
+            <span class="addtask-rightcontainer-priobtns-text">Medium</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
+            <span class="addtask-rightcontainer-priobtns-text">Low</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
+        </div>
+    `;
+}
+
+
+function templateMenuMedium() {
+    return `
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
+            <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('menu', 'medium')">
+            <span class="addtask-rightcontainer-priobtns-text whitetext">Medium</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium_white.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
+            <span class="addtask-rightcontainer-priobtns-text">Low</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
+        </div>
+    `;
+}
+
+
+function templateMenuLow() {
+    return `
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
+            <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
+            <span class="addtask-rightcontainer-priobtns-text">Medium</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" onclick="setPriority('menu', 'low')">
             <span class="addtask-rightcontainer-priobtns-text whitetext">Low</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow_white.svg">
         </div>
@@ -186,24 +338,41 @@ function templateLow() {
 // categories
 
 function expandCategories(location) {
-    let menu = document.getElementById('addtaskOverlayCategory');
-    if (location === 'overlay') {
-        dropdownOverlayOpen = true;
-        menu.onclick = "";
-        menu.parentElement.classList.add('grow');
-        menu.classList.add('field-grow');
-        menu.innerHTML = "";
-        menu.innerHTML = templateCategoryHeader();
-        categories.forEach(category => {
-            menu.innerHTML += templateCategories(category, location);
-        });
-    }
+    location === 'overlay' ? expandOverlayCategories() : expandMenuCategories();
 }
 
 
-function templateCategoryHeader() {
+function expandOverlayCategories() {
+    const menu = document.getElementById('addtaskOverlayCategory');
+
+    menu.onclick = "";
+    menu.parentElement.classList.add('grow');
+    menu.classList.add('field-grow');
+    menu.innerHTML = "";
+    menu.innerHTML = templateCategoryHeader('overlay');
+    categories.forEach(category => {
+        menu.innerHTML += templateCategories(category, 'overlay');
+    });
+}
+
+
+function expandMenuCategories() {
+    const menu = document.getElementById('addtaskMenuCategory');
+
+    menu.onclick = "";
+    menu.parentElement.classList.add('grow');
+    menu.classList.add('field-grow');
+    menu.innerHTML = "";
+    menu.innerHTML = templateCategoryHeader('menu');
+    categories.forEach(category => {
+        menu.innerHTML += templateCategories(category, 'menu');
+    });
+}
+
+
+function templateCategoryHeader(location) {
     return `
-        <div class="addtask-leftcontainer-selection fixed" onclick="foldCategories('overlay')">
+        <div class="addtask-leftcontainer-selection fixed" onclick="foldCategories('${location}')">
             <span class="addtask-leftcontainer-categorytext">Select task category</span>
             <img style="margin-left:140px" src="./assets/img/dropdown.svg">
         </div>
@@ -222,17 +391,29 @@ function templateCategories(category, location) {
 
 
 function foldCategories(location) {
-    let menu = document.getElementById('addtaskOverlayCategory');
-    if (location === 'overlay') {
-        menu.parentElement.classList.remove('grow');
-        menu.classList.remove('field-grow');
-        menu.innerHTML = "";
-        menu.outerHTML = resetCategory();
-    }
+    location === 'overlay' ? foldOverlayCategories() : foldMenuCategories();
 }
 
 
-function resetCategory() {
+function foldOverlayCategories() {
+    let menu = document.getElementById('addtaskOverlayCategory');
+    menu.parentElement.classList.remove('grow');
+    menu.classList.remove('field-grow');
+    menu.innerHTML = "";
+    menu.outerHTML = resetOverlayCategory();
+}
+
+
+function foldMenuCategories() {
+    let menu = document.getElementById('addtaskMenuCategory');
+    menu.parentElement.classList.remove('grow');
+    menu.classList.remove('field-grow');
+    menu.innerHTML = "";
+    menu.outerHTML = resetMenuCategory();
+}
+
+
+function resetOverlayCategory() {
     return `
         <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
         </div>
@@ -240,9 +421,17 @@ function resetCategory() {
 }
 
 
+function resetMenuCategory() {
+    return `
+        <div class="addtask-leftcontainer-categoryfield" id="addtaskMenuCategory" onclick="expandCategories('menu')">Select task category
+        </div>
+    `;
+}
+
+
 function selectCategory(categoryName, categoryColor, location) {
     foldCategories(location);
-    let menu = document.getElementById('addtaskOverlayCategory');
+    let menu = (location === 'overlay' ?  document.getElementById('addtaskOverlayCategory') : document.getElementById('addtaskMenuCategory'));
     menu.innerHTML = categoryName + `<div class="addtask-leftcontainer-circle" style="background:${categoryColor}"></div>`;
     newTask.category = categoryName;
     newTask.color = categoryColor;
@@ -251,25 +440,41 @@ function selectCategory(categoryName, categoryColor, location) {
 // assignments
 
 function expandAssigned(location) {
-    let menu = document.getElementById('addtaskOverlayAssigned');
-    if (location === 'overlay') {
-        dropdownOverlayOpen = true;
-        menu.onclick = "";
-        menu.parentElement.classList.add('grow');
-        menu.classList.add('field-grow');
-        menu.innerHTML = "";
-        menu.innerHTML = templateAssignedHeader();
-        contacts.forEach(contact => {
-            menu.innerHTML += templateAssigned(contact);
-        });
-        checkBoxes();
-    }
+    location === 'overlay' ? expandOverlayAssigned() : expandMenuAssigned();
 }
 
 
-function templateAssignedHeader() {
+function expandOverlayAssigned() {
+    const menu = document.getElementById('addtaskOverlayAssigned');
+    menu.onclick = "";
+    menu.parentElement.classList.add('grow');
+    menu.classList.add('field-grow');
+    menu.innerHTML = "";
+    menu.innerHTML = templateAssignedHeader('overlay');
+    contacts.forEach(contact => {
+        menu.innerHTML += templateAssigned(contact, 'overlay');
+    });
+    checkBoxes();
+}
+
+
+function expandMenuAssigned() {
+    const menu = document.getElementById('addtaskMenuAssigned');
+    menu.onclick = "";
+    menu.parentElement.classList.add('grow');
+    menu.classList.add('field-grow');
+    menu.innerHTML = "";
+    menu.innerHTML = templateAssignedHeader('menu');
+    contacts.forEach(contact => {
+        menu.innerHTML += templateAssigned(contact, 'menu');
+    });
+    checkBoxes();
+}
+
+
+function templateAssignedHeader(location) {
     return `
-        <div class="addtask-leftcontainer-selection fixed" onclick="foldAssigned('overlay')">
+        <div class="addtask-leftcontainer-selection fixed" onclick="foldAssigned('${location}')">
             <span class="addtask-leftcontainer-assignedtext">Select contacts to assign</span>
             <img style="margin-left:100px" src="./assets/img/dropdown.svg">
         </div>
@@ -277,28 +482,40 @@ function templateAssignedHeader() {
 }
 
 
-function templateAssigned(contact) {
+function templateAssigned(contact, location) {
     return `
         <div class="addtask-leftcontainer-selection relative">
             <span class="addtask-leftcontainer-assignedtext">${contact.name}</span>
-            <input class="addtask-rightcontainer-subtask-checkbox" id="${contact.id}" type="checkbox" onclick="selectAssigned('${contact.id}', '${contact.name}', '${contact.color}')">
+            <input class="addtask-rightcontainer-subtask-checkbox" id="${contact.id}" type="checkbox" onclick="selectAssigned('${contact.id}', '${contact.name}', '${contact.color}', '${location}')">
         </div>
     `;
 }
 
 
 function foldAssigned(location) {
-    let menu = document.getElementById('addtaskOverlayAssigned');
-    if (location === 'overlay') {
-        menu.parentElement.classList.remove('grow');
-        menu.classList.remove('field-grow');
-        menu.innerHTML = "";
-        menu.outerHTML = resetAssigned();
-    }
+    location === 'overlay' ? foldOverlayAssigned() : foldMenuAssigned();
 }
 
 
-function resetAssigned() {
+function foldOverlayAssigned() {
+    let menu = document.getElementById('addtaskOverlayAssigned');
+    menu.parentElement.classList.remove('grow');
+    menu.classList.remove('field-grow');
+    menu.innerHTML = "";
+    menu.outerHTML = resetOverlayAssigned();
+}
+
+
+function foldMenuAssigned() {
+    let menu = document.getElementById('addtaskMenuAssigned');
+    menu.parentElement.classList.remove('grow');
+    menu.classList.remove('field-grow');
+    menu.innerHTML = "";
+    menu.outerHTML = resetMenuAssigned();
+}
+
+
+function resetOverlayAssigned() {
     return `
         <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned" onclick="expandAssigned('overlay')">Select contacts to assign
         </div>
@@ -306,33 +523,45 @@ function resetAssigned() {
 }
 
 
-function selectAssigned(contactId, contactName, contactColor) {
+function resetMenuAssigned() {
+    return `
+        <div class="addtask-leftcontainer-assignedfield" id="addtaskMenuAssigned" onclick="expandAssigned('menu')">Select contacts to assign
+        </div>
+    `;
+}
+
+
+function selectAssigned(contactId, contactName, contactColor, location) {
     let checkbox = document.getElementById(contactId);
     if (checkbox.checked) {
         let assignedPerson = [contactId, `<div class="addtask-leftcontainer-assigned-circle" style="background:${contactColor}">${returnInitials(contactName)}</div>`]
         assigned.push(assignedPerson);
-        drawAssigned();
+        drawAssigned(location);
     }
     if (!checkbox.checked) {
-        let index;
         assigned.forEach(element => {
             if (element[0] === contactId) {
                 assigned.splice(assigned.indexOf(element), 1);
             }
         });
-        drawAssigned();
+        drawAssigned(location);
     }
 }
 
 
-function drawAssigned() {
-    let display = document.getElementById('displayAssigned');
+function drawAssigned(location) {
+    let display = getDisplay(location);
     display.innerHTML = "";
     if (assigned.length > 0) {
         assigned.forEach(element => {
             display.innerHTML += element[1];
         });
     }
+}
+
+
+function getDisplay(location) {
+    return (location === 'overlay' ? document.getElementById('displayOverlayAssigned') : document.getElementById('displayMenuAssigned'));
 }
 
 
@@ -349,8 +578,8 @@ function checkBoxes() {
 
 
 /**
- * 
- * @returns ids of assigned persones without the html template
+ * ids of assigned persones without the html template
+ * @returns ids as list of strings
  */
 function copyAssigned() {
     let ids = [];
@@ -363,45 +592,55 @@ function copyAssigned() {
 
 // subtasks
 
-function addSubtask() {
-    let subtaskName = document.getElementById('addtaskOverlaySub');
+function addSubtask(location) {
+    let subtaskName = getSubtaskName(location);
     if (subtaskName.value != "") {
         subtasks.push({name: subtaskName.value, status: 0, id: `subtask${subtasks.length}`});
-        drawAllSubtasks();
+        drawAllSubtasks(location);
         subtaskName.value = "";
     }
 }
 
 
-function drawAllSubtasks() {
-    let subtaskBox = document.getElementById('addtaskOverlaySubbox');
+function getSubtaskName(location) {
+    return (location === 'overlay' ? document.getElementById('addtaskOverlaySub') : document.getElementById('addtaskMenuSub'));
+}
+
+
+function drawAllSubtasks(location) {
+    let subtaskBox = getSubtaskBox(location);
     subtaskBox.innerHTML = "";
     if (subtasks.length > 0) {
         subtasks.forEach(subtask => {
-            subtaskBox.innerHTML +=  templateSubtask(subtask);
+            subtaskBox.innerHTML +=  templateSubtask(subtask, location);
         });
     }
 }
 
 
-function templateSubtask(subtask) {
+function getSubtaskBox(location) {
+    return (location === 'overlay' ? document.getElementById('addtaskOverlaySubbox') : document.getElementById('addtaskMenuSubbox'));
+}
+
+
+function templateSubtask(subtask, location) {
     return `
         <div class="addtask-rightcontainer-subtask-wrap">
             <input class="addtask-rightcontainer-subtask-checkbox" id="${subtask.id}" type="checkbox" onclick="setSubStatus('${subtask.id}')">
             <span class="addtask-rightcontainer-subtask-checkboxtext">${subtask.name}</span>
-            <div class="delete" onclick="deleteSubtask('${subtask.id}')">X</div>
+            <div class="delete" onclick="deleteSubtask('${subtask.id}', '${location}')">X</div>
         </div>
     `;
 }
 
 
-function deleteSubtask(subtaskId) {
+function deleteSubtask(subtaskId, location) {
     subtasks.forEach(subtask => {
         if (subtask.id === subtaskId) {
             subtasks.splice(subtasks.indexOf(subtask), 1);
         }
     });
-    drawAllSubtasks();
+    drawAllSubtasks(location);
 }
 
 
@@ -442,25 +681,42 @@ function clearOverlay() {
     taskOverlayDate.value = "";
     foldCategories('overlay');
     foldAssigned('overlay');
-    drawAssigned();
-    drawAllSubtasks();
+    drawAssigned('overlay');
+    drawAllSubtasks('overlay');
     let prio = document.getElementById('addtaskOverlayPrio');
     prio.innerHTML = "";
-    prio.innerHTML = drawUnsetPrio();
+    prio.innerHTML = drawUnsetOverlayPrio();
 }
 
 
-function drawUnsetPrio() {
+function clearAddtaskMenu() {
+    initNewTask();
+    assigned = [];
+    subtasks = [];
+    taskMenuTitle.value = "";
+    taskMenuDescription.value = "";
+    taskMenuDate.value = "";
+    foldCategories('menu');
+    foldAssigned('menu');
+    drawAssigned('menu');
+    drawAllSubtasks('menu');
+    let prio = document.getElementById('addtaskMenuPrio');
+    prio.innerHTML = "";
+    prio.innerHTML = drawUnsetMenuPrio();
+}
+
+
+function drawUnsetOverlayPrio() {
     return `
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('urgent')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
             <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('medium')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
             <span class="addtask-rightcontainer-priobtns-text">Medium</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
         </div>
-        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('low')">
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
             <span class="addtask-rightcontainer-priobtns-text">Low</span>
             <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
         </div>
@@ -468,20 +724,19 @@ function drawUnsetPrio() {
 }
 
 
-function foldMenus() {
-    if (dropdownOverlayOpen) {
-        foldCategories('overlay');
-        foldAssigned('overlay');
-        dropdownOverlayOpen = false;
-    }
+function drawUnsetMenuPrio() {
+    return `
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
+            <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
+            <span class="addtask-rightcontainer-priobtns-text">Medium</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
+        </div>
+        <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
+            <span class="addtask-rightcontainer-priobtns-text">Low</span>
+            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
+        </div>
+    `;
 }
-
-
-/**
- * 
- * TODO:
- * 
- * 5) the same for AddTask in Menu
- * 
- * 6) Edit Task button
- */

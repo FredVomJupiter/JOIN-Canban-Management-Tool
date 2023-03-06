@@ -1,4 +1,5 @@
 body {
+    font-family: 'Inter';
     margin: 0;
     height: 100vh;
     width: 100vw;
@@ -59,7 +60,7 @@ body {
 }
 
 .topnav-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -142,7 +143,7 @@ body {
 }
 
 .sidebar-menu-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -185,7 +186,7 @@ body {
 
 .summary-title {
     width: 315px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -202,7 +203,7 @@ body {
 .summary-title-text {
     width: 305px;
     height: 32px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
@@ -225,7 +226,7 @@ body {
 .summary-greeting {
     width: 338px;
     height: 56px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
@@ -236,7 +237,7 @@ body {
 .summary-username {
     width: 385px;
     height: 77px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
@@ -326,7 +327,7 @@ body {
 .summary-center-tasks-counter {
     width: 41px;
     height: 77px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
@@ -337,7 +338,7 @@ body {
 .summary-center-tasks-text {
     width: 87px;
     height: 50px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -357,7 +358,7 @@ body {
 .summary-center-progress-counter {
     width: 41px;
     height: 77px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
@@ -368,7 +369,7 @@ body {
 .summary-center-progress-text {
     width: 87px;
     height: 50px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -388,7 +389,7 @@ body {
 .summary-center-feedback-counter {
     width: 41px;
     height: 77px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
@@ -399,7 +400,7 @@ body {
 .summary-center-feedback-text {
     width: 87px;
     height: 50px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -459,7 +460,7 @@ body {
 .summary-center-middle-left-counter {
     width: 50px;
     height: 56px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 600;
     font-size: 47px;
@@ -471,7 +472,7 @@ body {
 .summary-center-middle-left-text {
     width: 52px;
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -498,7 +499,7 @@ body {
 .summary-center-middle-right-date {
     width: 178px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -509,7 +510,7 @@ body {
 .summary-center-middle-right-text {
     width: 148px;
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -569,7 +570,7 @@ body {
 .summary-center-bottom-todo-counter {
     width: 31px;
     height: 77px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
@@ -581,7 +582,7 @@ body {
 .summary-center-bottom-todo-text {
     width: 60px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -632,7 +633,7 @@ body {
 .summary-center-bottom-done-counter {
     width: 31px;
     height: 77px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
@@ -644,7 +645,7 @@ body {
 .summary-center-bottom-done-text {
     width: 60px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -770,7 +771,7 @@ body {
 
 .board-title {
     width: 176px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -822,7 +823,7 @@ body {
 .board-searchbar-text {
     width: 100px;
     height: 31px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -879,7 +880,7 @@ body {
 .board-addtask-button-text {
     width: 92px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -961,7 +962,7 @@ body {
 
 .board-column-title {
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -1010,7 +1011,7 @@ body {
     gap: 10px;
     height: 27px;
     border-radius: 8px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1037,7 +1038,7 @@ body {
 
 .board-cardtitle {
     width: 170px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -1047,7 +1048,7 @@ body {
 
 .board-cardtext {
     width: 207px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1082,7 +1083,7 @@ body {
 .board-progressbar-text {
     width: 53px;
     height: 14px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -1160,7 +1161,7 @@ body {
 .board-circle-text {
     width: 19px;
     height: 14px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -1217,7 +1218,7 @@ body {
     gap: 10px;
     height: 40px;
     border-radius: 8px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
@@ -1226,8 +1227,8 @@ body {
 }
 
 .board-taskoverlay-title {
-    font-family: 'Inter';
-    font-family: 'Inter';
+    
+    
     font-style: normal;
     font-weight: 700;
     font-size: 41px;
@@ -1235,7 +1236,7 @@ body {
 }
 
 .board-taskoverlay-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1251,7 +1252,7 @@ body {
 }
 
 .board-taskoverlay-subtitle {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -1259,7 +1260,7 @@ body {
 }
 
 .board-taskoverlay-value {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1355,7 +1356,7 @@ body {
 }
 
 .addtask-title {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -1385,7 +1386,7 @@ body {
 
 .addtask-leftcontainer-title .error {
     color: #ff3860;
-    font-family: 'Inter';
+    
     font-size: 12px;
     height: 13px;
 }
@@ -1400,7 +1401,7 @@ body {
 
 .addtask-leftcontainer-description .error {
     color: #ff3860;
-    font-family: 'Inter';
+    
     font-size: 12px;
     height: 13px;
 }
@@ -1415,7 +1416,7 @@ body {
 
 .addtask-rightcontainer-date .error {
     color: #ff3860;
-    font-family: 'Inter';
+    
     font-size: 12px;
     height: 13px;
 }
@@ -1439,7 +1440,7 @@ body {
 .addtask-leftcontainer-titletext {
     width: 65px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1458,7 +1459,7 @@ body {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1476,7 +1477,7 @@ body {
 .addtask-leftcontainer-descriptiontext {
     width: 154px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1515,7 +1516,7 @@ body {
 
 .addtask-leftcontainer-categorytext {
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1541,7 +1542,7 @@ body {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1610,7 +1611,7 @@ body {
 .addtask-leftcontainer-assignedtext {
     white-space: nowrap;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1633,7 +1634,7 @@ body {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1653,7 +1654,7 @@ body {
 }
 
 .addtask-leftcontainer-assigned-circle {
-    font-family: 'Inter';
+    
     font-size: 12px;
     color: #FFFFFF;
     box-sizing: border-box;
@@ -1696,7 +1697,7 @@ body {
 .addtask-rightcontainer-datetext {
     width: 91px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1736,7 +1737,7 @@ body {
 .addtask-rightcontainer-priotext {
     width: 39px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1770,7 +1771,7 @@ body {
 }
 
 .addtask-rightcontainer-priobtns-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1816,7 +1817,7 @@ body {
 .addtask-rightcontainer-subtasktext {
     width: 92px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1850,7 +1851,7 @@ body {
     width: 422px;
     height: 49px;
     background: #FFFFFF;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1874,7 +1875,7 @@ body {
 .delete {
     user-select: none;
     cursor: pointer;
-    font-family: 'Inter';
+    
 }
 
 .delete:hover {
@@ -1900,7 +1901,7 @@ body {
 
 .addtask-rightcontainer-subtask-checkboxtext {
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1942,7 +1943,7 @@ body {
     height: 51px;
     border: 1px solid #2A3647;
     border-radius: 10px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1981,7 +1982,7 @@ body {
     height: 51px;
     background: #2A3647;
     border-radius: 10px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2024,7 +2025,7 @@ body {
 
 .contact-title {
     width: 274px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2040,7 +2041,7 @@ body {
 
 .contact-title-text {
     height: 32px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
@@ -2078,7 +2079,7 @@ body {
 .contact-alphabet-text {
     width: 282px;
     height: 40px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2144,7 +2145,7 @@ body {
     height: 42px;
     background: #FFFFFF;
     border-radius: 45px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -2166,7 +2167,7 @@ body {
 }
 
 .contact-template-name {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2177,7 +2178,7 @@ body {
 }
 
 .contact-template-name-light {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2188,7 +2189,7 @@ body {
 }
 
 .contact-template-email {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2231,7 +2232,7 @@ body {
 }
 
 .contact-canvas-circletext {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 47px;
@@ -2263,7 +2264,7 @@ body {
 .contact-canvas-name {
     width: 287px;
     height: 56px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
@@ -2292,7 +2293,7 @@ body {
 .contact-canvas-addtast-text {
     width: 100px;
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2313,7 +2314,7 @@ body {
 .contact-canvas-info-text {
     width: 207px;
     height: 74px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2336,7 +2337,7 @@ body {
 .contact-canvas-info-edittext {
     width: 100px;
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2360,7 +2361,7 @@ body {
 }
 
 .contact-canvas-innertitle {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -2370,7 +2371,7 @@ body {
 }
 
 .contact-canvas-email {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2380,7 +2381,7 @@ body {
 }
 
 .contact-canvas-phone {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2410,7 +2411,7 @@ body {
 .contact-addcontact-button-text {
     width: 135px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -2486,7 +2487,7 @@ body {
 
 .addcontact-form-container .error {
     color: #ff3860;
-    font-family: 'Inter';
+    
     font-size: 12px;
     height: 13px;
 }
@@ -2530,7 +2531,7 @@ input:invalid {
 .addcontact-title {
     width: 366px;
     height: 73px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2540,7 +2541,7 @@ input:invalid {
 .addcontact-subtitle {
     width: 371px;
     height: 32px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
@@ -2584,7 +2585,7 @@ input:invalid {
     border: 1px solid #2A3647 !important;
     border-radius: 10px !important;
     cursor: pointer;
-    font-family: 'Inter';
+    
     color: #2A3647;
     background-color: #F6F7F8;
     transition: 100ms ease-in-out;
@@ -2612,7 +2613,7 @@ input:invalid {
     border-radius: 10px !important;
     cursor: pointer;
     transition: 100ms ease-in-out;
-    font-family: 'Inter';
+    
     background-image: url('../../assets/img/check.svg');
     background-repeat: no-repeat;
 }
@@ -2683,7 +2684,7 @@ input:invalid {
 
 .editcontact-form-container .error {
     color: #ff3860;
-    font-family: 'Inter';
+    
     font-size: 12px;
     height: 13px;
 }
@@ -2729,7 +2730,7 @@ input:invalid {
 .editcontact-title {
     width: 366px;
     height: 73px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2739,7 +2740,7 @@ input:invalid {
 .editcontact-subtitle {
     width: 371px;
     height: 32px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
@@ -2787,7 +2788,7 @@ input:invalid {
     border-radius: 10px !important;
     cursor: pointer;
     transition: 100ms ease-in-out;
-    font-family: 'Inter';
+    
     background-image: url('../../assets/img/check.svg');
     background-repeat: no-repeat;
 }
@@ -2822,7 +2823,7 @@ input:invalid {
 .legal-title-span {
     width: max-content;
     height: 73px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2839,7 +2840,7 @@ input:invalid {
 }
 
 .legal-responsible-title {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -2847,7 +2848,7 @@ input:invalid {
 }
 
 .legal-responsible-txt {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2856,7 +2857,7 @@ input:invalid {
 
 .legal-content-title {
     margin-top: 20px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -2864,7 +2865,7 @@ input:invalid {
 }
 
 .legal-content-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2890,7 +2891,7 @@ input:invalid {
 }
 
 .help-title-span {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2907,7 +2908,7 @@ input:invalid {
 }
 
 .help-whatIsJoin-title {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -2915,7 +2916,7 @@ input:invalid {
 }
 
 .help-whatIsJoin-txt {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2923,7 +2924,7 @@ input:invalid {
 }
 
 .help-howToUseIt-title {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -2945,7 +2946,7 @@ input:invalid {
 }
 
 .help-howToUseIt-number {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -2954,7 +2955,7 @@ input:invalid {
 }
 
 .help-howToUseIt-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

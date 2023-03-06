@@ -339,7 +339,6 @@ function templateOverlayCardHtml(cardId) {
 
 function returnFormatedDate(date) {
     if (date) {
-        console.log(date.getMonth());
         return monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
     } else {
         return "No date specified"
