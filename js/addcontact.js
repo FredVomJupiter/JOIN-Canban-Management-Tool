@@ -86,6 +86,7 @@ const validateAddInputs = () => {
 function saveNewContact() {
     let contact = {
         id: "contact"+contacts.length,
+        color: "#FF7A00",
         name: document.getElementById('addcontactInputName').value,
         email: document.getElementById('addcontactInputEmail').value,
         phone: document.getElementById('addcontactInputPhone').value

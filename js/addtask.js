@@ -136,7 +136,7 @@ function overlayValidation() {
  */
 function isNewTask() {
     const submitButton = document.getElementById('overlaySubmit');
-    submitButton.value === "Add task" ? true : false;
+    return submitButton.value === "Add task" ? true : false;
 }
 
 
