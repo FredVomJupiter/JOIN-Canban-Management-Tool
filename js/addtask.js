@@ -111,7 +111,7 @@ function overlayValidation() {
         correctDate = true;
     }
 
-    if (correctTitle & correctDescription & correctDate) {
+    if (correctTitle & correctDescription & correctDate & isNewTask()) {
         newTask.title = titleValue;
         newTask.text = descriptionValue;
         newTask.date = new Date(dateValue);
@@ -119,6 +119,24 @@ function overlayValidation() {
         newTask.subtask = copySubtasks();
         saveNewTask();
     }
+    if (correctTitle & correctDescription & correctDate & !isNewTask()) {
+        newTask.title = titleValue;
+        newTask.text = descriptionValue;
+        newTask.date = new Date(dateValue);
+        newTask.assigned = copyAssigned();
+        newTask.subtask = copySubtasks();
+        saveEditedTask();
+    }
+}
+
+/**
+ * Checks if the submit button is in "Add task" or "Save" status.
+ * In "Save" status no new Task will be added, because user is
+ * editing an existing task.
+ */
+function isNewTask() {
+    const submitButton = document.getElementById('overlaySubmit');
+    submitButton.value === "Add task" ? true : false;
 }
 
 

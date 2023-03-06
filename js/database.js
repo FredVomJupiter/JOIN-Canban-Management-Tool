@@ -61,7 +61,7 @@ let cards = [
         date: "",
         priority: "low",
         assigned: ["contact0", "contact1", "contact4", "contact5"],
-        subtask: [{ text: "subtask 1", status: 1 }, { text: "subtask 2", status: 0 }]
+        subtask: [{ name: "Start here", status: 1 }, { name: "Then do banana", status: 0 }]
     },
     {
         id: "card1",
@@ -121,7 +121,7 @@ let cards = [
         date: new Date("06.07.2022"),
         priority: "low",
         assigned: ["contact0", "contact1"],
-        subtask: [{ text: "subtask 1", status: 1 }, { text: "subtask 2", status: 1 }, { text: "subtask 3", status: 1 }]
+        subtask: [{ name: "Develop donkey", status: 1 }, { name: "Make wow", status: 1 }, { name: "Be super", status: 1 }]
     }
 ];
 
