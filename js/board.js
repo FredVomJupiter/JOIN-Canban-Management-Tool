@@ -679,7 +679,7 @@ function filterContactByLetter(contacts, letter) {
 function templateContactListHtml(contact) {
     return `
         <div class="contact-template-wrap" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
-            <div class="contact-template-circle">
+            <div class="contact-template-circle" style="background:${contact.color}">
                 ${returnInitials(contact.name)}
             </div>
             <div class="contact-template-textwrap">
@@ -708,7 +708,7 @@ function showContact(id) {
     let contactCanvas = document.getElementById('contactCanvas');
     markSelectedContact(contact[0].id);
     contactCanvas.innerHTML = "";
-    contactCanvas.innerHTML = templateContactDetailsHtml(contact[0].name, contact[0].email, contact[0].phone);
+    contactCanvas.innerHTML = templateContactDetailsHtml(contact[0].name, contact[0].email, contact[0].phone, contact[0].color);
 }
 
 
@@ -723,11 +723,11 @@ function markSelectedContact(id) {
 }
 
 
-function templateContactDetailsHtml(name, email, phone) {
+function templateContactDetailsHtml(name, email, phone, color) {
     return `
         <div class="contact-canvas-titlewrap">
             <div class="contact-canvas-circlewrap">
-                <div class="contact-canvas-circleorange">
+                <div class="contact-canvas-circleorange" style="background:${color}">
                     <span class="contact-canvas-circletext">${returnInitials(name)}</span>
                 </div>
             </div>
