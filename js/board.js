@@ -378,7 +378,7 @@ function getAssignedForOverlay(assigned) {
     assigned.forEach(person => {
         lines += `
             <div class="board-taskoverlay-line">
-                <div class="board-circleleft">
+                <div class="board-circleleft" style="background:${contacts.filter(contact => contact.id == person)[0].color}">
                     <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == person)[0].name)}</span>
                 </div>
                 <span class="board-taskoverlay-value">${contacts.filter(contact => contact.id == person)[0].name}</span>
