@@ -970,6 +970,11 @@ body {
     color: #2A3647;
 }
 
+.dropzone {
+    width: 250px;
+    height: 200px;
+}
+
 .board-cardshadow {
     display: flex;
     flex-direction: column;

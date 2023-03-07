@@ -8,49 +8,49 @@ let contacts = [
         color: colors[0],
         name: "Anton Mayer",
         email: "anton@gmail.com",
-        phone: "+49 1111 111 111"
+        phone: "12345678"
     },
     {
         id: "contact1",
         color: colors[1],
         name: "Anja Schulz",
         email: "schulz@hotmail.com",
-        phone: "+49 2222 222 222"
+        phone: "123456789"
     },
     {
         id: "contact2",
         color: colors[2],
         name: "Horst Buddler",
         email: "horsti@gmx.de",
-        phone: "+49 3333 333 333"
+        phone: "1234567890"
     },
     {
         id: "contact3",
         color: colors[3],
         name: "Tefaldine Erigalosimischilli",
         email: "t.erigalosimischilli@aol.com",
-        phone: "+49 4444 444 444"
+        phone: "111444222"
     },
     {
         id: "contact4",
         color: colors[4],
         name: "Vino Jedentag",
         email: "holladiewaldfee@mail.de",
-        phone: "+49 5555 555 555"
+        phone: "55533229"
     },
     {
         id: "contact5",
         color: colors[5],
         name: "Ibrahimovic Zoltan",
         email: "zoltan.derschlingel@hotmail.com",
-        phone: "+49 6666 666 666"
+        phone: "82930487"
     },
     {
         id: "contact6",
         color: colors[6],
         name: "Der Mitdemlangennamenwiekrass",
         email: "der.mitderlangenemailadresse@gmail.de",
-        phone: "+49 7777 777 777"
+        phone: "000928342"
     }
 ];
 

@@ -25,6 +25,7 @@ function renderTodo() {
     todoCards.forEach(card => {
         todo.innerHTML += templateCardHtml(card);
     });
+    todo.innerHTML += templateDropzone('todo');
 }
 
 
@@ -35,6 +36,7 @@ function renderProgress() {
     progressCards.forEach(card => {
         progress.innerHTML += templateCardHtml(card);
     });
+    progress.innerHTML += templateDropzone('progress');
 }
 
 
@@ -45,6 +47,7 @@ function renderFeedback() {
     feedbackCards.forEach(card => {
         feedback.innerHTML += templateCardHtml(card);
     });
+    feedback.innerHTML += templateDropzone('feedback');
 }
 
 
@@ -55,6 +58,7 @@ function renderDone() {
     doneCards.forEach(card => {
         done.innerHTML += templateCardHtml(card);
     });
+    done.innerHTML += templateDropzone('done');
 }
 
 
@@ -83,6 +87,22 @@ function templateCardHtml(card) {
             </div>
         </div>
     `
+}
+
+
+function templateDropzone(location) {
+    if (location === "todo") {
+        return `<div class="dropzone" id="dropZoneTodo"></div>`;
+    }
+    if (location === "progress") {
+        return `<div class="dropzone" id="dropZoneProgress"></div>`;
+    }
+    if (location === "feedback") {
+        return `<div class="dropzone" id="dropZoneFeedback"></div>`;
+    }
+    if (location === "done") {
+        return `<div class="dropzone" id="dropZoneDone"></div>`;
+    }
 }
 
 
