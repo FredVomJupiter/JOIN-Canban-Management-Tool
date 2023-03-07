@@ -204,7 +204,7 @@ function templateAssignmentsHtml(card) {
 
 function returnOneCircle(card) {
     return `
-            <div class="board-circleleft">
+            <div class="board-circleleft" style="background:${contacts.filter(contact => contact.id == card.assigned[0])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
         `
@@ -213,10 +213,10 @@ function returnOneCircle(card) {
 
 function returnTwoCircles(card) {
     return `
-            <div class="board-circleleft">
+            <div class="board-circleleft" style="background:${contacts.filter(contact => contact.id == card.assigned[0])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
-            <div class="board-circlemiddle">
+            <div class="board-circlemiddle" style="background:${contacts.filter(contact => contact.id == card.assigned[1])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[1])[0].name)}</span>
             </div>
         `
@@ -225,13 +225,13 @@ function returnTwoCircles(card) {
 
 function returnThreeCircles(card) {
     return `
-            <div class="board-circleleft">
+            <div class="board-circleleft" style="background:${contacts.filter(contact => contact.id == card.assigned[0])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
-            <div class="board-circlemiddle">
+            <div class="board-circlemiddle" style="background:${contacts.filter(contact => contact.id == card.assigned[1])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[1])[0].name)}</span>
             </div>
-            <div class="board-circleright">
+            <div class="board-circleright" style="background:${contacts.filter(contact => contact.id == card.assigned[2])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[2])[0].name)}</span>
             </div>
         `
@@ -240,10 +240,10 @@ function returnThreeCircles(card) {
 
 function returnMoreCircles(card) {
     return `
-            <div class="board-circleleft">
+            <div class="board-circleleft" style="background:${contacts.filter(contact => contact.id == card.assigned[0])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[0])[0].name)}</span>
             </div>
-            <div class="board-circlemiddle">
+            <div class="board-circlemiddle" style="background:${contacts.filter(contact => contact.id == card.assigned[1])[0].color}">
                 <span class="board-circle-text">${returnInitials(contacts.filter(contact => contact.id == card.assigned[1])[0].name)}</span>
             </div>
             <div class="board-circleright">
