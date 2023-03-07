@@ -291,6 +291,7 @@ function showCardDetails(cardId) {
 
 
 function closeOverlay() {
+    isNewTask = true;
     let background = document.getElementById("overlayBackground");
     background.classList.add("d-none");
     let overlayCard = document.getElementById('overlayCard');
@@ -400,6 +401,7 @@ function openAddtaskOverlay() {
 
 
 function editCard(cardId) {
+    isNewTask = false;
     openAddtaskOverlay();
     newTask.id = cardId;
     taskOverlayTitle.value = getEdittaskTitle(cardId);
