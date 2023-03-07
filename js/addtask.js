@@ -494,7 +494,7 @@ function templateAssignedHeader(location) {
 
 function templateAssigned(contact, location) {
     return `
-        <div class="addtask-leftcontainer-selection relative">
+        <div class="addtask-leftcontainer-selection">
             <span class="addtask-leftcontainer-assignedtext">${contact.name}</span>
             <input class="addtask-rightcontainer-subtask-checkbox" id="${contact.id}" type="checkbox" onclick="selectAssigned('${contact.id}', '${contact.name}', '${contact.color}', '${location}')">
         </div>

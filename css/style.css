@@ -1576,15 +1576,9 @@ body {
 }
 
 .fixed {
-    position: fixed;
     background: #FFFFFF;
     height: 25px;
     z-index: 5;
-}
-
-.relative {
-    position: relative;
-    top: 60px;
 }
 
 .addtask-leftcontainer-selection:hover {
@@ -2393,6 +2387,8 @@ body {
 .contact-addcontact-button {
     cursor: pointer;
     box-sizing: border-box;
+    position: fixed;
+    top: 650px;
     display: flex;
     flex-direction: row;
     justify-content: center;

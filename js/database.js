@@ -1,49 +1,53 @@
+let colors = [
+    "#BDB76B", "#2E8B57", "#20B2AA", "#5F9EA0", "#00BFFF", "#DAA520", "#F4A460", "#A52A2A", "#DA70D6", "#9932CC", "#708090", "#00008B", "#48D1CC", "#9ACD32", "#FFE4B5", "#FF6347", "#FF7A00"
+];
+
 let contacts = [
     {
         id: "contact0",
-        color: "#FF7A00",
+        color: colors[0],
         name: "Anton Mayer",
         email: "anton@gmail.com",
         phone: "+49 1111 111 111"
     },
     {
         id: "contact1",
-        color: "#FF7A00",
+        color: colors[1],
         name: "Anja Schulz",
         email: "schulz@hotmail.com",
         phone: "+49 2222 222 222"
     },
     {
         id: "contact2",
-        color: "#FF7A00",
+        color: colors[2],
         name: "Horst Buddler",
         email: "horsti@gmx.de",
         phone: "+49 3333 333 333"
     },
     {
         id: "contact3",
-        color: "#FF7A00",
+        color: colors[3],
         name: "Tefaldine Erigalosimischilli",
         email: "t.erigalosimischilli@aol.com",
         phone: "+49 4444 444 444"
     },
     {
         id: "contact4",
-        color: "#FF7A00",
+        color: colors[4],
         name: "Vino Jedentag",
         email: "holladiewaldfee@mail.de",
         phone: "+49 5555 555 555"
     },
     {
         id: "contact5",
-        color: "#FF7A00",
+        color: colors[5],
         name: "Ibrahimovic Zoltan",
         email: "zoltan.derschlingel@hotmail.com",
         phone: "+49 6666 666 666"
     },
     {
         id: "contact6",
-        color: "#FF7A00",
+        color: colors[6],
         name: "Der Mitdemlangennamenwiekrass",
         email: "der.mitderlangenemailadresse@gmail.de",
         phone: "+49 7777 777 777"
