@@ -355,7 +355,7 @@ function templateOverlayCardHtml(cardId) {
         ${getSubtasksForOverlay(card[0].subtask)}
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
         ${getAssignedForOverlay(card[0].assigned)}
-        <div class="board-taskoverlay-edit" onclick="editCard('${card[0].id}')"></div>
+        <div class="board-taskoverlay-edit" onclick="editCard('${cardId}')"></div>
     `
 }
 
