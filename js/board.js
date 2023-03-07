@@ -64,7 +64,7 @@ function renderDone() {
 
 function templateCardHtml(card) {
     return `
-        <div class="board-cardshadow" id="${card.id}" onclick="showCardDetails('${card.id}')">
+        <div class="board-cardshadow" id="${card.id}" draggable="true" onclick="showCardDetails('${card.id}')" ondragstart="dragstart(event, '${card.id}')">
             <div class="board-cardbackground">
                 <div class="board-cardinner">
                     <div class="board-cardcategory" style="background:${card.color}">${card.category}</div>
@@ -92,16 +92,16 @@ function templateCardHtml(card) {
 
 function templateDropzone(location) {
     if (location === "todo") {
-        return `<div class="dropzone" id="dropZoneTodo"></div>`;
+        return `<div class="dropzone" id="dropZoneTodo" ondrop="dragend(event, '${'To do'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneTodo')" ondragleave="dragleave(event, 'dropZoneTodo')"></div>`;
     }
     if (location === "progress") {
-        return `<div class="dropzone" id="dropZoneProgress"></div>`;
+        return `<div class="dropzone" id="dropZoneProgress" ondrop="dragend(event, '${'In Progress'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneProgress')" ondragleave="dragleave(event, 'dropZoneProgress')"></div>`;
     }
     if (location === "feedback") {
-        return `<div class="dropzone" id="dropZoneFeedback"></div>`;
+        return `<div class="dropzone" id="dropZoneFeedback" ondrop="dragend(event, '${'Awaiting Feedback'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneFeedback')" ondragleave="dragleave(event, 'dropZoneFeedback')"></div>`;
     }
     if (location === "done") {
-        return `<div class="dropzone" id="dropZoneDone"></div>`;
+        return `<div class="dropzone" id="dropZoneDone" ondrop="dragend(event, '${'Done'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneDone')" ondragleave="dragleave(event, 'dropZoneDone')"></div>`;
     }
 }
 
@@ -351,6 +351,8 @@ function templateOverlayCardHtml(cardId) {
         <span class="board-taskoverlay-text">${card[0].text}</span>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(card[0].date)}</span></div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${getPriorityForOverlay(card[0].priority)}</div>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
+        ${getSubtasksForOverlay(card[0].subtask)}
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
         ${getAssignedForOverlay(card[0].assigned)}
         <div class="board-taskoverlay-edit" onclick="editCard('${card[0].id}')"></div>
@@ -384,7 +386,7 @@ function getSubtasksForOverlay(subtask) {
     if (subtask.length > 0) {
         let lines = "";
         subtask.forEach(task => {
-            lines += `<span class="board-taskoverlay-value">${task.text} ${task.status == 1 ? "(Done)" : "(To Do)"}</span>`;
+            lines += `<span class="board-taskoverlay-value">${task.name} ${task.status == 1 ? "(Done)" : "(To Do)"}</span>`;
         });
         return lines;
     } else {
