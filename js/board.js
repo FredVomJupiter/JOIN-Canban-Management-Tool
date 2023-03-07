@@ -426,6 +426,7 @@ function editCard(cardId) {
     isNewTask = false;
     openAddtaskOverlay();
     newTask.id = cardId;
+    console.log("This cards id is: " + newTask.id);
     taskOverlayTitle.value = getEdittaskTitle(cardId);
     taskOverlayDescription.value = getEdittaskDescription(cardId);
     taskOverlayDate.value = getEdittaskDate(cardId);
@@ -513,8 +514,8 @@ function changeButton() {
 
 
 function saveEditedTask() {
-    newTask.group = cards.filter(card => card.id = newTask.id)[0].group;
-    cards.splice(cards.indexOf(cards.filter(card => card.id = newTask.id)[0]), 1);
+    newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
+    cards.splice(cards.findIndex(card => card.id === newTask.id), 1);
     cards.push(newTask);
     renderCards();
     closeOverlay();
@@ -522,6 +523,18 @@ function saveEditedTask() {
     clearAddtaskMenu();
 }
 
+
+function returnIndex() {
+    console.log(newTask.id);
+    let index;
+    for (let i = 0; i < cards.length; i++) {
+        if (cards[i].id == newTask.id) {
+            console.log("Habs")
+            index = i;
+        }
+    }
+    return index;
+}
 
 // Functions for Summary Page
 
