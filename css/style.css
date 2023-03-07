@@ -973,6 +973,7 @@ body {
 .dropzone {
     width: 250px;
     height: 200px;
+    border-radius: 30px;
 }
 
 .board-cardshadow {
