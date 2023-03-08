@@ -634,13 +634,25 @@ function getSubtaskBox(location) {
 
 
 function templateSubtask(subtask, location) {
-    return `
+    if (subtask.status == 0) {
+        return `
+            <div class="addtask-rightcontainer-subtask-wrap">
+                <input class="addtask-rightcontainer-subtask-checkbox" id="${subtask.id}" type="checkbox" onclick="setSubStatus('${subtask.id}')">
+                <span class="addtask-rightcontainer-subtask-checkboxtext">${subtask.name}</span>
+                <div class="delete" onclick="deleteSubtask('${subtask.id}', '${location}')">X</div>
+            </div>
+        `;
+    } 
+    if (subtask.status == 1) {
+        return `
         <div class="addtask-rightcontainer-subtask-wrap">
-            <input class="addtask-rightcontainer-subtask-checkbox" id="${subtask.id}" type="checkbox" onclick="setSubStatus('${subtask.id}')">
+            <input class="addtask-rightcontainer-subtask-checkbox" id="${subtask.id}" type="checkbox" onclick="setSubStatus('${subtask.id}')" checked>
             <span class="addtask-rightcontainer-subtask-checkboxtext">${subtask.name}</span>
             <div class="delete" onclick="deleteSubtask('${subtask.id}', '${location}')">X</div>
         </div>
     `;
+    }
+    
 }
 
 
