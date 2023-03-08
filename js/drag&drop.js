@@ -11,6 +11,7 @@ function dragend(event, group) {
             card.group = group;
         }
     });
+    saveLocalStorage('cards');
     renderCards();
 }
 

@@ -178,6 +178,7 @@ function menuValidation() {
 
 function saveNewTask() {
     cards.push(newTask);
+    saveLocalStorage('cards');
     renderCards();
     closeOverlay();
     clearOverlay();

@@ -3,14 +3,20 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 
 function init() {
-    renderCards();
-    updateCounters();
+    loadLocalStorage('cards');
+    loadLocalStorage('contacts');
+    loadLocalStorage('categories');
+    if (cards.length > 0) {
+        renderCards();
+        updateCounters();
+    }
     renderContactList();
 }
 
 
 // Render Process for Board Page
 function renderCards() {
+    loadLocalStorage('cards');
     renderTodo();
     renderProgress();
     renderFeedback();
@@ -349,7 +355,7 @@ function templateOverlayCardHtml(cardId) {
         <div class="board-taskoverlay-category" style="background:${card[0].color}">${card[0].category}</div>
         <span class="board-taskoverlay-title">${card[0].title}</span>
         <span class="board-taskoverlay-text">${card[0].text}</span>
-        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(card[0].date)}</span></div>
+        <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(card[0].date))}</span></div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${getPriorityForOverlay(card[0].priority)}</div>
         <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
         ${getSubtasksForOverlay(card[0].subtask)}
@@ -426,7 +432,6 @@ function editCard(cardId) {
     isNewTask = false;
     openAddtaskOverlay();
     newTask.id = cardId;
-    console.log("This cards id is: " + newTask.id);
     taskOverlayTitle.value = getEdittaskTitle(cardId);
     taskOverlayDescription.value = getEdittaskDescription(cardId);
     taskOverlayDate.value = getEdittaskDate(cardId);
@@ -517,6 +522,7 @@ function saveEditedTask() {
     newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
     cards.splice(cards.findIndex(card => card.id === newTask.id), 1);
     cards.push(newTask);
+    saveLocalStorage('cards');
     renderCards();
     closeOverlay();
     clearOverlay();
@@ -615,7 +621,7 @@ function mostUrgentDeadline(urgentDeadlines) {
         urgentDatesList.push(urgent.date);
     });
     urgentDatesList.sort((a, b) => a - b);
-    return urgentDatesList[0];
+    return new Date(urgentDatesList[0]);
 }
 
 
@@ -650,8 +656,6 @@ function openEditcontactOverlay(name) {
     editcontact.innerHTML = "";
     let filtered = contacts.filter(contact => contact.name == name);
     editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone);
-    contactId = filtered[0].id;
-    initEditDOM();
 }
 
 
@@ -691,6 +695,7 @@ function renderEditcontactOverlay(name, email, phone) {
 
 
 function renderContactList() {
+    loadLocalStorage('contacts');
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
     const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Other"];

@@ -25,6 +25,9 @@ function openLogin() {
 }
 
 function openPage(pageName) {
+    if (pageName === 'summary') {
+        updateCounters();
+    }
     hidePages();
     removeDarkMenu();
     let page = document.getElementById(`${pageName}`);

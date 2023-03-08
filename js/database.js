@@ -6,6 +6,83 @@ let contacts = [
     {
         id: "contact0",
         color: colors[0],
+        name: "Your Self",
+        email: "standard@email.com",
+        phone: "12345678"
+    }
+];
+
+let cards = [
+    
+];
+
+let categories = [
+    {
+        name: "Design",
+        color: "#FF7A00"
+    },
+    {
+        name: "Marketing",
+        color: "#ff0051"
+    },
+    {
+        name: "Media",
+        color: "#29ABE2"
+    },
+    {
+        name: "Backoffice",
+        color: "#4E963D"
+    },
+    {
+        name: "Sales",
+        color: "#9327FF"
+    }
+];
+
+
+
+function saveLocalStorage(what) {
+    if (what === 'cards') {
+        let cards_serialized = JSON.stringify(cards);
+        localStorage.setItem("cards", cards_serialized);
+    }
+    if (what === 'contacts') {
+        let contacts_serialized = JSON.stringify(contacts);
+        localStorage.setItem("contacts", contacts_serialized);
+    }
+    if (what === 'categories') {
+        let categories_serialized = JSON.stringify(categories);
+        localStorage.setItem("categories", categories_serialized);
+    }
+}
+
+
+function loadLocalStorage(what) {
+    if (what === 'cards') {
+        cards_deserialized = JSON.parse(localStorage.getItem("cards"));
+        if (cards_deserialized != null) {
+            cards = cards_deserialized;
+        }
+    }
+    if (what === 'contacts') {
+        contacts_deserialized = JSON.parse(localStorage.getItem("contacts"));
+        if (contacts_deserialized != null) {
+            contacts = contacts_deserialized;
+        }
+    }
+    if (what === 'categories') {
+        categories_deserialized = JSON.parse(localStorage.getItem("categories"));
+        if (categories_deserialized != null) {
+            categories = categories_deserialized;
+        }
+    }
+}
+
+/** 
+let contacts = [
+    {
+        id: "contact0",
+        color: colors[0],
         name: "Anton Mayer",
         email: "anton@gmail.com",
         phone: "12345678"
@@ -62,7 +139,7 @@ let cards = [
         category: "Design",
         title: "Website redesign",
         text: "Modify the contents of the main website...",
-        date: "",
+        date: new Date("09/12/2024"),
         priority: "low",
         assigned: ["contact0", "contact1", "contact4", "contact5"],
         subtask: [{ name: "Start here", status: 1 }, { name: "Then do banana", status: 0 }]
@@ -151,3 +228,5 @@ let categories = [
         color: "#9327FF"
     }
 ];
+
+*/
