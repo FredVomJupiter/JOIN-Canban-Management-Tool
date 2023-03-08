@@ -91,6 +91,9 @@ function saveNewContact() {
         email: document.getElementById('addcontactInputEmail').value,
         phone: document.getElementById('addcontactInputPhone').value
     };
+    database.insert(contact, function(err, contacts) {
+        
+    });
     contacts.push(contact);
     closeOverlay();
     renderContactList();

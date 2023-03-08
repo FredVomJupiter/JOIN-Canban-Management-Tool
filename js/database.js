@@ -151,8 +151,3 @@ let categories = [
         color: "#9327FF"
     }
 ];
-
-//const Datastore = require('nedb');
-
-//const database = new Datastore('https://www.frederic-rieg.developerakademie.net/JOIN/database.db');
-//database.loadDatabase();
