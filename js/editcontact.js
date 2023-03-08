@@ -98,6 +98,7 @@ function saveEditedContact() {
             contact.phone = document.getElementById('editcontactInputPhone').value;
         }
     });
+    saveLocalStorage('contacts');
     closeOverlay();
     renderContactList();
     showContact(contactId);
