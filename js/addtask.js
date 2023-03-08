@@ -652,7 +652,6 @@ function templateSubtask(subtask, location) {
         </div>
     `;
     }
-    
 }
 
 
