@@ -1,8 +1,13 @@
+html {
+    height: -webkit-fill-available;
+}
+
 body {
     font-family: 'Inter';
     margin: 0;
     height: 100vh;
     width: 100vw;
+    height: -webkit-fill-available;
 }
 
 @font-face {
@@ -2962,7 +2967,7 @@ input:invalid {
 
 /** End Help Content **/
 
-@media screen and (width < 600px) {
+@media screen and (max-width: 600px) {
     .topnav {
         left: 0;
     }
@@ -3058,7 +3063,7 @@ input:invalid {
         box-sizing: border-box;
         width: 100vw;
         padding: unset;
-        padding-top: 40px;
+        padding-top: 60px;
         padding-bottom: 20px;
         justify-content: center;
         align-items: center;
