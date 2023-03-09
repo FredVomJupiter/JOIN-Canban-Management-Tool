@@ -656,6 +656,9 @@ function openEditcontactOverlay(name) {
     editcontact.innerHTML = "";
     let filtered = contacts.filter(contact => contact.name == name);
     editcontact.innerHTML = renderEditcontactOverlay(filtered[0].name, filtered[0].email, filtered[0].phone);
+    // setting Id for editcontact.js functions and calling initEditDOM from there
+    contactId = filtered[0].id;
+    initEditDOM();
 }
 
 
