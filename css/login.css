@@ -119,7 +119,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
     text-align: center;
     color: #000000;
 }
@@ -283,7 +282,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
     color: #000000;
     flex: none;
 }
@@ -296,7 +294,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
     color: #29ABE2;
 }
 
@@ -324,7 +321,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
 }
 
 .login-login-button:hover {
@@ -913,4 +909,127 @@ body {
 .signup-button:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (width < 600px) {
+    .login-signup-wrap {
+        bottom: 0;
+        top: unset;
+        padding: 10px 10px;
+    }
+
+    .logo-wrap {
+        display: none;
+    }
+
+    .logo {
+        left: 10vw;
+        top: 20px;
+        bottom: unset;
+        right: unset;
+        width: 50px;
+    }
+
+    .login-center-container {
+        width: 80vw;
+        height: 63vh;
+        padding: 35px 0px;
+        gap: 20px;
+    }
+
+    .login-title {
+        width: unset;
+        height: unset;
+        font-size: 41px;
+    }
+
+    .login-input-wrap {
+        align-items: center;
+        justify-content: center;
+        width: unset;
+        height: unset;
+    }
+
+    .login-email-outer {
+        width: 250px;
+        height: 40px;
+    }
+
+    .login-email-border {
+        width: 250px;
+        height: 40px;
+    }
+
+    .login-email-inner {
+        width: 200px;
+        height: 40px;
+    }
+
+    .login-email-input {
+        font-size: 18px;
+        height: 30px;
+    }
+
+    .login-pw-outer {
+        width: 250px;
+        height: 40px;
+    }
+
+    .login-pw-border {
+        width: 250px;
+        height: 40px;
+    }
+
+    .login-pw-inner {
+        width: 200px;
+        height: 40px;
+    }
+
+    .login-pw-input {
+        font-size: 18px;
+        height: 30px;
+    }
+
+    .login-options-wrap {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        translate: -45px;
+        gap: 10px;
+        width: unset;
+        height: unset;
+    }
+
+    .login-options-left {
+        width: unset;
+    }
+
+    .login-checkbox {
+        width: 14px;
+        height: 14px;
+    }
+
+    .login-forgotpw-link {
+        font-size: 12px;
+    }
+
+    .login-checkbox-text {
+        font-size: 12px;
+    }
+
+    .login-buttons-wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .login-login-button {
+        height: 45px;
+    }
+
+    .login-guestlogin-button {
+        height: 45px;
+    }
 }
