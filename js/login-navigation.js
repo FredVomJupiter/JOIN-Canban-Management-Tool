@@ -8,6 +8,7 @@ let pages = [
 
 function openDashboard() {
     window.open('./dashboard.html', '_self');
+    updateCounters();
 }
 
 

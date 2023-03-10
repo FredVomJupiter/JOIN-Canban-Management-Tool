@@ -197,7 +197,6 @@ body {
 
 .summary-title {
     width: 315px;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2983,7 +2982,7 @@ input:invalid {
         right: 0;
         top: unset;
         width: unset;
-        height: 120px;
+        height: 100px;
         padding: 0px;
     }
 
@@ -3029,20 +3028,26 @@ input:invalid {
 
     .summary {
         position: fixed;
+        align-items: center;
         left: 0;
         right: 0;
         top: 81px;
         bottom: 121px;
+        overflow-x: hidden;
     }
 
     .summary-title-wrap {
+        position: fixed;
+        background: #F6F7F8;
         box-sizing: border-box;
         padding: 20px;
         width: 100vw;
+        z-index: 1;
     }
 
     .summary-title {
         width: unset;
+        font-size: 40px;
     }
 
     .summary-title-line {
@@ -3059,12 +3064,16 @@ input:invalid {
 
     .summary-center-container {
         box-sizing: border-box;
-        width: 100vw;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        width: unset;
         padding: unset;
-        padding-top: 60px;
-        padding-bottom: 20px;
+        padding-top: 5px;
         justify-content: center;
         align-items: center;
+        overflow-y: unset;
     }
 
     .summary-center-topwrap {
@@ -3077,8 +3086,9 @@ input:invalid {
 
     .summary-center-middlewrap {
         flex-direction: column;
+        align-items: center;
         padding: 48px 28px;
-        height: 580px;
+        height: 400px;
         width: 200px;
     }
 
@@ -3088,8 +3098,7 @@ input:invalid {
     }
 
     .summary-center-middle-right {
-        justify-content: center;
-        align-items: center;
+        text-align: center;
     }
 
     .summary-center-bottomwrap {
