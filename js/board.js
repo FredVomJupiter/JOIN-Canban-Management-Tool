@@ -781,7 +781,7 @@ function templateContactDetailsHtml(name, email, phone, color) {
             </div>
             <div class="contact-canvas-namewrap">
                 <span class="contact-canvas-name">${name}</span>
-                <div class="contact-canvas-addtaskwrap" onclick="openAddtaskOverlay()">
+                <div class="contact-canvas-addtaskwrap" onclick="openAddtaskOverlay('To do')">
                     <img class="contact-canvas-addtask-icon" src="./assets/img/addtask_blue.svg">
                     <span class="contact-canvas-addtast-text">Add task</span>
                 </div>
