@@ -495,15 +495,6 @@ body {
 }
 
 /** Reset Password **/
-.resetpw-background {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #F6F7F8;
-    width: 100vw;
-    height: 100vh;
-}
-
 .resetpw-container {
     display: flex;
     flex-direction: column;
@@ -554,7 +545,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
     text-align: center;
     color: #000000;
 }
@@ -567,7 +557,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     text-align: center;
     color: #000000;
 }
@@ -617,7 +606,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #D1D1D1;
 }
 
@@ -652,7 +640,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #FFFFFF;
 }
 
@@ -693,7 +680,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
-    line-height: 120%;
     color: #FFFFFF;
 }
 
@@ -789,7 +775,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #D1D1D1;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -891,7 +876,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #FFFFFF;
     background: #2A3647;
     border-radius: 8px;
@@ -1115,6 +1099,7 @@ body {
         left: unset;
         height: 40px;
         bottom: -200px;
+        translate: 10px 0px;
     }
 
     .forgotpw-confirmation-border {
@@ -1131,5 +1116,178 @@ body {
 
     .forgotpw-confirmation-icon {
         height: 20px;
+    }
+
+    .resetpw-container {
+        box-sizing: border-box;
+        width: 80vw;
+        height: 70vh;
+        padding: unset;
+        justify-content: space-evenly;
+    }
+
+    .resetpw-arrow-wrap {
+        left: 20px;
+        top: 0;
+        height: 25px;
+        width: 25px;
+    }
+
+    .resetpw-title-container {
+        width: unset;
+        height: unset;
+        margin: unset;
+        padding: unset;
+        gap: 20px;
+    }
+
+    .resetpw-title {
+        font-size: 35px;
+        height: unset;
+        width: unset;
+    }
+
+    .resetpw-text {
+        font-size: 16px;
+        height: unset;
+        width: unset;
+        margin: unset;
+    }
+
+    .resetpw-input-wrap {
+        gap: 10px;
+        width: 250px;
+        height: unset;
+        margin: unset;
+    }
+
+    .resetpw-input-outer {
+        width: 250px;
+        height: 40px;
+    }
+
+    .resetpw-input-border {
+        padding: 0px 21px;
+        width: 250px;
+        height: 40px;
+    }
+
+    .resetpw-input {
+        width: 200px;
+        height: 35px;
+        font-size: 16px;
+        background: none;
+    }
+
+    .resetpw-btn-wrap {
+        height: 35px;
+        width: 200px;
+    }
+
+    .resetpw-btn {
+        height: 35px;
+        width: 200px;
+        font-size: 16px;
+    }
+
+    .resetpw-msg-outer {
+        left: unset;
+        height: 40px;
+        width: 250px;
+        translate: 25px 0px;
+    }
+
+    .resetpw-msg-border {
+        border-radius: 10px;
+        height: 40px;
+        width: 250px;
+    }
+
+    .resetpw-msg-text {
+        font-size: 16px;
+    }
+
+    .signup-container {
+        box-sizing: border-box;
+        width: 80vw;
+        height: 70vh;
+        padding: 15px 0px;
+        gap: unset;
+        justify-content: space-evenly;
+    }
+
+    .signup-bluearrow {
+        left: 20px;
+        top: 0;
+        height: 25px;
+        width: 25px;
+    }
+
+    .signup-title-wrap {
+        width: unset;
+        height: unset;
+        gap: 20px;
+    }
+
+    .signup-title {
+        font-size: 35px;
+        height: unset;
+        width: unset;
+    }
+
+    .signup-blueline {
+        height: 0;
+    }
+
+    .signup-inputs-wrap {
+        align-items: center;
+        height: unset;
+        width: 300px;
+        gap: 10px;
+    }
+
+    .signup-name {
+        width: unset;
+        height: 40px;
+    }
+
+    .signup-input-name {
+        font-size: 16px;
+        width: 250px;
+        height: 40px;
+    }
+
+    .signup-email {
+        width: unset;
+        height: 40px;
+    }
+
+    .signup-input-email {
+        font-size: 16px;
+        width: 250px;
+        height: 40px;
+    }
+
+    .signup-password {
+        width: unset;
+        height: 40px;
+    }
+
+    .signup-input-password {
+        font-size: 16px;
+        width: 250px;
+        height: 40px;
+    }
+
+    .signup-button-wrap {
+        height: 35px;
+        width: unset;
+    }
+    
+    .signup-button {
+        font-size: 16px;
+        width: unset;
+        height: unset;
+        padding: 10px 20px;
     }
 }
