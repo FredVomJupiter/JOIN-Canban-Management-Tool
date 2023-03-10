@@ -82,7 +82,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: 120%;
 }
 
 .login-signup-button:hover {
@@ -180,7 +179,6 @@ body {
     font-size: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
 }
 
@@ -234,7 +232,6 @@ body {
     font-size: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
 }
 
@@ -923,11 +920,12 @@ body {
     }
 
     .login-signup-text {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .login-signup-button {
-        height: 45px;
+        height: 35px;
+        font-size: 14px;
     }
 
     .logo-wrap {
@@ -943,16 +941,24 @@ body {
     }
 
     .login-center-container {
+        box-sizing: border-box;
         width: 80vw;
-        height: 63vh;
-        padding: 35px 0px;
-        gap: 20px;
+        height: 70vh;
+        padding: 15px 0px;
+        gap: unset;
+        justify-content: space-evenly;
+    }
+
+    .login-title-wrap {
+        gap: 10px;
+        height: unset;
+        width: unset;
     }
 
     .login-title {
         width: unset;
         height: unset;
-        font-size: 41px;
+        font-size: 35px;
     }
 
     .login-input-wrap {
@@ -970,16 +976,18 @@ body {
     .login-email-border {
         width: 250px;
         height: 40px;
+        padding: 0px 21px;
     }
 
     .login-email-inner {
         width: 200px;
-        height: 40px;
+        height: 35px;
     }
 
     .login-email-input {
-        font-size: 18px;
+        font-size: 16px;
         height: 30px;
+        background: none;
     }
 
     .login-pw-outer {
@@ -990,16 +998,18 @@ body {
     .login-pw-border {
         width: 250px;
         height: 40px;
+        padding: 0px 21px;
     }
 
     .login-pw-inner {
         width: 200px;
-        height: 40px;
+        height: 35px;
     }
 
     .login-pw-input {
-        font-size: 18px;
+        font-size: 16px;
         height: 30px;
+        background: none;
     }
 
     .login-options-wrap {
@@ -1038,10 +1048,13 @@ body {
     }
 
     .login-login-button {
-        height: 45px;
+        height: 35px;
+        font-size: 16px;
     }
 
     .login-guestlogin-button {
-        height: 45px;
+        width: 145px;
+        height: 35px;
+        font-size: 16px;
     }
 }
