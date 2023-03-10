@@ -1542,7 +1542,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 18px 21px;
+    padding: 11px 21px;
     isolation: isolate;
     gap: 15px;
     width: 422px;
@@ -1550,7 +1550,6 @@ body {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1626,7 +1625,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-align: center;
     justify-content: space-between;
     padding: 11px 21px;
     gap: 15px;

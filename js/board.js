@@ -8,8 +8,9 @@ function init() {
     loadLocalStorage('categories');
     if (cards.length > 0) {
         renderCards();
-        updateCounters();
+        
     }
+    updateCounters();
     renderContactList();
 }
 

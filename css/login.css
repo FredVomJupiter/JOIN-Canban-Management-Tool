@@ -467,7 +467,7 @@ body {
     align-items: center;
     height: 74px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
-    translate: 0px 200px;
+    translate: 0px 900px;
 }
 
 .forgotpw-confirmation-border {
@@ -655,7 +655,7 @@ body {
     align-items: center;
     height: 74px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
-    translate: 0px 200px;
+    translate: 0px 900px;
 }
 
 .resetpw-msg-border {
