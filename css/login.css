@@ -460,15 +460,14 @@ body {
 }
 
 .forgotpw-confirmation-outer {
+    transition: all 225ms ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 42vw;
-    bottom: -100px;
     height: 74px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    translate: 0px 200px;
 }
 
 .forgotpw-confirmation-border {
@@ -649,16 +648,14 @@ body {
 }
 
 .resetpw-msg-outer {
+    transition: all 225ms ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: -100px;
-    left: 43vw;
-    width: 326px;
     height: 74px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    translate: 0px 200px;
 }
 
 .resetpw-msg-border {
@@ -686,7 +683,7 @@ body {
 /** Animation of email & resetpw message **/
 .animate {
     transition: all 225ms ease-out;
-    bottom: 50px !important;
+    translate: 0px -300px;
 }
 
 /** Signup **/
@@ -1095,11 +1092,7 @@ body {
 
     .forgotpw-confirmation-outer {
         transition: all 225ms ease-in-out;
-        position: absolute;
-        left: unset;
         height: 40px;
-        bottom: -200px;
-        translate: 10px 0px;
     }
 
     .forgotpw-confirmation-border {
@@ -1191,10 +1184,7 @@ body {
     }
 
     .resetpw-msg-outer {
-        left: unset;
         height: 40px;
-        width: 250px;
-        translate: 25px 0px;
     }
 
     .resetpw-msg-border {
