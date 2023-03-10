@@ -65,7 +65,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
 }
 
@@ -920,6 +919,15 @@ body {
         bottom: 0;
         top: unset;
         padding: 10px 10px;
+        gap: unset;
+    }
+
+    .login-signup-text {
+        font-size: 16px;
+    }
+
+    .login-signup-button {
+        height: 45px;
     }
 
     .logo-wrap {
@@ -931,7 +939,7 @@ body {
         top: 20px;
         bottom: unset;
         right: unset;
-        width: 50px;
+        width: 30px;
     }
 
     .login-center-container {
