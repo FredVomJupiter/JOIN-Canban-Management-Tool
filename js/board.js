@@ -3,6 +3,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 
 function init() {
+    setURL('http://developerakademie.com/smallest_backend_ever');
     loadLocalStorage('cards');
     loadLocalStorage('contacts');
     loadLocalStorage('categories');
