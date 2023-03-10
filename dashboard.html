@@ -317,7 +317,7 @@
                     </div>
 
                     <!-- addTask Button -->
-                    <div class="board-addtask-button" onclick="openAddtaskOverlay()">
+                    <div class="board-addtask-button" onclick="openAddtaskOverlay('To do')">
                         <span class="board-addtask-button-text">Add task</span>
                         <div class="board-addtask-button-icon-outer">
                             <div class="board-addtask-button-icon-inner">+
@@ -334,7 +334,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">To do</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('To do')">
                     </div>
 
                     <div class="canvas" id="todo-canvas"></div>
@@ -344,7 +344,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">In Progress</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('In Progress')">
                     </div>
 
                     <div class="canvas" id="progress-canvas"></div>
@@ -354,7 +354,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">Awaiting Feedback</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('Awaiting Feedback')">
                     </div>
 
                     <div class="canvas" id="feedback-canvas"></div>
@@ -365,7 +365,7 @@
                 <div class="board-column">
                     <div class="board-column-top">
                         <span class="board-column-title">Done</span>
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay()">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('Done')">
                     </div>
 
                     <div class="canvas" id="done-canvas"></div>
@@ -487,7 +487,7 @@
 
             </div>
 
-            <div class="contact-addcontact-button" onclick="openAddcontactOverlay()">
+            <div class="contact-addcontact-button" onclick="openAddcontactOverlay('To do')">
                 <span class="contact-addcontact-button-text">New contact</span>
                 <img class="contact-addcontact-button-icon" src="./assets/img/addcontact.svg">
             </div>

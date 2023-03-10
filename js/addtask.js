@@ -21,21 +21,24 @@ let isNewTask = true;
 
 
 /**
- * Everytime user creates a new task, this init will be called => setting standard values for newTask
- * */
-function initNewTask() {
+ * If the user creates a task within a specific group (To Do, In Progress, Awaiting Feedback, Done), then 
+ * this function will be called. In its default state, this function will be called with
+ * "To Do" parameter.
+ * @param {string} selectedGroup as string.
+ */
+function initNewTask(selectedGroup) {
     newTask = {
-        id: "card"+cards.length,
+        id: "card" + cards.length,
         category: "General",
         color: "#FF7A00",
-        group: "To do",
+        group: selectedGroup,
         title: "",
         text: "",
         date: "",
         priority: "low",
         assigned: [],
         subtask: []
-    };
+    }
 }
 
 
@@ -73,9 +76,9 @@ const validateTaskInputs = (where) => {
     if (where === 'overlay') {
         overlayValidation();
     }
-    
+
     if (where === 'menu') {
-       menuValidation();
+        menuValidation();
     }
 };
 
@@ -114,6 +117,7 @@ function overlayValidation() {
     }
 
     if (correctTitle & correctDescription & correctDate & isNewTask) {
+        console.log("New Task created");
         newTask.title = titleValue;
         newTask.text = descriptionValue;
         newTask.date = new Date(dateValue);
@@ -177,6 +181,7 @@ function menuValidation() {
 
 
 function saveNewTask() {
+    console.log("Saving Task");
     cards.push(newTask);
     saveLocalStorage('cards');
     renderCards();
@@ -221,7 +226,7 @@ function setMenuPrio(type) {
 
     const prio = document.getElementById('addtaskMenuPrio');
 
-    if (type === 'urgent'){
+    if (type === 'urgent') {
         prio.innerHTML = "";
         prio.innerHTML = templateMenuUrgent();
         newTask.priority = 'urgent';
@@ -442,7 +447,7 @@ function resetMenuCategory() {
 
 function selectCategory(categoryName, categoryColor, location) {
     foldCategories(location);
-    let menu = (location === 'overlay' ?  document.getElementById('addtaskOverlayCategory') : document.getElementById('addtaskMenuCategory'));
+    let menu = (location === 'overlay' ? document.getElementById('addtaskOverlayCategory') : document.getElementById('addtaskMenuCategory'));
     menu.innerHTML = categoryName + `<div class="addtask-leftcontainer-circle" style="background:${categoryColor}"></div>`;
     newTask.category = categoryName;
     newTask.color = categoryColor;
@@ -606,7 +611,7 @@ function copyAssigned() {
 function addSubtask(location) {
     let subtaskName = getSubtaskName(location);
     if (subtaskName.value != "") {
-        subtasks.push({name: subtaskName.value, status: 0, id: `subtask${subtasks.length}`});
+        subtasks.push({ name: subtaskName.value, status: 0, id: `subtask${subtasks.length}` });
         drawAllSubtasks(location);
         subtaskName.value = "";
     }
@@ -623,7 +628,7 @@ function drawAllSubtasks(location) {
     subtaskBox.innerHTML = "";
     if (subtasks.length > 0) {
         subtasks.forEach(subtask => {
-            subtaskBox.innerHTML +=  templateSubtask(subtask, location);
+            subtaskBox.innerHTML += templateSubtask(subtask, location);
         });
     }
 }
@@ -643,7 +648,7 @@ function templateSubtask(subtask, location) {
                 <div class="delete" onclick="deleteSubtask('${subtask.id}', '${location}')">X</div>
             </div>
         `;
-    } 
+    }
     if (subtask.status == 1) {
         return `
         <div class="addtask-rightcontainer-subtask-wrap">
@@ -688,14 +693,14 @@ function setSubStatus(subtaskId) {
 function copySubtasks() {
     let subtaskWithoutId = [];
     subtasks.forEach(subtask => {
-        subtaskWithoutId.push({name: subtask.name, status: subtask.status});
+        subtaskWithoutId.push({ name: subtask.name, status: subtask.status });
     });
     return subtaskWithoutId;
 }
 
 
 function clearOverlay() {
-    initNewTask();
+    initNewTask('To Do');
     assigned = [];
     subtasks = [];
     taskOverlayTitle.value = "";
@@ -712,7 +717,7 @@ function clearOverlay() {
 
 
 function clearAddtaskMenu() {
-    initNewTask();
+    initNewTask('To Do');
     assigned = [];
     subtasks = [];
     taskMenuTitle.value = "";

@@ -8,10 +8,10 @@ function init() {
     loadLocalStorage('categories');
     if (cards.length > 0) {
         renderCards();
-        
     }
     updateCounters();
     renderContactList();
+    initNewTask('To Do');
 }
 
 
@@ -117,7 +117,7 @@ function filterCards() {
     let searchField = document.getElementById('searchField').value.toLowerCase();
     let filteredList = [];
     cards.forEach(card => {
-        if((card.title.toLowerCase()).includes(searchField) || (card.text.toLowerCase()).includes(searchField)) {
+        if ((card.title.toLowerCase()).includes(searchField) || (card.text.toLowerCase()).includes(searchField)) {
             filteredList.push(card);
         }
     });
@@ -373,7 +373,7 @@ function returnFormatedDate(date) {
     } else {
         return "No date specified"
     }
-    
+
 }
 
 
@@ -418,14 +418,13 @@ function getAssignedForOverlay(assigned) {
     return lines;
 }
 
-
-function openAddtaskOverlay() {
+function openAddtaskOverlay(group) {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
     let taskoverlay = document.getElementById('addtaskOverlay');
     taskoverlay.classList.remove('d-none');
     taskoverlay.classList.remove('hidden');
-    initNewTask();
+    initNewTask(group);
 }
 
 
@@ -488,27 +487,31 @@ function setEditTaskPrio(cardId) {
 
 
 function setEditTaskCategory(cardId) {
-    let categoryName = cards.filter(card => card.id == cardId)[0].category;
-    let categoryColor = categories.filter(category => category.name == categoryName)[0].color;
-    selectCategory(categoryName, categoryColor, 'overlay');
+    if (cards.filter(card => card.id == cardId)[0].category != "General") {
+        let categoryName = cards.filter(card => card.id == cardId)[0].category;
+        let categoryColor = categories.filter(category => category.name == categoryName)[0].color;
+        selectCategory(categoryName, categoryColor, 'overlay');
+    }
 }
 
 
 function setEditTaskAssigned(cardId) {
     let assignedPersons = cards.filter(card => card.id == cardId)[0].assigned;
-    let finalList = [];
-    assignedPersons.forEach(person => {
-        finalList.push([person, `<div class="addtask-leftcontainer-assigned-circle" style="background:${contacts.filter(contact => contact.id == person)[0].color}">${returnInitials(contacts.filter(contact => contact.id == person)[0].name)}</div>`]);
-    });
-    assigned = finalList;
-    drawAssigned('overlay');
+    if (assignedPersons.length >= 1) {
+        let finalList = [];
+        assignedPersons.forEach(person => {
+            finalList.push([person, `<div class="addtask-leftcontainer-assigned-circle" style="background:${contacts.filter(contact => contact.id == person)[0].color}">${returnInitials(contacts.filter(contact => contact.id == person)[0].name)}</div>`]);
+        });
+        assigned = finalList;
+        drawAssigned('overlay');
+    }
 }
 
 
 function setEditTaskSubtasks(cardId) {
     let listOfSubtasks = cards.filter(card => card.id == cardId)[0].subtask;
     subtasks = listOfSubtasks;
-    for (let i = 0; i < subtasks.length; i++) {subtasks[i].id = `subtask${i}`;}
+    for (let i = 0; i < subtasks.length; i++) { subtasks[i].id = `subtask${i}`; }
     drawAllSubtasks('overlay');
 }
 
@@ -619,7 +622,7 @@ function returnDeadline() {
 function mostUrgentDeadline(urgentDeadlines) {
     let urgentDatesList = [];
     urgentDeadlines.forEach(urgent => {
-        urgentDatesList.push(urgent.date);
+        urgentDatesList.push(new Date(urgent.date));
     });
     urgentDatesList.sort((a, b) => a - b);
     return new Date(urgentDatesList[0]);
@@ -702,7 +705,7 @@ function renderContactList() {
     loadLocalStorage('contacts');
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
-    const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Other"];
+    const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];
     alphabet.forEach(letter => {
         if (filterContactByLetter(contacts, letter).length > 0) {
             let filteredContacts = filterContactByLetter(contacts, letter);
