@@ -771,7 +771,6 @@ body {
 
 .board-title {
     width: 176px;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -823,14 +822,13 @@ body {
 .board-searchbar-text {
     width: 100px;
     height: 31px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     display: flex;
     align-items: center;
     border: unset;
-    color: #D1D1D1;
+    color: #2A3647;
 }
 
 .board-searchbar-text:focus {
@@ -880,7 +878,6 @@ body {
 .board-addtask-button-text {
     width: 92px;
     height: 25px;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -2982,7 +2979,7 @@ input:invalid {
         right: 0;
         top: unset;
         width: unset;
-        height: 100px;
+        height: 80px;
         padding: 0px;
     }
 
@@ -3000,21 +2997,23 @@ input:invalid {
     .sidebar-menu-option-dark {
         flex-direction: column;
         justify-content: flex-end;
-        height: 120px;
+        height: 100px;
         width: 75px;
         min-width: 75px;
-        gap: 10px;
-        padding: 20px;
+        gap: unset;
+        padding: unset;
+        padding-bottom: 20px;
     }
 
     .sidebar-menu-option-light {
         flex-direction: column;
         justify-content: flex-end;
-        height: 120px;
+        height: 100px;
         width: 75px;
         min-width: 75px;
-        gap: 10px;
-        padding: 20px;
+        gap: unset;
+        padding: unset;
+        padding-bottom: 20px;
     }
 
     .sidebar-menu-text {
@@ -3026,13 +3025,19 @@ input:invalid {
         display: none;
     }
 
+    .container {
+        left: 0;
+        bottom: 80px;
+        overflow-y: unset;
+    }
+
     .summary {
         position: fixed;
         align-items: center;
         left: 0;
         right: 0;
         top: 81px;
-        bottom: 121px;
+        bottom: 80px;
         overflow-x: hidden;
     }
 
@@ -3103,5 +3108,94 @@ input:invalid {
 
     .summary-center-bottomwrap {
         flex-direction: column;
+    }
+
+    .board {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .board-title-wrap {
+        flex-direction: column;
+        align-self: center;
+        gap: unset;
+        padding: unset;
+    }
+
+    .board-title-outer {
+        width: unset;
+        height: unset;
+    }
+
+    .board-title {
+        font-size: 40px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .board-topright {
+        width: unset;
+    }
+
+    .board-searchbar-border {
+        width: 100px;
+        height: 30px;
+        border-radius: 7px;
+        padding: 11px 10px;
+    }
+
+    .board-searchbar-outer {
+        justify-content: flex-start;
+        width: 100px;
+        height: 25px;
+    }
+
+    .board-searchbar-inner {
+        justify-content: flex-start;
+        width: 100px;
+    }
+
+    .board-searchbar-text {
+        box-sizing: border-box;
+        width: 80px;
+        height: unset;
+        font-size: 12px;
+        padding: unset;
+    }
+
+    .board-searchbar-icon-wrap {
+        display: none;
+    } 
+
+    .board-searchbar-verticalline {
+        display: none;
+    }
+
+    .board-searchbar-icon {
+        display: none;
+    }
+
+    .board-addtask-button {
+        width: 100px;
+        height: 30px;
+        padding: unset;
+        border-radius: 7px;
+    }
+
+    .board-addtask-button-text {
+        font-size: 14px;
+        height: unset;
+        width: unset;
+    }
+
+    .board-addtask-button-icon-outer {
+        width: 10px;
+        height: 10px;
+        translate: 0px -2px;
+    }
+
+    .board-addtask-button-icon-inner {
+        height: 10px;
+        width: 10px;
     }
 }
