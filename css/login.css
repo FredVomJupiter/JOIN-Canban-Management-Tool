@@ -368,7 +368,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
     text-align: center;
     color: #000000;
 }
@@ -396,7 +395,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     text-align: center;
     color: #000000;
 }
@@ -425,7 +423,6 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #D1D1D1;
 
 }
@@ -703,7 +700,7 @@ body {
 /** Animation of email & resetpw message **/
 .animate {
     transition: all 225ms ease-out;
-    bottom: 5%;
+    bottom: 50px !important;
 }
 
 /** Signup **/
@@ -909,8 +906,12 @@ body {
 
 @media screen and (max-width: 600px) {
     .background {
-        overflow-y: scroll;
-    } 
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 
     .login-signup-wrap {
         bottom: 0;
@@ -1056,5 +1057,79 @@ body {
         width: 145px;
         height: 35px;
         font-size: 16px;
+    }
+
+    .forgotpw-container {
+        box-sizing: border-box;
+        width: 80vw;
+        height: 70vh;
+        padding: unset;
+        gap: unset;
+        justify-content: space-evenly;
+    }
+
+    .forgotpw-title {
+        font-size: 35px;
+        height: unset;
+        width: unset;
+        flex-wrap: wrap;
+    }
+
+    .forgotpw-bluearrow {
+        top: 0;
+        left: 20px;
+        height: 25px;
+        width: 25px;
+    }
+
+    .forgotpw-text {
+        font-size: 16px;
+        height: unset;
+        width: unset;
+        padding: 0px 15px;
+    }
+
+    .forgotpw-input-wrap {
+        width: 250px;
+        height: 40px;
+        padding: unset;
+        margin: unset;
+    }
+
+    .forgotpw-input {
+        width: 200px;
+        height: 40px;
+        background: none;
+        font-size: 16px;
+    }
+
+    .forgotpw-button {
+        font-size: 16px;
+        width: 200px;
+        height: 40px;
+    }
+
+    .forgotpw-confirmation-outer {
+        transition: all 225ms ease-in-out;
+        position: absolute;
+        left: unset;
+        height: 40px;
+        bottom: -200px;
+    }
+
+    .forgotpw-confirmation-border {
+        height: 40px;
+        width: 280px;
+        border-radius: 10px;
+    }
+
+    .forgotpw-confirmation-text {
+        font-size: 14px;
+        height: unset;
+        width: unset;
+    }
+
+    .forgotpw-confirmation-icon {
+        height: 20px;
     }
 }
