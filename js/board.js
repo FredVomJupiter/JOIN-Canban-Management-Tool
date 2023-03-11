@@ -538,11 +538,9 @@ function saveEditedTask() {
 
 
 function returnIndex() {
-    console.log(newTask.id);
     let index;
     for (let i = 0; i < cards.length; i++) {
-        if (cards[i].id == newTask.id) {
-            console.log("Habs")
+        if (cards[i].id === newTask.id) {
             index = i;
         }
     }
@@ -705,7 +703,6 @@ function renderEditcontactOverlay(name, email, phone) {
 
 
 function renderContactList() {
-    console.log(contacts);
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];
@@ -713,7 +710,6 @@ function renderContactList() {
         if (filterContactByLetter(contacts, letter).length > 0) {
             let filteredContacts = filterContactByLetter(contacts, letter);
             contactList.innerHTML += templateContactLetter(letter);
-            console.log(filteredContacts);
             filteredContacts.forEach(contact => {
                 contactList.innerHTML += templateContactListHtml(contact);
             });

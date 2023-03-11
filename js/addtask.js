@@ -117,7 +117,6 @@ function overlayValidation() {
     }
 
     if (correctTitle & correctDescription & correctDate & isNewTask) {
-        console.log("New Task created");
         newTask.title = titleValue;
         newTask.text = descriptionValue;
         newTask.date = new Date(dateValue);
