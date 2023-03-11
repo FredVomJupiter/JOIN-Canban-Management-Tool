@@ -181,7 +181,6 @@ function menuValidation() {
 
 
 function saveNewTask() {
-    console.log("Saving Task");
     cards.push(newTask);
     saveLocalStorage('cards');
     renderCards();

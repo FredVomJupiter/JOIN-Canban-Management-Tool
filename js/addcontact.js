@@ -92,7 +92,7 @@ function saveNewContact() {
         phone: document.getElementById('addcontactInputPhone').value
     };
     contacts.push(contact);
-    saveLocalStorage('contacts')
+    saveLocalStorage('contacts');
     closeOverlay();
     renderContactList();
     showContact(contact.id);
