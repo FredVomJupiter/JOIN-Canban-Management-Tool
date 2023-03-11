@@ -43,34 +43,35 @@ let categories = [
 function saveLocalStorage(what) {
     if (what === 'cards') {
         let cards_serialized = JSON.stringify(cards);
-        localStorage.setItem("cards", cards_serialized);
+        backend.setItem("cards", cards_serialized);
     }
     if (what === 'contacts') {
         let contacts_serialized = JSON.stringify(contacts);
-        localStorage.setItem("contacts", contacts_serialized);
+        backend.setItem("contacts", contacts_serialized);
     }
     if (what === 'categories') {
         let categories_serialized = JSON.stringify(categories);
-        localStorage.setItem("categories", categories_serialized);
+        backend.setItem("categories", categories_serialized);
     }
 }
 
 
-function loadLocalStorage(what) {
+async function loadLocalStorage(what) {
+    await downloadFromServer();
     if (what === 'cards') {
-        cards_deserialized = JSON.parse(localStorage.getItem("cards"));
+        cards_deserialized = JSON.parse(backend.getItem("cards"));
         if (cards_deserialized != null) {
             cards = cards_deserialized;
         }
     }
     if (what === 'contacts') {
-        contacts_deserialized = JSON.parse(localStorage.getItem("contacts"));
+        contacts_deserialized = JSON.parse(backend.getItem("contacts"));
         if (contacts_deserialized != null) {
             contacts = contacts_deserialized;
         }
     }
     if (what === 'categories') {
-        categories_deserialized = JSON.parse(localStorage.getItem("categories"));
+        categories_deserialized = JSON.parse(backend.getItem("categories"));
         if (categories_deserialized != null) {
             categories = categories_deserialized;
         }

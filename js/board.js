@@ -1,6 +1,8 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
+setURL('https://www.frederic-rieg.developerakademie.net/smallest_backend_ever');
+
 
 function init() {
     loadLocalStorage('cards');
