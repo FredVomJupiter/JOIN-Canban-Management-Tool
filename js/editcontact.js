@@ -99,7 +99,6 @@ function saveEditedContact() {
         }
     });
     saveLocalStorage('contacts');
-    insertIntoDatabase();
     closeOverlay();
     renderContactList();
     showContact(contactId);

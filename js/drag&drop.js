@@ -12,7 +12,6 @@ function dragend(event, group) {
         }
     });
     saveLocalStorage('cards');
-    insertIntoDatabase();
     renderCards();
 }
 

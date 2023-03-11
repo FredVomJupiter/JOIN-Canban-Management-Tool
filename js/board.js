@@ -3,7 +3,9 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 
 function init() {
-    loadDatabases();
+    loadLocalStorage('cards');
+    loadLocalStorage('contacts')
+    loadLocalStorage('categories');
     if (cards.length > 0) {
         renderCards();
     }
@@ -15,8 +17,7 @@ function init() {
 
 // Render Process for Board Page
 function renderCards() {
-    loadDatabases();
-
+    loadLocalStorage('cards');
     renderTodo();
     renderProgress();
     renderFeedback();
@@ -703,7 +704,7 @@ function renderEditcontactOverlay(name, email, phone) {
 
 
 function renderContactList() {
-    loadDatabases();
+    loadLocalStorage('contacts');
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];

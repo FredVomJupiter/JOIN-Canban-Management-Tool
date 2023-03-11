@@ -40,7 +40,6 @@ let categories = [
 ];
 
 
-
 function saveLocalStorage(what) {
     if (what === 'cards') {
         let cards_serialized = JSON.stringify(cards);
