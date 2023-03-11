@@ -94,7 +94,7 @@ function saveNewContact() {
     contacts.push(contact);
     saveLocalStorage('contacts');
     closeOverlay();
-    renderContactList();
+    init();
     showContact(contact.id);
     clearNewcontactInputfields();
 }

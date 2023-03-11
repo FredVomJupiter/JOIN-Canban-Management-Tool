@@ -40,24 +40,23 @@ let categories = [
 ];
 
 
-function saveLocalStorage(what) {
+async function saveLocalStorage(what) {
     if (what === 'cards') {
         let cards_serialized = JSON.stringify(cards);
-        backend.setItem("cards", cards_serialized);
+        await backend.setItem("cards", cards_serialized);
     }
     if (what === 'contacts') {
         let contacts_serialized = JSON.stringify(contacts);
-        backend.setItem("contacts", contacts_serialized);
+        await backend.setItem("contacts", contacts_serialized);
     }
     if (what === 'categories') {
         let categories_serialized = JSON.stringify(categories);
-        backend.setItem("categories", categories_serialized);
+        await backend.setItem("categories", categories_serialized);
     }
 }
 
 
 async function loadLocalStorage(what) {
-    await downloadFromServer();
     if (what === 'cards') {
         cards_deserialized = JSON.parse(backend.getItem("cards"));
         if (cards_deserialized != null) {

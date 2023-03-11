@@ -100,7 +100,6 @@ function saveEditedContact() {
     });
     saveLocalStorage('contacts');
     closeOverlay();
-    renderContactList();
+    init();
     showContact(contactId);
-    renderCards();
 }

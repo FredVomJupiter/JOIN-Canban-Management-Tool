@@ -4,10 +4,11 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 setURL('https://www.frederic-rieg.developerakademie.net/smallest_backend_ever');
 
 
-function init() {
-    loadLocalStorage('cards');
-    loadLocalStorage('contacts')
-    loadLocalStorage('categories');
+async function init() {
+    await downloadFromServer();
+    await loadLocalStorage('cards');
+    await loadLocalStorage('contacts')
+    await loadLocalStorage('categories');
     if (cards.length > 0) {
         renderCards();
     }
@@ -19,7 +20,6 @@ function init() {
 
 // Render Process for Board Page
 function renderCards() {
-    loadLocalStorage('cards');
     renderTodo();
     renderProgress();
     renderFeedback();
@@ -529,12 +529,11 @@ function saveEditedTask() {
     newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
     cards.splice(cards.findIndex(card => card.id === newTask.id), 1);
     cards.push(newTask);
-    insertIntoDatabase();
     saveLocalStorage('cards');
-    renderCards();
     closeOverlay();
     clearOverlay();
     clearAddtaskMenu();
+    init();
 }
 
 
@@ -706,7 +705,6 @@ function renderEditcontactOverlay(name, email, phone) {
 
 
 function renderContactList() {
-    loadLocalStorage('contacts');
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];

@@ -24,6 +24,7 @@ function openLogin() {
     window.open('./login.html', '_self');
 }
 
+
 function openPage(pageName) {
     if (pageName === 'summary') {
         updateCounters();
@@ -35,6 +36,9 @@ function openPage(pageName) {
     if (pageName != 'help') {
         let menupoint = document.getElementById(`menu-${pageName}`);
         menupoint.classList.add('sidebar-menu-option-dark');
+    }
+    if (pageName === 'contacts') {
+        renderContactList();
     }
 }
 
