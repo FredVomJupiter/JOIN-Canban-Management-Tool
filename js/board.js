@@ -705,6 +705,7 @@ function renderEditcontactOverlay(name, email, phone) {
 
 
 function renderContactList() {
+    console.log(contacts);
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];
@@ -712,6 +713,7 @@ function renderContactList() {
         if (filterContactByLetter(contacts, letter).length > 0) {
             let filteredContacts = filterContactByLetter(contacts, letter);
             contactList.innerHTML += templateContactLetter(letter);
+            console.log(filteredContacts);
             filteredContacts.forEach(contact => {
                 contactList.innerHTML += templateContactListHtml(contact);
             });
@@ -721,7 +723,7 @@ function renderContactList() {
 
 
 function filterContactByLetter(contacts, letter) {
-    return contacts.filter(contact => contact.name.charAt(0) == letter);
+    return contacts.filter(contact => contact.name.charAt(0).toUpperCase() == letter);
 }
 
 
