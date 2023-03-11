@@ -93,6 +93,7 @@ function saveNewContact() {
     };
     contacts.push(contact);
     saveLocalStorage('contacts');
+    insertIntoDatabase();
     closeOverlay();
     renderContactList();
     showContact(contact.id);

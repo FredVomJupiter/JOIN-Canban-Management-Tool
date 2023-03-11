@@ -183,6 +183,7 @@ function menuValidation() {
 function saveNewTask() {
     cards.push(newTask);
     saveLocalStorage('cards');
+    insertIntoDatabase();
     renderCards();
     closeOverlay();
     clearOverlay();

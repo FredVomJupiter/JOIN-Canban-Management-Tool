@@ -3,9 +3,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 
 function init() {
-    loadLocalStorage('cards');
-    loadLocalStorage('contacts');
-    loadLocalStorage('categories');
+    loadDatabases();
     if (cards.length > 0) {
         renderCards();
     }
@@ -17,7 +15,8 @@ function init() {
 
 // Render Process for Board Page
 function renderCards() {
-    loadLocalStorage('cards');
+    loadDatabases();
+
     renderTodo();
     renderProgress();
     renderFeedback();
@@ -418,6 +417,7 @@ function getAssignedForOverlay(assigned) {
     return lines;
 }
 
+
 function openAddtaskOverlay(group) {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
@@ -526,6 +526,7 @@ function saveEditedTask() {
     newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
     cards.splice(cards.findIndex(card => card.id === newTask.id), 1);
     cards.push(newTask);
+    insertIntoDatabase();
     saveLocalStorage('cards');
     renderCards();
     closeOverlay();
@@ -702,7 +703,7 @@ function renderEditcontactOverlay(name, email, phone) {
 
 
 function renderContactList() {
-    loadLocalStorage('contacts');
+    loadDatabases();
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];
