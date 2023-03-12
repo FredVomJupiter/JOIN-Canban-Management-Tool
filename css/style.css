@@ -1463,7 +1463,6 @@ body {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1564,6 +1563,27 @@ body {
     flex-direction: column !important;
     padding: unset !important;
     gap: unset !important;
+}
+
+.addtask-leftcontainer-newcategory {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 250px;
+    height: 49px;
+    border: unset;
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    z-index: 10;
+}
+
+.addtask-leftcontainer-newcategory:focus {
+    outline: none;
 }
 
 .addtask-leftcontainer-selection {

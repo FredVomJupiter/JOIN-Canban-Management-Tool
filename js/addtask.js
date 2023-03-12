@@ -19,11 +19,16 @@ let subtasks = [];
 
 let isNewTask = true;
 
+let newCategory = {
+    name: "",
+    color: "",
+};
+
 
 /**
  * If the user creates a task within a specific group (To Do, In Progress, Awaiting Feedback, Done), then 
  * this function will be called. In its default state, this function will be called with
- * "To Do" parameter.
+ * "To do" parameter.
  * @param {string} selectedGroup as string.
  */
 function initNewTask(selectedGroup) {
@@ -390,6 +395,9 @@ function templateCategoryHeader(location) {
             <span class="addtask-leftcontainer-categorytext">Select task category</span>
             <img style="margin-left:140px" src="./assets/img/dropdown.svg">
         </div>
+        <div class="addtask-leftcontainer-selection relative" onclick="createNewCategory('${location}')">
+            <span class="addtask-leftcontainer-categorytext">New category</span>
+        </div>
     `;
 }
 
@@ -414,7 +422,7 @@ function foldOverlayCategories() {
     menu.parentElement.classList.remove('grow');
     menu.classList.remove('field-grow');
     menu.innerHTML = "";
-    menu.outerHTML = resetOverlayCategory();
+    menu.parentElement.outerHTML = resetOverlayCategory();
 }
 
 
@@ -423,13 +431,16 @@ function foldMenuCategories() {
     menu.parentElement.classList.remove('grow');
     menu.classList.remove('field-grow');
     menu.innerHTML = "";
-    menu.outerHTML = resetMenuCategory();
+    menu.parentElement.outerHTML = resetMenuCategory();
 }
 
 
 function resetOverlayCategory() {
     return `
-        <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
+        <div class="addtask-leftcontainer-category">
+            <span class="addtask-leftcontainer-categorytext">Category</span>
+            <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
+            </div>
         </div>
     `;
 }
@@ -437,7 +448,10 @@ function resetOverlayCategory() {
 
 function resetMenuCategory() {
     return `
-        <div class="addtask-leftcontainer-categoryfield" id="addtaskMenuCategory" onclick="expandCategories('menu')">Select task category
+        <div class="addtask-leftcontainer-category">
+            <span class="addtask-leftcontainer-categorytext">Category</span>
+            <div class="addtask-leftcontainer-categoryfield" id="addtaskMenuCategory" onclick="expandCategories('menu')">Select task category
+            </div>
         </div>
     `;
 }
@@ -449,6 +463,116 @@ function selectCategory(categoryName, categoryColor, location) {
     menu.innerHTML = categoryName + `<div class="addtask-leftcontainer-circle" style="background:${categoryColor}"></div>`;
     newTask.category = categoryName;
     newTask.color = categoryColor;
+}
+
+
+function createNewCategory(location) {
+    newCategory.color = colors[16];
+    newCategory.name = "";
+    if (location === "menu") {
+        prepareMenu();
+
+    } else {
+        prepareOverlay();
+    }
+}
+
+
+function prepareMenu() {
+    const menu = document.getElementById('addtaskMenuCategory');
+    menu.removeAttribute("onclick");
+    menu.innerHTML = "";
+    menu.classList.remove('field-grow');
+    menu.style.background = "none";
+    menu.style.background = "#FFFFFF";
+    templateMenuNewCategory(menu);
+}
+
+
+function templateMenuNewCategory(menu) {
+    menu.innerHTML = `
+            <input class="addtask-leftcontainer-newcategory" id="newCategoryNameMenu" placeholder="New category Name">
+            <div class="addtask-leftcontainer-circle" style="background:${newCategory.color}" id="newCategoryMenu"></div>
+            <img src="./assets/img/clear.svg" onclick="foldCategories('menu')">
+            <div style="height: 20px; width:0px; border: 1px solid black"></div>
+            <img src="./assets/img/check_black.svg" onclick="saveNewCategory('menu')">
+        `;
+    menu.parentElement.innerHTML += `
+            <div style="display: flex; flex-direction: row; gap: 10px;">
+                <div class="addtask-leftcontainer-circle" style="background:${colors[2]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[2]}', 'menu')"></div>
+                <div class="addtask-leftcontainer-circle" style="background:${colors[5]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[5]}', 'menu')"></div>
+                <div class="addtask-leftcontainer-circle" style="background:${colors[8]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[8]}', 'menu')"></div>
+                <div class="addtask-leftcontainer-circle" style="background:${colors[12]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[12]}', 'menu')"></div>
+                <div class="addtask-leftcontainer-circle" style="background:${colors[15]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[15]}', 'menu')"></div>
+                <div class="addtask-leftcontainer-circle" style="background:${colors[16]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[16]}', 'menu')"></div>
+            </div>
+        `;
+}
+
+
+function prepareOverlay() {
+    const overlay = document.getElementById('addtaskOverlayCategory');
+    overlay.removeAttribute("onclick");
+    overlay.innerHTML = "";
+    overlay.classList.remove('field-grow');
+    overlay.style.background = "none";
+    overlay.style.background = "#FFFFFF";
+    templateOverlayNewCategory(overlay);
+}
+
+
+function templateOverlayNewCategory(overlay) {
+    overlay.innerHTML = `
+            <input class="addtask-leftcontainer-newcategory" id="newCategoryNameOverlay" placeholder="New category Name">
+            <div class="addtask-leftcontainer-circle" style="background:${newCategory.color}" id="newCategoryOverlay"></div>
+            <img src="./assets/img/clear.svg" onclick="foldCategories('overlay')">
+            <div style="height: 20px; width:0px; border: 1px solid black"></div>
+            <img src="./assets/img/check_black.svg" onclick="saveNewCategory('overlay')">
+        `;
+    overlay.parentElement.innerHTML += `
+            <div style="display: flex; flex-direction: row; gap: 10px;">
+            <div class="addtask-leftcontainer-circle" style="background:${colors[2]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[2]}', 'overlay')"></div>
+            <div class="addtask-leftcontainer-circle" style="background:${colors[5]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[5]}', 'overlay')"></div>
+            <div class="addtask-leftcontainer-circle" style="background:${colors[8]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[8]}', 'overlay')"></div>
+            <div class="addtask-leftcontainer-circle" style="background:${colors[12]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[12]}', 'overlay')"></div>
+            <div class="addtask-leftcontainer-circle" style="background:${colors[15]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[15]}', 'overlay')"></div>
+            <div class="addtask-leftcontainer-circle" style="background:${colors[16]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[16]}', 'overlay')"></div>
+            </div>
+        `;
+}
+
+
+function selectNewCategoryColor(color, location) {
+    newCategory.color = color;
+
+    if (location === "menu") {
+        let menu = document.getElementById('newCategoryMenu');
+        menu.outerHTML = `
+            <div class="addtask-leftcontainer-circle" style="background:${color}" id="newCategoryMenu"></div>
+        `;
+    } else {
+        let overlay = document.getElementById('newCategoryOverlay');
+        overlay.outerHTML = `
+            <div class="addtask-leftcontainer-circle" style="background:${color}" id="newCategoryOverlay"></div>
+        `;
+    }
+}
+
+
+function saveNewCategory(location) {
+    if (location === "menu" && document.getElementById('newCategoryNameMenu').value != "") {
+        newCategory.name = document.getElementById('newCategoryNameMenu').value;
+        selectCategory(newCategory.name, newCategory.color, location);
+        categories.push(newCategory);
+        saveLocalStorage('categories');
+    }
+    if (location === "overlay" && document.getElementById('newCategoryNameOverlay').value != "") {
+        newCategory.name = document.getElementById('newCategoryNameOverlay').value;
+        selectCategory(newCategory.name, newCategory.color, location);
+        categories.push(newCategory);
+        saveLocalStorage('categories');
+    }
+
 }
 
 // assignments
@@ -698,7 +822,7 @@ function copySubtasks() {
 
 
 function clearOverlay() {
-    initNewTask('To Do');
+    initNewTask('To do');
     assigned = [];
     subtasks = [];
     taskOverlayTitle.value = "";
@@ -715,7 +839,7 @@ function clearOverlay() {
 
 
 function clearAddtaskMenu() {
-    initNewTask('To Do');
+    initNewTask('To do');
     assigned = [];
     subtasks = [];
     taskMenuTitle.value = "";

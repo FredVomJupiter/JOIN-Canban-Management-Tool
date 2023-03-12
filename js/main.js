@@ -14,7 +14,7 @@ async function init() {
     }
     updateCounters();
     renderContactList();
-    initNewTask('To Do');
+    initNewTask('To do');
 }
 
 
@@ -395,7 +395,7 @@ function getSubtasksForOverlay(subtask) {
     if (subtask.length > 0) {
         let lines = "";
         subtask.forEach(task => {
-            lines += `<span class="board-taskoverlay-value">${task.name} ${task.status == 1 ? "(Done)" : "(To Do)"}</span>`;
+            lines += `<span class="board-taskoverlay-value">${task.name} ${task.status == 1 ? "(Done)" : "(To do)"}</span>`;
         });
         return lines;
     } else {
