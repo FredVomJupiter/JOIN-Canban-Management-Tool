@@ -7,7 +7,7 @@ let contacts = [
         id: "contact0",
         color: colors[0],
         name: "Your Self",
-        email: "standard@email.com",
+        email: "standard@mail.com",
         phone: "12345678"
     }
 ];
