@@ -1358,7 +1358,6 @@ body {
 }
 
 .addtask-title {
-    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -1596,6 +1595,10 @@ body {
     border-radius: 10px;
 }
 
+.category-icon {
+    margin-left: 140px;
+}
+
 .fixed {
     background: #FFFFFF;
     height: 25px;
@@ -1710,7 +1713,6 @@ body {
 .addtask-rightcontainer-datetext {
     width: 91px;
     height: 25px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1776,7 +1778,7 @@ body {
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 33%;
+    width: 150px;
     height: 51px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -1864,7 +1866,6 @@ body {
     width: 422px;
     height: 49px;
     background: #FFFFFF;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2038,7 +2039,6 @@ body {
 
 .contact-title {
     width: 274px;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -2092,7 +2092,6 @@ body {
 .contact-alphabet-text {
     width: 282px;
     height: 40px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2245,7 +2244,6 @@ body {
 }
 
 .contact-canvas-circletext {
-    
     font-style: normal;
     font-weight: 400;
     font-size: 47px;
@@ -2277,7 +2275,6 @@ body {
 .contact-canvas-name {
     width: 287px;
     height: 56px;
-    
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
@@ -2327,7 +2324,6 @@ body {
 .contact-canvas-info-text {
     width: 207px;
     height: 74px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -2600,7 +2596,6 @@ input:invalid {
     border: 1px solid #2A3647 !important;
     border-radius: 10px !important;
     cursor: pointer;
-    
     color: #2A3647;
     background-color: #F6F7F8;
     transition: 100ms ease-in-out;
@@ -2628,7 +2623,6 @@ input:invalid {
     border-radius: 10px !important;
     cursor: pointer;
     transition: 100ms ease-in-out;
-    
     background-image: url('../assets/img/check.svg');
     background-repeat: no-repeat;
 }
@@ -3249,7 +3243,39 @@ input:invalid {
         box-shadow: unset;
         align-items: center;
         padding: 20px;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .addtask {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding-bottom: 20px;
+        align-items: unset;
+        overflow-y: scroll;
+    }
+
+    .addtask-title-wrap {
+        flex-direction: column;
+        align-self: center;
+        gap: unset;
+        padding: unset;
+    }
+
+    .addtask-title {
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .addtask-container {
+        padding: unset;
+        flex-direction: column;
+        align-items: center;
+        gap: unset;
+        overflow-y: unset;
     }
 
     .addtask-line {
@@ -3265,14 +3291,16 @@ input:invalid {
         height: unset;
     }
 
-    .addtask--leftcontainer-titletext {
+    .addtask-leftcontainer-titletext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-titlefield {
         width: 70vw;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-description {
@@ -3283,11 +3311,13 @@ input:invalid {
     .addtask-leftcontainer-descriptiontext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-descriptionfield {
         width: 70vw;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-category {
@@ -3298,11 +3328,13 @@ input:invalid {
     .addtask-leftcontainer-categorytext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-categoryfield {
         width: 70vw;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-assigned {
@@ -3313,11 +3345,27 @@ input:invalid {
     .addtask-leftcontainer-assignedtext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-leftcontainer-assignedfield {
         width: 70vw;
         height: unset;
+        justify-content: flex-start;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-selection {
+        box-sizing: border-box;
+        width: 60vw;
+        height: unset;
+        padding: 11px 0px;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .category-icon {
+        margin: unset;
     }
 
     .addtask-rightcontainer {
@@ -3332,11 +3380,14 @@ input:invalid {
     .addtask-rightcontainer-datetext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-rightcontainer-datefield {
         width: 70vw;
         height: unset;
+        font-size: 16px;
+        padding: 11px 21px;
     }
 
     .addtask-rightcontainer-prio {
@@ -3347,12 +3398,23 @@ input:invalid {
     .addtask-rightcontainer-priotext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-rightcontainer-priobtns {
         flex-direction: column;
         width: 70vw;
         height: unset;
+    }
+
+    .addtask-rightcontainer-priobtns-outline {
+        width: 150px;
+        height: 30px;
+        padding: 11px 21px;
+    }
+
+    .addtask-rightcontainer-priobtns-text {
+        font-size: 16px;
     }
 
     .addtask-rightcontainer-subtask {
@@ -3363,16 +3425,19 @@ input:invalid {
     .addtask-rightcontainer-subtasktext {
         width: unset;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-rightcontainer-subtaskborder {
         width: 70vw;
         height: unset;
+        padding: 11px 21px;
     }
 
     .addtask-rightcontainer-subtaskfield {
-        width: unset;
+        width: 200px;
         height: unset;
+        font-size: 16px;
     }
 
     .addtask-button-container {
@@ -3387,5 +3452,211 @@ input:invalid {
         right: 40px;
         border: 1px solid black;
         border-radius: 10px;
+    }
+
+    .contacts {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        align-items: center;
+        padding-bottom: 20px;
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .contact-title-container {
+        padding: unset;
+        width: unset;
+    }
+
+    .contact-title {
+        font-size: 40px;
+        padding: 20px;
+        width: unset;
+    }
+
+    .contact-title-line {
+        display: none;
+    }
+
+    .contact-title-text {
+        display: none;
+    }
+
+    .contact-container {
+        position: unset;
+        width: unset;
+        overflow-y: unset;
+    }
+
+    .contact-container-inner {
+        width: unset;
+        padding: unset
+    }
+
+    .contact-alphabet-wrap {
+        width: unset;
+    }
+
+    .contact-alphabet-text {
+        width: unset;
+    }
+
+    .contact-canvas {
+        align-items: center;
+        padding: unset;
+        padding: 20px;
+    }
+
+    .contact-canvas-titlewrap {
+        width: unset !important;
+        height: unset !important;
+        gap: 20px !important;
+    }
+
+    .contact-canvas-circlewrap {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .contact-canvas-circleorange {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .contact-canvas-circletext {
+        font-size: 30px !important;
+    }
+
+    .contact-canvas-namewrap {
+        width: unset !important;
+        height: unset !important;
+    }
+
+    .contact-canvas-name {
+        width: unset !important;
+        height: unset !important;
+        font-size: 20px !important;
+    }
+
+    .contact-canvas-infowrap {
+        width: unset;
+        height: unset;
+        margin-top: 20px;
+        flex-direction: column-reverse;
+        gap: unset;
+    }
+
+    .contact-addcontact-button {
+        position: unset;
+        margin: unset;
+    }
+
+    .addcontact-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .addcontact-title-container {
+        display: none;
+    }
+
+    .addcontact-user-badge {
+        align-items: center;
+        justify-content: center;
+        margin: unset;
+    }
+
+    .addcontact-form {
+        flex-direction: column;
+        padding: unset;
+        padding: 20px;
+        border-radius: 20px;
+        gap: 20px;
+    }
+
+    .addcontact-form input {
+        width: 250px;
+        height: 40px;
+    }
+
+    .addcontact-clear-btn {
+        width: 100px !important;
+        padding: 0px 10px !important;
+        height: 40px !important;
+        background-size: unset;
+        font-size: 18px !important;
+    }
+
+    .addcontact-create-btn {
+        width: 180px !important;
+        padding: 0px 10px !important;
+        height: 40px !important;
+        font-size: 18px !important;
+        border: 1px solid #2A3647 !important;
+    }
+
+    .addcontact-task-close {
+        position: relative;
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        translate: 330px -220px;
+    }
+
+    .editcontact-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .editcontact-title-container {
+        display: none;
+    }
+
+    .editcontact-user-badge {
+        align-items: center;
+        justify-content: center;
+        margin: unset;
+    }
+
+    .editcontact-form {
+        flex-direction: column;
+        padding: unset;
+        padding: 20px;
+        border-radius: 20px;
+        gap: 20px;
+    }
+
+    .editcontact-form input {
+        width: 250px;
+        height: 40px;
+    }
+
+    .editcontact-create-btn {
+        width: 100px !important;
+        padding: 0px 10px !important;
+        height: 40px !important;
+        font-size: 18px !important;
+        border: 1px solid #2A3647 !important;
+    }
+
+    .editcontact-task-close {
+        position: relative;
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        translate: 330px -220px;
     }
 }

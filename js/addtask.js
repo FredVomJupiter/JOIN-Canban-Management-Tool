@@ -393,7 +393,7 @@ function templateCategoryHeader(location) {
     return `
         <div class="addtask-leftcontainer-selection fixed" onclick="foldCategories('${location}')">
             <span class="addtask-leftcontainer-categorytext">Select task category</span>
-            <img style="margin-left:140px" src="./assets/img/dropdown.svg">
+            <img class="category-icon" src="./assets/img/dropdown.svg">
         </div>
         <div class="addtask-leftcontainer-selection relative" onclick="createNewCategory('${location}')">
             <span class="addtask-leftcontainer-categorytext">New category</span>
@@ -614,7 +614,7 @@ function templateAssignedHeader(location) {
     return `
         <div class="addtask-leftcontainer-selection fixed" onclick="foldAssigned('${location}')">
             <span class="addtask-leftcontainer-assignedtext">Select contacts to assign</span>
-            <img style="margin-left:100px" src="./assets/img/dropdown.svg">
+            <img class="category-icon" src="./assets/img/dropdown.svg">
         </div>
     `;
 }
