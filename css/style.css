@@ -1365,10 +1365,8 @@ body {
 .addtask-container {
     display: flex;
     align-items: flex-start;
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-top: 30px;
     flex-direction: row;
     justify-content: center;
     gap: 50px;
@@ -3222,11 +3220,6 @@ input:invalid {
         overflow-y: scroll;
     }
 
-    .board-taskoverlay-container {
-        border-radius: unset;
-        box-shadow: unset;
-    }
-
     .overlay-background {
         align-items: unset;
     }
@@ -3234,9 +3227,7 @@ input:invalid {
     .addtask-overlay-container {
         box-sizing: border-box;
         flex-direction: column;
-        border-radius: unset;
         padding: unset;
-        box-shadow: unset;
         align-items: center;
         padding: 20px;
         overflow-y: scroll;
@@ -3271,7 +3262,6 @@ input:invalid {
         flex-direction: column;
         align-items: center;
         gap: unset;
-        overflow-y: unset;
     }
 
     .addtask-line {
@@ -3366,6 +3356,7 @@ input:invalid {
 
     .addtask-rightcontainer {
         align-items: center;
+        width: unset;
     }
 
     .addtask-rightcontainer-date {
@@ -3482,9 +3473,13 @@ input:invalid {
     }
 
     .contact-container {
-        position: unset;
+        left: 0;
+        right: 0;
+        height: 200px;
         width: unset;
-        overflow-y: unset;
+        padding: 20px;
+        overflow-y: scroll;
+        z-index: 20;
     }
 
     .contact-container-inner {
@@ -3494,16 +3489,33 @@ input:invalid {
 
     .contact-alphabet-wrap {
         width: unset;
+        height: 30px;
     }
 
     .contact-alphabet-text {
         width: unset;
+        height: unset;
+    }
+
+    .contact-line-container {
+        width: 300px;
+        height: 20px;
+    }
+
+    .contact-line {
+        width: 300px;
     }
 
     .contact-canvas {
-        align-items: center;
-        padding: unset;
+        position: fixed;
+        top: 340px;
+        left: 0;
+        right: 0;
+        bottom: 80px;
+        align-items: flex-start;
+        justify-content: flex-start;
         padding: 20px;
+        padding-top: unset;
     }
 
     .contact-canvas-titlewrap {
@@ -3513,17 +3525,17 @@ input:invalid {
     }
 
     .contact-canvas-circlewrap {
-        width: 80px !important;
-        height: 80px !important;
+        width: 50px !important;
+        height: 50px !important;
     }
 
     .contact-canvas-circleorange {
-        width: 80px !important;
-        height: 80px !important;
+        width: 50px !important;
+        height: 50px !important;
     }
 
     .contact-canvas-circletext {
-        font-size: 30px !important;
+        font-size: 21px !important;
     }
 
     .contact-canvas-namewrap {
@@ -3541,13 +3553,56 @@ input:invalid {
         width: unset;
         height: unset;
         margin-top: 20px;
+        margin-bottom: 20px;
         flex-direction: column-reverse;
-        gap: unset;
+        align-items: unset;
+        gap: 20px;
+    }
+
+    .contact-canvas-info-text {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .contact-canvas-edit-icon {
+        height: 25px;
+    }
+
+    .contact-canvas-info-edittext {
+        width: unset;
+        height: unset;
+    }
+
+    .contact-canvas-addtast-text {
+        width: unset;
+        height: unset;
+    }
+
+    .contact-canvas-detailswrap {
+        flex-direction: row;
     }
 
     .contact-addcontact-button {
-        position: unset;
+        width: unset;
+        height: unset;
+        position: fixed;
+        top: unset;
+        bottom: 210px;
+        right: 10px;
         margin: unset;
+        padding: 10px 10px;
+    }
+
+    .contact-addcontact-button-text {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .contact-addcontact-button-icon {
+        width: 20px;
+        height: 20px;
     }
 
     .addcontact-content {

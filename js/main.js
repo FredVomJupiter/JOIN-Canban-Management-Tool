@@ -684,7 +684,7 @@ function templateContactDetailsHtml(name, email, phone, color) {
         <div class="contact-canvas-infowrap">
             <span class="contact-canvas-info-text">Contact Information</span>
             <div class="contact-canvas-info-editwrap" onclick="openEditcontactOverlay('${name}')">
-                <img src="./assets/img/black_pencil.svg">
+                <img class="contact-canvas-edit-icon" src="./assets/img/black_pencil.svg">
                 <span class="contact-canvas-info-edittext">Edit Contact</span>
             </div>
         </div>
