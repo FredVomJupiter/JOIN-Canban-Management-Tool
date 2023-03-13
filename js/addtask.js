@@ -614,7 +614,7 @@ function templateAssignedHeader(location) {
     return `
         <div class="addtask-leftcontainer-selection fixed" onclick="foldAssigned('${location}')">
             <span class="addtask-leftcontainer-assignedtext">Select contacts to assign</span>
-            <img class="category-icon" src="./assets/img/dropdown.svg">
+            <img class="assigned-icon" src="./assets/img/dropdown.svg">
         </div>
     `;
 }
