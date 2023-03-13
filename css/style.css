@@ -259,13 +259,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     padding-left: 100px;
-    padding-top: 100px;
-    padding-right: 25px;
-    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 5px;
     gap: 35px;
-    width: 580px;
-    overflow-y: scroll;
 }
 
 .summary-center-topwrap {
@@ -3090,7 +3088,6 @@ input:invalid {
         padding-top: 5px;
         justify-content: center;
         align-items: center;
-        overflow-y: unset;
     }
 
     .summary-center-topwrap {
