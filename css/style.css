@@ -3221,6 +3221,10 @@ input:invalid {
         overflow-y: scroll;
     }
 
+    .dropzone {
+        display: none;
+    }
+
     .overlay-background {
         align-items: unset;
     }
