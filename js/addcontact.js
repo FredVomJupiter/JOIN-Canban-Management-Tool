@@ -94,7 +94,8 @@ function saveNewContact() {
     contacts.push(contact);
     saveLocalStorage('contacts');
     closeOverlay();
-    init();
+    renderContactList();
+    initNewTask('To do');
     showContact(contact.id);
     clearNewcontactInputfields();
 }

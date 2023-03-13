@@ -40,18 +40,18 @@ let categories = [
 ];
 
 
-async function saveLocalStorage(what) {
+function saveLocalStorage(what) {
     if (what === 'cards') {
         let cards_serialized = JSON.stringify(cards);
-        await backend.setItem("cards", cards_serialized);
+        backend.setItem("cards", cards_serialized);
     }
     if (what === 'contacts') {
         let contacts_serialized = JSON.stringify(contacts);
-        await backend.setItem("contacts", contacts_serialized);
+        backend.setItem("contacts", contacts_serialized);
     }
     if (what === 'categories') {
         let categories_serialized = JSON.stringify(categories);
-        await backend.setItem("categories", categories_serialized);
+        backend.setItem("categories", categories_serialized);
     }
 }
 

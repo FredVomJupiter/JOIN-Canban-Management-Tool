@@ -647,9 +647,9 @@ function templateContactLetter(letter) {
 function showContact(id) {
     let contact = contacts.filter(contact => contact.id == id);
     let contactCanvas = document.getElementById('contactCanvas');
-    markSelectedContact(contact[0].id);
     contactCanvas.innerHTML = "";
     contactCanvas.innerHTML = templateContactDetailsHtml(contact[0].name, contact[0].email, contact[0].phone, contact[0].color);
+    markSelectedContact(contact[0].id);
 }
 
 
