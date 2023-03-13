@@ -100,5 +100,9 @@ function saveEditedTask() {
     closeOverlay();
     clearOverlay();
     clearAddtaskMenu();
-    init();
+    if (cards.length > 0) {
+        renderCards();
+    }
+    updateCounters();
+    initNewTask('To do');
 }
