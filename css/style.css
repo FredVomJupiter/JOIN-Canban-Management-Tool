@@ -1662,7 +1662,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    width: 200px;
+    flex-wrap: wrap;
 }
 
 .addtask-leftcontainer-assigned-circle {
@@ -1902,6 +1902,7 @@ body {
 }
 
 .addtask-rightcontainer-subtask-checkbox {
+    cursor: pointer;
     width: 16px;
     height: 16px;
     background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
@@ -3354,6 +3355,10 @@ input:invalid {
         margin: unset;
     }
 
+    .assigned-icon {
+        margin-left: 2px;
+    }
+
     .addtask-rightcontainer {
         align-items: center;
         width: unset;
@@ -3709,5 +3714,21 @@ input:invalid {
         justify-self: center;
         display: flex;
         translate: 330px -220px;
+    }
+
+    .help {
+        overflow-y: scroll;
+    }
+
+    .help-title {
+        padding: 20px 20px;
+    }
+
+    .help-join-inner {
+        padding: 20px 20px;
+    }
+
+    .help-blackArrow-wrap {
+        left: unset;
     }
 }
