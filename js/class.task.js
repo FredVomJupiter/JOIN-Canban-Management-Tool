@@ -7,9 +7,9 @@ class Task {
     date;
     priority = "low";
     assigned = [];
-    subtasks = [];
+    subtask = [];
 
-    constructor(title, text, group, color, date, priority, assigned, subtasks) {
+    constructor(title, text, group, color, date, priority, assigned, subtask) {
         this.title = title;
         this.text = text;
         this.group = group;
@@ -17,6 +17,6 @@ class Task {
         this.date = date;
         this.priority = priority;
         this.assigned = assigned;
-        this.subtasks = subtasks;
+        this.subtask = subtask;
     }
 }
