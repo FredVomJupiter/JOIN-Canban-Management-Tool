@@ -9,7 +9,7 @@ let colors = [
 
 let contacts = [
     {
-        id: "contact" + new Date().getTime(),
+        id: "contact0",
         color: colors[0],
         name: "Your Self",
         email: "standard@mail.com",
@@ -23,27 +23,27 @@ let cards = [
 
 let categories = [
     {
-        id: "category" + new Date().getTime(),
+        id: "category0",
         name: "Design",
         color: "#FF7A00"
     },
     {
-        id: "category" + new Date().getTime() + 1,
+        id: "category1",
         name: "Marketing",
         color: "#ff0051"
     },
     {
-        id: "category" + new Date().getTime() + 2,
+        id: "category2",
         name: "Media",
         color: "#29ABE2"
     },
     {
-        id: "category" + new Date().getTime() + 3,
+        id: "category3",
         name: "Backoffice",
         color: "#4E963D"
     },
     {
-        id: "category" + new Date().getTime() + 4,
+        id: "category4",
         name: "Sales",
         color: "#9327FF"
     }
