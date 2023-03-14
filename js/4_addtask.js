@@ -321,7 +321,7 @@ function prepareMenu() {
     menu.classList.remove('field-grow');
     menu.style.background = "none";
     menu.style.background = "#FFFFFF";
-    menu.innerHTML = taskTemplate.setNewCategoryUserinput('menu');
+    menu.innerHTML = taskTemplate.setNewCategoryUserinput('menu', newCategory);
     menu.parentElement.innerHTML += taskTemplate.setNewCategoryColorbar('menu');
 }
 
@@ -333,7 +333,7 @@ function prepareOverlay() {
     overlay.classList.remove('field-grow');
     overlay.style.background = "none";
     overlay.style.background = "#FFFFFF";
-    overlay.innerHTML = taskTemplate.setNewCategoryUnserinput('overlay');
+    overlay.innerHTML = taskTemplate.setNewCategoryUserinput('overlay', newCategory);
     overlay.parentElement.innerHTML += taskTemplate.setNewCategoryColorbar('overlay');
 }
 
@@ -343,10 +343,10 @@ function selectNewCategoryColor(color, location) {
 
     if (location === "menu") {
         let menu = document.getElementById('newCategoryMenu');
-        menu.outerHTML = taskTemplate.setCategoryColor('menu')
+        menu.outerHTML = taskTemplate.setCategoryColor('menu', color)
     } else {
         let overlay = document.getElementById('newCategoryOverlay');
-        overlay.outerHTML = taskTemplate.setCategoryColor('overlay');
+        overlay.outerHTML = taskTemplate.setCategoryColor('overlay', color);
     }
 }
 

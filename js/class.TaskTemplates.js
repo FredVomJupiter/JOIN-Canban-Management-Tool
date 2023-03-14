@@ -384,7 +384,7 @@ class TaskTemplate {
     }
 
 
-    setNewCategoryUserinput(location) {
+    setNewCategoryUserinput(location, newCategory) {
         if (location === "menu") {
             return `
                 <input class="addtask-leftcontainer-newcategory" id="newCategoryNameMenu" placeholder="New category Name">
@@ -420,7 +420,7 @@ class TaskTemplate {
     }
 
 
-    setCategoryColor(location) {
+    setCategoryColor(location, color) {
         if (location === "menu") {
             return `
                 <div class="addtask-leftcontainer-circle" style="background:${color}" id="newCategoryMenu"></div>

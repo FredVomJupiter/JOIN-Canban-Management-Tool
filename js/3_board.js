@@ -76,7 +76,7 @@ function renderFilteredTodo(filteredList) {
     todo.innerHTML = "";
     let todoCards = filteredList.filter(card => card.group == "To do");
     todoCards.forEach(card => {
-        todo.innerHTML += taskTemplate.getBoardCard(card);
+        todo.innerHTML += taskTemplate.getBoardTask(card);
     });
     todo.innerHTML += taskTemplate.getDropzone('todo');
 }
