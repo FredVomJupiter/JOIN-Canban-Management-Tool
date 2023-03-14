@@ -179,7 +179,8 @@ function openAddtaskOverlay(group) {
     let taskoverlay = document.getElementById('addtaskOverlay');
     taskoverlay.classList.remove('d-none');
     taskoverlay.classList.remove('hidden');
-    initNewTask(group);
+    initNewTask();
+    newTask.group = group;
 }
 
 // End render process for Board page
