@@ -1,10 +1,15 @@
+const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
 let colors = [
     "#BDB76B", "#2E8B57", "#20B2AA", "#5F9EA0", "#00BFFF", "#DAA520", "#F4A460", "#A52A2A", "#DA70D6", "#9932CC", "#708090", "#00008B", "#48D1CC", "#9ACD32", "#FFE4B5", "#FF6347", "#FF7A00"
 ];
 
 let contacts = [
     {
-        id: "contact0",
+        id: "contact" + new Date().getTime(),
         color: colors[0],
         name: "Your Self",
         email: "standard@mail.com",
