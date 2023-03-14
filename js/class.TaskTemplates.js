@@ -384,7 +384,7 @@ class TaskTemplate {
     }
 
 
-    setNewCategoryUnserinput(location) {
+    setNewCategoryUserinput(location) {
         if (location === "menu") {
             return `
                 <input class="addtask-leftcontainer-newcategory" id="newCategoryNameMenu" placeholder="New category Name">
