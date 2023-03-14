@@ -23,22 +23,27 @@ let cards = [
 
 let categories = [
     {
+        id: "category" + new Date().getTime(),
         name: "Design",
         color: "#FF7A00"
     },
     {
+        id: "category" + new Date().getTime() + 1,
         name: "Marketing",
         color: "#ff0051"
     },
     {
+        id: "category" + new Date().getTime() + 2,
         name: "Media",
         color: "#29ABE2"
     },
     {
+        id: "category" + new Date().getTime() + 3,
         name: "Backoffice",
         color: "#4E963D"
     },
     {
+        id: "category" + new Date().getTime() + 4,
         name: "Sales",
         color: "#9327FF"
     }
