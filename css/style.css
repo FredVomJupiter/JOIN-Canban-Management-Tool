@@ -2986,7 +2986,272 @@ input:invalid {
 
 /** End Help Content **/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px) {
+
+    .summary-greeting-wrap {
+        display: none;
+    }
+
+    .summary-title-line {
+        display: none;
+    }
+
+    .summary-title-text {
+        display: none;
+    }
+
+    .board-title-wrap {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .board-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .addtask {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding-bottom: 20px;
+        align-items: unset;
+        overflow-y: scroll;
+    }
+
+    .addtask-title-wrap {
+        flex-direction: column;
+        align-self: center;
+        gap: unset;
+        padding: unset;
+    }
+
+    .addtask-title {
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .addtask-container {
+        padding: unset;
+        flex-direction: column;
+        align-items: center;
+        gap: unset;
+    }
+
+    .addtask-line {
+        display: none;
+    }
+
+    .addtask-leftcontainer {
+        align-items: center;
+    }
+
+    .addtask-leftcontainer-title {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-leftcontainer-titletext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-titlefield {
+        width: 70vw;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-description {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-leftcontainer-descriptiontext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-descriptionfield {
+        width: 70vw;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-category {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-leftcontainer-categorytext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-categoryfield {
+        width: 70vw;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-assigned {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-leftcontainer-assignedtext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-assignedfield {
+        width: 70vw;
+        height: unset;
+        justify-content: flex-start;
+        font-size: 16px;
+    }
+
+    .addtask-leftcontainer-selection {
+        box-sizing: border-box;
+        width: 60vw;
+        height: unset;
+        padding: 11px 0px;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .category-icon {
+        margin: unset;
+    }
+
+    .assigned-icon {
+        margin-left: 2px;
+    }
+
+    .addtask-rightcontainer {
+        align-items: center;
+        width: unset;
+    }
+
+    .addtask-rightcontainer-date {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-rightcontainer-datetext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-rightcontainer-datefield {
+        width: 70vw;
+        height: unset;
+        font-size: 16px;
+        padding: 11px 21px;
+    }
+
+    .addtask-rightcontainer-prio {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-rightcontainer-priotext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-rightcontainer-priobtns {
+        flex-direction: column;
+        width: 70vw;
+        height: unset;
+    }
+
+    .addtask-rightcontainer-priobtns-outline {
+        width: 150px;
+        height: 30px;
+        padding: 11px 21px;
+    }
+
+    .addtask-rightcontainer-priobtns-text {
+        font-size: 16px;
+    }
+
+    .addtask-rightcontainer-subtask {
+        width: unset;
+        height: unset;
+    }
+
+    .addtask-rightcontainer-subtasktext {
+        width: unset;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-rightcontainer-subtaskborder {
+        width: 70vw;
+        height: unset;
+        padding: 11px 21px;
+    }
+
+    .addtask-rightcontainer-subtaskfield {
+        width: 200px;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .addtask-button-container {
+        width: unset;
+        height: unset;
+        margin: unset;
+    }
+
+    .addtask-close-btn {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+
+    .contact-title-container {
+        padding-left: 350px
+    }
+
+    .contact-title-line {
+        display: none;
+    }
+
+    .contact-title-text {
+        display: none;
+    }
+
+    .contact-canvas {
+        padding-left: 500px;
+    }
+
+    .contact-addcontact-button {
+        width: unset;
+        height: unset;
+        position: fixed;
+        top: unset;
+        bottom: 120px;
+        right: 20px;
+        margin: unset;
+        padding: 10px 10px;
+    }
+}
+
+
+
+@media screen and (max-width: 900px) {
     .topnav {
         left: 0;
     }
@@ -3232,6 +3497,8 @@ input:invalid {
         position: absolute;
         top: 150px;
         padding: unset;
+        padding-left: 5px;
+        padding-right: 5px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -3239,7 +3506,7 @@ input:invalid {
     }
 
     .dropzone {
-        display: none;
+        height: 100px;
     }
 
     .overlay-background {
@@ -3254,217 +3521,6 @@ input:invalid {
         padding: 20px;
         overflow-y: scroll;
         overflow-x: hidden;
-    }
-
-    .addtask {
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        padding-bottom: 20px;
-        align-items: unset;
-        overflow-y: scroll;
-    }
-
-    .addtask-title-wrap {
-        flex-direction: column;
-        align-self: center;
-        gap: unset;
-        padding: unset;
-    }
-
-    .addtask-title {
-        font-size: 40px;
-        padding: 20px;
-    }
-
-    .addtask-container {
-        padding: unset;
-        flex-direction: column;
-        align-items: center;
-        gap: unset;
-    }
-
-    .addtask-line {
-        display: none;
-    }
-
-    .addtask-leftcontainer {
-        align-items: center;
-    }
-
-    .addtask-leftcontainer-title {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-leftcontainer-titletext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-titlefield {
-        width: 70vw;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-description {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-leftcontainer-descriptiontext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-descriptionfield {
-        width: 70vw;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-category {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-leftcontainer-categorytext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-categoryfield {
-        width: 70vw;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-assigned {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-leftcontainer-assignedtext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-assignedfield {
-        width: 70vw;
-        height: unset;
-        justify-content: flex-start;
-        font-size: 16px;
-    }
-
-    .addtask-leftcontainer-selection {
-        box-sizing: border-box;
-        width: 60vw;
-        height: unset;
-        padding: 11px 0px;
-        align-items: center;
-        white-space: nowrap;
-    }
-
-    .category-icon {
-        margin: unset;
-    }
-
-    .assigned-icon {
-        margin-left: 2px;
-    }
-
-    .addtask-rightcontainer {
-        align-items: center;
-        width: unset;
-    }
-
-    .addtask-rightcontainer-date {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-rightcontainer-datetext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-rightcontainer-datefield {
-        width: 70vw;
-        height: unset;
-        font-size: 16px;
-        padding: 11px 21px;
-    }
-
-    .addtask-rightcontainer-prio {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-rightcontainer-priotext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-rightcontainer-priobtns {
-        flex-direction: column;
-        width: 70vw;
-        height: unset;
-    }
-
-    .addtask-rightcontainer-priobtns-outline {
-        width: 150px;
-        height: 30px;
-        padding: 11px 21px;
-    }
-
-    .addtask-rightcontainer-priobtns-text {
-        font-size: 16px;
-    }
-
-    .addtask-rightcontainer-subtask {
-        width: unset;
-        height: unset;
-    }
-
-    .addtask-rightcontainer-subtasktext {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-rightcontainer-subtaskborder {
-        width: 70vw;
-        height: unset;
-        padding: 11px 21px;
-    }
-
-    .addtask-rightcontainer-subtaskfield {
-        width: 200px;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .addtask-button-container {
-        width: unset;
-        height: unset;
-        margin: unset;
-    }
-
-    .addtask-close-btn {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        border: 1px solid black;
-        border-radius: 10px;
     }
 
     .contacts {
@@ -3488,14 +3544,6 @@ input:invalid {
         font-size: 40px;
         padding: 20px;
         width: unset;
-    }
-
-    .contact-title-line {
-        display: none;
-    }
-
-    .contact-title-text {
-        display: none;
     }
 
     .contact-container {
@@ -3754,5 +3802,11 @@ input:invalid {
 
     .help-blackArrow-wrap {
         left: unset;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dropzone {
+        display: none;
     }
 }
