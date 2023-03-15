@@ -169,7 +169,7 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #000000;
-    background-image: url("../../assets/img/mail.svg");
+    background-image: url("../assets/img/mail.svg");
     background-repeat: no-repeat;
     background-position: calc(100%);
 }
@@ -211,7 +211,7 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #000000;
-    background-image: url("../../assets/img/password.svg");
+    background-image: url("../assets/img/password.svg");
     background-repeat: no-repeat;
     background-position: calc(100%);
 }
@@ -397,7 +397,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    background-image: url("../../assets/img/mail.svg");
+    background-image: url("../assets/img/mail.svg");
     background-repeat: no-repeat;
     background-position: calc(100%);
 }
@@ -757,7 +757,7 @@ body {
     font-size: 21px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    background-image: url("../../assets/img/username.svg");
+    background-image: url("../assets/img/username.svg");
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
 }
@@ -795,7 +795,7 @@ body {
     font-size: 21px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    background-image: url("../../assets/img/mail.svg");
+    background-image: url("../assets/img/mail.svg");
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
 }
@@ -833,7 +833,7 @@ body {
     font-size: 21px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    background-image: url("../../assets/img/password.svg");
+    background-image: url("../assets/img/password.svg");
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
 }
