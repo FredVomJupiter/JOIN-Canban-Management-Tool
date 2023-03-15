@@ -20,6 +20,17 @@ let menus = [
     "menu-legal",
 ]
 
+
+function openSignout() {
+    let signout = document.getElementById('signout');
+    if (signout.classList.contains('d-none')) {
+        signout.classList.remove('d-none');
+    } else {
+        signout.classList.add('d-none');
+    }
+}
+
+
 function openLogin() {
     window.open('./login.html', '_self');
 }

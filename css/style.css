@@ -95,6 +95,23 @@ body {
     border: 3px solid #2A3647;
 }
 
+.topnav-signout {
+    cursor: pointer;
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50px;
+    right: 120px;
+    width: 300px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border-top-right-radius: unset;
+    background: #2A3647;
+    color: white;
+}
+
 /** Side Navigation Bar **/
 .sidebar {
     box-sizing: border-box;
