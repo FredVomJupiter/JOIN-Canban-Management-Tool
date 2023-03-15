@@ -27,7 +27,7 @@ let newCategory = {
 
 function initNewTask() {
     // Empty new task template with standard values for group, color and priority
-    newTask = new Task("", "", "To do", "#FF7A00", "", "low", [], []);
+    newTask = new Task("", "", "General", "To do", "#FF7A00", "", "low", [], []);
 
 }
 
