@@ -9,11 +9,18 @@
 
     <link rel="stylesheet" href="./css/login.css">
 
+    <script src="./js/class.users.js"></script>
     <script src="./js/login-navigation.js"></script>
+    <script src="./js/login-users.js"></script>
+    <script defer src="./js/login-validation.js"></script>
+    <script defer src="./js/signup-validation.js"></script>
+    <script defer src="./js/forgotpw-validation.js"></script>
+    <script defer src="./js/resetpw-validation.js"></script>
+    <script src="./js/mini_backend.js"></script>
 
 </head>
 
-<body>
+<body onload="initUsers();">
 
     <div class="background">
 
@@ -29,7 +36,7 @@
             </div>
 
             <!-- Container in der Mitte -->
-            <div class="login-center-container">
+            <form class="login-center-container" id="loginForm">
 
                 <!-- Title -->
                 <div class="login-title-wrap">
@@ -39,21 +46,13 @@
 
                 <!-- Input Felder-->
                 <div class="login-input-wrap">
-                    <div class="login-email-outer">
-                        <div class="login-email-border">
-                            <div class="login-email-inner">
-                                <input class="login-email-input" type="email" placeholder="Email">
-                                <img class="login-email-img" src="./assets/img/mail.svg">
-                            </div>
-                        </div>
+                    <div class="login-email-border">
+                        <input class="login-email-input" type="text" placeholder="Email" id="loginEmail">
+                        <div class="error"></div>
                     </div>
-                    <div class="login-pw-outer">
-                        <div class="login-pw-border">
-                            <div class="login-pw-inner">
-                                <input class="login-pw-input" type="password" placeholder="Password">
-                                <img class="login-pw-img" src="./assets/img/password.svg">
-                            </div>
-                        </div>
+                    <div class="login-pw-border">
+                        <input class="login-pw-input" type="password" placeholder="Password" id="loginPw">
+                        <div class="error"></div>
                     </div>
                 </div>
 
@@ -68,15 +67,15 @@
 
                 <!-- Buttons unten -->
                 <div class="login-buttons-wrap">
-                    <button class="login-login-button" onclick="openDashboard()">Log in</button>
+                    <button class="login-login-button" type="submit">Log in</button>
                     <button class="login-guestlogin-button" onclick="openDashboard()">Guest Log in</button>
                 </div>
-            </div>
+            </form>
         </main>
 
         <!-- Forgotpw Page -->
         <main class="d-none" id="forgotpw">
-            <div class="forgotpw-container">
+            <form class="forgotpw-container" id="forgotpwForm">
 
                 <div class="forgotpw-bluearrow" onclick="openPage('login')">
                     <img src="./assets/img/bluearrow.svg">
@@ -89,11 +88,11 @@
                     password.
                 </span>
                 <div class="forgotpw-input-wrap">
-                    <input class="forgotpw-input" type="text" placeholder="Email">
-                    <div class="forgotpw-icon"></div>
+                    <input class="forgotpw-input" type="text" placeholder="Email" id="forgotpwEmail">
+                    <div class="error"></div>
                 </div>
-                <button class="forgotpw-button" onclick="sendMessage('mail')">Send me the mail</button>
-            </div>
+                <button class="forgotpw-button" type="submit">Send me the mail</button>
+            </form>
 
             <!-- email confirmation msg -->
             <div class="forgotpw-confirmation-outer" id="messageMail">
@@ -123,24 +122,28 @@
                 <span class="resetpw-text">Change your account password</span>
 
                 <!-- Input container -->
-                <div class="resetpw-input-wrap">
+                <form class="resetpw-input-wrap" id="resetpwForm">
                     <div class="resetpw-input-outer">
                         <div class="resetpw-input-border">
-                            <input class="resetpw-input" type="password" placeholder="New password">
+                            <input class="resetpw-input" type="password" placeholder="New password" id="resetpwP1">
+                            <div class="error"></div>
                         </div>
                     </div>
 
                     <div class="resetpw-input-outer">
                         <div class="resetpw-input-border">
-                            <input class="resetpw-input" type="password" placeholder="Confirm password">
+                            <input class="resetpw-input" type="password" placeholder="Confirm password" id="resetpwP2">
+                            <div class="error"></div>
                         </div>
                     </div>
-                </div>
 
-                <!--Continue button -->
-                <div class="resetpw-btn-wrap">
-                    <button class="resetpw-btn" onclick="sendMessage('messageReset')">Continue</button>
-                </div>
+                    <!--Continue button -->
+                    <div class="resetpw-btn-wrap">
+                        <button class="resetpw-btn" type="submit">Continue</button>
+                    </div>
+                </form>
+
+                
 
             </div>
 
@@ -170,22 +173,26 @@
                 </div>
 
                 <!-- Input Fields -->
-                <div class="signup-inputs-wrap">
+                <form class="signup-inputs-wrap" id="signupForm">
 
                     <div class="signup-name">
-                        <input class="signup-input-name" required type="text" placeholder="Name">
+                        <input class="signup-input-name" type="text" placeholder="Name" id="signupName">
+                        <div class="error"></div>
                     </div>
                     <div class="signup-email">
-                        <input class="signup-input-email" required type="email" placeholder="E-Mail">
+                        <input class="signup-input-email" type="text" placeholder="E-Mail" id="signupEmail">
+                        <div class="error"></div>
                     </div>
                     <div class="signup-password">
-                        <input class="signup-input-password" required type="password" placeholder="Password">
+                        <input class="signup-input-password" type="password" placeholder="Password" id="signupPw">
+                        <div class="error"></div>
                     </div>
-                </div>
 
-                <div class="signup-button-wrap">
-                    <button class="signup-button" type="submit" onclick="openPage('login')">Sign up</button>
-                </div>
+                    <div class="signup-button-wrap">
+                        <button class="signup-button" type="submit">Sign up</button>
+                    </div>
+                </form>
+
             </div>
         </main>
     </div>

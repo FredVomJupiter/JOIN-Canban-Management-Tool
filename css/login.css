@@ -2,6 +2,7 @@ body {
     margin: 0;
     height: 100vh;
     width: 100vw;
+    font-family: 'Inter';
 }
 
 @font-face {
@@ -61,7 +62,7 @@ body {
 .login-signup-text {
     width: 161px;
     height: 25px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -78,7 +79,7 @@ body {
     border-radius: 8px;
     border: none;
     color: #FFFFFF;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -113,7 +114,6 @@ body {
 .login-title {
     width: 315px;
     height: 73px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -137,19 +137,9 @@ body {
     height: 171px;
 }
 
-.login-email-outer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    width: 422px;
-    height: 71px;
-}
-
 .login-email-border {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 13px 21px;
     gap: 10px;
@@ -160,50 +150,37 @@ body {
     border-radius: 10px;
 }
 
-.login-email-inner {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 380px;
-    height: 25px;
+.login-email-border.error {
+    border-color: #ff3860;
+}
+
+.login-email-border .error {
+    color: #ff3860;
+    font-size: 12px;
+    margin-top: 2px;
+    height: 13px;
 }
 
 .login-email-input {
+    width: 90%;
     border: unset;
-    width: 80%;
     height: 25px;
-    font-family: 'Inter';
     font-size: normal;
     font-weight: 400;
     font-size: 21px;
     color: #000000;
+    background-image: url("../../assets/img/mail.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100%);
 }
 
 .login-email-input:focus {
     outline: none;
 }
 
-.login-email-img {
-    width: 20px;
-    height: 18px;
-}
-
-.login-pw-outer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    width: 422px;
-    height: 71px;
-}
-
 .login-pw-border {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 13px 21px;
     gap: 10px;
@@ -214,34 +191,33 @@ body {
     border-radius: 10px;
 }
 
-.login-pw-inner {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    width: 380px;
-    height: 25px;
+.login-pw-border.error {
+    border-color: #ff3860;
+}
+
+.login-pw-border .error {
+    color: #ff3860;
+    font-size: 12px;
+    margin-top: 2px;
+    height: 13px;
 }
 
 .login-pw-input {
     border: unset;
-    width: 80%;
+    width: 90%;
     height: 25px;
-    font-family: 'Inter';
+    
     font-size: normal;
     font-weight: 400;
     font-size: 21px;
     color: #000000;
+    background-image: url("../../assets/img/password.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100%);
 }
 
 .login-pw-input:focus {
     outline: none;
-}
-
-.login-pw-img {
-    width: 18px;
-    height: 21px;
 }
 
 .login-options-wrap {
@@ -274,7 +250,7 @@ body {
 .login-checkbox-text {
     width: 110px;
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -286,7 +262,7 @@ body {
     cursor: pointer;
     width: 154px;
     height: 19px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -313,7 +289,7 @@ body {
     border-radius: 8px;
     border: none;
     color: #FFFFFF;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -334,7 +310,7 @@ body {
     border: 1px solid #2a3647;
     background: #FFFFFF;
     color: #2a3647;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -364,7 +340,7 @@ body {
 .forgotpw-title {
     width: 626px;
     height: 73px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -391,7 +367,7 @@ body {
 .forgotpw-text {
     width: 535px;
     height: 50px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -401,8 +377,7 @@ body {
 
 .forgotpw-input-wrap {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     box-sizing: border-box;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -419,20 +394,23 @@ body {
     width: 344px;
     height: 40px;
     font-size: 21px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #D1D1D1;
-
+    background-image: url("../../assets/img/mail.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100%);
 }
 
-.forgotpw-icon {
-    display: flex;
-    width: 20px;
-    height: 18px;
-    background: url("../../assets/img/mail.svg") no-repeat white;
-    background-position: 0px center;
+.forgotpw-input-wrap.error {
+    border-color: #ff3860;
+}
+
+.forgotpw-input-wrap .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 13px;
+    margin-top: 2px;
 }
 
 .forgotpw-button {
@@ -486,7 +464,7 @@ body {
 .forgotpw-confirmation-text {
     width: 330px;
     height: 28px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
@@ -540,7 +518,7 @@ body {
 .resetpw-title {
     width: 627px;
     height: 73px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -552,7 +530,7 @@ body {
     width: 589px;
     height: 25px;
     margin-bottom: 35px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -581,8 +559,7 @@ body {
 
 .resetpw-input-border {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     padding: 13px 21px;
     gap: 10px;
     width: 422px;
@@ -601,20 +578,30 @@ body {
     gap: 10px;
     width: 380px;
     height: 25px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #D1D1D1;
 }
 
 .resetpw-input:focus {
     outline: none;
 }
 
+.resetpw-input-border.error {
+    border-color: #ff3860;
+}
+
+.resetpw-input-border .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 13px;
+    margin-top: 2px;
+}
+
 .resetpw-btn-wrap {
     display: flex;
     flex-direction: row;
+    align-self: center;
     justify-content: center;
     align-items: flex-start;
     gap: 35px;
@@ -635,7 +622,7 @@ body {
     background: #2A3647;
     border-radius: 8px;
     border: unset;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -673,7 +660,7 @@ body {
 }
 
 .resetpw-msg-text {
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
@@ -724,7 +711,7 @@ body {
 .signup-title {
     width: 315px;
     height: 73px;
-    font-family: 'Inter';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -744,9 +731,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 29px;
     width: 422px;
-    height: 271px;
 }
 
 .signup-name {
@@ -754,7 +739,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 8px;
     width: 422px;
     height: 71px;
 }
@@ -768,15 +752,20 @@ body {
     gap: 10px;
     width: 422px;
     height: 51px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #D1D1D1;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    background: url(../../assets/img/username.svg)no-repeat scroll 7px 7px;
+    background-image: url("../../assets/img/username.svg");
+    background-repeat: no-repeat;
     background-position: calc(100% - 18px);
+}
+
+.signup-name .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 13px;
 }
 
 .signup-input-name:focus {
@@ -788,7 +777,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 8px;
     width: 422px;
     height: 71px;
 }
@@ -802,16 +790,20 @@ body {
     gap: 10px;
     width: 422px;
     height: 51px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
-    color: #D1D1D1;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    background: url(../../assets/img/mail.svg)no-repeat scroll 7px 7px;
+    background-image: url("../../assets/img/mail.svg");
+    background-repeat: no-repeat;
     background-position: calc(100% - 18px);
+}
+
+.signup-email .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 13px;
 }
 
 .signup-input-email:focus {
@@ -823,7 +815,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 8px;
     width: 422px;
     height: 71px;
 }
@@ -837,17 +828,20 @@ body {
     gap: 10px;
     width: 422px;
     height: 51px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
-    color: #D1D1D1;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    background: url(../../assets/img/password.svg)no-repeat scroll 7px 7px;
+    background-image: url("../../assets/img/password.svg");
+    background-repeat: no-repeat;
     background-position: calc(100% - 18px);
-    margin-bottom: 35px;
+}
+
+.signup-password .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 13px;
 }
 
 .signup-input-password:focus {
@@ -869,7 +863,6 @@ body {
 .signup-button {
     width: 145px;
     height: 51px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
