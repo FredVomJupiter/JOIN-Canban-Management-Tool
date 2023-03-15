@@ -77,7 +77,7 @@ const validateSignupInputs = () => {
 
 function createNewUser(nameValue, emailValue, passwordValue) {
     console.log("Creating account...");
-    users.push(new User(nameValue, emailValue, passwordValue));
+    users.push(new User(nameValue, emailValue, passwordValue, 0));
     saveLocalStorage();
     openPage('login');
 }

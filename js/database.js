@@ -85,6 +85,12 @@ async function loadLocalStorage(what) {
             categories = categories_deserialized;
         }
     }
+    if (what === 'users') {
+        users_deserialized = JSON.parse(backend.getItem("users"));
+        if (users_deserialized != null) {
+            users = users_deserialized;
+        }
+    }
 }
 
 /** 

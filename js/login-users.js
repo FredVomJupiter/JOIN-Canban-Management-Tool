@@ -6,6 +6,32 @@ async function initUsers() {
     setURL('https://www.frederic-rieg.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     await loadLocalStorage('users');
+    logoutUsers();
+    setRememberedUser();
+}
+
+
+function logoutUsers() {
+    if (users.length > 0) {
+        users.forEach(user => {
+            if (user.session === 1) {
+                user.session = 0;
+            }
+        });
+        saveLocalStorage();
+    }
+}
+
+
+function setRememberedUser() {
+    if (users.length > 0) {
+        users.forEach(user => {
+            if (user.remembered === 1) {
+                document.getElementById('loginEmail').value = user.email;
+                document.getElementById('loginPw').value = user.password;
+            }
+        });
+    }
 }
 
 

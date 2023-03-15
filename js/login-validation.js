@@ -83,6 +83,36 @@ const validateLoginInputs = () => {
     }
 
     if (correctMail & correctPassword) {
-        openDashboard();
+        rememberUser();
+        loginUser();
     }
 };
+
+
+function rememberUser() {
+    if (document.getElementById('rememberUser').checked) {
+        users.forEach(user => {
+            if (user.id === userId) {
+                user.remembered = 1;
+            }
+        });
+        
+    } else {
+        users.forEach(user => {
+            user.remembered = 0;
+        });
+    }
+}
+
+
+function loginUser() {
+    users.forEach(user => {
+        if (user.id === userId) {
+            user.session = 1; 
+        }
+    });
+    saveLocalStorage();
+    setTimeout(function() {
+        openDashboard();
+    }, 2000);
+}
