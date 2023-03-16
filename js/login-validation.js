@@ -111,7 +111,7 @@ function loginUser() {
             user.session = 1; 
         }
     });
-    saveLocalStorage();
+    saveLocalStorage(); // Timeout needed for saving data before opening dashboard too early
     setTimeout(function() {
         openDashboard();
     }, 2000);
