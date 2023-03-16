@@ -190,7 +190,10 @@ body {
     left: 250px;
     right: 0;
     bottom: 0;
-    overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
 }
 
 /** Summary Content **/
@@ -200,6 +203,12 @@ body {
     align-items: flex-start;
     box-sizing: border-box;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.summary::-webkit-scrollbar {
+    display: none;
 }
 
 .summary-title-wrap {
@@ -763,6 +772,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.board::-webkit-scrollbar {
+    display: none;
 }
 
 .board-title-wrap {
@@ -936,9 +951,15 @@ body {
     padding-right: 20px;
     padding-bottom: 20px;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     flex-direction: row;
     justify-content: center;
     gap: 26px;
+}
+
+.board-container::-webkit-scrollbar {
+    display: none;
 }
 
 /* One column for: done, feedback, progress & todo */
@@ -1361,6 +1382,12 @@ body {
     align-items: flex-start;
     box-sizing: border-box;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.addtask::-webkit-scrollbar {
+    display: none;
 }
 
 .addtask-title-wrap {
@@ -1562,6 +1589,12 @@ body {
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.addtask-leftcontainer-categoryfield::-webkit-scrollbar {
+    display: none;
 }
 
 .field-grow {
@@ -1673,6 +1706,12 @@ body {
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.addtask-leftcontainer-assignedfield::-webkit-scrollbar {
+    display: none;
 }
 
 .addtask-leftcontainer-assigned-display {
@@ -2038,6 +2077,12 @@ body {
     align-items: flex-start;
     box-sizing: border-box;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.contacts::-webkit-scrollbar {
+    display: none;
 }
 
 .contact-title-container {
@@ -2085,6 +2130,13 @@ body {
     background: #FFFFFF;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: hidden;
+}
+
+.contact-container::-webkit-scrollbar {
+    display: none;
 }
 
 .contact-container-inner {
@@ -3382,6 +3434,11 @@ input:invalid {
         padding: 48px 28px;
         height: 400px;
         width: 200px;
+    }
+
+    .summary-center-middlewrap:hover {
+        height: 410px !important;
+        width: 210px !important;
     }
 
     .summary-center-middle-line {
