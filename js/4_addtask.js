@@ -728,13 +728,13 @@ function setEditTaskCategory(cardId) {
 function setEditTaskAssigned(cardId) {
     let assignedPersons = cards.filter(card => card.id == cardId)[0].assigned;
     if (assignedPersons.length >= 1) {
-        createListOfAssignedPersons();
+        createListOfAssignedPersons(assignedPersons);
         drawAssigned('overlay');
     }
 }
 
 
-function createListOfAssignedPersons() {
+function createListOfAssignedPersons(assignedPersons) {
     let finalList = [];
         assignedPersons.forEach(person => {
             finalList.push([person, taskTemplate.getAssignedPersonEdit(person)]);

@@ -167,7 +167,7 @@ function saveNewContact() {
     closeOverlay();
     renderContactList();
     initNewTask();
-    showContact(contact.id);
+    showContact(contacts[contacts.length - 1].id);
     clearNewcontactInputfields();
 }
 

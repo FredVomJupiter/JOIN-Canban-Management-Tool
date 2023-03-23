@@ -2323,6 +2323,10 @@ body {
     justify-content: center;
 }
 
+.contact-container-back {
+    display: none;
+}
+
 .contact-canvas-titlewrap {
     display: flex;
     flex-direction: row;
@@ -3771,6 +3775,7 @@ input:invalid {
     }
 
     .contact-container-back {
+        display: flex;
         cursor: pointer;
         align-self: flex-start;
         margin-bottom: 30px;
