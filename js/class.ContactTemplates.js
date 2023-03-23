@@ -70,6 +70,7 @@ class ContactTemplate {
 
     getContactDetails(name, email, phone, color) {
         return `
+            <div class="contact-container-back" onclick="hideContact()"><- back</div>
             <div class="contact-canvas-titlewrap">
                 <div class="contact-canvas-circlewrap">
                     <div class="contact-canvas-circleorange" style="background:${color}">

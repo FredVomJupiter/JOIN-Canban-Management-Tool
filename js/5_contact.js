@@ -31,9 +31,16 @@ function filterContactByLetter(contacts, letter) {
 function showContact(id) {
     let contact = contacts.filter(contact => contact.id == id);
     let contactCanvas = document.getElementById('contactCanvas');
+    contactCanvas.classList.remove('d-none');
     contactCanvas.innerHTML = "";
     contactCanvas.innerHTML = contactTemplate.getContactDetails(contact[0].name, contact[0].email, contact[0].phone, contact[0].color);
     markSelectedContact(contact[0].id);
+}
+
+
+function hideContact() {
+    let contactCanvas = document.getElementById('contactCanvas');
+    contactCanvas.classList.add('d-none');
 }
 
 
