@@ -3334,15 +3334,14 @@ input:invalid {
 
     .summary-tile-container {
         position: absolute;
-        top: 100px;
+        top: 120px;
         left: 0;
         right: 0;
-        bottom: 100px;
         width: unset;
         padding: unset;
-        padding-top: 5px;
         justify-content: center;
         align-items: center;
+        gap: 25px;
     }
 
     .summary-tile-topwrap {
@@ -3799,7 +3798,6 @@ input:invalid {
 
     .summary-tile {
         width: 100px;
-        height: 80px;
     }
 
     .summary-tile-counter {
@@ -3878,6 +3876,21 @@ input:invalid {
     .summary-bottom-done-icon {
         width: 30px;
         height: 30px;
+    }
+
+    .summary-tile:hover {
+        width: 110px;
+        height: 90px;
+    }
+
+    .summary-tile-middlewrap:hover {
+        width: 330px;
+        height: 100px;
+    }
+
+    .summary-bottom-tile:hover  {
+        width: 160px;
+        height: 90px;
     }
 
     .dropzone {
