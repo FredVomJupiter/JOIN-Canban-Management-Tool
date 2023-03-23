@@ -284,5 +284,6 @@ function saveEditedContact() {
     saveLocalStorage('contacts');
     closeOverlay();
     renderContactList();
+    renderCards();
     showContact(contactId);
 }

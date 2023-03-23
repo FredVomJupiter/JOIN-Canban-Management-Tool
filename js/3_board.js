@@ -132,6 +132,24 @@ function showCardDetails(cardId) {
 }
 
 
+function showMoveList() {
+    let moveList = document.getElementById("moveList");
+    moveList.classList.contains('d-none') ? moveList.classList.remove('d-none') : moveList.classList.add('d-none');
+}
+
+
+function moveCard(cardId, group) {
+    cards.forEach(card => {
+        if (card.id === cardId) {
+            card.group = group;
+        }
+    });
+    showMoveList();
+    saveLocalStorage('cards');
+    renderCards();
+}
+
+
 function closeOverlay() {
     isNewTask = true;
     let background = document.getElementById("overlayBackground");
