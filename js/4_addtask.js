@@ -19,6 +19,7 @@ let subtasks = [];
 
 let isNewTask = true;
 
+// For creating a new category in category-dropdown menu: data storing temporarily here.
 let newCategory = {
     name: "",
     color: "",
@@ -309,13 +310,14 @@ function createNewCategory(location) {
     newCategory.name = "";
     if (location === "menu") {
         prepareMenu();
-
     } else {
         prepareOverlay();
     }
 }
 
-
+/**
+ * Removes the dropdown category-menu and replaces it with a user input and color selection.
+ */
 function prepareMenu() {
     const menu = document.getElementById('addtaskMenuCategory');
     menu.removeAttribute("onclick");
@@ -327,7 +329,9 @@ function prepareMenu() {
     menu.parentElement.innerHTML += taskTemplate.setNewCategoryColorbar('menu');
 }
 
-
+/**
+ * Removes the dropdown category-menu and replaces it with a user input and color selection.
+ */
 function prepareOverlay() {
     const overlay = document.getElementById('addtaskOverlayCategory');
     overlay.removeAttribute("onclick");
@@ -355,39 +359,38 @@ function selectNewCategoryColor(color, location) {
 
 function saveNewCategory(location) {
     if (locationMenu(location)) {
-        saveMenuCategoryInput();
+        saveCategoryInput(location);
     }
     if (locationOverlay(location)) {
-        saveOverlayCategoryInput();
+        saveCategoryInput(location);
     }
 }
 
 
 function locationMenu(location) {
-    return location === "menu" && document.getElementById('newCategoryNameMenu').value != "";
-}
-
-
-function saveMenuCategoryInput() {
-    newCategory.name = document.getElementById('newCategoryNameMenu').value;
-    selectCategory(newCategory.name, newCategory.color, location);
-    categories.push(newCategory);
-    saveLocalStorage('categories');
+    return location === "menu" && returnCategoryFieldId().value != "";
 }
 
 
 function locationOverlay(location) {
-    return location === "overlay" && document.getElementById('newCategoryNameOverlay').value != "";
+    return location === "overlay" && returnCategoryFieldId().value != "";
 }
 
 
-function saveOverlayCategoryInput() {
-    newCategory.name = document.getElementById('newCategoryNameOverlay').value;
+function saveCategoryInput(location) {
+    newCategory.name = returnCategoryFieldId().value;
     selectCategory(newCategory.name, newCategory.color, location);
     categories.push(newCategory);
+    selectCategory(newCategory.name, newCategory.color, location); // Selecting new category and folding dropdown
     saveLocalStorage('categories');
 }
 
+/**
+ * Returns either the 'menu' or the 'overlay' id from the category-input.
+ */
+function returnCategoryFieldId() {
+    return location === 'menu' ? document.getElementById('newCategoryNameMenu') : document.getElementById('newCategoryNameOverlay');
+}
 
 // assignments
 

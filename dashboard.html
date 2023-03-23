@@ -228,75 +228,75 @@
             </div>
 
             <!-- Center content -->
-            <div class="summary-center-container">
+            <div class="summary-tile-container">
                 <!-- TOP part of center content -->
-                <div class="summary-center-topwrap">
-                    <div class="summary-center-tasks" onclick="openPage('board')">
-                        <div class="summary-center-tasks-inner">
-                            <span class="summary-center-tasks-counter" id="tasksCounter"></span>
-                            <span class="summary-center-tasks-text">Tasks in Board</span>
+                <div class="summary-tile-topwrap">
+                    <div class="summary-tile" onclick="openPage('board')">
+                        <div class="summary-tile-inner">
+                            <span class="summary-tile-counter" id="tasksCounter"></span>
+                            <span class="summary-tile-text">Tasks in Board</span>
                         </div>
                     </div>
-                    <div class="summary-center-progress" onclick="openPage('board')">
-                        <div class="summary-center-progress-inner">
-                            <span class="summary-center-progress-counter" id="progressCounter"></span>
-                            <span class="summary-center-progress-text">Tasks in Progress</span>
+                    <div class="summary-tile" onclick="openPage('board')">
+                        <div class="summary-tile-inner">
+                            <span class="summary-tile-counter" id="progressCounter"></span>
+                            <span class="summary-tile-text">Tasks in Progress</span>
                         </div>
                     </div>
-                    <div class="summary-center-feedback" onclick="openPage('board')">
-                        <div class="summary-center-feedback-inner">
-                            <span class="summary-center-feedback-counter" id="feedbackCounter"></span>
-                            <span class="summary-center-feedback-text">Awaiting Feedback</span>
+                    <div class="summary-tile" onclick="openPage('board')">
+                        <div class="summary-tile-inner">
+                            <span class="summary-tile-counter" id="feedbackCounter"></span>
+                            <span class="summary-tile-text">Awaiting Feedback</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- MIDDLE part of center content -->
-                <div class="summary-center-middlewrap" onclick="openPage('board')">
+                <div class="summary-tile-middlewrap" onclick="openPage('board')">
 
                     <!-- MIDDLE LEFT part -->
-                    <div class="summary-center-middle-left">
-                        <div class="summary-center-middle-left-icon-outer">
-                            <img class="summary-center-middle-left-icon" src="./assets/img/urgent.svg">
+                    <div class="summary-tile-middle-left">
+                        <div class="summary-tile-middle-left-icon-outer">
+                            <img class="summary-tile-middle-left-icon" src="./assets/img/urgent.svg">
                         </div>
-                        <div class="summary-center-middle-left-counter-outer">
-                            <span class="summary-center-middle-left-counter" id="urgentCounter"></span>
-                            <span class="summary-center-middle-left-text">Urgent</span>
+                        <div class="summary-tile-middle-left-counter-outer">
+                            <span class="summary-tile-middle-left-counter" id="urgentCounter"></span>
+                            <span class="summary-tile-middle-text">Urgent</span>
                         </div>
                     </div>
 
                     <!-- MIDDLE CENTER line-->
-                    <div class="summary-center-middle-line"></div>
+                    <div class="summary-tile-middle-line"></div>
 
                     <!-- MIDDLE RIGHT part -->
-                    <div class="summary-center-middle-right">
-                        <span class="summary-center-middle-right-date" id="urgentDate"></span>
-                        <span class="summary-center-middle-right-text">Upcoming deadline</span>
+                    <div class="summary-tile-middle-right">
+                        <span class="summary-tile-middle-right-date" id="urgentDate"></span>
+                        <span class="summary-tile-middle-text">Upcoming deadline</span>
                     </div>
                 </div>
 
                 <!-- BOTTOM part of center content -->
-                <div class="summary-center-bottomwrap">
+                <div class="summary-tile-bottomwrap">
 
                     <!-- TO DO part left -->
-                    <div class="summary-center-bottom-todo" onclick="openPage('board')">
-                        <div class="summary-center-bottom-todo-iconwrap">
-                            <div class="summary-center-bottom-todo-icon"></div>
+                    <div class="summary-bottom-tile" onclick="openPage('board')">
+                        <div class="summary-bottom-tile-iconwrap">
+                            <div class="summary-bottom-todo-icon"></div>
                         </div>
-                        <div class="summary-center-bottom-todo-counter-outer">
-                            <span class="summary-center-bottom-todo-counter" id="todoCounter"></span>
-                            <span class="summary-center-bottom-todo-text">To-do</span>
+                        <div class="summary-bottom-counter-outer">
+                            <span class="summary-bottom-counter" id="todoCounter"></span>
+                            <span class="summary-bottom-text">To-do</span>
                         </div>
                     </div>
 
                     <!-- DONE part right -->
-                    <div class="summary-center-bottom-done" onclick="openPage('board')">
-                        <div class="summary-center-bottom-done-iconwrap">
-                            <div class="summary-center-bottom-done-icon"></div>
+                    <div class="summary-bottom-tile" onclick="openPage('board')">
+                        <div class="summary-bottom-tile-iconwrap">
+                            <div class="summary-bottom-done-icon"></div>
                         </div>
-                        <div class="summary-center-bottom-done-counter-outer">
-                            <span class="summary-center-bottom-done-counter" id="doneCounter"></span>
-                            <span class="summary-center-bottom-done-text">Done</span>
+                        <div class="summary-bottom-counter-outer">
+                            <span class="summary-bottom-counter" id="doneCounter"></span>
+                            <span class="summary-bottom-text">Done</span>
                         </div>
                     </div>
 
