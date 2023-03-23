@@ -98,12 +98,13 @@ body {
 .topnav-signout {
     cursor: pointer;
     display: flex;
+    flex-direction: column;
     white-space: nowrap;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 10px;
     position: relative;
-    top: 50px;
-    right: 120px;
+    top: 80px;
+    right: 130px;
     width: 300px;
     padding: 10px 10px;
     border-radius: 10px;
@@ -772,6 +773,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
+    overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -3064,7 +3066,7 @@ input:invalid {
         flex-wrap: wrap;
     }
 
-        .addtask {
+    .addtask {
         position: absolute;
         top: 0px;
         bottom: 0px;
@@ -3736,18 +3738,39 @@ input:invalid {
         height: 20px;
     }
 
+    .addcontact-task-close {
+        position: fixed;
+        align-self: flex-end;
+        translate: -20px -150px;
+    }
+
     .addcontact-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    .addcontact-title-container {
+    .addcontact-logo {
         display: none;
+    }
+
+    .addcontact-title-container {
+        padding: 20px;
+        align-items: center;
+        width: 322px;
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    .addcontact-title {
+        font-size: 40px;
+        width: unset;
+        height: unset;
+    }
+
+    .addcontact-subtitle {
+        font-size: 20px;
+        width: unset;
+        height: unset;
     }
 
     .addcontact-user-badge {
@@ -3760,13 +3783,17 @@ input:invalid {
         flex-direction: column;
         padding: unset;
         padding: 20px;
-        border-radius: 20px;
+        border-radius: 0px 0px 20px 20px;
         gap: 20px;
     }
 
     .addcontact-form input {
         width: 250px;
         height: 40px;
+    }
+
+    .addcontact-submit-btns {
+        justify-content: center;
     }
 
     .addcontact-clear-btn {
@@ -3787,64 +3814,6 @@ input:invalid {
         text-align: start;
     }
 
-    .addcontact-task-close {
-        position: relative;
-        align-self: center;
-        justify-self: center;
-        display: flex;
-        translate: 330px -220px;
-    }
-
-    .editcontact-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .editcontact-title-container {
-        display: none;
-    }
-
-    .editcontact-user-badge {
-        align-items: center;
-        justify-content: center;
-        margin: unset;
-    }
-
-    .editcontact-form {
-        flex-direction: column;
-        padding: unset;
-        padding: 20px;
-        border-radius: 20px;
-        gap: 20px;
-    }
-
-    .editcontact-form input {
-        width: 250px;
-        height: 40px;
-    }
-
-    .editcontact-create-btn {
-        width: 100px !important;
-        padding: 0px 10px !important;
-        height: 40px !important;
-        font-size: 18px !important;
-        border: 1px solid #2A3647 !important;
-        text-align: start;
-    }
-
-    .editcontact-task-close {
-        position: relative;
-        align-self: center;
-        justify-self: center;
-        display: flex;
-        translate: 330px -220px;
-    }
-
     .help {
         overflow-y: scroll;
     }
@@ -3858,6 +3827,26 @@ input:invalid {
     }
 
     .help-blackArrow-wrap {
+        left: unset;
+    }
+
+    .legal {
+        overflow-y: scroll;
+    }
+
+    .legal-title {
+        padding: 20px 20px;
+    }
+
+    .legal-title-span {
+        height: unset;
+    }
+
+    .legal-join-inner {
+        padding: 20px 20px;
+    }
+
+    .legal-blackArrow-wrap {
         left: unset;
     }
 }

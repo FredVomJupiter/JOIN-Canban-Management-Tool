@@ -963,7 +963,7 @@ body {
     .login-email-border {
         width: 250px;
         height: 40px;
-        padding: 0px 21px;
+        padding: 10px 21px;
     }
 
     .login-email-inner {
@@ -985,7 +985,7 @@ body {
     .login-pw-border {
         width: 250px;
         height: 40px;
-        padding: 0px 21px;
+        padding: 10px 21px;
     }
 
     .login-pw-inner {
@@ -1078,7 +1078,7 @@ body {
     .forgotpw-input-wrap {
         width: 250px;
         height: 40px;
-        padding: unset;
+        padding: 10px 21px;
         margin: unset;
     }
 
@@ -1165,7 +1165,7 @@ body {
     }
 
     .resetpw-input-border {
-        padding: 0px 21px;
+        padding: 10px 21px;
         width: 250px;
         height: 40px;
     }

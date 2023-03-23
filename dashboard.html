@@ -125,7 +125,7 @@
         <div class="addcontact-content d-none" id="addcontactOverlay" onclick="stopPropagation(event)">
             <img class="addcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
             <div class="addcontact-title-container">
-                <img src="./assets/img/logo_white.svg" alt="logo">
+                <img class="addcontact-logo" src="./assets/img/logo_white.svg" alt="logo">
                 <div class="addcontact-title">Add contact</div>
                 <div class="addcontact-subtitle">Tasks are better with a team</div>
                 <img src="./assets/img/horizontal_blue_line.svg">
@@ -172,8 +172,10 @@
             <img class="topnav-help" src="./assets/img/help.svg" onclick="openPage('help')">
 
             <img class="topnav-profile" src="./assets/img/profilepicture.png" onclick="openSignout()">
-            <div class="topnav-signout d-none" onclick="openLogin()" id="signout">
-                <span>Sign out</span>
+            <div class="topnav-signout d-none"  id="signout">
+                <span onclick="openLogin()">Sign out</span>
+                <span onclick="openPage('help')">Help</span>
+                <span onclick="openPage('legal')">Legal Info</span>
             </div>
         </div>
     </header>
@@ -520,18 +522,17 @@
 
                 <span class="legal-responsible-title">Legally responsible contact person </span>
                 <span class="legal-responsible-txt">
-                    Anbieter: Max Mustermann<br>
+                    Anbieter: Frederic Rieg<br>
                     Musterstraße 1<br>
-                    80999 München<br>
-                    Kontakt: Hubert der Hinkende<br>
+                    xxxxxx Ankara<br>
                     Telefon: 089/1234567-8<br>
                     Telefax: 089/1234567-9<br>
                     E-Mail: mail@mustermann.de<br>
                     Website: www.mustermann.de<br>
                     Bei redaktionellen Inhalten verantwortlich nach § 55 Abs.2 RStV<br>
-                    Moritz Schreiberling<br>
+                    Frederic Rieg<br>
                     Musterstraße 2<br>
-                    80999 München
+                    xxxxx Ankara
                 </span>
 
                 <span class="legal-content-title">Concerning external links and user-created contents</span>
@@ -563,17 +564,13 @@
                 </span>
 
                 <span class="help-whatIsJoin-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa
-                    eget,
-                    ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis.
-                    Vestibulum
-                    eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis
-                    nulla
-                    at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In
-                    auctor
-                    dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque
-                    libero
-                    erat, pharetra a neque et, imperdiet semper justo.
+                    JOIN is a team-oriented canban board that helps you keep track of your and your team's tasks.
+                    This app is divided into four sections: summary, board, add task and contacts. The summary provides
+                    you an overview of how many tasks are on board, in progress, awaiting feedback, to-do, done as well as
+                    the upcoming deadlines for urgent tasks. The board contains the actual canban board with tasks attached
+                    like sticky notes. Here you can view, drag and drop, create new, edit and search tasks. In the add task
+                    section, you can add new tasks without using the board-overlay. Finally, the contacts page gives you
+                    an overview of existing contacts. Here you can add new and edit existing contacts.
                 </span>
 
                 <span class="help-howToUseIt-title">How to use it</span>
@@ -584,11 +581,8 @@
 
                         <span class="help-howToUseIt-number">1.</span>
 
-                        <span class="help-howToUseIt-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu
-                            velit
-                            sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non,
-                            varius aliquam mauris.
+                        <span class="help-howToUseIt-text">Create a new task via the board-overlay by clicking on "addtask" or the 
+                            + symbol on either of the board-categories headlines.
                         </span>
 
                     </div>
@@ -597,8 +591,8 @@
 
                         <span class="help-howToUseIt-number">2.</span>
 
-                        <span class="help-howToUseIt-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna.
+                        <span class="help-howToUseIt-text">Type in at least a title, date and description text in order to create a new task. All other 
+                            information are not mandatory.
                         </span>
 
                     </div>
@@ -607,10 +601,8 @@
 
                         <span class="help-howToUseIt-number">3.</span>
 
-                        <span class="help-howToUseIt-text">Nunc erat justo, hendrerit vel enim vitae, feugiat
-                            mattis
-                            dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus
-                            congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
+                        <span class="help-howToUseIt-text">If you want to edit a task, just click on the desired task-card and click on the edit-button 
+                            that shows on the task-detail overlay. As with creating a new task, title, description and date are mandatory fields.
                         </span>
                     </div>
                 </div>

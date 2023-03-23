@@ -8,32 +8,32 @@ class ContactTemplate {
 
     getEditcontactOverlay(name, email, phone) {
         return `
-            <img class="editcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
-            <div class="editcontact-title-container">
-                <img src="./assets/img/logo_white.svg" alt="logo">
-                <div class="editcontact-title">Edit contact</div>
-                <div class="editcontact-subtitle">Tasks are better with a team</div>
+            <img class="addcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
+            <div class="addcontact-title-container">
+                <img class="addcontact-logo" src="./assets/img/logo_white.svg" alt="logo">
+                <div class="addcontact-title">Edit contact</div>
+                <div class="addcontact-subtitle">Tasks are better with a team</div>
                 <img src="./assets/img/horizontal_blue_line.svg">
             </div>
-            <div class="editcontact-form">
-                <div class="editcontact-user-badge">
+            <div class="addcontact-form">
+                <div class="addcontact-user-badge">
                     <img src="./assets/img/user_guest.svg">
                 </div>
-                <form class="editcontact-form-right" id="formEditcontact">
-                    <div class="editcontact-form-container">
-                        <input class="editcontact-input-profile" type="text" placeholder="Name" id="editcontactInputName" value="${name}">
+                <form class="addcontact-form-right" id="formEditcontact">
+                    <div class="addcontact-form-container">
+                        <input class="addcontact-input-profile" type="text" placeholder="Name" id="editcontactInputName" value="${name}">
                         <div class="error"></div>
                     </div>
-                    <div class="editcontact-form-container">
-                        <input class="editcontact-input-email" type="text" placeholder="Email" id="editcontactInputEmail" value="${email}">
+                    <div class="addcontact-form-container">
+                        <input class="addcontact-input-email" type="text" placeholder="Email" id="editcontactInputEmail" value="${email}">
                         <div class="error"></div>
                     </div>
-                    <div class="editcontact-form-container">
-                        <input class="editcontact-input-phone" type="text" placeholder="Phone" id="editcontactInputPhone" value="${phone}">
+                    <div class="addcontact-form-container">
+                        <input class="addcontact-input-phone" type="text" placeholder="Phone" id="editcontactInputPhone" value="${phone}">
                         <div class="error"></div>
                     </div>
-                    <div class="editcontact-submit-btns">
-                        <input class="editcontact-create-btn" type="submit" value="Save">
+                    <div class="addcontact-submit-btns">
+                        <input class="addcontact-create-btn" type="submit" value="Save">
                     </div>
                 </form>
             </div>
