@@ -3066,6 +3066,25 @@ input:invalid {
         flex-wrap: wrap;
     }
 
+    .overlay-background {
+        align-items: unset;
+    }
+
+    .addtask-close-btn {
+        position: relative;
+        translate: 0px -550px;
+    }
+
+    .addtask-overlay-container {
+        box-sizing: border-box;
+        flex-direction: column;
+        padding: unset;
+        align-items: center;
+        padding: 50px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
     .addtask {
         position: absolute;
         top: 0px;
@@ -3267,14 +3286,6 @@ input:invalid {
         width: unset;
         height: unset;
         margin: unset;
-    }
-
-    .addtask-close-btn {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        border: 1px solid black;
-        border-radius: 10px;
     }
 
     .contact-title-container {
@@ -3566,20 +3577,6 @@ input:invalid {
 
     .dropzone {
         height: 100px;
-    }
-
-    .overlay-background {
-        align-items: unset;
-    }
-
-    .addtask-overlay-container {
-        box-sizing: border-box;
-        flex-direction: column;
-        padding: unset;
-        align-items: center;
-        padding: 20px;
-        overflow-y: scroll;
-        overflow-x: hidden;
     }
 
     .contacts {
