@@ -3138,6 +3138,71 @@ input:invalid {
         padding-left: 500px;
     }
 
+    .contact-canvas-titlewrap {
+        width: unset !important;
+        height: unset !important;
+        gap: 20px !important;
+    }
+
+    .contact-canvas-circlewrap {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .contact-canvas-circleorange {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .contact-canvas-circletext {
+        font-size: 21px !important;
+    }
+
+    .contact-canvas-namewrap {
+        width: unset !important;
+        height: unset !important;
+    }
+
+    .contact-canvas-addtaskwrap {
+        justify-content: unset;
+    }
+
+    .contact-canvas-name {
+        width: unset !important;
+        height: unset !important;
+        font-size: 20px !important;
+    }
+
+    .contact-canvas-infowrap {
+        width: unset;
+        height: unset;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 30px;
+    }
+
+    .contact-canvas-info-text {
+        width: unset;
+        height: unset;
+        font-size: 20px;
+    }
+
+    .contact-canvas-edit-icon {
+        height: 25px;
+    }
+
+    .contact-canvas-info-edittext {
+        width: unset;
+        height: unset;
+    }
+
+    .contact-canvas-addtast-text {
+        width: unset;
+        height: unset;
+    }
+
     .contact-addcontact-button {
         width: unset;
         height: unset;
@@ -3654,9 +3719,9 @@ input:invalid {
         left: 0;
         right: 0;
         bottom: 80px;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        padding: 100px 20px;
+        padding: 100px 100px;
         background: #F6F7F8;
         z-index: 20;
     }
@@ -3667,66 +3732,6 @@ input:invalid {
         align-self: flex-start;
         margin-bottom: 30px;
         color: black;
-    }
-
-    .contact-canvas-titlewrap {
-        width: unset !important;
-        height: unset !important;
-        gap: 20px !important;
-    }
-
-    .contact-canvas-circlewrap {
-        width: 50px !important;
-        height: 50px !important;
-    }
-
-    .contact-canvas-circleorange {
-        width: 50px !important;
-        height: 50px !important;
-    }
-
-    .contact-canvas-circletext {
-        font-size: 21px !important;
-    }
-
-    .contact-canvas-namewrap {
-        width: unset !important;
-        height: unset !important;
-    }
-
-    .contact-canvas-name {
-        width: unset !important;
-        height: unset !important;
-        font-size: 20px !important;
-    }
-
-    .contact-canvas-infowrap {
-        width: unset;
-        height: unset;
-        flex-direction: column-reverse;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        gap: 30px;
-    }
-
-    .contact-canvas-info-text {
-        width: unset;
-        height: unset;
-        font-size: 20px;
-    }
-
-    .contact-canvas-edit-icon {
-        height: 25px;
-    }
-
-    .contact-canvas-info-edittext {
-        width: unset;
-        height: unset;
-    }
-
-    .contact-canvas-addtast-text {
-        width: unset;
-        height: unset;
     }
 
     .contact-addcontact-button {
@@ -3895,5 +3900,18 @@ input:invalid {
 
     .dropzone {
         display: none;
+    }
+
+    .contact-canvas {
+        position: fixed;
+        top: 200px;
+        left: 0;
+        right: 0;
+        bottom: 80px;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 100px 40px;
+        background: #F6F7F8;
+        z-index: 20;
     }
 }
