@@ -3082,7 +3082,13 @@ input:invalid {
         align-items: center;
         padding: 50px;
         overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
         overflow-x: hidden;
+    }
+
+    .addtask-overlay-container::-webkit-scrollbar {
+        display: none;
     }
 
     .addtask {
@@ -3094,6 +3100,12 @@ input:invalid {
         padding-bottom: 20px;
         align-items: unset;
         overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .addtask::-webkit-scrollbar {
+        display: none;
     }
 
     .addtask-title-wrap {
