@@ -30,18 +30,36 @@ function hidePages() {
  */
 function sendMessage(type) {
     if (type == "messageReset") {
-        let message = document.getElementById('messageReset');
-        message.classList.add('animate');
-        setTimeout(() => {
-            openPage('login');
-            message.classList.remove('animate');
-        }, 3000);
+        animateMessage('messageReset');
+        goToLogin('messageReset');
     } else {
-        let message = document.getElementById('messageMail');
-        message.classList.add('animate');
-        setTimeout(() => {
-            openPage('resetpw');
-            message.classList.remove('animate');
-        }, 3000);
+        animateMessage('messageMail');
+        goToResetpw('messageMail');
+        
     }
+}
+
+
+function animateMessage(type) {
+    let message = document.getElementById(type);
+    message.classList.add('animate');
+    removeAnimationAndOpenPage(type);
+}
+
+
+function goToLogin(type) {
+    setTimeout(() => {
+        openPage('login');
+        let message = document.getElementById(type);
+        message.classList.remove('animate');
+    }, 3000);
+}
+
+
+function goToResetpw(type) {
+    setTimeout(() => {
+        openPage('resetpw');
+        let message = document.getElementById(type);
+        message.classList.remove('animate');
+    }, 3000);
 }

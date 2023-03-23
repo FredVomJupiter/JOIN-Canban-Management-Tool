@@ -3,7 +3,7 @@ const loginEmail = document.getElementById('loginEmail');
 const loginPassword = document.getElementById('loginPw');
 
 
-let userId;
+let userId; // For remembering user and user session when loggin in
 
 
 loginForm.addEventListener('submit', e => {
@@ -21,6 +21,7 @@ const setLoginError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
+
 const setLoginSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -29,6 +30,7 @@ const setLoginSuccess = element => {
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
 }
+
 
 const isValidLoginEmail = email => {
     let result = false;
@@ -41,6 +43,7 @@ const isValidLoginEmail = email => {
     return result;
 }
 
+
 const isValidLoginPassword = password => {
     let result = false;
     // User must provide correct email and password to get valid password
@@ -51,6 +54,7 @@ const isValidLoginPassword = password => {
     });
     return result;
 }
+
 
 const validateLoginInputs = () => {
     const emailValue = loginEmail.value.trim();
@@ -91,28 +95,43 @@ const validateLoginInputs = () => {
 
 function rememberUser() {
     if (document.getElementById('rememberUser').checked) {
-        users.forEach(user => {
-            if (user.id === userId) {
-                user.remembered = 1;
-            }
-        });
+        rememberTrue();
         
     } else {
-        users.forEach(user => {
-            user.remembered = 0;
-        });
+        rememberFalse();
     }
 }
 
 
+function rememberTrue() {
+    users.forEach(user => {
+        if (user.id === userId) {
+            user.remembered = 1;
+        }
+    });
+}
+
+
+function rememberFalse() {
+    users.forEach(user => {
+        user.remembered = 0;
+    });
+}
+
+
 function loginUser() {
+    startUserSession();
+    saveLocalStorage(); // Timeout needed for saving data before opening dashboard too early
+    setTimeout(function() {
+        openDashboard();
+    }, 2000);
+}
+
+
+function startUserSession() {
     users.forEach(user => {
         if (user.id === userId) {
             user.session = 1; 
         }
     });
-    saveLocalStorage(); // Timeout needed for saving data before opening dashboard too early
-    setTimeout(function() {
-        openDashboard();
-    }, 2000);
 }

@@ -7,6 +7,7 @@ forgotpwForm.addEventListener('submit', e => {
     validateForgotpwInputs();
 });
 
+
 const isValidForgotpwEmail = email => {
     let result = false;
     users.forEach(user => {
@@ -17,6 +18,7 @@ const isValidForgotpwEmail = email => {
     });
     return result;
 }
+
 
 const validateForgotpwInputs = () => {
     const emailValue = forgotpwEmail.value.trim();

@@ -37,24 +37,22 @@ function openLogin() {
 
 
 function openPage(pageName) {
-    if (pageName === 'summary') {
-        updateCounters();
-    }
-    hidePages();
+    renderPageSpecificContent(pageName);
+    hideAllPages(); // Needs to be called before showPage()!!!
     removeDarkMenu();
-    let page = document.getElementById(`${pageName}`);
-    page.classList.remove('d-none');
-    if (pageName != 'help') {
-        let menupoint = document.getElementById(`menu-${pageName}`);
-        menupoint.classList.add('sidebar-menu-option-dark');
-    }
-    if (pageName === 'contacts') {
-        renderContactList();
-    }
+    showOnlySelectedPage(pageName);
+    addMenuSelectionForPage(pageName);
 }
 
 
-function hidePages() {
+function renderPageSpecificContent() {
+    pageName === 'summary' ? updateCounters() : "";
+    pageName === 'contacts' ? renderContactList(): "";
+    pageName === 'board' ? renderCards() : "";
+}
+
+
+function hideAllPages() {
     pages.forEach(page => {
         let canvas = document.getElementById(`${page}`);
         canvas.classList.add('d-none');
@@ -71,3 +69,23 @@ function removeDarkMenu() {
         }
     });
 }
+
+
+function showOnlySelectedPage(pageName) {
+    let page = document.getElementById(`${pageName}`);
+    page.classList.remove('d-none');
+}
+
+
+function addMenuSelectionForPage(pageName) {
+    // Selected page gets highlighted in darker color
+    if (pageName != 'help') {
+        let menupoint = document.getElementById(`menu-${pageName}`);
+        menupoint.classList.add('sidebar-menu-option-dark');
+    }
+}
+
+
+
+
+

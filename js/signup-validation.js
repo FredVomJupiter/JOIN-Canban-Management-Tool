@@ -19,6 +19,7 @@ const setError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
+
 const setSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -28,10 +29,12 @@ const setSuccess = element => {
     inputControl.classList.remove('error');
 }
 
+
 const isValidSignupEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
+
 
 const validateSignupInputs = () => {
     const nameValue = signupName.value.trim();

@@ -10,16 +10,17 @@ function openAddcontactOverlay() {
 function renderContactList() {
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
-    const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];
+    const alphabet = returnAlphabet();
     alphabet.forEach(letter => {
         if (filterContactByLetter(contacts, letter).length > 0) {
-            let filteredContacts = filterContactByLetter(contacts, letter);
-            contactList.innerHTML += contactTemplate.getContactLetter(letter);
-            filteredContacts.forEach(contact => {
-                contactList.innerHTML += contactTemplate.getContactList(contact);
-            });
+            renderContactsSortedByAlphabet(contactList, letter);
         }
     });
+}
+
+
+function returnAlphabet() {
+    return ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Other"];
 }
 
 
@@ -28,13 +29,27 @@ function filterContactByLetter(contacts, letter) {
 }
 
 
+function renderContactsSortedByAlphabet(contactList, letter) {
+    let filteredContacts = filterContactByLetter(contacts, letter);
+    contactList.innerHTML += contactTemplate.getContactLetter(letter);
+    filteredContacts.forEach(contact => {
+        contactList.innerHTML += contactTemplate.getContactList(contact);
+    });
+}
+
+
 function showContact(id) {
     let contact = contacts.filter(contact => contact.id == id);
+    drawContactTemplate(contact[0]);
+    markSelectedContact(contact[0].id);
+}
+
+
+function drawContactTemplate(contact) {
     let contactCanvas = document.getElementById('contactCanvas');
     contactCanvas.classList.remove('d-none');
     contactCanvas.innerHTML = "";
-    contactCanvas.innerHTML = contactTemplate.getContactDetails(contact[0].name, contact[0].email, contact[0].phone, contact[0].color);
-    markSelectedContact(contact[0].id);
+    contactCanvas.innerHTML = contactTemplate.getContactDetails(contact.name, contact.email, contact.phone, contact.color);
 }
 
 
@@ -78,6 +93,7 @@ const setAddError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
+
 const setAddSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -87,15 +103,18 @@ const setAddSuccess = element => {
     inputControl.classList.remove('error');
 }
 
+
 const isValidNewEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
+
 const isValidNewPhone = phone => {
     const re = /^[0-9]{8,10}$/;
     return re.test(String(phone));
 }
+
 
 const validateAddInputs = () => {
     const nameValue = addContactname.value.trim();
@@ -143,17 +162,22 @@ const validateAddInputs = () => {
 
 
 function saveNewContact() {
-    let name = document.getElementById('addcontactInputName').value;
-    let email = document.getElementById('addcontactInputEmail').value;
-    let phone = document.getElementById('addcontactInputPhone').value;
-    let contact = new Contact(name, email, phone, colors[contacts.length]);
-    contacts.push(contact);
+    copyPasteContactInputValues();
     saveLocalStorage('contacts');
     closeOverlay();
     renderContactList();
     initNewTask();
     showContact(contact.id);
     clearNewcontactInputfields();
+}
+
+
+function copyPasteContactInputValues() {
+    let name = document.getElementById('addcontactInputName').value;
+    let email = document.getElementById('addcontactInputEmail').value;
+    let phone = document.getElementById('addcontactInputPhone').value;
+    let contact = new Contact(name, email, phone, colors[contacts.length]);
+    contacts.push(contact);
 }
 
 
@@ -209,6 +233,7 @@ const setEditError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
+
 const setEditSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -218,15 +243,18 @@ const setEditSuccess = element => {
     inputControl.classList.remove('error');
 }
 
+
 const isValidEditEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
+
 const isValidEditPhone = phone => {
     const re = /^[0-9]{8,10}$/;
     return re.test(String(phone));
 }
+
 
 const validateEditcontactInputs = () => {
     const nameValue = editContactname.value.trim();
@@ -274,6 +302,16 @@ const validateEditcontactInputs = () => {
 
 
 function saveEditedContact() {
+    copyPasteInputValues();
+    saveLocalStorage('contacts');
+    closeOverlay();
+    renderContactList();
+    renderCards();
+    showContact(contactId);
+}
+
+
+function copyPasteInputValues() {
     contacts.forEach(contact => {
         if (contact.id == contactId) {
             contact.name = document.getElementById('editcontactInputName').value;
@@ -281,9 +319,4 @@ function saveEditedContact() {
             contact.phone = document.getElementById('editcontactInputPhone').value;
         }
     });
-    saveLocalStorage('contacts');
-    closeOverlay();
-    renderContactList();
-    renderCards();
-    showContact(contactId);
 }

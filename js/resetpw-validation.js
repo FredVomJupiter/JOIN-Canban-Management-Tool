@@ -8,9 +8,11 @@ resetpwForm.addEventListener('submit', e => {
     validateResetpwInputs();
 });
 
+
 const isValidPassword = (p1, p2) => {
     return p1 === p2;
 }
+
 
 const validateResetpwInputs = () => {
     const passwordValue1 = resetpwP1.value.trim();

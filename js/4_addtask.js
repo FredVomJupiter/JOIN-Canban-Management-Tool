@@ -53,6 +53,7 @@ const setTaskError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
+
 const setTaskSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -61,6 +62,7 @@ const setTaskSuccess = element => {
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
 }
+
 
 const validateTaskInputs = (where) => {
     if (where === 'overlay') {
@@ -343,7 +345,7 @@ function selectNewCategoryColor(color, location) {
 
     if (location === "menu") {
         let menu = document.getElementById('newCategoryMenu');
-        menu.outerHTML = taskTemplate.setCategoryColor('menu', color)
+        menu.outerHTML = taskTemplate.setCategoryColor('menu', color);
     } else {
         let overlay = document.getElementById('newCategoryOverlay');
         overlay.outerHTML = taskTemplate.setCategoryColor('overlay', color);
@@ -352,20 +354,40 @@ function selectNewCategoryColor(color, location) {
 
 
 function saveNewCategory(location) {
-    if (location === "menu" && document.getElementById('newCategoryNameMenu').value != "") {
-        newCategory.name = document.getElementById('newCategoryNameMenu').value;
-        selectCategory(newCategory.name, newCategory.color, location);
-        categories.push(newCategory);
-        saveLocalStorage('categories');
+    if (locationMenu(location)) {
+        saveMenuCategoryInput();
     }
-    if (location === "overlay" && document.getElementById('newCategoryNameOverlay').value != "") {
-        newCategory.name = document.getElementById('newCategoryNameOverlay').value;
-        selectCategory(newCategory.name, newCategory.color, location);
-        categories.push(newCategory);
-        saveLocalStorage('categories');
+    if (locationOverlay(location)) {
+        saveOverlayCategoryInput();
     }
-
 }
+
+
+function locationMenu(location) {
+    return location === "menu" && document.getElementById('newCategoryNameMenu').value != "";
+}
+
+
+function saveMenuCategoryInput() {
+    newCategory.name = document.getElementById('newCategoryNameMenu').value;
+    selectCategory(newCategory.name, newCategory.color, location);
+    categories.push(newCategory);
+    saveLocalStorage('categories');
+}
+
+
+function locationOverlay(location) {
+    return location === "overlay" && document.getElementById('newCategoryNameOverlay').value != "";
+}
+
+
+function saveOverlayCategoryInput() {
+    newCategory.name = document.getElementById('newCategoryNameOverlay').value;
+    selectCategory(newCategory.name, newCategory.color, location);
+    categories.push(newCategory);
+    saveLocalStorage('categories');
+}
+
 
 // assignments
 
@@ -376,11 +398,7 @@ function expandAssigned(location) {
 
 function expandOverlayAssigned() {
     const menu = document.getElementById('addtaskOverlayAssigned');
-    menu.onclick = "";
-    menu.parentElement.classList.add('grow');
-    menu.classList.add('field-grow');
-    menu.innerHTML = "";
-    menu.innerHTML = taskTemplate.setAssignedHeader('overlay');
+    prepareOverlayAssigned(menu);
     contacts.forEach(contact => {
         menu.innerHTML += taskTemplate.setAssigned(contact, 'overlay');
     });
@@ -388,17 +406,31 @@ function expandOverlayAssigned() {
 }
 
 
+function prepareOverlayAssigned(menu) {
+    menu.onclick = "";
+    menu.parentElement.classList.add('grow');
+    menu.classList.add('field-grow');
+    menu.innerHTML = "";
+    menu.innerHTML = taskTemplate.setAssignedHeader('overlay');
+}
+
+
 function expandMenuAssigned() {
     const menu = document.getElementById('addtaskMenuAssigned');
+    prepareMenuAssigned(menu);
+    contacts.forEach(contact => {
+        menu.innerHTML += taskTemplate.setAssigned(contact, 'menu');
+    });
+    checkBoxes();
+}
+
+
+function prepareMenuAssigned(menu) {
     menu.onclick = "";
     menu.parentElement.classList.add('grow');
     menu.classList.add('field-grow');
     menu.innerHTML = "";
     menu.innerHTML = taskTemplate.setAssignedHeader('menu');
-    contacts.forEach(contact => {
-        menu.innerHTML += taskTemplate.setAssigned(contact, 'menu');
-    });
-    checkBoxes();
 }
 
 
@@ -428,18 +460,27 @@ function foldMenuAssigned() {
 function selectAssigned(contactId, contactName, contactColor, location) {
     let checkbox = document.getElementById(contactId);
     if (checkbox.checked) {
-        let assignedPerson = taskTemplate.getAssignedPerson(contactId, contactName, contactColor);
-        assigned.push(assignedPerson);
+        addSelectedPerson(contactId, contactName, contactColor);
+        drawAssigned(location);
+    } else {
+        removeDisselectedPerson(contactId);
         drawAssigned(location);
     }
-    if (!checkbox.checked) {
-        assigned.forEach(element => {
-            if (element[0] === contactId) {
-                assigned.splice(assigned.indexOf(element), 1);
-            }
-        });
-        drawAssigned(location);
-    }
+}
+
+
+function addSelectedPerson(contactId, contactName, contactColor) {
+    let assignedPerson = taskTemplate.getAssignedPerson(contactId, contactName, contactColor);
+    assigned.push(assignedPerson);
+}
+
+
+function removeDisselectedPerson(contactId) {
+    assigned.forEach(element => {
+        if (element[0] === contactId) {
+            assigned.splice(assigned.indexOf(element), 1);
+        }
+    });
 }
 
 
@@ -530,19 +571,28 @@ function deleteSubtask(subtaskId, location) {
 function setSubStatus(subtaskId) {
     let checkbox = document.getElementById(subtaskId);
     if (checkbox.checked) {
-        subtasks.forEach(subtask => {
-            if (subtask.id === subtaskId) {
-                subtask.status = 1;
-            }
-        });
+        setSubStatusDone(subtaskId);
+    } else {
+        setSubStatusTodo(subtaskId);
     }
-    if (!checkbox.checked) {
-        subtasks.forEach(subtask => {
-            if (subtask.id === subtaskId) {
-                subtask.status = 0;
-            }
-        });
-    }
+}
+
+
+function setSubStatusDone(subtaskId) {
+    subtasks.forEach(subtask => {
+        if (subtask.id === subtaskId) {
+            subtask.status = 1;
+        }
+    });
+}
+
+
+function setSubStatusTodo(subtaskId) {
+    subtasks.forEach(subtask => {
+        if (subtask.id === subtaskId) {
+            subtask.status = 0;
+        }
+    });
 }
 
 
@@ -557,36 +607,53 @@ function copySubtasks() {
 
 function clearOverlay() {
     initNewTask();
-    assigned = [];
-    subtasks = [];
-    taskOverlayTitle.value = "";
-    taskOverlayDescription.value = "";
-    taskOverlayDate.value = "";
+    resetValues('overlay');
     foldCategories('overlay');
     foldAssigned('overlay');
     drawAssigned('overlay');
     drawAllSubtasks('overlay');
-    let prio = document.getElementById('addtaskOverlayPrio');
-    prio.innerHTML = "";
-    prio.innerHTML = taskTemplate.resetOverlayPrio();
+
 }
 
 
 function clearAddtaskMenu() {
     initNewTask();
-    assigned = [];
-    subtasks = [];
-    taskMenuTitle.value = "";
-    taskMenuDescription.value = "";
-    taskMenuDate.value = "";
+    resetValues('menu')
     foldCategories('menu');
     foldAssigned('menu');
     drawAssigned('menu');
     drawAllSubtasks('menu');
-    let prio = document.getElementById('addtaskMenuPrio');
-    prio.innerHTML = "";
-    prio.innerHTML = taskTemplate.resetMenuPrio();
+    resetPrio('menu');
 }
+
+
+function resetValues(location) {
+    assigned = [];
+    subtasks = [];
+    if (location === 'overlay') {
+        taskOverlayTitle.value = "";
+        taskOverlayDescription.value = "";
+        taskOverlayDate.value = "";
+    } else {
+        taskMenuTitle.value = "";
+        taskMenuDescription.value = "";
+        taskMenuDate.value = "";
+    }
+}
+
+
+function resetPrio(location) {
+    if (location === 'overlay') {
+        let prio = document.getElementById('addtaskOverlayPrio');
+        prio.innerHTML = "";
+        prio.innerHTML = taskTemplate.resetOverlayPrio();
+    } else {
+        let prio = document.getElementById('addtaskMenuPrio');
+        prio.innerHTML = "";
+        prio.innerHTML = taskTemplate.resetMenuPrio();
+    }
+}
+
 
 // Edit existing task starts here
 
@@ -625,6 +692,7 @@ function formatDate(date) {
     let month = '' + (date.getMonth() + 1);
     let year = date.getFullYear();
 
+    // Adding 0 in front of single-digit day/month otherwise date-input field does not accept date value
     if (day.length < 2) {
         day = "0" + day;
     }
@@ -660,13 +728,18 @@ function setEditTaskCategory(cardId) {
 function setEditTaskAssigned(cardId) {
     let assignedPersons = cards.filter(card => card.id == cardId)[0].assigned;
     if (assignedPersons.length >= 1) {
-        let finalList = [];
+        createListOfAssignedPersons();
+        drawAssigned('overlay');
+    }
+}
+
+
+function createListOfAssignedPersons() {
+    let finalList = [];
         assignedPersons.forEach(person => {
             finalList.push([person, taskTemplate.getAssignedPersonEdit(person)]);
         });
         assigned = finalList;
-        drawAssigned('overlay');
-    }
 }
 
 
@@ -688,8 +761,8 @@ function changeButton() {
 
 function saveEditedTask() {
     newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
-    cards.splice(cards.findIndex(card => card.id === newTask.id), 1);
-    cards.push(newTask);
+    cards.splice(cards.findIndex(card => card.id === newTask.id), 1); //removing old card
+    cards.push(newTask); // adding new card
     saveLocalStorage('cards');
     closeOverlay();
     clearOverlay();
