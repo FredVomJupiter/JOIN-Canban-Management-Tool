@@ -45,7 +45,7 @@ function openPage(pageName) {
 }
 
 
-function renderPageSpecificContent() {
+function renderPageSpecificContent(pageName) {
     pageName === 'summary' ? updateCounters() : "";
     pageName === 'contacts' ? renderContactList(): "";
     pageName === 'board' ? renderCards() : "";
