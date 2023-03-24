@@ -3698,7 +3698,7 @@ input:invalid {
     }
 
     .addtask-close-btn {
-        translate: 0px -520px;
+        translate: 24px -540px;
     }
 
     .contacts {
@@ -3978,5 +3978,12 @@ input:invalid {
         padding: 100px 40px;
         background: #F6F7F8;
         z-index: 20;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .addtask-close-btn {
+        translate: -12px -540px;
     }
 }
