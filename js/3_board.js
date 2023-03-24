@@ -1,52 +1,38 @@
+const todo = document.getElementById("todo-canvas");
+const progress = document.getElementById("progress-canvas");
+const feedback = document.getElementById("feedback-canvas");
+const done = document.getElementById("done-canvas");
+
 // Render process for Board page
 function renderCards() {
-    renderTodo();
-    renderProgress();
-    renderFeedback();
-    renderDone();
+    clearBoardColumns();
+    fillBoardColumns();
+    addDropzones();
 }
 
 
-function renderTodo() {
-    let todo = document.getElementById("todo-canvas");
+function clearBoardColumns() {
     todo.innerHTML = "";
-    let todoCards = cards.filter(card => card.group == "To do");
-    todoCards.forEach(card => {
-        todo.innerHTML += taskTemplate.getBoardTask(card);
-    });
-    todo.innerHTML += taskTemplate.getDropzone('todo');
-}
-
-
-function renderProgress() {
-    let progress = document.getElementById("progress-canvas");
     progress.innerHTML = "";
-    let progressCards = cards.filter(card => card.group == "In Progress");
-    progressCards.forEach(card => {
-        progress.innerHTML += taskTemplate.getBoardTask(card);
-    });
-    progress.innerHTML += taskTemplate.getDropzone('progress');
-}
-
-
-function renderFeedback() {
-    let feedback = document.getElementById("feedback-canvas");
     feedback.innerHTML = "";
-    let feedbackCards = cards.filter(card => card.group == "Awaiting Feedback");
-    feedbackCards.forEach(card => {
-        feedback.innerHTML += taskTemplate.getBoardTask(card);
-    });
-    feedback.innerHTML += taskTemplate.getDropzone('feedback');
+    done.innerHTML = "";
 }
 
 
-function renderDone() {
-    let done = document.getElementById("done-canvas");
-    done.innerHTML = "";
-    let doneCards = cards.filter(card => card.group == "Done");
-    doneCards.forEach(card => {
-        done.innerHTML += taskTemplate.getBoardTask(card);
+function fillBoardColumns() {
+    cards.forEach(card => {
+        card.group === 'To do' ? todo.innerHTML += taskTemplate.getBoardTask(card): "";
+        card.group === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(card) : "";
+        card.group === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(card) : "";
+        card.group === "Done" ? done.innerHTML += taskTemplate.getBoardTask(card) : "";
     });
+}
+
+
+function addDropzones() {
+    todo.innerHTML += taskTemplate.getDropzone('todo');
+    progress.innerHTML += taskTemplate.getDropzone('progress');
+    feedback.innerHTML += taskTemplate.getDropzone('feedback');
     done.innerHTML += taskTemplate.getDropzone('done');
 }
 
@@ -64,54 +50,19 @@ function filterCards() {
 
 
 function renderFilteredCards(filteredList) {
-    renderFilteredTodo(filteredList);
-    renderFilteredProgress(filteredList);
-    renderFilteredFeedback(filteredList);
-    renderFilteredDone(filteredList);
+    clearBoardColumns();
+    fillBoardColumnsWithFilteredCards(filteredList);
+    addDropzones();
 }
 
 
-function renderFilteredTodo(filteredList) {
-    let todo = document.getElementById("todo-canvas");
-    todo.innerHTML = "";
-    let todoCards = filteredList.filter(card => card.group == "To do");
-    todoCards.forEach(card => {
-        todo.innerHTML += taskTemplate.getBoardTask(card);
+function fillBoardColumnsWithFilteredCards(filteredList) {
+    filteredList.forEach(card => {
+        card.group === 'To do' ? todo.innerHTML += taskTemplate.getBoardTask(card): "";
+        card.group === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(card) : "";
+        card.group === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(card) : "";
+        card.group === "Done" ? done.innerHTML += taskTemplate.getBoardTask(card) : "";
     });
-    todo.innerHTML += taskTemplate.getDropzone('todo');
-}
-
-
-function renderFilteredProgress(filteredList) {
-    let progress = document.getElementById("progress-canvas");
-    progress.innerHTML = "";
-    let progressCards = filteredList.filter(card => card.group == "In Progress");
-    progressCards.forEach(card => {
-        progress.innerHTML += taskTemplate.getBoardTask(card);
-    });
-    progress.innerHTML += taskTemplate.getDropzone('progress');
-}
-
-
-function renderFilteredFeedback(filteredList) {
-    let feedback = document.getElementById("feedback-canvas");
-    feedback.innerHTML = "";
-    let feedbackCards = filteredList.filter(card => card.group == "Awaiting Feedback");
-    feedbackCards.forEach(card => {
-        feedback.innerHTML += taskTemplate.getBoardTask(card);
-    });
-    feedback.innerHTML += taskTemplate.getDropzone('feedback');
-}
-
-
-function renderFilteredDone(filteredList) {
-    let done = document.getElementById("done-canvas");
-    done.innerHTML = "";
-    let doneCards = filteredList.filter(card => card.group == "Done");
-    doneCards.forEach(card => {
-        done.innerHTML += taskTemplate.getBoardTask(card);
-    });
-    done.innerHTML += taskTemplate.getDropzone('done');
 }
 
 

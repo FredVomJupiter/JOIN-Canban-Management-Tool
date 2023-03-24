@@ -84,8 +84,3 @@ function addMenuSelectionForPage(pageName) {
         menupoint.classList.add('sidebar-menu-option-dark');
     }
 }
-
-
-
-
-
