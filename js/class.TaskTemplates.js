@@ -186,7 +186,8 @@ class TaskTemplate {
             <span class="board-taskoverlay-text">${card[0].text}</span>
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(card[0].date))}</span></div>
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${this.getPriority(card[0])}</div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span>${this.getOverlaySubtasksPercentage(card[0])}</div>
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
+            ${this.getOverlaySubtasksPercentage(card[0])}
             ${this.getOverlaySubtasks(card[0])}
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
             ${this.getOverlayAssigned(card[0].assigned)}

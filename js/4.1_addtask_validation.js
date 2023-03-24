@@ -47,7 +47,6 @@ const validateTaskInputs = (where) => {
     if (where === 'overlay') {
         overlayValidation();
     }
-
     if (where === 'menu') {
         menuValidation();
     }
@@ -58,17 +57,24 @@ function overlayValidation() {
     const titleValue = taskOverlayTitle.value.trim();
     const descriptionValue = taskOverlayDescription.value.trim();
     const dateValue = taskOverlayDate.value;
+    const taskOverlayCategory = document.getElementById('addtaskOverlayCategory');
+    const taskOverlayAssigned = document.getElementById('addtaskOverlayAssigned');
+    const taskOverlayAssignedDisplay = document.getElementById('displayOverlayAssigned');
+    const categoryValue = taskOverlayCategory.innerText;
+
 
     let correctTitle = validateOverlayTitle(titleValue);
     let correctDescription = validateOverlayDescription(descriptionValue);
     let correctDate = validateOverlayDate(dateValue);
+    let correctCategory = validateCategory(categoryValue, taskOverlayCategory);
+    let correctAssigned = validateAssigned(taskOverlayAssigned, taskOverlayAssignedDisplay);
 
     // In overlay both new tasks can be created and existing edited => therefore, two saving options.
-    if (correctTitle & correctDescription & correctDate & isNewTask) {
+    if (correctTitle & correctDescription & correctDate & correctCategory & correctAssigned & isNewTask) {
         transferDataToTemporaryStorage("new", titleValue, descriptionValue, dateValue);
         saveNewTask();
     }
-    if (correctTitle & correctDescription & correctDate & !isNewTask) {
+    if (correctTitle & correctDescription & correctDate & correctCategory & correctAssigned & !isNewTask) {
         transferDataToTemporaryStorage("edited", titleValue, descriptionValue, dateValue);
         saveEditedTask();
     }
@@ -108,17 +114,45 @@ function validateOverlayDate(dateValue) {
 }
 
 
+function validateCategory(categoryValue, category) {
+    if (categoryValue === 'Select task category' || categoryValue === 'Required!') {
+        category.innerText = "Required!";
+        category.style.borderColor = "red";
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
+function validateAssigned(assigned, displayAssigned) {
+    if (displayAssigned.innerHTML === "") {
+        assigned.innerText = "Required!";
+        assigned.style.borderColor = "red";
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 function menuValidation() {
     const titleValue = taskMenuTitle.value.trim();
     const descriptionValue = taskMenuDescription.value.trim();
     const dateValue = taskMenuDate.value;
+    const taskMenuCategory = document.getElementById('addtaskMenuCategory');
+    const taskMenuAssigned = document.getElementById('addtaskMenuAssigned');
+    const taskMenuAssignedDisplay = document.getElementById('displayMenuAssigned');
+    const categoryValue = taskMenuCategory.innerText;
 
     let correctTitle = validateMenuTitle(titleValue);
     let correctDescription = validateMenuDescription(descriptionValue);
     let correctDate = validateMenuDate(dateValue);
+    let correctCategory = validateCategory(categoryValue, taskMenuCategory);
+    let correctAssigned = validateAssigned(taskMenuAssigned, taskMenuAssignedDisplay);
 
     // In menu only new tasks can be created => therefore, only new tasks can be saved.
-    if (correctTitle & correctDescription & correctDate) {
+    if (correctTitle & correctDescription & correctDate & correctCategory & correctAssigned) {
         transferDataToTemporaryStorage("new", titleValue, descriptionValue, dateValue);
         saveNewTask();
     }

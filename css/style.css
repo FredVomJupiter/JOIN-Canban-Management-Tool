@@ -1057,8 +1057,7 @@ body {
 }
 
 .board-taskoverlay-title {
-
-
+    max-width: 320px;
     font-style: normal;
     font-weight: 700;
     font-size: 41px;
@@ -1066,7 +1065,7 @@ body {
 }
 
 .board-taskoverlay-text {
-
+    max-width: 320px;
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1090,6 +1089,7 @@ body {
 }
 
 .board-taskoverlay-value {
+    max-width: 300px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -3948,6 +3948,14 @@ input:invalid {
 
     .board-container {
         flex-wrap: wrap;
+    }
+
+    .board-taskoverlay-container {
+        max-width: 380px;
+    }
+
+    .board-taskoverlay-value {
+        max-width: 220px;
     }
 
     .dropzone {

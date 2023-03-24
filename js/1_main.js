@@ -3,7 +3,9 @@ let contactTemplate = new ContactTemplate();
 
 let users;
 
-
+/**
+ * Here it all starts.
+ */
 async function init() {
     // Loading from backend
     setURL('https://www.frederic-rieg.developerakademie.net/smallest_backend_ever');
@@ -22,7 +24,9 @@ async function init() {
     initNewTask();
 }
 
-
+/**
+ * Greeting user if he is loggen in => sesssion value = 1.
+ */
 function greetUser() {
     if (users && users.length > 0) {
         users.forEach(user => {
