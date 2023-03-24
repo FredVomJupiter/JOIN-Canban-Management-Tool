@@ -22,7 +22,11 @@ taskMenuForm.addEventListener('submit', e => {
     validateTaskInputs('menu');
 });
 
-
+/**
+ * Writes an error-message below input field, if user input is not valid.
+ * @param {*} element as object of the error-div.
+ * @param {*} message as string.
+ */
 const setTaskError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -32,7 +36,11 @@ const setTaskError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
-
+/**
+* Writes an error-message below input field, if user input is not valid.
+ * @param {*} element as object of the error-div.
+ * @param {*} message as string.
+ */
 const setTaskSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -131,10 +139,10 @@ function validateAssigned(assigned, displayAssigned) {
 
 function conditionsForOverlayValidation(titleValue, descriptionValue, dateValue, categoryValue, category, assigned, assignedDisplay) {
     if (validateOverlayTitle(titleValue)
-        && validateOverlayDescription(descriptionValue)
-        && validateOverlayDate(dateValue)
-        && validateCategory(categoryValue, category)
-        && validateAssigned(assigned, assignedDisplay)
+        & validateOverlayDescription(descriptionValue)
+        & validateOverlayDate(dateValue)
+        & validateCategory(categoryValue, category)
+        & validateAssigned(assigned, assignedDisplay)
     ) {
         return true;
     } else {
@@ -195,11 +203,11 @@ function validateMenuDate(dateValue) {
 
 
 function conditionsForMenuValidation(titleValue, descriptionValue, dateValue, categoryValue, category, assigned, assignedDisplay) {
-    if (validateOverlayTitle(titleValue)
-        && validateOverlayDescription(descriptionValue)
-        && validateOverlayDate(dateValue)
-        && validateCategory(categoryValue, category)
-        && validateAssigned(assigned, assignedDisplay)
+    if (validateMenuTitle(titleValue)
+        & validateMenuDescription(descriptionValue)
+        & validateMenuDate(dateValue)
+        & validateCategory(categoryValue, category)
+        & validateAssigned(assigned, assignedDisplay)
     ) {
         return true;
     } else {
