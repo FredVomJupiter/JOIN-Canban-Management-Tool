@@ -75,7 +75,10 @@ function returnInitials(name) {
     return name.charAt(0) + name.charAt(name.indexOf(" ") + 1);
 }
 
-
+/**
+ * Shows the task's details when user clicks on a small card on the board.
+ * @param {*} cardId as string.
+ */
 function showCardDetails(cardId) {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
@@ -114,11 +117,16 @@ function closeOverlay() {
     addcontact.classList.add('d-none');
     let editcontact = document.getElementById('editcontactOverlay');
     editcontact.classList.add('d-none');
+    let clearButton = document.getElementById('taskClearButton');
+    clearButton.classList.remove('d-none');
     // This clears the addtask overlay fields
     clearOverlay();
 }
 
-
+/**
+ * Rendering the html template. Called by showCardDetails(cardId).
+ * @param {*} cardId as string.
+ */
 function renderOverlayCard(cardId) {
     let overlayCard = document.getElementById('overlayCard');
     overlayCard.classList.remove('d-none');
@@ -131,14 +139,18 @@ function stopPropagation(event) {
     event.stopPropagation();
 }
 
-
+/**
+ * Returns a date as string. Whereas the month is plain text e.g "April".
+ * The days have 2 digits (e.g. 01 or 21 etc.) and the year has 4 digits.
+ * @param {*} date as Date-object.
+ * @returns a formatted date as string.
+ */
 function returnFormatedDate(date) {
     if (date) {
         return monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
     } else {
         return "No date specified"
     }
-
 }
 
 

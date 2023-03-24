@@ -16,56 +16,6 @@ let newCategory = {
 function initNewTask() {
     // Empty new task template with standard values for group, color and priority
     newTask = new Task("", "", "General", "To do", "#FF7A00", "", "low", [], []);
-
-}
-
-// prio
-function setPriority(location, type) {
-    location === 'overlay' ? setOverlayPrio(type) : setMenuPrio(type);
-}
-
-
-function setOverlayPrio(type) {
-
-    const prio = document.getElementById('addtaskOverlayPrio');
-
-    if (type === 'urgent') {
-        prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.setOverlayUrgent();
-        newTask.priority = 'urgent';
-    }
-    if (type === 'medium') {
-        prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.setOverlayMedium();
-        newTask.priority = 'medium';
-    }
-    if (type === 'low') {
-        prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.setOverlayLow();
-        newTask.priority = 'low';
-    }
-}
-
-
-function setMenuPrio(type) {
-
-    const prio = document.getElementById('addtaskMenuPrio');
-
-    if (type === 'urgent') {
-        prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.setMenuUrgent();
-        newTask.priority = 'urgent';
-    }
-    if (type === 'medium') {
-        prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.setMenuMedium();
-        newTask.priority = 'medium';
-    }
-    if (type === 'low') {
-        prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.setMenuLow();
-        newTask.priority = 'low';
-    }
 }
 
 // categories
@@ -456,7 +406,10 @@ function validateCheckboxStatus(checkbox, card, taskIndex) {
     }
 }
 
-
+/**
+ * Cleas all input fields of the addtask overlay
+ * and sets values to default.
+ */
 function clearOverlay() {
     initNewTask();
     resetValues('overlay');
@@ -464,10 +417,13 @@ function clearOverlay() {
     foldAssigned('overlay');
     drawAssigned('overlay');
     drawAllSubtasks('overlay');
-
+    resetPrio('overlay');
 }
 
-
+/**
+ * Cleas all input fields of the addtask menu area
+ * and sets values to default.
+ */
 function clearAddtaskMenu() {
     initNewTask();
     resetValues('menu')
@@ -498,10 +454,10 @@ function resetPrio(location) {
     if (location === 'overlay') {
         let prio = document.getElementById('addtaskOverlayPrio');
         prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.resetOverlayPrio();
+        prio.innerHTML = taskTemplate.resetPrio(location);
     } else {
         let prio = document.getElementById('addtaskMenuPrio');
         prio.innerHTML = "";
-        prio.innerHTML = taskTemplate.resetMenuPrio();
+        prio.innerHTML = taskTemplate.resetPrio(location);
     }
 }

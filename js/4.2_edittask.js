@@ -59,6 +59,68 @@ function setEditTaskPrio(cardId) {
 }
 
 
+/**
+ * Only gets called in edit-task overlay to set the priority of an
+ * already existing task.
+ * @param {*} location as string.
+ * @param {*} type as string.
+ */
+function setPriority(location, type) {
+    location === 'overlay' ? setOverlayPrio(type) : setMenuPrio(type);
+}
+
+
+function setOverlayPrio(type) {
+    const prio = document.getElementById('addtaskOverlayPrio');
+    prio.innerHTML = "";
+    type === 'urgent' ? setUrgentPriority('overlay', prio) : "";
+    type === 'medium' ? setMediumPriority('overlay', prio) : "";
+    type === 'low' ? setLowPriority('overlay', prio) : "";
+}
+
+
+function setMenuPrio(type) {
+    const prio = document.getElementById('addtaskMenuPrio');
+    prio.innerHTML = "";
+    type === 'urgent' ? setUrgentPriority('menu', prio) : "";
+    type === 'medium' ? setMediumPriority('menu', prio) : "";
+    type === 'low' ? setLowPriority('menu', prio) : "";
+}
+
+/**
+ * Sets correspondent html template for priority and adds the
+ * priority to the temporary local "newTask" object.
+ * @param {*} location as string.
+ * @param {*} prio as object.
+ */
+function setUrgentPriority(location, prio) {
+    prio.innerHTML = taskTemplate.setPrioUrgent(location);
+    newTask.priority = 'urgent';
+}
+
+/**
+ * Sets correspondent html template for priority and adds the
+ * priority to the temporary local "newTask" object.
+ * @param {*} location as string.
+ * @param {*} prio as object.
+ */
+function setMediumPriority(location, prio) {
+    prio.innerHTML = taskTemplate.setPrioMedium(location);
+    newTask.priority = 'medium';
+}
+
+/**
+ * Sets correspondent html template for priority and adds the
+ * priority to the temporary local "newTask" object.
+ * @param {*} location as string.
+ * @param {*} prio as object.
+ */
+function setLowPriority(location, prio) {
+    prio.innerHTML = taskTemplate.setPrioLow(location);
+    newTask.priority = 'low';
+}
+
+
 function setEditTaskCategory(cardId) {
     if (cards.filter(card => card.id == cardId)[0].category != "General") {
         let categoryName = cards.filter(card => card.id == cardId)[0].category;
@@ -94,11 +156,14 @@ function setEditTaskSubtasks(cardId) {
 }
 
 /**
- * Changing the overlay button from addtask "create task" to edit task "save".
+ * Changing the overlay addtask-button wording to edit task "save".
+ * Removing the visibility of the clear button in edit-mode;
  */
 function changeButton() {
     let submitButton = document.getElementById('overlaySubmit');
     submitButton.value = "Save";
+    let clearButton = document.getElementById('taskClearButton');
+    clearButton.classList.add('d-none');
 }
 
 

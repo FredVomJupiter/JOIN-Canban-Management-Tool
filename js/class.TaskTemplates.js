@@ -4,8 +4,13 @@ class TaskTemplate {
 
     }
 
-    // Methods for miniature task cards on board
+    // Methods for miniature cards on board and summary counters.
 
+    /**
+     * Returns html template for miniature cards on the kanban board.
+     * @param {*} card as object.
+     * @returns html template.
+     */
     getBoardTask(card) {
         return `
             <div class="board-cardshadow" id="${card.id}" draggable="true" onclick="showCardDetails('${card.id}')" ondragstart="dragstart(event, '${card.id}')" ondrop="dragend(event, '${card.group}')" ondragover="dragover(event)">
@@ -65,10 +70,10 @@ class TaskTemplate {
     }
 
 
-    /**
- * 
- * @param {object} card 
- * @returns html template of circles with initials from Name & Surname of assigned persons
+/**
+ *  Returns html template of circles with initials from Name & Surname of assigned persons.
+ * @param {object} card as object.
+ * @returns html template.
  */
     getAssignments(card) {
 
@@ -176,6 +181,11 @@ class TaskTemplate {
 
     // Methods for detailed overlay-view of each task on board
 
+    /**
+     * Returns html template showing details of task, if user clicks on a task-card on the board.
+     * @param {*} cardId as string.
+     * @returns html template.
+     */
     getOverlayTask(cardId) {
         // .filter returns an array, therefore (although only one card per id exists) card[0] must be called, to acces the key-values
         let card = cards.filter(card => card.id == cardId);
@@ -267,107 +277,69 @@ class TaskTemplate {
 
     // Methods for addtask overlay / menu page
 
-    setOverlayUrgent() {
+    /**
+     * Returns a html template of the prio buttons for the overlay or the menu.
+     * Whereas the user-selected button will be highlighted.
+     * @param {*} location as string
+     * @returns html template.
+     */
+    setPrioUrgent(location) {
         return `
-            <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
+            <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 141px;" onclick="setPriority('${location}', 'urgent')">
                 <span class="addtask-rightcontainer-priobtns-text whitetext">Urgent</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh_white.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('${location}', 'medium')">
                 <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('${location}', 'low')">
                 <span class="addtask-rightcontainer-priobtns-text">Low</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
             </div>
         `;
     }
 
-
-    setOverlayMedium() {
+    /**
+     * Returns a html template of the prio buttons for the overlay or the menu.
+     * Whereas the user-selected button will be highlighted.
+     * @param {*} location as string
+     * @returns html template.
+     */
+    setPrioMedium(location) {
         return `
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('${location}', 'urgent')">
                 <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
+            <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('${location}', 'medium')">
                 <span class="addtask-rightcontainer-priobtns-text whitetext">Medium</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium_white.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('${location}', 'low')">
                 <span class="addtask-rightcontainer-priobtns-text">Low</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
             </div>
         `;
     }
 
-
-    setOverlayLow() {
+    /**
+     * Returns a html template of the prio buttons for the overlay or the menu.
+     * Whereas the user-selected button will be highlighted.
+     * @param {*} location as string
+     * @returns html template.
+     */
+    setPrioLow(location) {
         return `
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('${location}', 'urgent')">
                 <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('${location}', 'medium')">
                 <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" onclick="setPriority('overlay', 'low')">
-                <span class="addtask-rightcontainer-priobtns-text whitetext">Low</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow_white.svg">
-            </div>
-        `;
-    }
-
-
-    setMenuUrgent() {
-        return `
-            <div class="addtask-rightcontainer-priobtns-outline redbackground" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
-                <span class="addtask-rightcontainer-priobtns-text whitetext">Urgent</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh_white.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
-                <span class="addtask-rightcontainer-priobtns-text">Medium</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
-                <span class="addtask-rightcontainer-priobtns-text">Low</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
-            </div>
-        `;
-    }
-
-
-    setMenuMedium() {
-        return `
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
-                <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline orangebackground" style="width: 130px;" onclick="setPriority('menu', 'medium')">
-                <span class="addtask-rightcontainer-priobtns-text whitetext">Medium</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium_white.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
-                <span class="addtask-rightcontainer-priobtns-text">Low</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
-            </div>
-        `;
-    }
-
-
-    setMenuLow() {
-        return `
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
-                <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
-                <span class="addtask-rightcontainer-priobtns-text">Medium</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" onclick="setPriority('menu', 'low')">
+            <div class="addtask-rightcontainer-priobtns-outline greenbackground" style="width: 136px;" onclick="setPriority('${location}', 'low')">
                 <span class="addtask-rightcontainer-priobtns-text whitetext">Low</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow_white.svg">
             </div>
@@ -537,35 +509,17 @@ class TaskTemplate {
     }
 
 
-    resetOverlayPrio() {
+    resetPrio(location) {
         return `
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('overlay', 'urgent')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('${location}', 'urgent')">
                 <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('overlay', 'medium')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('${location}', 'medium')">
                 <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
             </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('overlay', 'low')">
-                <span class="addtask-rightcontainer-priobtns-text">Low</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
-            </div>
-        `;
-    }
-
-
-    resetMenuPrio() {
-        return `
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">
-                <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 130px;" onclick="setPriority('menu', 'medium')">
-                <span class="addtask-rightcontainer-priobtns-text">Medium</span>
-                <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
-            </div>
-            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('menu', 'low')">
+            <div class="addtask-rightcontainer-priobtns-outline" style="width: 136px;" onclick="setPriority('${location}', 'low')">
                 <span class="addtask-rightcontainer-priobtns-text">Low</span>
                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
             </div>
