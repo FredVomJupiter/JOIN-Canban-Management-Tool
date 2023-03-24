@@ -607,6 +607,29 @@ function copySubtasks() {
     return subtaskWithoutId;
 }
 
+/**
+ * Dedicated for task-detail overlay subtask-checkboxes before editing task.
+ * @param {*} cardId as string
+ * @param {*} taskIndex as string
+ */
+function checkOverlayCheckbox(cardId, taskIndex) {
+    let checkbox = document.getElementById(cardId + taskIndex);
+    let card = cards.filter(card => card.id == cardId)[0];
+    validateCheckboxStatus(checkbox, card, taskIndex);
+    saveLocalStorage('cards');
+    renderCards();
+    renderOverlayCard(cardId);
+}
+
+
+function validateCheckboxStatus(checkbox, card, taskIndex) {
+    if (checkbox.checked) {
+        card.subtask[taskIndex].status = 1;
+    } else {
+        card.subtask[taskIndex].status = 0;
+    }
+}
+
 
 function clearOverlay() {
     initNewTask();

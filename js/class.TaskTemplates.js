@@ -186,8 +186,8 @@ class TaskTemplate {
             <span class="board-taskoverlay-text">${card[0].text}</span>
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(card[0].date))}</span></div>
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${this.getPriority(card[0])}</div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
-            ${this.getOverlaySubtasks(card[0].subtask)}
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span>${this.getOverlaySubtasksPercentage(card[0])}</div>
+            ${this.getOverlaySubtasks(card[0])}
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
             ${this.getOverlayAssigned(card[0].assigned)}
             <div class="board-taskoverlay-move" onclick="showMoveList()"></div>
@@ -201,16 +201,44 @@ class TaskTemplate {
         `
     }
 
+    
+    getOverlaySubtasksPercentage(card) {
+        if (card.subtask.length > 0) {
+            return `
+                <div class="board-taskoverlay-percentage">
+                    <div class="board-taskoverlay-percentage-inner-gray">
+                        <div class="board-taskoverlay-percentage-inner-blue" style="width: calc(200px * ${this.calculateProgressFactor(card)})"></div>
+                    </div>
+                    <span class="board-taskoverlay-percetage-text">${this.countFinishedSubtasks(card)}/${card.subtask.length} Done</span>
+                </div>
+            `;
+        } else {
+            return ""
+        }
+    }
 
-    getOverlaySubtasks(subtask) {
-        if (subtask.length > 0) {
+
+    getOverlaySubtasks(card) {
+        if (card.subtask.length > 0) {
             let lines = "";
-            subtask.forEach(task => {
-                lines += `<span class="board-taskoverlay-value">${task.name} ${task.status == 1 ? "(Done)" : "(To do)"}</span>`;
+            card.subtask.forEach(task => {
+                lines += `<span class="board-taskoverlay-value">
+                        ${task.status == 1 ? this.placeOverlayCheckbox(1, card.id, card.subtask.indexOf(task)) : this.placeOverlayCheckbox(0, card.id, card.subtask.indexOf(task))} ${task.name}
+                        </span>
+                    `;
             });
             return lines;
         } else {
             return `<span class="board-taskoverlay-value">none</span>`;
+        }
+    }
+
+
+    placeOverlayCheckbox(check, cardId, taskIndex) {
+        if (check === 1) {
+            return `<input type="checkbox" id="${cardId + taskIndex}" checked onclick="checkOverlayCheckbox('${cardId}', '${taskIndex}')">`;
+        } else {
+            return `<input type="checkbox" id="${cardId + taskIndex}" onclick="checkOverlayCheckbox('${cardId}', '${taskIndex}')">`;
         }
     }
 
@@ -409,12 +437,12 @@ class TaskTemplate {
                 <img src="./assets/img/check_black.svg" onclick="saveNewCategory('overlay')">
             `;
         }
-        
+
     }
 
 
     setNewCategoryColorbar(location) {
-            return `
+        return `
                 <div style="display: flex; flex-direction: row; gap: 10px;">
                     <div class="addtask-leftcontainer-circle" style="background:${colors[2]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[2]}', '${location}')"></div>
                     <div class="addtask-leftcontainer-circle" style="background:${colors[5]}; cursor: pointer" onclick="selectNewCategoryColor('${colors[5]}', '${location}')"></div>
@@ -436,7 +464,7 @@ class TaskTemplate {
             return `
                 <div class="addtask-leftcontainer-circle" style="background:${color}" id="newCategoryOverlay"></div>
             `;
-        } 
+        }
     }
 
 
@@ -466,8 +494,8 @@ class TaskTemplate {
             </div>
         `;
     }
-    
-    
+
+
     resetMenuAssigned() {
         return `
             <div class="addtask-leftcontainer-assignedfield" id="addtaskMenuAssigned" onclick="expandAssigned('menu')">Select contacts to assign
@@ -519,8 +547,8 @@ class TaskTemplate {
             </div>
         `;
     }
-    
-    
+
+
     resetMenuPrio() {
         return `
             <div class="addtask-rightcontainer-priobtns-outline" style="width: 141px;" onclick="setPriority('menu', 'urgent')">

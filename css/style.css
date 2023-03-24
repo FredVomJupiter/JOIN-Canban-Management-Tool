@@ -912,11 +912,9 @@ body {
 .board-progressbar-text {
     width: 53px;
     height: 14px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-
     color: #000000;
 }
 
@@ -1019,7 +1017,7 @@ body {
     gap: 35px;
 }
 
-/* Task Overlay */
+/* Task Overlay on board page*/
 .board-taskoverlay-container {
     display: flex;
     position: absolute;
@@ -1086,10 +1084,37 @@ body {
 }
 
 .board-taskoverlay-value {
-
     font-style: normal;
     font-weight: 400;
-    font-size: 21px;
+    font-size: 16px;
+    color: #000000;
+}
+
+.board-taskoverlay-percentage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.board-taskoverlay-percentage-inner-gray {
+    width: 200px;
+    height: 8px;
+    background: #F4F4F4;
+    border-radius: 2px;
+}
+
+.board-taskoverlay-percentage-inner-blue {
+    width: 200px;
+    height: 8px;
+    background: #29ABE2;
+    border-radius: 2px;
+}
+
+.board-taskoverlay-percetage-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
     color: #000000;
 }
 
@@ -2882,7 +2907,7 @@ input:invalid {
 
     .board-container {
         display: flex;
-        flex-wrap: wrap;
+        
     }
 
     .overlay-background {
@@ -3896,6 +3921,10 @@ input:invalid {
     .summary-bottom-tile:hover  {
         width: 160px;
         height: 90px;
+    }
+
+    .board-container {
+        flex-wrap: wrap;
     }
 
     .dropzone {
