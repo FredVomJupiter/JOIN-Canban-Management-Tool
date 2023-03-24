@@ -8,7 +8,7 @@ class TaskTemplate {
 
     getBoardTask(card) {
         return `
-            <div class="board-cardshadow" id="${card.id}" draggable="true" onclick="showCardDetails('${card.id}')" ondragstart="dragstart(event, '${card.id}')">
+            <div class="board-cardshadow" id="${card.id}" draggable="true" onclick="showCardDetails('${card.id}')" ondragstart="dragstart(event, '${card.id}')" ondrop="dragend(event, '${card.group}')" ondragover="dragover(event)">
                 <div class="board-cardbackground">
                     <div class="board-cardinner">
                         <div class="board-cardcategory" style="background:${card.color}">${card.category}</div>
@@ -191,6 +191,7 @@ class TaskTemplate {
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
             ${this.getOverlayAssigned(card[0].assigned)}
             <div class="board-taskoverlay-btnwrap">
+                <div class="board-taskoverlay-delete" onclick="deleteTask('${cardId}')"></div>
                 <div class="board-taskoverlay-move" onclick="showMoveList()"></div>
                 <div class="board-taskoverlay-edit" onclick="editCard('${cardId}')"></div>
                 <div class="board-taskoverlay-moveMenu d-none" id="moveList">

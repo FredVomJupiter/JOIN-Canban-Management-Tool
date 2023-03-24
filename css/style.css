@@ -1159,9 +1159,21 @@ body {
     flex-direction: column;
     gap: 20px;
     align-self: flex-end;
-    translate: 25px 500px;
+    translate: 25px 420px;
     width: 57px;
     min-height: 57px;
+}
+
+.board-taskoverlay-delete {
+    cursor: pointer;
+    width: 57px;
+    min-height: 57px;
+    background: #2A3647;
+    border-radius: 10px;
+    background-image: url("../assets/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px;
 }
 
 .board-taskoverlay-move {

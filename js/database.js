@@ -49,7 +49,10 @@ let categories = [
     }
 ];
 
-
+/**
+ * 
+ * @param {*} what as string 'cards', 'contacts' or 'categories'.
+ */
 function saveLocalStorage(what) {
     if (what === 'cards') {
         let cards_serialized = JSON.stringify(cards);
@@ -65,7 +68,10 @@ function saveLocalStorage(what) {
     }
 }
 
-
+/**
+ * 
+ * @param {*} what as string 'cards', 'contacts' or 'categories'.
+ */
 async function loadLocalStorage(what) {
     if (what === 'cards') {
         cards_deserialized = JSON.parse(backend.getItem("cards"));

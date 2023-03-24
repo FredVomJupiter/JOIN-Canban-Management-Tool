@@ -100,3 +100,26 @@ function changeButton() {
     let submitButton = document.getElementById('overlaySubmit');
     submitButton.value = "Save";
 }
+
+
+/**
+ * Starts the deleting process.
+ * @param {*} cardId as string
+ */
+function deleteTask(cardId) {
+    closeOverlay();
+    cards.splice(getIndexOfCard(cardId), 1);
+    saveLocalStorage('cards');
+    renderCards();
+}
+
+
+function getIndexOfCard(cardId) {
+    let index;
+    cards.forEach(card => {
+        if (card.id === cardId) {
+            index = cards.indexOf(card);
+        }
+    });
+    return index;
+}
