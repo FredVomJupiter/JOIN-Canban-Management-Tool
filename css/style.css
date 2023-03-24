@@ -1041,18 +1041,14 @@ body {
 
 .board-taskoverlay-category {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 4px 36.5px;
-    gap: 10px;
-    height: 40px;
+    max-height: 60px;
     border-radius: 8px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-
     color: #FFFFFF;
 }
 
@@ -3078,7 +3074,7 @@ input:invalid {
     }
 
     .addtask-rightcontainer-priobtns {
-        flex-direction: column;
+        flex-direction: row;
         width: 70vw;
         height: unset;
     }
@@ -3650,6 +3646,10 @@ input:invalid {
         height: 100px;
     }
 
+    .board-taskoverlay-container {
+        overflow-y: scroll;
+    }
+
     .addtask-close-btn {
         translate: 0px -550px;
     }
@@ -3900,6 +3900,10 @@ input:invalid {
 
     .dropzone {
         display: none;
+    }
+
+    .addtask-rightcontainer-priobtns {
+        flex-direction: column;
     }
 
     .contact-canvas {
