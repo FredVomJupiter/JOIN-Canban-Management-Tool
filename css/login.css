@@ -62,7 +62,7 @@ body {
 .login-signup-text {
     width: 161px;
     height: 25px;
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -79,7 +79,7 @@ body {
     border-radius: 8px;
     border: none;
     color: #FFFFFF;
-    
+
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -206,7 +206,7 @@ body {
     border: unset;
     width: 90%;
     height: 25px;
-    
+
     font-size: normal;
     font-weight: 400;
     font-size: 21px;
@@ -250,7 +250,7 @@ body {
 .login-checkbox-text {
     width: 110px;
     height: 19px;
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -262,7 +262,7 @@ body {
     cursor: pointer;
     width: 154px;
     height: 19px;
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -289,7 +289,6 @@ body {
     border-radius: 8px;
     border: none;
     color: #FFFFFF;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -301,20 +300,20 @@ body {
 }
 
 .login-guestlogin-button {
+    box-sizing: border-box;
+    text-align: center;
     cursor: pointer;
     padding: 4px 0px;
-    gap: 10px;
     width: 161px;
     height: 51px;
+    line-height: 43px;
     border-radius: 8px;
     border: 1px solid #2a3647;
     background: #FFFFFF;
     color: #2a3647;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
 }
 
 .login-guestlogin-button:hover {
@@ -340,7 +339,7 @@ body {
 .forgotpw-title {
     width: 626px;
     height: 73px;
-    
+
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -367,7 +366,7 @@ body {
 .forgotpw-text {
     width: 535px;
     height: 50px;
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -464,7 +463,7 @@ body {
 .forgotpw-confirmation-text {
     width: 330px;
     height: 28px;
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
@@ -518,7 +517,7 @@ body {
 .resetpw-title {
     width: 627px;
     height: 73px;
-    
+
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -530,7 +529,7 @@ body {
     width: 589px;
     height: 25px;
     margin-bottom: 35px;
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -622,7 +621,7 @@ body {
     background: #2A3647;
     border-radius: 8px;
     border: unset;
-    
+
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -660,7 +659,7 @@ body {
 }
 
 .resetpw-msg-text {
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
@@ -711,7 +710,7 @@ body {
 .signup-title {
     width: 315px;
     height: 73px;
-    
+
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -1045,6 +1044,7 @@ body {
         width: 145px;
         height: 35px;
         font-size: 16px;
+        line-height: 27px;
     }
 
     .forgotpw-container {
@@ -1280,7 +1280,7 @@ body {
         height: 35px;
         width: unset;
     }
-    
+
     .signup-button {
         font-size: 16px;
         width: unset;
