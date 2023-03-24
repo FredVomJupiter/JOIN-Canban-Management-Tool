@@ -57,23 +57,17 @@ function overlayValidation() {
     const titleValue = taskOverlayTitle.value.trim();
     const descriptionValue = taskOverlayDescription.value.trim();
     const dateValue = taskOverlayDate.value;
-    const taskOverlayCategory = document.getElementById('addtaskOverlayCategory');
-    const taskOverlayAssigned = document.getElementById('addtaskOverlayAssigned');
-    const taskOverlayAssignedDisplay = document.getElementById('displayOverlayAssigned');
-    const categoryValue = taskOverlayCategory.innerText;
-
-    let correctTitle = validateOverlayTitle(titleValue);
-    let correctDescription = validateOverlayDescription(descriptionValue);
-    let correctDate = validateOverlayDate(dateValue);
-    let correctCategory = validateCategory(categoryValue, taskOverlayCategory);
-    let correctAssigned = validateAssigned(taskOverlayAssigned, taskOverlayAssignedDisplay);
+    const overlayCategory = document.getElementById('addtaskOverlayCategory');
+    const overlayAssigned = document.getElementById('addtaskOverlayAssigned');
+    const overlayAssignedDisplay = document.getElementById('displayOverlayAssigned');
+    const categoryValue = overlayCategory.innerText;
 
     // In overlay both new tasks can be created and existing edited => therefore, two saving options.
-    if (correctTitle & correctDescription & correctDate & correctCategory & correctAssigned & isNewTask) {
+    if (conditionsForOverlayValidation(titleValue, descriptionValue, dateValue, categoryValue, overlayCategory, overlayAssigned, overlayAssignedDisplay) && isNewTask) {
         transferDataToTemporaryStorage("new", titleValue, descriptionValue, dateValue);
         saveNewTask();
     }
-    if (correctTitle & correctDescription & correctDate & correctCategory & correctAssigned & !isNewTask) {
+    if (conditionsForOverlayValidation(titleValue, descriptionValue, dateValue, categoryValue, overlayCategory, overlayAssigned, overlayAssignedDisplay) && !isNewTask) {
         transferDataToTemporaryStorage("edited", titleValue, descriptionValue, dateValue);
         saveEditedTask();
     }
@@ -135,6 +129,20 @@ function validateAssigned(assigned, displayAssigned) {
 }
 
 
+function conditionsForOverlayValidation(titleValue, descriptionValue, dateValue, categoryValue, category, assigned, assignedDisplay) {
+    if (validateOverlayTitle(titleValue)
+        && validateOverlayDescription(descriptionValue)
+        && validateOverlayDate(dateValue)
+        && validateCategory(categoryValue, category)
+        && validateAssigned(assigned, assignedDisplay)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 function menuValidation() {
     const titleValue = taskMenuTitle.value.trim();
     const descriptionValue = taskMenuDescription.value.trim();
@@ -144,14 +152,8 @@ function menuValidation() {
     const taskMenuAssignedDisplay = document.getElementById('displayMenuAssigned');
     const categoryValue = taskMenuCategory.innerText;
 
-    let correctTitle = validateMenuTitle(titleValue);
-    let correctDescription = validateMenuDescription(descriptionValue);
-    let correctDate = validateMenuDate(dateValue);
-    let correctCategory = validateCategory(categoryValue, taskMenuCategory);
-    let correctAssigned = validateAssigned(taskMenuAssigned, taskMenuAssignedDisplay);
-
     // In menu only new tasks can be created => therefore, only new tasks can be saved.
-    if (correctTitle & correctDescription & correctDate & correctCategory & correctAssigned) {
+    if (conditionsForMenuValidation(titleValue, descriptionValue, dateValue, categoryValue, taskMenuCategory, taskMenuAssigned, taskMenuAssignedDisplay)) {
         transferDataToTemporaryStorage("new", titleValue, descriptionValue, dateValue);
         saveNewTask();
     }
@@ -188,6 +190,20 @@ function validateMenuDate(dateValue) {
     } else {
         setTaskSuccess(taskMenuDate);
         return true;
+    }
+}
+
+
+function conditionsForMenuValidation(titleValue, descriptionValue, dateValue, categoryValue, category, assigned, assignedDisplay) {
+    if (validateOverlayTitle(titleValue)
+        && validateOverlayDescription(descriptionValue)
+        && validateOverlayDate(dateValue)
+        && validateCategory(categoryValue, category)
+        && validateAssigned(assigned, assignedDisplay)
+    ) {
+        return true;
+    } else {
+        return false;
     }
 }
 
