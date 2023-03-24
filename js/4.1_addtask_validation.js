@@ -60,7 +60,10 @@ const validateTaskInputs = (where) => {
     }
 };
 
-
+/**
+ * Validates user input in the "addtask" Overlay.
+ * Only if title, description, date, category and assignment is provided, this task will be stored.
+ */
 function overlayValidation() {
     const titleValue = taskOverlayTitle.value.trim();
     const descriptionValue = taskOverlayDescription.value.trim();
@@ -150,7 +153,10 @@ function conditionsForOverlayValidation(titleValue, descriptionValue, dateValue,
     }
 }
 
-
+/**
+ * Validates user input in the "addtask" menu.
+ * Only if title, description, date, category and assignment is provided, this task will be stored.
+ */
 function menuValidation() {
     const titleValue = taskMenuTitle.value.trim();
     const descriptionValue = taskMenuDescription.value.trim();
