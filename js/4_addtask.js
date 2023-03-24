@@ -1,16 +1,3 @@
-// For all instances of addtask overlay
-const taskOverlayForm = document.getElementById('addtaskOverlay');
-const taskOverlayTitle = document.getElementById('addtaskOverlayTitle');
-const taskOverlayDescription = document.getElementById('addtaskOverlayDescription');
-const taskOverlayDate = document.getElementById('addtaskOverlayDate');
-
-// For the addtask in menu only
-const taskMenuForm = document.getElementById('addtaskMenu');
-const taskMenuTitle = document.getElementById('addtaskMenuTitle');
-const taskMenuDescription = document.getElementById('addtaskMenuDescription');
-const taskMenuDate = document.getElementById('addtaskMenuDate');
-
-
 let newTask;
 
 let assigned = [];
@@ -32,164 +19,7 @@ function initNewTask() {
 
 }
 
-
-taskOverlayForm.addEventListener('submit', e => {
-    e.preventDefault();
-    validateTaskInputs('overlay');
-});
-
-
-taskMenuForm.addEventListener('submit', e => {
-    e.preventDefault();
-    validateTaskInputs('menu');
-});
-
-
-const setTaskError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success');
-}
-
-
-const setTaskSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innerText = "";
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
-}
-
-
-const validateTaskInputs = (where) => {
-    if (where === 'overlay') {
-        overlayValidation();
-    }
-
-    if (where === 'menu') {
-        menuValidation();
-    }
-};
-
-
-function overlayValidation() {
-    const titleValue = taskOverlayTitle.value.trim();
-    const descriptionValue = taskOverlayDescription.value.trim();
-    const dateValue = taskOverlayDate.value;
-
-    let correctTitle = false;
-    let correctDescription = false;
-    let correctDate = false;
-
-    if (titleValue === '') {
-        setTaskError(taskOverlayTitle, 'Title is required');
-        correctTitle = false;
-    } else {
-        setTaskSuccess(taskOverlayTitle);
-        correctTitle = true;
-    }
-
-    if (descriptionValue === '') {
-        setTaskError(taskOverlayDescription, 'Description is required');
-        correctDescription = false;
-    } else {
-        setTaskSuccess(taskOverlayDescription);
-        correctDescription = true;
-    }
-
-    if (dateValue === '') {
-        setTaskError(taskOverlayDate, 'Date is required dd.mm.yyyy');
-        correctDate = false;
-    } else {
-        setTaskSuccess(taskOverlayDate);
-        correctDate = true;
-    }
-
-    if (correctTitle & correctDescription & correctDate & isNewTask) {
-        newTask.title = titleValue;
-        newTask.text = descriptionValue;
-        newTask.date = new Date(dateValue);
-        newTask.assigned = copyAssigned();
-        newTask.subtask = copySubtasks();
-        saveNewTask();
-    }
-    if (correctTitle & correctDescription & correctDate & !isNewTask) {
-        newTask.title = titleValue;
-        newTask.text = descriptionValue;
-        newTask.date = new Date(dateValue);
-        newTask.assigned = copyAssigned();
-        newTask.subtask = copySubtasks();
-        saveEditedTask();
-    }
-}
-
-
-function menuValidation() {
-    const titleValue = taskMenuTitle.value.trim();
-    const descriptionValue = taskMenuDescription.value.trim();
-    const dateValue = taskMenuDate.value;
-
-    let correctTitle = false;
-    let correctDescription = false;
-    let correctDate = false;
-
-    if (titleValue === '') {
-        setTaskError(taskMenuTitle, 'Title is required');
-        correctTitle = false;
-    } else {
-        setTaskSuccess(taskMenuTitle);
-        correctTitle = true;
-    }
-
-    if (descriptionValue === '') {
-        setTaskError(taskMenuDescription, 'Description is required');
-        correctDescription = false;
-    } else {
-        setTaskSuccess(taskMenuDescription);
-        correctDescription = true;
-    }
-
-    if (dateValue === '') {
-        setTaskError(taskMenuDate, 'Date is required dd.mm.yyyy');
-        correctDate = false;
-    } else {
-        setTaskSuccess(taskMenuDate);
-        correctDate = true;
-    }
-
-    if (correctTitle & correctDescription & correctDate) {
-        newTask.title = titleValue;
-        newTask.text = descriptionValue;
-        newTask.date = new Date(dateValue);
-        newTask.assigned = copyAssigned();
-        newTask.subtask = copySubtasks();
-        saveNewTask();
-    }
-}
-
-
-function saveNewTask() {
-    cards.push(newTask);
-    saveLocalStorage('cards');
-    closeOverlay();
-    clearOverlay();
-    clearAddtaskMenu();
-    if (cards.length > 0) {
-        renderCards();
-    }
-    updateCounters();
-    initNewTask();
-}
-
-
-// Non-validated inputs handled here:
-
 // prio
-
 function setPriority(location, type) {
     location === 'overlay' ? setOverlayPrio(type) : setMenuPrio(type);
 }
@@ -239,7 +69,6 @@ function setMenuPrio(type) {
 }
 
 // categories
-
 function expandCategories(location) {
     location === 'overlay' ? expandOverlayCategories() : expandMenuCategories();
 }
@@ -393,7 +222,6 @@ function returnCategoryFieldId() {
 }
 
 // assignments
-
 function expandAssigned(location) {
     location === 'overlay' ? expandOverlayAssigned() : expandMenuAssigned();
 }
@@ -527,9 +355,7 @@ function copyAssigned() {
     return ids;
 }
 
-
 // subtasks
-
 function addSubtask(location) {
     let subtaskName = getSubtaskName(location);
     if (subtaskName.value != "") {
@@ -678,124 +504,4 @@ function resetPrio(location) {
         prio.innerHTML = "";
         prio.innerHTML = taskTemplate.resetMenuPrio();
     }
-}
-
-
-// Edit existing task starts here
-
-function editCard(cardId) {
-    isNewTask = false;
-    openAddtaskOverlay();
-    newTask.id = cardId; // Overwriting the newTask with an existing one
-    taskOverlayTitle.value = getEdittaskTitle(cardId);
-    taskOverlayDescription.value = getEdittaskDescription(cardId);
-    taskOverlayDate.value = getEdittaskDate(cardId);
-    setEditTaskPrio(cardId);
-    setEditTaskCategory(cardId);
-    setEditTaskAssigned(cardId);
-    setEditTaskSubtasks(cardId);
-    changeButton();
-}
-
-
-function getEdittaskTitle(cardId) {
-    return cards.filter(card => card.id == cardId)[0].title;
-}
-
-
-function getEdittaskDescription(cardId) {
-    return cards.filter(card => card.id == cardId)[0].text;
-}
-
-
-function getEdittaskDate(cardId) {
-    return formatDate(new Date(cards.filter(card => card.id == cardId)[0].date));
-}
-
-
-function formatDate(date) {
-    let day = '' + date.getDate();
-    let month = '' + (date.getMonth() + 1);
-    let year = date.getFullYear();
-
-    // Adding 0 in front of single-digit day/month otherwise date-input field does not accept date value
-    if (day.length < 2) {
-        day = "0" + day;
-    }
-    if (month.length < 2) {
-        month = "0" + month;
-    }
-    return [year, month, day].join('-');
-}
-
-
-function setEditTaskPrio(cardId) {
-    if (cards.filter(card => card.id == cardId)[0].priority === 'urgent') {
-        setPriority('overlay', 'urgent');
-    }
-    if (cards.filter(card => card.id == cardId)[0].priority === 'medium') {
-        setPriority('overlay', 'medium');
-    }
-    if (cards.filter(card => card.id == cardId)[0].priority === 'low') {
-        setPriority('overlay', 'low');
-    }
-}
-
-
-function setEditTaskCategory(cardId) {
-    if (cards.filter(card => card.id == cardId)[0].category != "General") {
-        let categoryName = cards.filter(card => card.id == cardId)[0].category;
-        let categoryColor = categories.filter(category => category.name == categoryName)[0].color;
-        selectCategory(categoryName, categoryColor, 'overlay');
-    }
-}
-
-
-function setEditTaskAssigned(cardId) {
-    let assignedPersons = cards.filter(card => card.id == cardId)[0].assigned;
-    if (assignedPersons.length >= 1) {
-        createListOfAssignedPersons(assignedPersons);
-        drawAssigned('overlay');
-    }
-}
-
-
-function createListOfAssignedPersons(assignedPersons) {
-    let finalList = [];
-        assignedPersons.forEach(person => {
-            finalList.push([person, taskTemplate.getAssignedPersonEdit(person)]);
-        });
-        assigned = finalList;
-}
-
-
-function setEditTaskSubtasks(cardId) {
-    let listOfSubtasks = cards.filter(card => card.id == cardId)[0].subtask;
-    subtasks = listOfSubtasks;
-    for (let i = 0; i < subtasks.length; i++) { subtasks[i].id = `subtask${i}`; }
-    drawAllSubtasks('overlay');
-}
-
-/**
- * Changing the overlay button from addtask "create task" to edit task "save".
- */
-function changeButton() {
-    let submitButton = document.getElementById('overlaySubmit');
-    submitButton.value = "Save";
-}
-
-
-function saveEditedTask() {
-    newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
-    cards.splice(cards.findIndex(card => card.id === newTask.id), 1); //removing old card
-    cards.push(newTask); // adding new card
-    saveLocalStorage('cards');
-    closeOverlay();
-    clearOverlay();
-    clearAddtaskMenu();
-    if (cards.length > 0) {
-        renderCards();
-    }
-    updateCounters();
-    initNewTask();
 }
