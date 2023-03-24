@@ -190,14 +190,18 @@ class TaskTemplate {
             ${this.getOverlaySubtasks(card[0])}
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
             ${this.getOverlayAssigned(card[0].assigned)}
-            <div class="board-taskoverlay-move" onclick="showMoveList()"></div>
-            <div class="board-taskoverlay-moveMenu d-none" id="moveList">
-                <span onclick="moveCard('${cardId}', 'To do')">to do</span>
-                <span onclick="moveCard('${cardId}', 'In Progress')">progressing</span>
-                <span onclick="moveCard('${cardId}', 'Awaiting Feedback')">needs feedback</span>
-                <span onclick="moveCard('${cardId}', 'Done')">done</span>
+            <div class="board-taskoverlay-btnwrap">
+                <div class="board-taskoverlay-move" onclick="showMoveList()"></div>
+                <div class="board-taskoverlay-edit" onclick="editCard('${cardId}')"></div>
+                <div class="board-taskoverlay-moveMenu d-none" id="moveList">
+                    <span onclick="moveCard('${cardId}', 'To do')">to do</span>
+                    <span onclick="moveCard('${cardId}', 'In Progress')">progressing</span>
+                    <span onclick="moveCard('${cardId}', 'Awaiting Feedback')">needs feedback</span>
+                    <span onclick="moveCard('${cardId}', 'Done')">done</span>
+                </div>
+                
             </div>
-            <div class="board-taskoverlay-edit" onclick="editCard('${cardId}')"></div>
+            
         `
     }
 
