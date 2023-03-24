@@ -62,7 +62,6 @@ function overlayValidation() {
     const taskOverlayAssignedDisplay = document.getElementById('displayOverlayAssigned');
     const categoryValue = taskOverlayCategory.innerText;
 
-
     let correctTitle = validateOverlayTitle(titleValue);
     let correctDescription = validateOverlayDescription(descriptionValue);
     let correctDate = validateOverlayDate(dateValue);
