@@ -59,49 +59,51 @@ function overlayValidation() {
     const descriptionValue = taskOverlayDescription.value.trim();
     const dateValue = taskOverlayDate.value;
 
-    let correctTitle = false;
-    let correctDescription = false;
-    let correctDate = false;
+    let correctTitle = validateOverlayTitle(titleValue);
+    let correctDescription = validateOverlayDescription(descriptionValue);
+    let correctDate = validateOverlayDate(dateValue);
 
-    if (titleValue === '') {
-        setTaskError(taskOverlayTitle, 'Title is required');
-        correctTitle = false;
-    } else {
-        setTaskSuccess(taskOverlayTitle);
-        correctTitle = true;
-    }
-
-    if (descriptionValue === '') {
-        setTaskError(taskOverlayDescription, 'Description is required');
-        correctDescription = false;
-    } else {
-        setTaskSuccess(taskOverlayDescription);
-        correctDescription = true;
-    }
-
-    if (dateValue === '') {
-        setTaskError(taskOverlayDate, 'Date is required dd.mm.yyyy');
-        correctDate = false;
-    } else {
-        setTaskSuccess(taskOverlayDate);
-        correctDate = true;
-    }
-
+    // In overlay both new tasks can be created and existing edited => therefore, two saving options.
     if (correctTitle & correctDescription & correctDate & isNewTask) {
-        newTask.title = titleValue;
-        newTask.text = descriptionValue;
-        newTask.date = new Date(dateValue);
-        newTask.assigned = copyAssigned();
-        newTask.subtask = copySubtasks();
+        transferDataToTemporaryStorage("new", titleValue, descriptionValue, dateValue);
         saveNewTask();
     }
     if (correctTitle & correctDescription & correctDate & !isNewTask) {
-        newTask.title = titleValue;
-        newTask.text = descriptionValue;
-        newTask.date = new Date(dateValue);
-        newTask.assigned = copyAssigned();
-        newTask.subtask = copySubtasks();
+        transferDataToTemporaryStorage("edited", titleValue, descriptionValue, dateValue);
         saveEditedTask();
+    }
+}
+
+
+function validateOverlayTitle(titleValue) {
+    if (titleValue === '') {
+        setTaskError(taskOverlayTitle, 'Title is required');
+        return false;
+    } else {
+        setTaskSuccess(taskOverlayTitle);
+        return true;
+    }
+}
+
+
+function validateOverlayDescription(descriptionValue) {
+    if (descriptionValue === '') {
+        setTaskError(taskOverlayDescription, 'Description is required');
+        return false;
+    } else {
+        setTaskSuccess(taskOverlayDescription);
+        return true;
+    }
+}
+
+
+function validateOverlayDate(dateValue) {
+    if (dateValue === '') {
+        setTaskError(taskOverlayDate, 'Date is required dd.mm.yyyy');
+        return false;
+    } else {
+        setTaskSuccess(taskOverlayDate);
+        return true;
     }
 }
 
@@ -111,47 +113,79 @@ function menuValidation() {
     const descriptionValue = taskMenuDescription.value.trim();
     const dateValue = taskMenuDate.value;
 
-    let correctTitle = false;
-    let correctDescription = false;
-    let correctDate = false;
+    let correctTitle = validateMenuTitle(titleValue);
+    let correctDescription = validateMenuDescription(descriptionValue);
+    let correctDate = validateMenuDate(dateValue);
 
-    if (titleValue === '') {
-        setTaskError(taskMenuTitle, 'Title is required');
-        correctTitle = false;
-    } else {
-        setTaskSuccess(taskMenuTitle);
-        correctTitle = true;
-    }
-
-    if (descriptionValue === '') {
-        setTaskError(taskMenuDescription, 'Description is required');
-        correctDescription = false;
-    } else {
-        setTaskSuccess(taskMenuDescription);
-        correctDescription = true;
-    }
-
-    if (dateValue === '') {
-        setTaskError(taskMenuDate, 'Date is required dd.mm.yyyy');
-        correctDate = false;
-    } else {
-        setTaskSuccess(taskMenuDate);
-        correctDate = true;
-    }
-
+    // In menu only new tasks can be created => therefore, only new tasks can be saved.
     if (correctTitle & correctDescription & correctDate) {
-        newTask.title = titleValue;
-        newTask.text = descriptionValue;
-        newTask.date = new Date(dateValue);
-        newTask.assigned = copyAssigned();
-        newTask.subtask = copySubtasks();
+        transferDataToTemporaryStorage("new", titleValue, descriptionValue, dateValue);
         saveNewTask();
     }
 }
 
 
+function validateMenuTitle(titleValue) {
+    if (titleValue === '') {
+        setTaskError(taskMenuTitle, 'Title is required');
+        return false;
+    } else {
+        setTaskSuccess(taskMenuTitle);
+        return true;
+    }
+}
+
+
+function validateMenuDescription(descriptionValue) {
+    if (descriptionValue === '') {
+        setTaskError(taskMenuDescription, 'Description is required');
+        return false;
+    } else {
+        setTaskSuccess(taskMenuDescription);
+        return true;
+    }
+
+}
+
+
+function validateMenuDate(dateValue) {
+    if (dateValue === '') {
+        setTaskError(taskMenuDate, 'Date is required dd.mm.yyyy');
+        return false;
+    } else {
+        setTaskSuccess(taskMenuDate);
+        return true;
+    }
+}
+
+
+function transferDataToTemporaryStorage(type, titleValue, descriptionValue, dateValue) {
+    newTask.title = titleValue;
+    newTask.text = descriptionValue;
+    newTask.date = new Date(dateValue);
+    newTask.assigned = copyAssigned();
+    newTask.subtask = copySubtasks();
+}
+
+
 function saveNewTask() {
     cards.push(newTask);
+    saveLocalStorage('cards');
+    closeOverlay();
+    clearOverlay();
+    clearAddtaskMenu();
+    if (cards.length > 0) {
+        renderCards();
+    }
+    updateCounters();
+    initNewTask();
+}
+
+
+function saveEditedTask() {
+    newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
+    cards.splice(cards.findIndex(card => card.id === newTask.id), 1); //removing old card
+    cards.push(newTask); // adding new card
     saveLocalStorage('cards');
     closeOverlay();
     clearOverlay();

@@ -100,19 +100,3 @@ function changeButton() {
     let submitButton = document.getElementById('overlaySubmit');
     submitButton.value = "Save";
 }
-
-
-function saveEditedTask() {
-    newTask.group = cards.filter(card => card.id === newTask.id)[0].group;
-    cards.splice(cards.findIndex(card => card.id === newTask.id), 1); //removing old card
-    cards.push(newTask); // adding new card
-    saveLocalStorage('cards');
-    closeOverlay();
-    clearOverlay();
-    clearAddtaskMenu();
-    if (cards.length > 0) {
-        renderCards();
-    }
-    updateCounters();
-    initNewTask();
-}
