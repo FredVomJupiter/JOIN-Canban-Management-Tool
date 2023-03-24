@@ -62,7 +62,7 @@ class TaskTemplate {
 
     /**
      * 
-     * @param {object} card 
+     * @param {object} card as object.
      * @returns integer as number of subtasks with status 1.
      */
     countFinishedSubtasks(card) {

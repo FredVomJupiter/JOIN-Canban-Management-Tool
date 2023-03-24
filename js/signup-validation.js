@@ -72,7 +72,7 @@ const validateSignupInputs = () => {
         correctPassword = true;
     }
 
-    if (correctMail & correctPassword) {
+    if (correctName & correctMail & correctPassword) {
         createNewUser(nameValue, emailValue, passwordValue);
     }
 };
