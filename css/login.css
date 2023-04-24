@@ -902,28 +902,10 @@ body {
     }
 
     .resetpw-input-wrap {
-        gap: 10px;
+        gap: 24px;
         width: 250px;
         height: unset;
         margin: unset;
-    }
-
-    .resetpw-input-outer {
-        width: 250px;
-        height: 40px;
-    }
-
-    .resetpw-input-border {
-        padding: 10px 21px;
-        width: 250px;
-        height: 40px;
-    }
-
-    .resetpw-input {
-        width: 200px;
-        height: 35px;
-        font-size: 16px;
-        background: none;
     }
 
     .resetpw-btn-wrap {
