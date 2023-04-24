@@ -251,20 +251,16 @@ body {
     align-items: flex-start;
     gap: 3px;
     position: fixed;
-    width: 385px;
     height: 136px;
     left: 1002px;
     top: 440px;
 }
 
 .summary-greeting {
-    width: 338px;
     height: 56px;
-
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
-
     color: #2A3647;
 }
 
