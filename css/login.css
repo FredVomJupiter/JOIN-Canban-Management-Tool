@@ -478,56 +478,6 @@ body {
     margin-bottom: 35px;
 }
 
-.resetpw-input-outer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    width: 422px;
-    height: 71px;
-}
-
-.resetpw-input-border {
-    display: flex;
-    flex-direction: column;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    background: #FFFFFF;
-    box-sizing: border-box;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-}
-
-.resetpw-input {
-    border: unset;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    width: 380px;
-    height: 25px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-}
-
-.resetpw-input:focus {
-    outline: none;
-}
-
-.resetpw-input-border.error {
-    border-color: #ff3860;
-}
-
-.resetpw-input-border .error {
-    color: #ff3860;
-    font-size: 12px;
-    height: 13px;
-    margin-top: 2px;
-}
-
 .resetpw-btn-wrap {
     display: flex;
     flex-direction: row;
