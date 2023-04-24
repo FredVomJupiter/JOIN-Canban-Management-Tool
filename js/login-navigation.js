@@ -43,7 +43,7 @@ function sendMessage(type) {
 function animateMessage(type) {
     let message = document.getElementById(type);
     message.classList.add('animate');
-    removeAnimationAndOpenPage(type);
+    goToResetpw(type);
 }
 
 
