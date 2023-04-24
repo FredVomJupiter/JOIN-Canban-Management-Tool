@@ -139,11 +139,11 @@ body {
     height: 171px;
 }
 
-.login-email-border {
+.login-input-border {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 13px 21px;
+    padding: 11px 21px;
     gap: 10px;
     width: 422px;
     height: 51px;
@@ -152,18 +152,18 @@ body {
     border-radius: 10px;
 }
 
-.login-email-border.error {
+.login-input-border.error {
     border-color: #ff3860;
 }
 
-.login-email-border .error {
+.login-input-border .error {
     color: #ff3860;
     font-size: 12px;
     margin-top: 2px;
     height: 13px;
 }
 
-.login-email-input {
+.login-input {
     width: 90%;
     border: unset;
     height: 25px;
@@ -171,55 +171,22 @@ body {
     font-weight: 400;
     font-size: 21px;
     color: #000000;
+}
+
+.mail-icon {
     background-image: url("../assets/img/mail.svg");
     background-repeat: no-repeat;
     background-position: calc(100%);
 }
 
-.login-email-input:focus {
+.login-input:focus {
     outline: none;
 }
 
-.login-pw-border {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-}
-
-.login-pw-border.error {
-    border-color: #ff3860;
-}
-
-.login-pw-border .error {
-    color: #ff3860;
-    font-size: 12px;
-    margin-top: 2px;
-    height: 13px;
-}
-
-.login-pw-input {
-    border: unset;
-    width: 90%;
-    height: 25px;
-
-    font-size: normal;
-    font-weight: 400;
-    font-size: 21px;
-    color: #000000;
+.pw-icon {
     background-image: url("../assets/img/password.svg");
     background-repeat: no-repeat;
     background-position: calc(100%);
-}
-
-.login-pw-input:focus {
-    outline: none;
 }
 
 .login-options-wrap {
@@ -374,44 +341,6 @@ body {
     font-size: 21px;
     text-align: center;
     color: #000000;
-}
-
-.forgotpw-input-wrap {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    width: 422px;
-    height: 53px;
-    padding: 13px 21px;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.forgotpw-input {
-    border: none;
-    outline: none;
-    width: 344px;
-    height: 40px;
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    background-image: url("../assets/img/mail.svg");
-    background-repeat: no-repeat;
-    background-position: calc(100%);
-}
-
-.forgotpw-input-wrap.error {
-    border-color: #ff3860;
-}
-
-.forgotpw-input-wrap .error {
-    color: #ff3860;
-    font-size: 12px;
-    height: 13px;
-    margin-top: 2px;
 }
 
 .forgotpw-button {
@@ -661,7 +590,6 @@ body {
 }
 
 .resetpw-msg-text {
-
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
@@ -732,121 +660,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 422px;
+    gap: 24px;
 }
 
-.signup-name {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    width: 422px;
-    height: 71px;
-}
-
-.signup-input-name {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
+.name-icon {
     background-image: url("../assets/img/username.svg");
     background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
-}
-
-.signup-name .error {
-    color: #ff3860;
-    font-size: 12px;
-    height: 13px;
-}
-
-.signup-input-name:focus {
-    outline: none;
-}
-
-.signup-email {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    width: 422px;
-    height: 71px;
-}
-
-.signup-input-email {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    background-image: url("../assets/img/mail.svg");
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
-}
-
-.signup-email .error {
-    color: #ff3860;
-    font-size: 12px;
-    height: 13px;
-}
-
-.signup-input-email:focus {
-    outline: none;
-}
-
-.signup-password {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    width: 422px;
-    height: 71px;
-}
-
-.signup-input-password {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    background-image: url("../assets/img/password.svg");
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
-}
-
-.signup-password .error {
-    color: #ff3860;
-    font-size: 12px;
-    height: 13px;
-}
-
-.signup-input-password:focus {
-    outline: none;
+    background-position: calc(100%);
 }
 
 .signup-button-wrap {
@@ -963,18 +783,13 @@ body {
         height: 40px;
     }
 
-    .login-email-border {
+    .login-input-border {
         width: 250px;
         height: 40px;
         padding: 10px 21px;
     }
 
-    .login-email-inner {
-        width: 200px;
-        height: 35px;
-    }
-
-    .login-email-input {
+    .login-input {
         font-size: 16px;
         height: 30px;
         background: none;
@@ -983,12 +798,6 @@ body {
     .login-pw-outer {
         width: 250px;
         height: 40px;
-    }
-
-    .login-pw-border {
-        width: 250px;
-        height: 40px;
-        padding: 10px 21px;
     }
 
     .login-pw-inner {
@@ -1077,20 +886,6 @@ body {
         height: unset;
         width: unset;
         padding: 0px 15px;
-    }
-
-    .forgotpw-input-wrap {
-        width: 250px;
-        height: 40px;
-        padding: 10px 21px;
-        margin: unset;
-    }
-
-    .forgotpw-input {
-        width: 200px;
-        height: 40px;
-        background: none;
-        font-size: 16px;
     }
 
     .forgotpw-button {
@@ -1242,40 +1037,6 @@ body {
         align-items: center;
         height: unset;
         width: 300px;
-        gap: 10px;
-    }
-
-    .signup-name {
-        width: unset;
-        height: 40px;
-    }
-
-    .signup-input-name {
-        font-size: 16px;
-        width: 250px;
-        height: 40px;
-    }
-
-    .signup-email {
-        width: unset;
-        height: 40px;
-    }
-
-    .signup-input-email {
-        font-size: 16px;
-        width: 250px;
-        height: 40px;
-    }
-
-    .signup-password {
-        width: unset;
-        height: 40px;
-    }
-
-    .signup-input-password {
-        font-size: 16px;
-        width: 250px;
-        height: 40px;
     }
 
     .signup-button-wrap {
