@@ -276,23 +276,22 @@ body {
 }
 
 .summary-tile-container {
+    box-sizing: border-box;
     display: flex;
+    height: 520px;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
     padding-left: 100px;
-    padding-top: 25px;
-    padding-bottom: 5px;
-    gap: 35px;
+    margin-top: 24px;
+    margin-bottom: 16px;
 }
 
 .summary-tile-topwrap {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 35px;
+    justify-content: space-between;
     width: 580px;
-    height: 170px;
 }
 
 .summary-tile {
@@ -302,10 +301,10 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 25px 0px;
     gap: 13px;
-    width: 170px;
-    height: 170px;
+    width: 160px;
+    min-height: 150px;
+    max-height: 150px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
@@ -325,7 +324,7 @@ body {
     height: 77px;
     font-style: normal;
     font-weight: 600;
-    font-size: 64px;
+    font-size: 56px;
     text-align: center;
     color: #000000;
 }
@@ -335,7 +334,7 @@ body {
     height: 50px;
     font-style: normal;
     font-weight: 400;
-    font-size: 21px;
+    font-size: 18px;
     text-align: center;
     color: #2A3647;
 }
@@ -347,10 +346,10 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 28px 48px;
     gap: 61px;
     width: 580px;
-    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
@@ -433,7 +432,6 @@ body {
     align-items: center;
     gap: 35px;
     width: 580px;
-    height: 150px;
 }
 
 .summary-bottom-tile {
@@ -443,10 +441,10 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 38px 19px;
     gap: 18px;
-    width: 272.5px;
-    height: 150px;
+    width: 272px;
+    min-height: 150px;
+    max-height: 150px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
@@ -504,8 +502,7 @@ body {
 /* Summary Hover Effects */
 .summary-tile:hover {
     transition: all 225ms ease-in-out;
-    width: 180px;
-    height: 180px;
+    transform: scale(1.1);
     background: #2A3647;
     color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -517,8 +514,7 @@ body {
 
 .summary-tile-middlewrap:hover {
     transition: all 225ms ease-in-out;
-    width: 590px;
-    height: 160px;
+    transform: scale(1.1);
     background: #2A3647;
     color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -532,8 +528,7 @@ body {
     transition: all 225ms ease-in-out;
     background: #2A3647;
     color: #FFFFFF;
-    width: 282.5px;
-    height: 160px;
+    transform: scale(1.1);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -3415,7 +3410,6 @@ input:invalid {
     }
 
     .summary-title-wrap {
-        position: fixed;
         background: #F6F7F8;
         box-sizing: border-box;
         padding: 20px;
@@ -3441,26 +3435,19 @@ input:invalid {
     }
 
     .summary-tile-container {
-        position: absolute;
-        top: 120px;
-        left: 0;
-        right: 0;
-        width: unset;
+        height: 440px;
         padding: unset;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
     }
 
     .summary-tile-topwrap {
         width: 440px;
-        height: 100px;
-        justify-content: space-between;
+        height: 120px;
     }
 
     .summary-tile {
         width: 120px;
-        height: 100px;
+        min-height: 120px;
+        max-height: 120px;
     }
 
     .summary-tile-inner {
@@ -3483,7 +3470,8 @@ input:invalid {
 
     .summary-tile-middlewrap {
         width: 440px;
-        height: 100px;
+        min-height: 120px;
+        max-height: 120px;
         padding: unset;
     }
 
@@ -3523,15 +3511,14 @@ input:invalid {
 
     .summary-tile-bottomwrap {
         width: 440px;
-        height: 100px;
-        justify-content: space-between;
-        gap: unset;
+        min-height: 120px;
+        max-height: 120px;
     }
 
     .summary-bottom-tile {
-        padding: unset;
         width: 200px;
-        height: 100px;
+        min-height: 120px;
+        max-height: 120px;
     }
 
     .summary-bottom-tile-iconwrap {
@@ -3566,21 +3553,6 @@ input:invalid {
         width: 40px;
         height: 40px;
         background-size: contain;
-    }
-
-    .summary-tile:hover {
-        width: 130px;
-        height: 100px;
-    }
-
-    .summary-tile-middlewrap:hover {
-        width: 440px;
-        height: 100px;
-    }
-
-    .summary-bottom-tile:hover  {
-        width: 210px;
-        height: 110px;
     }
 
     .board {
@@ -3841,13 +3813,21 @@ input:invalid {
 
 @media screen and (max-width: 600px) {
 
+    .summary-tile-container {
+        height: 420px;
+        margin-top: 32px;
+        margin-bottom: 64px;
+    }
+
     .summary-tile-topwrap {
         width: 320px;
-        height: 100px;
+        height: 90px;
     }
 
     .summary-tile {
-        width: 100px;
+        width: 90px;
+        min-height: 90px;
+        max-height: 90px;
     }
 
     .summary-tile-counter {
@@ -3856,14 +3836,12 @@ input:invalid {
 
     .summary-tile-text {
         font-size: 13px;
-        padding: 0px 0px;
-        padding-bottom: 10px;
     }
 
     .summary-tile-middlewrap {
         width: 320px;
-        height: 100px;
-        padding: 20px;
+        min-height: 90px;
+        max-height: 00px;
         gap: 20px;
     }
 
@@ -3899,15 +3877,15 @@ input:invalid {
 
     .summary-tile-bottomwrap {
         width: 320px;
-        height: 100px;
-        justify-content: space-between;
-        gap: unset;
+        min-height: 90px;
+        max-height: 90px;
     }
 
     .summary-bottom-tile {
         padding: unset;
         width: 150px;
-        height: 80px;
+        min-height: 90px;
+        max-height: 90px;
     }
 
     .summary-bottom-todo-icon {
@@ -3926,21 +3904,6 @@ input:invalid {
     .summary-bottom-done-icon {
         width: 30px;
         height: 30px;
-    }
-
-    .summary-tile:hover {
-        width: 110px;
-        height: 90px;
-    }
-
-    .summary-tile-middlewrap:hover {
-        width: 330px;
-        height: 100px;
-    }
-
-    .summary-bottom-tile:hover  {
-        width: 160px;
-        height: 90px;
     }
 
     .board-container {
@@ -3976,7 +3939,6 @@ input:invalid {
         z-index: 20;
     }
 }
-
 
 @media screen and (max-width: 400px) {
     .addtask-close-btn {

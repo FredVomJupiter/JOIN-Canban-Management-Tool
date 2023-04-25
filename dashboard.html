@@ -59,13 +59,15 @@
 
                 <div class="addtask-leftcontainer-category">
                     <span class="addtask-leftcontainer-categorytext">Category</span>
-                    <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory" onclick="expandCategories('overlay')">Select task category
+                    <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory"
+                        onclick="expandCategories('overlay')">Select task category
                     </div>
                 </div>
 
                 <div class="addtask-leftcontainer-assigned">
                     <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
-                    <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned" onclick="expandAssigned('overlay')">Select contacts to assign
+                    <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned"
+                        onclick="expandAssigned('overlay')">Select contacts to assign
                     </div>
                 </div>
                 <div class="addtask-leftcontainer-assigned-display" id="displayOverlayAssigned"></div>
@@ -100,11 +102,13 @@
                     </div>
                 </div>
 
-                <div class="addtask-rightcontainer-subtask" >
+                <div class="addtask-rightcontainer-subtask">
                     <span class="addtask-rightcontainer-subtasktext">Subtask</span>
                     <div class="addtask-rightcontainer-subtaskborder">
-                        <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask" id="addtaskOverlaySub">
-                        <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg" onclick="addSubtask('overlay')">
+                        <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask"
+                            id="addtaskOverlaySub">
+                        <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg"
+                            onclick="addSubtask('overlay')">
                     </div>
                     <div class="gap" id="addtaskOverlaySubbox">
                     </div>
@@ -174,7 +178,7 @@
             <img class="topnav-help" src="./assets/img/help.svg" onclick="openPage('help')">
 
             <img class="topnav-profile" src="./assets/img/profilepicture.png" onclick="openSignout()">
-            <div class="topnav-signout d-none"  id="signout">
+            <div class="topnav-signout d-none" id="signout">
                 <span onclick="openLogin()">Sign out</span>
                 <span onclick="openPage('help')">Help</span>
                 <span onclick="openPage('legal')">Legal Info</span>
@@ -202,8 +206,7 @@
                 <div><img src="./assets/img/contacts_icon.svg"></div>
                 <p class="sidebar-menu-text">Contacts</p>
             </div>
-            <div class="sidebar-menu-option-light margin-top" id="menu-legal"
-                onclick="openPage('legal')">
+            <div class="sidebar-menu-option-light margin-top" id="menu-legal" onclick="openPage('legal')">
                 <div><img src="./assets/img/info_icon.svg"></div>
                 <p class="sidebar-menu-text">Legal notice</p>
             </div>
@@ -348,7 +351,8 @@
                 <!-- TODO column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('To do')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
+                            onclick="openAddtaskOverlay('To do')">
                         <span class="board-column-title">to do</span>
                     </div>
 
@@ -358,7 +362,8 @@
                 <!-- PROGRESS column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('In Progress')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
+                            onclick="openAddtaskOverlay('In Progress')">
                         <span class="board-column-title">progressing</span>
                     </div>
 
@@ -368,7 +373,8 @@
                 <!-- FEEDBACK column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('Awaiting Feedback')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
+                            onclick="openAddtaskOverlay('Awaiting Feedback')">
                         <span class="board-column-title">needs feedback</span>
                     </div>
 
@@ -379,7 +385,8 @@
                 <!-- DONE column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg" onclick="openAddtaskOverlay('Done')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
+                            onclick="openAddtaskOverlay('Done')">
                         <span class="board-column-title">done</span>
                     </div>
 
@@ -406,30 +413,32 @@
                             placeholder="Enter a title">
                         <div class="error"></div>
                     </div>
-    
+
                     <div class="addtask-leftcontainer-description">
                         <span class="addtask-leftcontainer-descriptiontext">Description</span>
                         <textarea class="addtask-leftcontainer-descriptionfield" cols="1" rows="2"
                             id="addtaskMenuDescription" placeholder="Enter a description"></textarea>
                         <div class="error"></div>
                     </div>
-    
+
                     <div class="addtask-leftcontainer-category">
                         <span class="addtask-leftcontainer-categorytext">Category</span>
-                        <div class="addtask-leftcontainer-categoryfield" id="addtaskMenuCategory" onclick="expandCategories('menu')">Select task category
+                        <div class="addtask-leftcontainer-categoryfield" id="addtaskMenuCategory"
+                            onclick="expandCategories('menu')">Select task category
                         </div>
                     </div>
-    
+
                     <div class="addtask-leftcontainer-assigned">
                         <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
-                        <div class="addtask-leftcontainer-assignedfield" id="addtaskMenuAssigned" onclick="expandAssigned('menu')">Select contacts to assign
+                        <div class="addtask-leftcontainer-assignedfield" id="addtaskMenuAssigned"
+                            onclick="expandAssigned('menu')">Select contacts to assign
                         </div>
                     </div>
                     <div class="addtask-leftcontainer-assigned-display" id="displayMenuAssigned"></div>
                 </div>
-    
+
                 <div class="addtask-line"></div>
-    
+
                 <!-- Content right side -->
                 <div class="addtask-rightcontainer">
                     <div class="addtask-rightcontainer-date">
@@ -437,15 +446,17 @@
                         <input class="addtask-rightcontainer-datefield" type="date" id="addtaskMenuDate">
                         <div class="error"></div>
                     </div>
-    
+
                     <div class="addtask-rightcontainer-prio">
                         <span class="addtask-rightcontainer-priotext">Prio</span>
                         <div class="addtask-rightcontainer-priobtns" id="addtaskMenuPrio">
-                            <div class="addtask-rightcontainer-priobtns-outline" onclick="setPriority('menu', 'urgent')">
+                            <div class="addtask-rightcontainer-priobtns-outline"
+                                onclick="setPriority('menu', 'urgent')">
                                 <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
                                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
                             </div>
-                            <div class="addtask-rightcontainer-priobtns-outline" onclick="setPriority('menu', 'medium')">
+                            <div class="addtask-rightcontainer-priobtns-outline"
+                                onclick="setPriority('menu', 'medium')">
                                 <span class="addtask-rightcontainer-priobtns-text">Medium</span>
                                 <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
                             </div>
@@ -455,17 +466,19 @@
                             </div>
                         </div>
                     </div>
-    
-                    <div class="addtask-rightcontainer-subtask" >
+
+                    <div class="addtask-rightcontainer-subtask">
                         <span class="addtask-rightcontainer-subtasktext">Subtask</span>
                         <div class="addtask-rightcontainer-subtaskborder">
-                            <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask" id="addtaskMenuSub">
-                            <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg" onclick="addSubtask('menu')">
+                            <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask"
+                                id="addtaskMenuSub">
+                            <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg"
+                                onclick="addSubtask('menu')">
                         </div>
                         <div class="gap" id="addtaskMenuSubbox">
                         </div>
                     </div>
-    
+
                     <!-- Buttons bottom right -->
                     <div class="addtask-button-container">
                         <div class="addtask-button-inner">
@@ -566,9 +579,12 @@
                 <span class="help-whatIsJoin-txt">
                     JOIN is a team-oriented canban board that helps you keep track of your and your team's tasks.
                     This app is divided into four sections: summary, board, add task and contacts. The summary provides
-                    you an overview of how many tasks are on board, in progress, awaiting feedback, to-do, done as well as
-                    the upcoming deadlines for urgent tasks. The board contains the actual canban board with tasks attached
-                    like sticky notes. Here you can view, drag and drop, create new, edit and search tasks. In the add task
+                    you an overview of how many tasks are on board, in progress, awaiting feedback, to-do, done as well
+                    as
+                    the upcoming deadlines for urgent tasks. The board contains the actual canban board with tasks
+                    attached
+                    like sticky notes. Here you can view, drag and drop, create new, edit and search tasks. In the add
+                    task
                     section, you can add new tasks without using the board-overlay. Finally, the contacts page gives you
                     an overview of existing contacts. Here you can add new and edit existing contacts.
                 </span>
@@ -581,7 +597,8 @@
 
                         <span class="help-howToUseIt-number">1.</span>
 
-                        <span class="help-howToUseIt-text">Create a new task via the board-overlay by clicking on "addtask" or the 
+                        <span class="help-howToUseIt-text">Create a new task via the board-overlay by clicking on
+                            "addtask" or the
                             + symbol on either of the board-categories headlines.
                         </span>
 
@@ -591,7 +608,8 @@
 
                         <span class="help-howToUseIt-number">2.</span>
 
-                        <span class="help-howToUseIt-text">Type in at least a title, date and description text in order to create a new task. All other 
+                        <span class="help-howToUseIt-text">Type in at least a title, date and description text in order
+                            to create a new task. All other
                             information are not mandatory.
                         </span>
 
@@ -601,8 +619,10 @@
 
                         <span class="help-howToUseIt-number">3.</span>
 
-                        <span class="help-howToUseIt-text">If you want to edit a task, just click on the desired task-card and click on the edit-button 
-                            that shows on the task-detail overlay. As with creating a new task, title, description and date are mandatory fields.
+                        <span class="help-howToUseIt-text">If you want to edit a task, just click on the desired
+                            task-card and click on the edit-button
+                            that shows on the task-detail overlay. As with creating a new task, title, description and
+                            date are mandatory fields.
                         </span>
                     </div>
                 </div>
