@@ -43,12 +43,16 @@ const isValidLoginEmail = email => {
     return result;
 }
 
-
+/**
+ * 
+ * @param {*} password as string from userinput.
+ * @returns true if password is valid, false if not.
+ */
 const isValidLoginPassword = password => {
     let result = false;
     // User must provide correct email and password to get valid password
     users.forEach(user => {
-        if (user.password === password && user.id === userId) {
+        if (user.password === hashInput(password) && user.id === userId) {
             result = true;
         }
     });
@@ -92,11 +96,24 @@ const validateLoginInputs = () => {
     }
 };
 
+/**
+ * Hashes a string with SHA256 with salt.
+ * @param {*} password as string from user input.
+ * @returns hashed string of password to compare
+ */
+function hashInput(password) {
+    let salt = "ThisIsSoSalty!";
+    let water = CryptoJS.algo.SHA256.create();
+    water.update(password);
+    water.update(CryptoJS.SHA256(salt));
+    hash = water.finalize().toString(CryptoJS.enc.hex);
+    return hash.toString();
+}
+
 
 function rememberUser() {
     if (document.getElementById('rememberUser').checked) {
         rememberTrue();
-        
     } else {
         rememberFalse();
     }

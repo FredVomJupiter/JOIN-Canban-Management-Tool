@@ -73,14 +73,13 @@ const validateSignupInputs = () => {
     }
 
     if (correctName & correctMail & correctPassword) {
-        createNewUser(nameValue, emailValue, passwordValue);
+        createNewUser(nameValue, emailValue, hashInput(passwordValue));
     }
 };
 
 
 function createNewUser(nameValue, emailValue, passwordValue) {
-    console.log("Creating account...");
-    users.push(new User(nameValue, emailValue, passwordValue, 0));
+    users.push(new User(nameValue, emailValue, passwordValue, 0)); // 0 = not logged in, 1 = logged in
     saveLocalStorage();
     openPage('login');
 }
