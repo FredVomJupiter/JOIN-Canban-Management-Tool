@@ -6,7 +6,7 @@
     intending to change a single e.g. input field or span.
     
     The downside is the sheer overwhelming mass of CSS lines for a relatively small scale project.
-    Making this application responsive is a pain in the a**...
+    Making this application responsive is a pain in the a**... as is maintaining it.
 */
 
 html {
@@ -1917,28 +1917,29 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    padding-right: 30px;
+    gap: 10px;
     width: 177px;
     height: 51px;
     background: #2A3647;
     border-radius: 10px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
     color: #FFFFFF;
     border: none;
-    background-image: url('../assets/img/check.svg');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 25px);
+}
+
+.addtask-button-createicon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url("../assets/img/check.svg") no-repeat;
+    background-position: center;
 }
 
 .addtask-button-createtask:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-image: url('../assets/img/check.svg');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 25px);
 }
 
 /* Ende Addtask Content */
@@ -3939,6 +3940,47 @@ input:invalid {
 
     .addtask-rightcontainer-priobtns {
         flex-direction: column;
+    }
+
+    .addtask-button-clear {
+        padding: unset;
+        font-size: 1rem;
+        width: 120px;
+        height: 40px;
+    }
+
+    .addtask-button-createtask {
+        padding: unset;
+        font-size: 1rem;
+        width: 120px;
+        height: 40px;
+    }
+
+    .addcontact-user-badge {
+        width: 80px;
+        height: 80px;
+    }
+
+    .addcontact-form {
+        gap: 1rem;
+    }
+
+    .addcontact-form-right {
+        justify-content: space-between;
+    }
+
+    .addcontact-form-container {
+        margin: unset;
+    }
+
+    .addcontact-submit-btns {
+        margin: unset;
+    }
+
+    .addcontact-task-close {
+        position: absolute;
+        top: 60%;
+        right: 20px;
     }
 
     .contact-canvas {
