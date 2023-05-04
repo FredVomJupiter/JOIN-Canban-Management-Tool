@@ -1,3 +1,8 @@
+/**
+ * All drag & drop functions are here. In mobile version these functions are not working.
+ * Dropzones are below cards and the cards themselves.
+ */
+
 let theCard;
 
 function dragstart(event, cardId) {

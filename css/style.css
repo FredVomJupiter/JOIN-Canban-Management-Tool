@@ -1,3 +1,13 @@
+/* Yep, this file is very long. If I would remake this project, I would rely on fewer classes.
+    However, I decided to only clean it up and else leave it as is to show the progress of my
+    learning. This is my first big project. In the meantime I learned many more CSS tricks.
+    
+    The upside of this very detailed class system is preventig unintended global changes when only
+    intending to change a single e.g. input field or span.
+    
+    The downside is the sheer overwhelming mass of CSS lines for a relatively small scale project.
+*/
+
 html {
     height: -webkit-fill-available;
 }
@@ -3811,7 +3821,7 @@ input:invalid {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
     .summary-tile-container {
         height: 420px;

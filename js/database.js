@@ -1,12 +1,15 @@
+// All months for the summary board (urgent) date calculation and visualization.
 const monthNames = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
 
+// Fixed color sets for contacts.
 let colors = [
     "#BDB76B", "#2E8B57", "#20B2AA", "#5F9EA0", "#00BFFF", "#DAA520", "#F4A460", "#A52A2A", "#DA70D6", "#9932CC", "#708090", "#00008B", "#48D1CC", "#9ACD32", "#FFE4B5", "#FF6347", "#FF7A00"
 ];
 
+// First contact is the user itself.
 let contacts = [
     {
         id: "contact0",
@@ -21,6 +24,7 @@ let cards = [
     
 ];
 
+// Fixed color sets for categories.
 let categories = [
     {
         id: "category0",
@@ -50,7 +54,7 @@ let categories = [
 ];
 
 /**
- * 
+ * Saving to mini backand similar to local storage.
  * @param {*} what as string 'cards', 'contacts' or 'categories'.
  */
 function saveLocalStorage(what) {
@@ -69,7 +73,7 @@ function saveLocalStorage(what) {
 }
 
 /**
- * 
+ * Loading from mini backend similar to local storage.
  * @param {*} what as string 'cards', 'contacts' or 'categories'.
  */
 async function loadLocalStorage(what) {

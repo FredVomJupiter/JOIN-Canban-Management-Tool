@@ -58,7 +58,7 @@ function returnDeadline() {
         let month = mostUrgentDeadline(urgentDeadlines).getMonth();
         let day = mostUrgentDeadline(urgentDeadlines).getDate();
         let year = mostUrgentDeadline(urgentDeadlines).getFullYear();
-        return monthNames[month] + " " + day + ", " + year;
+        return monthNames[month] + " " + day + ", " + year; // monthNames called from database.js
     }
     if (urgentDeadlines.length == 0) {
         return "No urgent";
@@ -93,4 +93,3 @@ function countDone() {
     doneCounter.innerHTML = "";
     doneCounter.innerHTML = cards.filter(card => card.group == "Done").length;
 }
-// End Functions for Summary Page

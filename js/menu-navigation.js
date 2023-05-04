@@ -44,7 +44,10 @@ function openPage(pageName) {
     addMenuSelectionForPage(pageName);
 }
 
-
+/**
+ * Content gets rendered to ensure the up-to-date information is displayed on the page.
+ * @param {*} pageName as string.
+ */
 function renderPageSpecificContent(pageName) {
     pageName === 'summary' ? updateCounters() : "";
     pageName === 'contacts' ? renderContactList(): "";
@@ -59,7 +62,10 @@ function hideAllPages() {
     });
 }
 
-
+/**
+ * Removes the dark class from all menu points on the left sidebar or the bottom menu.
+ * Thus, only the selected menu point gets highlighted in darker color after this code is executed.
+ */
 function removeDarkMenu() {
     menus.forEach(menu => {
         let menupoint = document.getElementById(`${menu}`);
