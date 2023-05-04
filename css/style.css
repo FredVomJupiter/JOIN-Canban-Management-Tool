@@ -1146,31 +1146,31 @@ body {
 
 .board-taskoverlay-close-btn {
     cursor: pointer;
-    position: fixed;
-    min-height: 25px;
-    min-width: 25px;
+    position: absolute;
+    height: 24px;
+    width: 24px;
     align-self: flex-end;
-    translate: 25px -20px;
+    translate: 26px -20px;
     background-image: url("../assets/img/clear.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .board-taskoverlay-btnwrap {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1rem;
     align-self: flex-end;
-    translate: 25px 420px;
-    width: 57px;
-    min-height: 57px;
+    width: 40px;
+    top: 5rem;
+    right: 1rem;
 }
 
 .board-taskoverlay-delete {
     cursor: pointer;
-    width: 57px;
-    min-height: 57px;
+    width: 40px;
+    height: 40px;
     background: #2A3647;
     border-radius: 10px;
     background-image: url("../assets/img/delete.png");
@@ -1181,11 +1181,22 @@ body {
 
 .board-taskoverlay-move {
     cursor: pointer;
-    width: 57px;
-    min-height: 57px;
+    width: 40px;
+    height: 40px;
     background: #2A3647;
     border-radius: 10px;
     background-image: url("../assets/img/check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.board-taskoverlay-edit {
+    cursor: pointer;
+    width: 40px;
+    min-height: 40px;
+    background: #2A3647;
+    border-radius: 10px;
+    background-image: url("../assets/img/pencil_white.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -1207,17 +1218,6 @@ body {
     border-bottom-right-radius: 0px;
     background: #2A3647;
     color: white;
-}
-
-.board-taskoverlay-edit {
-    cursor: pointer;
-    width: 57px;
-    min-height: 57px;
-    background: #2A3647;
-    border-radius: 10px;
-    background-image: url("../assets/img/pencil_white.svg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 /** Add Task Overlay **/
@@ -3926,34 +3926,6 @@ input:invalid {
     .board-taskoverlay-container {
         max-width: 100vw;
         max-height: calc(100vh - 80px);
-    }
-
-    .board-taskoverlay-btnwrap {
-        translate: unset;
-        width: unset;
-        gap: 1rem;
-        position: fixed;
-        top: calc(50% - 105px);
-        right: 20px;
-        margin: unset;
-    }
-
-    .board-taskoverlay-delete {
-        width: 40px;
-        height: 40px;
-        min-height: unset;
-    }
-
-    .board-taskoverlay-move {
-        width: 40px;
-        height: 40px;
-        min-height: unset;
-    }
-
-    .board-taskoverlay-edit {
-        width: 40px;
-        height: 40px;
-        min-height: unset;
     }
 
     .board-taskoverlay-value {
