@@ -62,6 +62,7 @@ const isValidLoginPassword = password => {
     let result = false;
     // User must provide correct email and password to get valid password
     users.forEach(user => {
+        // Strict comparison (same value and same type).
         if ((user.password === hashInput(password) && user.id === userId)
             || (password === "dummypassword" && user.id === userId)) { // Highly insecure, but for demonstration purposes only => otherwise an entire cookie session system would be needed.
             result = true;

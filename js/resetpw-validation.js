@@ -8,7 +8,12 @@ resetpwForm.addEventListener('submit', e => {
     validateResetpwInputs();
 });
 
-
+/**
+ * Strict equality comparison of two strings (same value and same type).
+ * @param {*} p1 as string.
+ * @param {*} p2 as string.
+ * @returns true or false.
+ */
 const isValidPassword = (p1, p2) => {
     return p1 === p2;
 }
@@ -20,7 +25,7 @@ const validateResetpwInputs = () => {
 
     let matchingPassword = false;
 
-
+    // Validate passwords
     if (passwordValue1 === '' || passwordValue2 === '') {
         setError(resetpwP1, 'Password is required');
         setError(resetpwP2, 'Password is required');
@@ -35,6 +40,7 @@ const validateResetpwInputs = () => {
         matchingPassword = true;
     }
 
+    // If all inputs are correct, set new password and send message to user.
     if (matchingPassword) {
         setNewPassword(passwordValue1);
         sendMessage('messageReset');
