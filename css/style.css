@@ -3926,6 +3926,34 @@ input:invalid {
         max-height: calc(100vh - 80px);
     }
 
+    .board-taskoverlay-btnwrap {
+        translate: unset;
+        width: unset;
+        gap: 1rem;
+        position: fixed;
+        top: calc(50% - 105px);
+        right: 20px;
+        margin: unset;
+    }
+
+    .board-taskoverlay-delete {
+        width: 40px;
+        height: 40px;
+        min-height: unset;
+    }
+
+    .board-taskoverlay-move {
+        width: 40px;
+        height: 40px;
+        min-height: unset;
+    }
+
+    .board-taskoverlay-edit {
+        width: 40px;
+        height: 40px;
+        min-height: unset;
+    }
+
     .board-taskoverlay-value {
         max-width: 220px;
     }
