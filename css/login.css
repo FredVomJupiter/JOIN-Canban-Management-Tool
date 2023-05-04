@@ -141,7 +141,6 @@ body {
 
 .login-input-border {
     display: flex;
-    flex-direction: column;
     box-sizing: border-box;
     padding: 11px 21px;
     gap: 10px;
@@ -736,10 +735,11 @@ body {
     .login-input-border {
         width: 250px;
         height: 40px;
-        padding: 9px 21px;
+        padding: 4px 21px;
     }
 
     .login-input {
+        box-sizing: border-box;
         font-size: 16px;
         height: 30px;
         background: none;
