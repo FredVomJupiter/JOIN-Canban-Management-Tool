@@ -3,7 +3,9 @@ const signupName = document.getElementById('signupName');
 const signupEmail = document.getElementById('signupEmail');
 const signupPassword = document.getElementById('signupPw');
 
-
+/**
+ * On submit of signup form, validate inputs.
+ */
 signupForm.addEventListener('submit', e => {
     e.preventDefault();
     validateSignupInputs();
@@ -29,7 +31,11 @@ const setSuccess = element => {
     inputControl.classList.remove('error');
 }
 
-
+/**
+ * Regular expression to validate email format with extra strict rules => minimum 2 characters after @, no numbers or special characters allowed in domain.
+ * @param {*} email as string.
+ * @returns true or false.
+ */
 const isValidSignupEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
