@@ -26,7 +26,7 @@ function hidePages() {
 }
 
 /**
- * Dummy function that needs to be modified, to handle user-input and send actual email.
+ * Dummy function that sends no actual email but only displays message.
  */
 function sendMessage(type) {
     if (type == "messageReset") {

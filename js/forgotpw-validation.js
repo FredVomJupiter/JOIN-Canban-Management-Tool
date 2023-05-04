@@ -25,7 +25,7 @@ const validateForgotpwInputs = () => {
 
     let correctMail = false;
 
-
+    // Validate email
     if (emailValue === '') {
         setError(forgotpwEmail, 'Email is required');
         correctMail = false;
@@ -37,6 +37,7 @@ const validateForgotpwInputs = () => {
         correctMail = true;
     }
 
+    // Send message if all inputs are valid (but no actual mail is sent)
     if (correctMail) {
         sendMessage('mail');
     }

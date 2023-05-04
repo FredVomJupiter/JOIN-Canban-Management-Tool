@@ -29,7 +29,7 @@ const validateResetpwInputs = () => {
         setError(resetpwP1, 'Passwords are not matching...');
         setError(resetpwP2, 'Passwords are not matching...');
         matchingPassword = false;
-    } else {
+    } else if (isValidPassword(passwordValue1, passwordValue2)) {
         setSuccess(resetpwP1);
         setSuccess(resetpwP2);
         matchingPassword = true;
@@ -41,11 +41,14 @@ const validateResetpwInputs = () => {
     }
 };
 
-
+/**
+ * Searches for the user with the same id as the current user and sets the new hashed password from inputfield 1.
+ * @param {*} passwordValue1 as string.
+ */
 function setNewPassword(passwordValue1) {
     users.forEach(user => {
         if (user.id === userId) {
-            user.password = passwordValue1;
+            user.password = hashInput(passwordValue1); // hashInput() is defined in js/login-validation.js
         }
     });
     saveLocalStorage('users');

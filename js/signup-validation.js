@@ -45,6 +45,7 @@ const validateSignupInputs = () => {
     let correctMail = false;
     let correctPassword = false;
 
+    // Validate name
     if (nameValue === '') {
         setError(signupName, 'Name is required');
         correctName = false;
@@ -53,6 +54,7 @@ const validateSignupInputs = () => {
         correctName = true;
     }
 
+    // Validate email
     if (emailValue === '') {
         setError(signupEmail, 'Email is required');
         correctMail = false;
@@ -64,6 +66,7 @@ const validateSignupInputs = () => {
         correctMail = true;
     }
 
+    // Validate password
     if (passwordValue === '') {
         setError(signupPassword, 'Password is required');
         correctPassword = false;
@@ -72,6 +75,7 @@ const validateSignupInputs = () => {
         correctPassword = true;
     }
 
+    // Create new user if all inputs are valid
     if (correctName & correctMail & correctPassword) {
         createNewUser(nameValue, emailValue, hashInput(passwordValue));
     }

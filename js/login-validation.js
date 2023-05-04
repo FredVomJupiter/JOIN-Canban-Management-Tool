@@ -12,6 +12,11 @@ loginForm.addEventListener('submit', e => {
 });
 
 
+/**
+ * Sets an error message and class to the input element.
+ * @param {*} element as HTML element.
+ * @param {*} message as string.
+ */
 const setLoginError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -22,6 +27,10 @@ const setLoginError = (element, message) => {
 }
 
 
+/**
+ * Sets a success class to the input element.
+ * @param {*} element as HTML element.
+ */
 const setLoginSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -44,7 +53,8 @@ const isValidLoginEmail = email => {
 }
 
 /**
- * 
+ * Compares the hashed password from user input with the hashed password
+ * from the user object from database / local storage.
  * @param {*} password as string from userinput.
  * @returns true if password is valid, false if not.
  */
@@ -52,7 +62,8 @@ const isValidLoginPassword = password => {
     let result = false;
     // User must provide correct email and password to get valid password
     users.forEach(user => {
-        if (user.password === hashInput(password) && user.id === userId) {
+        if ((user.password === hashInput(password) && user.id === userId)
+            || (password === "dummypassword" && user.id === userId)) { // Highly insecure, but for demonstration purposes only => otherwise an entire cookie session system would be needed.
             result = true;
         }
     });
@@ -67,7 +78,7 @@ const validateLoginInputs = () => {
     let correctMail = false;
     let correctPassword = false;
 
-
+    // Email validation
     if (emailValue === '') {
         setLoginError(loginEmail, 'Email is required');
         correctMail = false;
@@ -79,17 +90,19 @@ const validateLoginInputs = () => {
         correctMail = true;
     }
 
+    // Password validation
     if (passwordValue === '') {
         setLoginError(loginPassword, 'Password is required');
         correctPassword = false;
     } else if (!isValidLoginPassword(passwordValue)) {
         setLoginError(loginPassword, 'Wrong password...');
         correctPassword = false;
-    } else {
+    } else if (isValidLoginPassword(passwordValue)) {
         setLoginSuccess(loginPassword);
         correctPassword = true;
     }
 
+    // Login user if email and password are correct.
     if (correctMail & correctPassword) {
         rememberUser();
         loginUser();
@@ -97,9 +110,10 @@ const validateLoginInputs = () => {
 };
 
 /**
- * Hashes a string with SHA256 with salt.
+ * Hashes a string with SHA256 and salt. Salt is for demonstration purposes only, because
+ * in this case it does not add any security to the hashing (as it can be seen in the browser's dev tools).
  * @param {*} password as string from user input.
- * @returns hashed string of password to compare
+ * @returns hashed string of password to compare.
  */
 function hashInput(password) {
     let salt = "ThisIsSoSalty!";
@@ -110,7 +124,9 @@ function hashInput(password) {
     return hash.toString();
 }
 
-
+/**
+ * Saves the user's checkmarkt "rember login" to local storage.
+ */
 function rememberUser() {
     if (document.getElementById('rememberUser').checked) {
         rememberTrue();
@@ -137,18 +153,21 @@ function rememberFalse() {
 
 
 function loginUser() {
-    startUserSession();
-    saveLocalStorage(); // Timeout needed for saving data before opening dashboard too early
-    setTimeout(function() {
+    startUserSession(); // Set user session to 1.
+    saveLocalStorage(); // Timeout needed for saving data in mini backend before opening dashboard too early.
+    setTimeout(function () {
         openDashboard();
     }, 2000);
 }
 
-
+/**
+ * Sets the user session to 1 when successfully logged in.
+ * This is used for greeting the user on the dashboard.
+ */
 function startUserSession() {
     users.forEach(user => {
         if (user.id === userId) {
-            user.session = 1; 
+            user.session = 1;
         }
     });
 }
