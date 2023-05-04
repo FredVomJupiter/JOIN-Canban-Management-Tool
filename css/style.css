@@ -651,6 +651,7 @@ body {
     display: flex;
     align-items: center;
     border: unset;
+    background: unset;
     color: #2A3647;
 }
 
@@ -1205,14 +1206,14 @@ body {
     position: relative;
     width: 150px;
     right: 180px;
-    top: -260px;
+    top: -240px;
     user-select: none;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     white-space: nowrap;
     align-items: flex-start;
-    gap: 10px;
+    gap: 1rem;
     padding: 10px 10px;
     border-radius: 10px;
     border-bottom-right-radius: 0px;
