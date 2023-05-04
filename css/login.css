@@ -661,7 +661,7 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .background {
         position: fixed;
         top: 0;
@@ -736,7 +736,7 @@ body {
     .login-input-border {
         width: 250px;
         height: 40px;
-        padding: 10px 21px;
+        padding: 9px 21px;
     }
 
     .login-input {
