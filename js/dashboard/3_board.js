@@ -69,14 +69,14 @@ function fillBoardColumnsWithFilteredCards(filteredList) {
 /**
  * 
  * @param {string} name
- * @returns the initial letters of Name and Surname.
+ * @returns the initial letters of name and surname.
  */
 function returnInitials(name) {
     return name.charAt(0) + name.charAt(name.indexOf(" ") + 1);
 }
 
 /**
- * Shows the task's details when user clicks on a small card on the board.
+ * Shows the task's details when user clicks on a small card on the Board.
  * @param {*} cardId as string.
  */
 function showCardDetails(cardId) {
@@ -103,24 +103,19 @@ function moveCard(cardId, group) {
     renderCards();
 }
 
-
+/**
+ * Hides the Overlay when user clicks on the background or the close button.
+ */
 function closeOverlay() {
-    isNewTask = true;
-    let background = document.getElementById("overlayBackground");
-    background.classList.add("d-none");
-    let overlayCard = document.getElementById('overlayCard');
-    overlayCard.classList.add('d-none');
-    let taskoverlay = document.getElementById('addtaskOverlay');
-    taskoverlay.classList.add('d-none');
-    taskoverlay.classList.add('hidden');
-    let addcontact = document.getElementById('addcontactOverlay');
-    addcontact.classList.add('d-none');
-    let editcontact = document.getElementById('editcontactOverlay');
-    editcontact.classList.add('d-none');
-    let clearButton = document.getElementById('taskClearButton');
-    clearButton.classList.remove('d-none');
-    // This clears the addtask overlay fields
-    clearOverlay();
+    isNewTask = true; // Sets the logic to a new task.
+    let domElementList = ['overlayBackground', 'overlayCard', 'addtaskOverlay', 'addcontactOverlay', 'editcontactOverlay', 'taskClearButton'];
+    domElementList.forEach(element => {
+        let domElement = document.getElementById(element);
+        domElement.classList.add('d-none');
+        element === 'addtaskOverlay' ? domElement.classList.add('hidden') : "";
+        element === 'taskClearButton' ? domElement.classList.remove('d-none') : "";
+    });
+    clearOverlay();// This clears the addtask overlay fields.
 }
 
 /**

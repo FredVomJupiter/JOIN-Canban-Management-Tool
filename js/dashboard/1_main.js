@@ -25,7 +25,7 @@ async function init() {
 }
 
 /**
- * Greeting user if he is loggen in => sesssion value = 1.
+ * Greeting user if he is logged in, if sesssion value = 1.
  */
 function greetUser() {
     if (users && users.length > 0) {
