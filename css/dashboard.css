@@ -1030,6 +1030,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
+    width: 450px;
     max-width: 550px;
     max-height: 700px;
     padding: 50px;
