@@ -6,7 +6,6 @@
     intending to change a single e.g. input field or span.
     
     The downside is the sheer overwhelming mass of CSS lines for a relatively small scale project.
-    Making this application responsive is a pain in the a**... as is maintaining it.
 */
 
 html {
