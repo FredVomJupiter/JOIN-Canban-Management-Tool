@@ -237,6 +237,7 @@ function saveNewTask() {
     closeOverlay();
     clearOverlay();
     clearAddtaskMenu();
+    sendMessageToUser();
     if (cards.length > 0) {
         renderCards();
     }
@@ -253,9 +254,19 @@ function saveEditedTask() {
     closeOverlay();
     clearOverlay();
     clearAddtaskMenu();
+    sendMessageToUser();
     if (cards.length > 0) {
         renderCards();
     }
     updateCounters();
     initNewTask();
+}
+
+
+function sendMessageToUser() {
+    let message = document.getElementById('messageTask');
+    message.classList.add('animate');
+    setTimeout(() => {
+        message.classList.remove('animate');
+    }, 3000);
 }
