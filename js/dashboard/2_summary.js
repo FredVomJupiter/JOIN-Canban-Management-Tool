@@ -55,7 +55,7 @@ function showUpcomingDeadline() {
 function returnDeadline() {
     let urgentDeadlines = cards.filter(card => card.priority == "urgent");
     if (urgentDeadlines.length >= 1) {
-        let month = mostUrgentDeadline(urgentDeadlines).getMonth();
+        let month = mostUrgentDeadline(urgentDeadlines).getMonth() + 1;
         let day = mostUrgentDeadline(urgentDeadlines).getDate();
         let year = mostUrgentDeadline(urgentDeadlines).getFullYear();
         return monthNames[month] + " " + day + ", " + year; // monthNames called from database.js
