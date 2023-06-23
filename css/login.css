@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #2A3647;
+    --secondary-color: #29ABE2;
+    --white: #FFFFFF;
+    --black: #000000;
+    --grey: #D1D1D1;
+    --background: #F6F7F8;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -35,7 +44,7 @@ body {
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background: #F6F7F8;
+    background: var(--background);
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -68,7 +77,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .login-signup-button {
@@ -77,10 +86,10 @@ body {
     gap: 10px;
     width: 100px;
     height: 51px;
-    background: #2a3647;
+    background: var(--primary-color);
     border-radius: 8px;
     border: none;
-    color: #FFFFFF;
+    color: var(--white);
 
     font-style: normal;
     font-weight: 700;
@@ -88,7 +97,7 @@ body {
 }
 
 .login-signup-button:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -99,7 +108,7 @@ body {
     padding: 35px 0px;
     gap: 35px;
     width: 652px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
@@ -120,13 +129,13 @@ body {
     font-weight: 700;
     font-size: 61px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .login-blueline {
     width: 150px;
     height: 00px;
-    border: 3px solid #29ABE2;
+    border: 3px solid var(--secondary-color);
     border-radius: 10px;
 }
 
@@ -146,8 +155,8 @@ body {
     gap: 10px;
     width: 422px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
 }
 
@@ -169,7 +178,7 @@ body {
     font-size: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .mail-icon {
@@ -222,7 +231,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
     flex: none;
 }
 
@@ -234,7 +243,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #29ABE2;
+    color: var(--secondary-color);
 }
 
 .login-buttons-wrap {
@@ -253,17 +262,17 @@ body {
     gap: 10px;
     width: 145px;
     height: 51px;
-    background: #2a3647;
+    background: var(--primary-color);
     border-radius: 8px;
     border: none;
-    color: #FFFFFF;
+    color: var(--white);
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
 }
 
 .login-login-button:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -276,17 +285,17 @@ body {
     height: 51px;
     line-height: 43px;
     border-radius: 8px;
-    border: 1px solid #2a3647;
-    background: #FFFFFF;
-    color: #2a3647;
+    border: 1px solid var(--primary-color);
+    background: var(--white);
+    color: var(--primary-color);
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
 }
 
 .login-guestlogin-button:hover {
-    color: #29ABE2;
-    border: 2px solid #29ABE2;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -299,7 +308,7 @@ body {
     width: 826px;
     height: 462px;
     gap: 35px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
@@ -312,7 +321,7 @@ body {
     font-weight: 700;
     font-size: 61px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .forgotpw-bluearrow {
@@ -327,7 +336,7 @@ body {
 
 .forgotpw-blueline {
     width: 150px;
-    border: 3px solid #29ABE2;
+    border: 3px solid var(--secondary-color);
     border-radius: 20px;
 }
 
@@ -339,7 +348,7 @@ body {
     font-weight: 400;
     font-size: 21px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .forgotpw-button {
@@ -352,7 +361,7 @@ body {
     gap: 10px;
     width: 264px;
     height: 51px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 8px;
     color: white;
     font-style: normal;
@@ -362,7 +371,7 @@ body {
 }
 
 .forgotpw-button:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -385,7 +394,7 @@ body {
     gap: 15px;
     height: 74px;
     width: 424px;
-    background: #2A3647;
+    background: var(--primary-color);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
 }
@@ -397,7 +406,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 /** Reset Password **/
@@ -408,7 +417,7 @@ body {
     padding-left: 85px;
     padding-right: 85px;
     padding-bottom: 44px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
@@ -440,7 +449,7 @@ body {
 .resetpw-blueline {
     width: 150px;
     height: 0px;
-    border: 3px solid #29ABE2;
+    border: 3px solid var(--secondary-color);
     border-radius: 10px;
 }
 
@@ -452,7 +461,7 @@ body {
     font-weight: 700;
     font-size: 61px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .resetpw-text {
@@ -464,7 +473,7 @@ body {
     font-weight: 400;
     font-size: 21px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .resetpw-input-wrap {
@@ -498,18 +507,18 @@ body {
     gap: 10px;
     width: 264px;
     height: 51px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 8px;
     border: unset;
 
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .resetpw-btn:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -533,7 +542,7 @@ body {
     gap: 13px;
     width: 326px;
     height: 74px;
-    background: #2A3647;
+    background: var(--primary-color);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
 }
@@ -542,7 +551,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 /** Animation of email & resetpw message **/
@@ -559,7 +568,7 @@ body {
     gap: 35px;
     width: 652px;
     height: 559px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
@@ -595,13 +604,13 @@ body {
     font-size: 61px;
     line-height: 120%;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .signup-blueline {
     width: 150px;
     height: 2px;
-    border: 2px solid #29ABE2;
+    border: 2px solid var(--secondary-color);
     border-radius: 20px;
 }
 
@@ -636,15 +645,15 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    color: #FFFFFF;
-    background: #2A3647;
+    color: var(--white);
+    background: var(--primary-color);
     border-radius: 8px;
     border: unset;
     cursor: pointer;
 }
 
 .signup-button:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 

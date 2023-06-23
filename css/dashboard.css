@@ -8,6 +8,20 @@
     The downside is the sheer overwhelming mass of CSS lines for a relatively small scale project.
 */
 
+:root {
+    --primary-color: #2A3647;
+    --secondary-color: #29ABE2;
+    --white: #FFFFFF;
+    --black: #000000;
+    --grey: #D1D1D1;
+    --background: #F6F7F8;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
 html {
     height: -webkit-fill-available;
 }
@@ -20,11 +34,6 @@ body {
     height: -webkit-fill-available;
 }
 
-@font-face {
-    font-family: 'Inter';
-    src: url('../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
-}
-
 .background {
     position: relative;
     top: 0;
@@ -35,7 +44,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #F6F7F8;
+    background: var(--background);
     z-index: -50;
 }
 
@@ -76,7 +85,7 @@ body {
     gap: 1rem;
     align-items: center;
     height: 74px;
-    background: #2A3647;
+    background: var(--primary-color);
     padding-left: 1rem;
     padding-right: 1rem;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
@@ -88,7 +97,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 /** Animation for message **/
@@ -111,7 +120,7 @@ body {
     top: 0;
     right: 0;
     height: 80px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     z-index: 2;
 }
@@ -124,7 +133,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .topnav-right {
@@ -144,7 +153,7 @@ body {
     border-radius: 35px;
     padding: 2px 2px;
     background: white;
-    border: 3px solid #2A3647;
+    border: 3px solid var(--primary-color);
 }
 
 .topnav-signout {
@@ -161,7 +170,7 @@ body {
     padding: 10px 10px;
     border-radius: 10px;
     border-top-right-radius: unset;
-    background: #2A3647;
+    background: var(--primary-color);
     color: white;
 }
 
@@ -178,7 +187,7 @@ body {
     top: 0;
     bottom: 0;
     width: 250px;
-    background: #2A3647;
+    background: var(--primary-color);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
@@ -224,7 +233,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #FFFFFF;
+    color: var(--white);
     flex: none;
     user-select: none;
 }
@@ -279,13 +288,13 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #000000;
+    color: var(--black);
 }
 
 .summary-title-line {
     width: 0px;
     height: 59px;
-    border: 3px solid #29ABE2;
+    border: 3px solid var(--secondary-color);
     border-radius: 10px;
 }
 
@@ -293,7 +302,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .summary-greeting-wrap {
@@ -313,7 +322,7 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .summary-username {
@@ -324,7 +333,7 @@ body {
     font-weight: 700;
     font-size: 64px;
 
-    color: #29ABE2;
+    color: var(--secondary-color);
 }
 
 .summary-tile-container {
@@ -357,7 +366,7 @@ body {
     width: 160px;
     min-height: 150px;
     max-height: 150px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
 }
@@ -378,7 +387,7 @@ body {
     font-weight: 600;
     font-size: 56px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .summary-tile-text {
@@ -388,7 +397,7 @@ body {
     font-weight: 400;
     font-size: 18px;
     text-align: center;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .summary-tile-middlewrap {
@@ -402,7 +411,7 @@ body {
     width: 580px;
     min-height: 150px;
     max-height: 150px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
 }
@@ -447,20 +456,20 @@ body {
     font-weight: 600;
     font-size: 47px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .summary-tile-middle-text {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .summary-tile-middle-line {
     width: 0px;
     height: 102.02px;
-    border: 2px solid #D1D1D1;
+    border: 2px solid var(--grey);
     border-radius: 10px;
 }
 
@@ -475,7 +484,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .summary-tile-bottomwrap {
@@ -497,7 +506,7 @@ body {
     width: 272px;
     min-height: 150px;
     max-height: 150px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
 }
@@ -533,7 +542,7 @@ body {
     font-weight: 600;
     font-size: 64px;
     text-align: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .summary-bottom-text {
@@ -542,7 +551,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .summary-bottom-done-icon {
@@ -555,37 +564,37 @@ body {
 .summary-tile:hover {
     transition: all 225ms ease-in-out;
     transform: scale(1.1);
-    background: #2A3647;
-    color: #FFFFFF;
+    background: var(--primary-color);
+    color: var(--white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .summary-tile:hover span {
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .summary-tile-middlewrap:hover {
     transition: all 225ms ease-in-out;
     transform: scale(1.1);
-    background: #2A3647;
-    color: #FFFFFF;
+    background: var(--primary-color);
+    color: var(--white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .summary-tile-middlewrap:hover span {
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .summary-bottom-tile:hover {
     transition: all 225ms ease-in-out;
-    background: #2A3647;
-    color: #FFFFFF;
+    background: var(--primary-color);
+    color: var(--white);
     transform: scale(1.1);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .summary-bottom-tile:hover span {
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .summary-bottom-tile:hover .summary-bottom-todo-icon {
@@ -638,7 +647,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #000000;
+    color: var(--black);
 }
 
 .board-topright {
@@ -658,8 +667,8 @@ body {
     gap: 10px;
     width: 251px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #A8A8A8;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
 }
 
@@ -693,7 +702,7 @@ body {
     align-items: center;
     border: unset;
     background: unset;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .board-searchbar-text:focus {
@@ -712,7 +721,7 @@ body {
 .board-searchbar-verticalline {
     width: 0px;
     height: 31px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid var(--grey);
 }
 
 .board-searchbar-icon {
@@ -731,12 +740,12 @@ body {
     gap: 10px;
     width: 137px;
     height: 51px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 10px;
 }
 
 .board-addtask-button:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -746,7 +755,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    color: #FFFFFF;
+    color: var(--white);
     flex: none;
 }
 
@@ -761,7 +770,7 @@ body {
     justify-content: center;
     font-size: 24px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: var(--white);
     width: 15px;
     height: 15px;
 }
@@ -773,7 +782,7 @@ body {
     left: 0;
     right: 0;
     height: 250px;
-    background: #F6F7F8;
+    background: var(--background);
     z-index: 0;
 }
 
@@ -833,7 +842,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .dropzone {
@@ -864,7 +873,7 @@ body {
     padding: 18px 19px;
     gap: 10px;
     width: 250px;
-    background: #FFFFFF;
+    background: var(--white);
     border-radius: 30px;
 }
 
@@ -890,7 +899,7 @@ body {
     font-weight: 400;
     font-size: 16px;
 
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .board-cardtext-wrap {
@@ -917,7 +926,7 @@ body {
     font-weight: 700;
     font-size: 16px;
 
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .board-cardtext {
@@ -927,7 +936,7 @@ body {
     font-weight: 400;
     font-size: 16px;
 
-    color: #A8A8A8;
+    color: var(--grey);
 }
 
 .board-progressbar-wrap {
@@ -943,14 +952,14 @@ body {
 .board-progressbar-outer {
     width: 138px;
     height: 8px;
-    background: #F4F4F4;
+    background: var(--grey);
     border-radius: 2px;
 }
 
 .board-progressbar-inner {
     width: 138px;
     height: 8px;
-    background: #29ABE2;
+    background: var(--secondary-color);
     border-radius: 2px;
 }
 
@@ -960,7 +969,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    color: #000000;
+    color: var(--black);
 }
 
 .board-cardbottom-wrap {
@@ -993,7 +1002,7 @@ body {
     width: 35px;
     height: 35px;
     background: #4E963D;
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--white);
     border-radius: 58px;
 }
 
@@ -1009,7 +1018,7 @@ body {
     width: 35px;
     height: 35px;
     background: #9327FF;
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--white);
     border-radius: 58px;
     margin: 0px -6px;
 }
@@ -1025,8 +1034,8 @@ body {
     gap: 10px;
     width: 35px;
     height: 35px;
-    background: #2A3647;
-    border: 1px solid #FFFFFF;
+    background: var(--primary-color);
+    border: 1px solid var(--white);
     border-radius: 58px;
 }
 
@@ -1037,7 +1046,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .board-prio-wrap {
@@ -1076,7 +1085,7 @@ body {
     max-height: 700px;
     padding: 20px 70px 20px 20px;
     gap: 25px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     z-index: 51;
@@ -1099,7 +1108,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .board-taskoverlay-title {
@@ -1107,7 +1116,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 41px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .board-taskoverlay-text {
@@ -1115,7 +1124,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .board-taskoverlay-line {
@@ -1131,7 +1140,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .board-taskoverlay-value {
@@ -1139,7 +1148,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 .board-taskoverlay-percentage {
@@ -1152,14 +1161,14 @@ body {
 .board-taskoverlay-percentage-inner-gray {
     width: 200px;
     height: 8px;
-    background: #F4F4F4;
+    background: var(--grey);
     border-radius: 2px;
 }
 
 .board-taskoverlay-percentage-inner-blue {
     width: 200px;
     height: 8px;
-    background: #29ABE2;
+    background: var(--secondary-color);
     border-radius: 2px;
 }
 
@@ -1167,7 +1176,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    color: #000000;
+    color: var(--black);
 }
 
 .board-overlay-subtasks {
@@ -1213,7 +1222,7 @@ body {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 10px;
     background-image: url("../assets/img/delete.png");
     background-repeat: no-repeat;
@@ -1225,7 +1234,7 @@ body {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 10px;
     background-image: url("../assets/img/check.svg");
     background-repeat: no-repeat;
@@ -1236,7 +1245,7 @@ body {
     cursor: pointer;
     width: 40px;
     min-height: 40px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 10px;
     background-image: url("../assets/img/pencil_white.svg");
     background-repeat: no-repeat;
@@ -1258,8 +1267,8 @@ body {
     padding: 10px 10px;
     border-radius: 10px;
     border-bottom-right-radius: 0px;
-    background: #2A3647;
-    color: white;
+    background: var(--primary-color);
+    color: var(--white);
 }
 
 /** Add Task Overlay **/
@@ -1268,7 +1277,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 25px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     z-index: 51;
@@ -1317,7 +1326,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-container {
@@ -1398,7 +1407,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-leftcontainer-titlefield {
@@ -1410,8 +1419,8 @@ body {
     gap: 10px;
     width: 422px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1434,7 +1443,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-leftcontainer-descriptionfield {
@@ -1448,8 +1457,8 @@ body {
     width: 422px;
     min-height: 119px;
     max-height: 200px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
     font-family: 'Inter';
     font-style: normal;
@@ -1473,7 +1482,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .grow {
@@ -1492,13 +1501,13 @@ body {
     gap: 15px;
     width: 422px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
     background-image: url('../assets/img/dropdown.svg');
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
@@ -1530,7 +1539,7 @@ body {
     width: 250px;
     height: 49px;
     border: unset;
-    background: #FFFFFF;
+    background: var(--white);
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1562,19 +1571,19 @@ body {
 }
 
 .fixed {
-    background: #FFFFFF;
+    background: var(--white);
     height: 25px;
     z-index: 5;
 }
 
 .addtask-leftcontainer-selection:hover {
-    background: #D1D1D1;
+    background: var(--grey);
 }
 
 .addtask-leftcontainer-circle {
     display: flex;
     border-radius: 50%;
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--white);
     width: 20px;
     height: 20px;
 }
@@ -1594,7 +1603,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-leftcontainer-assignedfield {
@@ -1609,13 +1618,13 @@ body {
     isolation: isolate;
     width: 422px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
     background-image: url('../assets/img/dropdown.svg');
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
@@ -1638,7 +1647,7 @@ body {
 .addtask-leftcontainer-assigned-circle {
 
     font-size: 12px;
-    color: #FFFFFF;
+    color: var(--white);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -1649,14 +1658,14 @@ body {
     gap: 10px;
     width: 35px;
     height: 35px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--white);
     border-radius: 58px;
 }
 
 .addtask-line {
     width: 0px;
     height: 551px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid var(--grey);
 }
 
 .addtask-rightcontainer {
@@ -1682,7 +1691,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-rightcontainer-datefield {
@@ -1696,8 +1705,8 @@ body {
     isolation: isolate;
     width: 422px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     border-radius: 10px;
     font-family: 'Inter';
     font-style: normal;
@@ -1722,7 +1731,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-rightcontainer-priobtns {
@@ -1746,7 +1755,7 @@ body {
     gap: 10px;
     width: 150px;
     height: 51px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -1756,7 +1765,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .redbackground {
@@ -1773,7 +1782,7 @@ body {
 
 .whitetext {
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .addtast-rightcontainer-priobtns-icon {
@@ -1802,7 +1811,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #000000;
+    color: var(--black);
 }
 
 .addtask-rightcontainer-subtaskborder {
@@ -1816,8 +1825,8 @@ body {
     isolation: isolate;
     width: 422px;
     height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+    background: var(--white);
+    border: 1px solid var(--grey);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -1831,7 +1840,7 @@ body {
     isolation: isolate;
     width: 422px;
     height: 49px;
-    background: #FFFFFF;
+    background: var(--white);
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1876,7 +1885,7 @@ body {
     width: 16px;
     height: 16px;
     background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
-    border: 1px solid #000000;
+    border: 1px solid var(--black);
     border-radius: 3px;
 }
 
@@ -1886,7 +1895,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
     white-space: nowrap;
 }
 
@@ -1922,18 +1931,18 @@ body {
     gap: 10px;
     width: 136px;
     height: 51px;
-    border: 1px solid #2A3647;
+    border: 1px solid var(--primary-color);
     border-radius: 10px;
 
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .addtask-button-clear:hover {
-    border: 2px solid #29ABE2;
-    color: #29ABE2;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -1961,12 +1970,12 @@ body {
     gap: 10px;
     width: 177px;
     height: 51px;
-    background: #2A3647;
+    background: var(--primary-color);
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #FFFFFF;
+    color: var(--white);
     border: none;
 }
 
@@ -1979,7 +1988,7 @@ body {
 }
 
 .addtask-button-createtask:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -2016,13 +2025,13 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #000000;
+    color: var(--black);
 }
 
 .contact-title-line {
     width: 0px;
     height: 59px;
-    border: 3px solid #29ABE2;
+    border: 3px solid var(--secondary-color);
     border-radius: 15px;
 }
 
@@ -2032,7 +2041,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    color: #2A3647;
+    color: var(--primary-color);
     flex: none;
 }
 
@@ -2042,7 +2051,7 @@ body {
     top: 80px;
     bottom: 0;
     width: 453px;
-    background: #FFFFFF;
+    background: var(--white);
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -2057,7 +2066,7 @@ body {
 .contact-container-inner {
     padding: 10px 48px;
     width: 357px;
-    background: #FFFFFF;
+    background: var(--white);
 }
 
 .contact-alphabet-wrap {
@@ -2078,7 +2087,7 @@ body {
     font-size: 21px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .contact-line-container {
@@ -2094,7 +2103,7 @@ body {
 .contact-line {
     width: 323px;
     height: 0px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid var(--grey);
     border-radius: 3px;
 }
 
@@ -2106,7 +2115,7 @@ body {
     align-items: flex-start;
     padding: 15px 25px;
     gap: 35px;
-    background: #FFFFFF;
+    background: var(--white);
     border-radius: 10px;
     overflow-x: hidden;
 }
@@ -2125,7 +2134,7 @@ body {
     gap: 35px;
     border-radius: 10px;
     overflow-x: hidden;
-    background: #2A3647;
+    background: var(--primary-color);
 }
 
 .contact-template-circle {
@@ -2136,7 +2145,7 @@ body {
     gap: 10px;
     width: 42px;
     height: 42px;
-    background: #FFFFFF;
+    background: var(--white);
     border-radius: 45px;
 
     font-style: normal;
@@ -2145,9 +2154,9 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--white);
     background: #FF7A00;
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--white);
     flex: none;
     flex-grow: 0;
 }
@@ -2166,7 +2175,7 @@ body {
     font-size: 21px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--black);
     white-space: nowrap;
 }
 
@@ -2177,7 +2186,7 @@ body {
     font-size: 21px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: var(--white);
     white-space: nowrap;
 }
 
@@ -2188,7 +2197,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    color: #007CEE;
+    color: var(--secondary-color);
     flex: none;
 }
 
@@ -2222,8 +2231,8 @@ body {
     align-items: center;
     width: 120px;
     height: 120px;
-    background: #FFFFFF;
-    border: 3px solid #FFFFFF;
+    background: var(--white);
+    border: 3px solid var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 70px;
 }
@@ -2235,7 +2244,7 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .contact-canvas-circleorange {
@@ -2265,7 +2274,7 @@ body {
     font-size: 47px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--black);
     white-space: nowrap;
 }
 
@@ -2294,7 +2303,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    color: #29ABE2;
+    color: var(--secondary-color);
 }
 
 .contact-canvas-infowrap {
@@ -2314,7 +2323,7 @@ body {
     font-size: 21px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .contact-canvas-info-editwrap {
@@ -2337,7 +2346,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    color: #2A3647;
+    color: var(--primary-color);
 }
 
 .contact-canvas-detailswrap {
@@ -2361,7 +2370,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .contact-canvas-email {
@@ -2371,7 +2380,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    color: #007CEE;
+    color: var(--secondary-color);
 }
 
 .contact-canvas-phone {
@@ -2380,7 +2389,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--black);
 }
 
 .contact-addcontact-button {
@@ -2398,8 +2407,8 @@ body {
     height: 53px;
     margin-top: 80px;
     margin-left: 980px;
-    background: #2A3647;
-    border: 1px solid #2A3647;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 10px;
 }
 
@@ -2411,7 +2420,7 @@ body {
     font-weight: 700;
     font-size: 21px;
 
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .contact-addcontact-button-icon {
@@ -2420,9 +2429,9 @@ body {
 }
 
 .contact-addcontact-button:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: 1px solid #29ABE2;
+    border: 1px solid var(--secondary-color);
 }
 
 /** Add contact overlay **/
@@ -2448,15 +2457,15 @@ body {
     align-items: flex-start;
     gap: 12px;
     padding: 66px 46px;
-    background-color: #2A3647;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .addcontact-form {
     position: relative;
     display: flex;
     padding: 120px 50px 120px 70px;
-    background-color: white;
+    background-color: var(--white);
     align-items: center;
     flex-direction: row;
 }
@@ -2490,7 +2499,7 @@ body {
 .addcontact-form input {
     width: 422px;
     height: 45px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--grey);
     border-radius: 9px;
     padding-left: 15px;
     padding-top: 5px;
@@ -2530,7 +2539,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .addcontact-subtitle {
@@ -2540,7 +2549,7 @@ input:invalid {
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .addcontact-submit-btns {
@@ -2553,7 +2562,7 @@ input:invalid {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 3px solid var(--white);
     overflow: hidden;
     margin-right: 80px;
 }
@@ -2565,7 +2574,7 @@ input:invalid {
     align-items: center;
     width: 100%;
     height: 100%;
-    color: white;
+    color: var(--white);
 }
 
 .addcontact-user-badge img {
@@ -2577,11 +2586,11 @@ input:invalid {
     padding: 18px 25px !important;
     width: 136px !important;
     height: 61px !important;
-    border: 1px solid #2A3647 !important;
+    border: 1px solid var(--primary-color) !important;
     border-radius: 10px !important;
     cursor: pointer;
-    color: #2A3647;
-    background-color: #F6F7F8;
+    color: var(--primary-color);
+    background-color: var(--background);
     transition: 100ms ease-in-out;
     background-image: url('../assets/img/clear.svg');
     background-size: 17px 17px;
@@ -2589,8 +2598,8 @@ input:invalid {
 }
 
 .addcontact-clear-btn:hover {
-    color: #29ABE2;
-    border: 1px solid #29ABE2 !important;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color) !important;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
     background-image: url('../assets/img/clear_blue.svg');
@@ -2602,8 +2611,8 @@ input:invalid {
     width: 208px !important;
     height: 61px !important;
     gap: 10px;
-    background: #2A3647;
-    color: #FFFFFF;
+    background: var(--primary-color);
+    color: var(--white);
     border-radius: 10px !important;
     cursor: pointer;
     transition: 100ms ease-in-out;
@@ -2612,7 +2621,7 @@ input:invalid {
 }
 
 .addcontact-create-btn:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
     background-image: url('../assets/img/check.svg');
@@ -2643,8 +2652,8 @@ input:invalid {
     align-items: flex-start;
     gap: 12px;
     padding: 66px 46px;
-    background-color: #2A3647;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .editcontact-form {
@@ -2727,7 +2736,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .editcontact-subtitle {
@@ -2737,7 +2746,7 @@ input:invalid {
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .editcontact-submit-btns {
@@ -2751,7 +2760,7 @@ input:invalid {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 3px solid var(--white);
     overflow: hidden;
     margin-right: 80px;
 }
@@ -2763,7 +2772,7 @@ input:invalid {
     align-items: center;
     width: 100%;
     height: 100%;
-    color: white;
+    color: var(--white);
 }
 
 .editcontact-user-badge img {
@@ -2776,8 +2785,8 @@ input:invalid {
     width: 143px !important;
     height: 61px !important;
     gap: 10px;
-    background: #2A3647;
-    color: #FFFFFF;
+    background: var(--primary-color);
+    color: var(--white);
     border-radius: 10px !important;
     cursor: pointer;
     transition: 100ms ease-in-out;
@@ -2787,7 +2796,7 @@ input:invalid {
 }
 
 .editcontact-create-btn:hover {
-    background: #29ABE2;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
     background-image: url('../assets/img/check.svg');
@@ -2820,7 +2829,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #000000;
+    color: var(--black);
 }
 
 .legal-join-inner {
@@ -2837,7 +2846,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
-    color: #000000;
+    color: var(--black);
 }
 
 .legal-responsible-txt {
@@ -2845,7 +2854,7 @@ input:invalid {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 .legal-content-title {
@@ -2854,7 +2863,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
-    color: #000000;
+    color: var(--black);
 }
 
 .legal-content-text {
@@ -2862,7 +2871,7 @@ input:invalid {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 /** End Legal Content **/
@@ -2888,7 +2897,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
-    color: #000000;
+    color: var(--black);
 }
 
 .help-join-inner {
@@ -2905,7 +2914,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
-    color: #000000;
+    color: var(--black);
 }
 
 .help-whatIsJoin-txt {
@@ -2913,7 +2922,7 @@ input:invalid {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 .help-howToUseIt-title {
@@ -2921,7 +2930,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
-    color: #000000;
+    color: var(--black);
 }
 
 .help-howToUseIt-wrap {
@@ -2943,7 +2952,7 @@ input:invalid {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
-    color: #000000;
+    color: var(--black);
     width: 20px;
 }
 
@@ -2952,7 +2961,7 @@ input:invalid {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 /** End Help Content **/
@@ -3378,7 +3387,7 @@ input:invalid {
         padding: 0px 10px !important;
         height: 40px !important;
         font-size: 18px !important;
-        border: 1px solid #2A3647 !important;
+        border: 1px solid var(--primary-color) !important;
         text-align: start;
     }
 }
@@ -3732,7 +3741,7 @@ input:invalid {
         padding-bottom: 20px;
         flex-direction: column;
         overflow-x: hidden;
-        background: #FFFFFF;
+        background: var(--white);
     }
 
     .contact-title-container {
@@ -3792,7 +3801,7 @@ input:invalid {
         align-items: flex-start;
         justify-content: center;
         padding: 100px 100px;
-        background: #F6F7F8;
+        background: var(--background);
         z-index: 20;
     }
 
@@ -3801,7 +3810,7 @@ input:invalid {
         cursor: pointer;
         align-self: flex-start;
         margin-bottom: 30px;
-        color: black;
+        color: var(--black);
     }
 
     .contact-addcontact-button {
@@ -4032,7 +4041,7 @@ input:invalid {
         align-items: flex-start;
         justify-content: center;
         padding: 100px 40px;
-        background: #F6F7F8;
+        background: var(--background);
         z-index: 20;
     }
 }
