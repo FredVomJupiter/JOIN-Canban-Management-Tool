@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/img/logo_white.svg">
 
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="manifest" href="manifest.json">
 
     <!-- loaded scripts for SHA256 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
@@ -200,6 +201,11 @@
         </main>
     </div>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/JOIN/service-worker.js');
+        }
+    </script>
 
 </body>
 
