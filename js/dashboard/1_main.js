@@ -32,7 +32,6 @@ function checkToken() {
  */
 function greetUser() {
     let user = JSON.parse(localStorage.getItem('username'));
-    console.log(user);
     let greeting = document.getElementById('username');
     greeting.innerHTML = "";
     greeting.innerHTML = user;
