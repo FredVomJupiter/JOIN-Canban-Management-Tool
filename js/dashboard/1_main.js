@@ -28,7 +28,7 @@ function checkToken() {
 }
 
 /**
- * Greeting user if he is logged in, if sesssion value = 1.
+ * Writes greeting with username from localStorage.
  */
 function greetUser() {
     let user = JSON.parse(localStorage.getItem('username'));
