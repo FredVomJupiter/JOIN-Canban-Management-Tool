@@ -12,23 +12,18 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="manifest" href="manifest.json">
 
-    <!-- loaded scripts for SHA256 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
 
     <!-- defer for those scripts that need to wait for DOM -->
     <script src="./js/classes/class.users.js"></script>
     <script src="./js/login/login-navigation.js"></script>
     <script src="./js/login/login-users.js"></script>
-    <script defer src="./js/login/login-validation.js"></script>
     <script defer src="./js/login/signup-validation.js"></script>
     <script defer src="./js/login/forgotpw-validation.js"></script>
     <script defer src="./js/login/resetpw-validation.js"></script>
-    <script src="./js/mini_backend.js"></script>
 
 </head>
 
-<body onload="initUsers();">
+<body onload="init()">
 
     <div class="background">
 
@@ -44,7 +39,7 @@
             </div>
 
             <!-- Container in der Mitte -->
-            <form class="login-center-container" id="loginForm">
+            <div class="login-center-container" id="loginForm">
 
                 <!-- Title -->
                 <div class="login-title-wrap">
@@ -55,13 +50,13 @@
                 <!-- Input Felder-->
                 <div class="login-input-wrap">
                     <div class="login-input-border">
-                        <input class="login-input mail-icon" type="text" placeholder="Email" id="loginEmail">
-                        <div class="error"></div>
+                        <input class="login-input mail-icon" type="text" placeholder="Email or Name" id="loginEmail">
                     </div>
+                    <div class="error" id="emailError"></div>
                     <div class="login-input-border">
                         <input class="login-input pw-icon" type="password" placeholder="Password" id="loginPw">
-                        <div class="error"></div>
                     </div>
+                    <div class="error" id="passwordError"></div>
                 </div>
 
                 <!-- Optionen forgot/reset -->
@@ -75,10 +70,10 @@
 
                 <!-- Buttons unten -->
                 <div class="login-buttons-wrap">
-                    <button class="login-login-button" type="submit">Log in</button>
+                    <button class="login-login-button" onclick="loginWithUsernameAndPassword()">Log in</button>
                     <div class="login-guestlogin-button" onclick="openDashboard()">Guest Log in</div>
                 </div>
-            </form>
+            </div>
         </main>
 
         <!-- Forgotpw Page -->

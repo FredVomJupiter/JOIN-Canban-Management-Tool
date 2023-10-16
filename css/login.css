@@ -160,15 +160,12 @@ body {
     border-radius: 10px;
 }
 
-.login-input-border.error {
-    border-color: #ff3860;
-}
-
-.login-input-border .error {
+.error {
+    position: relative;
+    top: -1rem;
     color: #ff3860;
     font-size: 12px;
-    margin-top: 2px;
-    height: 13px;
+    height: 0px;
 }
 
 .login-input {

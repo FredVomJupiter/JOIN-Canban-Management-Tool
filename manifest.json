@@ -1,6 +1,6 @@
 {
     "name": "Join - Kanban Management Tool",
-    "start_url": "https://join.frederic-rieg.de/login.html",
+    "start_url": "https://www.join.frederic-rieg.de/login.html",
     "icons": [
         {
             "src": "pwa_icons/manifest-icon-192.maskable.png",

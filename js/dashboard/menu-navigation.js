@@ -1,3 +1,5 @@
+const baseUrl = 'http://127.0.0.1:8000/';
+
 let links = {
     login: "login.html",
     summary: "dashboard.html",
@@ -30,9 +32,24 @@ function openSignout() {
     }
 }
 
-
-function openLogin() {
-    window.open('./login.html', '_self');
+/**
+ * Sends POST request to Django backend to logout user via token.
+ * Redirects to Login page after successful logout.
+ */
+function logout() {
+    fetch(baseUrl + 'logout/', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Authorization': " Token " + document.cookie.split('=')[1] },
+        body: JSON.stringify("Oink")})
+        .then(response => {response.json()
+            .then(() => {
+                document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                localStorage.removeItem('username');
+                window.open('./login.html', '_self');
+            })
+        })
+        .catch(error => {console.log(error)});
 }
 
 
@@ -50,7 +67,7 @@ function openPage(pageName) {
  */
 function renderPageSpecificContent(pageName) {
     pageName === 'summary' ? updateCounters() : "";
-    pageName === 'contacts' ? renderContactList(): "";
+    pageName === 'contacts' ? renderContactList() : "";
     pageName === 'board' ? renderCards() : "";
 }
 
