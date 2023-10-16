@@ -6,22 +6,17 @@ let contactTemplate = new ContactTemplate();
  */
 async function init() {
     if (checkToken()) {
-        // Updating Board, Summary and Contact pages.
-        if (cards.length > 0) {
-            renderCards();
-        }
         greetUser();
         updateCounters();
-        renderContactList();
+        renderCards();
         initNewTask();
     } else {
-        // Redirect to Login page if no token is available.
-        window.location.href = "login.html";
+        window.location.href = "login.html"; // Redirect to Login page if no token is available.
     }
 }
 
 /**
- * Simple check if a token is available.
+ * Simple check if a token is available to prevent manual access via url.
  */
 function checkToken() {
     return document.cookie == "" ? false : true;
