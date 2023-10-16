@@ -8,7 +8,7 @@ let users;
  */
 async function init() {
     // Loading from backend
-    setURL('https://www.frederic-rieg.developerakademie.net/smallest_backend_ever');
+    setURL('https://join.frederic-rieg.de/smallest_backend_ever');
     await downloadFromServer();
     await loadLocalStorage('cards');
     await loadLocalStorage('contacts')
