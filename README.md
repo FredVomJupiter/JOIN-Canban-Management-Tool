@@ -3,7 +3,7 @@
 JOIN is a team-oriented kanban board that helps you keep track of your and your team's tasks.
 This app is divided into five sections: login, summary, board, add task and contacts.
 
-It is connected to a Django Restful API written by me. Login with basic authorisation and Tokens.
+It is connected to a Django Restful API written by me. Login with basic authentication and tokens.
 
 All accounts can see all todos, categories, subtasks and contacts. However, updating or deleting of other account's data is prohibited.
 
