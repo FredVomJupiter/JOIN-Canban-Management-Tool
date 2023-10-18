@@ -9,6 +9,7 @@ function init() {
         document.getElementById("loginEmail").value = credentials.username;
         document.getElementById("loginPw").value = credentials.password;
         document.getElementById("rememberUser").checked = true;
+        localStorage.removeItem("user"); // Remove credentials after data has been set (in case user leaves computer unattended).
     } else {
         document.getElementById("rememberUser").checked = false;
     }
