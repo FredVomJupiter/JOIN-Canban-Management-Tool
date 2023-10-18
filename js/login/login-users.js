@@ -65,7 +65,7 @@ async function startHttpRequest() {
     }).catch(error => { console.log(error) });
     let json = await response.json();
     if (response.status != 200) {
-        handleErrors(data);
+        handleErrors(json);
         return;
     }
     if (response.status == 200) {
