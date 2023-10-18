@@ -18,7 +18,7 @@ async function init() {
         greetUser();
         let promises = [getContacts(), getCategories(), getSubtasks(), getTodos()];
         await Promise.all(promises).finally(() => {
-            updateCounters();
+            updateCounters(); // In 2_summary.js
         }).catch(error => { console.log(error) });
     } else {
         window.open('./login.html', '_self'); // Redirect to Login page if no token is available.

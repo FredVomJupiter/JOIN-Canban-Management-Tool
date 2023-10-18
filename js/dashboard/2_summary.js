@@ -4,8 +4,9 @@ const monthNames = [
     "July", "August", "September", "October", "November", "December"
 ];
 
-// Functions for Summary Page
-
+/**
+ * Updates all elements on the summary page.
+ */
 function updateCounters() {
     countTasks();
     countProgress();
