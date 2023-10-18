@@ -19,7 +19,6 @@ async function init() {
         let promises = [getContacts(), getCategories(), getSubtasks(), getTodos()];
         await Promise.all(promises).finally(() => {
             updateCounters();
-            renderCards();
         }).catch(error => { console.log(error) });
     } else {
         window.open('./login.html', '_self'); // Redirect to Login page if no token is available.
