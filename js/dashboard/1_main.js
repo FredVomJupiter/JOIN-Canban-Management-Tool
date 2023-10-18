@@ -11,7 +11,7 @@ async function init() {
         renderCards();
         initNewTask();
     } else {
-        window.location.href = "login.html"; // Redirect to Login page if no token is available.
+        window.open('./login.html', '_self'); // Redirect to Login page if no token is available.
     }
 }
 

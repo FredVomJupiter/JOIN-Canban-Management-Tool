@@ -15,6 +15,13 @@ function init() {
 }
 
 
+async function loginWithGuestAccount() {
+    document.getElementById("loginEmail").value = "guest";
+    document.getElementById("loginPw").value = "MNM&9Ah\"D3!Q4Hv";
+    await startHttpRequest();
+}
+
+
 /**
  * Standard Login with Username and Password.
  */
@@ -65,7 +72,7 @@ async function startHttpRequest() {
                 removeErrors();
                 rememberUser();
                 localStorage.setItem('username', JSON.stringify(email.value));
-                window.location.href = "dashboard.html", 1000; // Redirect to Dashboard
+                window.open('./dashboard.html', '_self'); // Redirect to Dashboard
             });
     }).catch(error => {
         console.log(error);

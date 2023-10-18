@@ -45,8 +45,9 @@ function logout() {
         .then(response => {response.json()
             .then(() => {
                 document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "csrftoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 localStorage.removeItem('username');
-                window.open('./login.html', '_self');
+                window.open('./login.html', '_self'); // Redirect to Login page
             })
         })
         .catch(error => {console.log(error)});
