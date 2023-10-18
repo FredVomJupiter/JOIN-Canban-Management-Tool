@@ -6,11 +6,6 @@ let pages = [
 ]
 
 
-function openDashboard() {
-    window.open('./dashboard.html', '_self');
-}
-
-
 function openPage(pageName) {
     hidePages();
     let page = document.getElementById(`${pageName}`);
@@ -35,7 +30,6 @@ function sendMessage(type) {
     } else {
         animateMessage('messageMail');
         goToResetpw('messageMail');
-        
     }
 }
 
