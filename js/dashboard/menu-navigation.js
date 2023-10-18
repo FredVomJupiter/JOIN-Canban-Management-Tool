@@ -22,7 +22,9 @@ let menus = [
     "menu-legal",
 ]
 
-
+/**
+ * Toggles the small menu on the top right corner of the page.
+ */
 function openSignout() {
     let signout = document.getElementById('signout');
     if (signout.classList.contains('d-none')) {
