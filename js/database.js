@@ -4,6 +4,7 @@ const monthNames = [
     "July", "August", "September", "October", "November", "December"
 ];
 
+// Local instance of the database collected from the server.
 let contacts = [];
 let categories = [];
 let subtasks = [];
