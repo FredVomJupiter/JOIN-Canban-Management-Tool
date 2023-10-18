@@ -1,3 +1,9 @@
+/**
+ * Handles all menu navigation related functions.
+ * Left sidebar menu and bottom menu are handled here as well as
+ * the small menu on the top right corner of the page.
+ */
+
 let links = {
     login: "login.html",
     summary: "dashboard.html",
