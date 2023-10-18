@@ -1,3 +1,9 @@
+// All months for the summary board (urgent) date calculation and visualization.
+const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
 // Functions for Summary Page
 
 function updateCounters() {
@@ -47,37 +53,42 @@ function showUpcomingDeadline() {
 
 
 /**
- * This functon filters cards with prority "urgent" and if more than 1
- * urgent card exists, it hands over the list of cards to the "mostUrgentDeadline()"
+ * This functon filters todos with prority "High" and if more than 1
+ * urgent todo exists, it hands over the list of todos to the "mostUrgentDeadline()"
  * function.
  * @returns String containing month, day and year.
  */
 function returnDeadline() {
     let urgentDeadlines = todos.filter(card => card.priority == "High");
     if (urgentDeadlines.length >= 1) {
-        let month = mostUrgentDeadline(urgentDeadlines).getMonth() + 1;
-        let day = mostUrgentDeadline(urgentDeadlines).getDate();
-        let year = mostUrgentDeadline(urgentDeadlines).getFullYear();
-        return monthNames[month] + " " + day + ", " + year; // monthNames called from database.js
+        let theChosenOne = mostUrgentDeadline(urgentDeadlines);
+        return formatDeadline(theChosenOne);
     }
     if (urgentDeadlines.length == 0) {
         return "No urgent";
     }
 }
 
-
 /**
  * 
- * @param {array} urgentDeadlines containing filtered cards with priority "urgent".
+ * @param {array} urgentDeadlines containing filtered todos with priority "High".
  * @returns the first date of a ascending sorted list of dates.
  */
 function mostUrgentDeadline(urgentDeadlines) {
     let urgentDatesList = [];
     urgentDeadlines.forEach(urgent => {
-        urgentDatesList.push(new Date(urgent.date));
+        urgentDatesList.push(urgent.due_date);
     });
     urgentDatesList.sort((a, b) => a - b);
-    return new Date(urgentDatesList[0]);
+    return urgentDatesList[0];
+}
+
+
+function formatDeadline(date) {
+    let month = date.substr(5, 2);
+    let day = date.substr(8, 2);
+    let year = date.substr(0, 4);
+    return monthNames[month - 1] + " " + day + ", " + year;
 }
 
 

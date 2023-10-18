@@ -37,11 +37,11 @@ function openSignout() {
  * Redirects to Login page after successful logout.
  */
 function logout() {
-    fetch(baseUrl + 'logout/', {
+    fetch('http://127.0.0.1:8000/' + 'logout/', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Authorization': " Token " + document.cookie.split('=')[1] },
-        body: JSON.stringify("Oink")})
+        })
         .then(response => {response.json()
             .then(() => {
                 document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
