@@ -1,5 +1,3 @@
-const baseUrl = 'http://127.0.0.1:8000/';
-
 let links = {
     login: "login.html",
     summary: "dashboard.html",
@@ -72,6 +70,7 @@ function renderPageSpecificContent(pageName) {
     pageName === 'summary' ? updateCounters() : "";
     pageName === 'contacts' ? renderContactList() : "";
     pageName === 'board' ? renderCards() : "";
+    pageName === 'addtask' ? initNewTask() : ""; // TODO: Check if this is necessary
 }
 
 

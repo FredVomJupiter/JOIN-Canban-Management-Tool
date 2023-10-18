@@ -14,28 +14,28 @@ function updateCounters() {
 function countTasks() {
     let tasksCounter = document.getElementById('tasksCounter');
     tasksCounter.innerHTML = "";
-    tasksCounter.innerHTML = cards.length;
+    tasksCounter.innerHTML = todos.length;
 }
 
 
 function countProgress() {
     let progressCounter = document.getElementById('progressCounter');
     progressCounter.innerHTML = "";
-    progressCounter.innerHTML = cards.filter(card => card.group == "In Progress").length;
+    progressCounter.innerHTML = todos.filter(card => card.status == "In Progress").length;
 }
 
 
 function countFeedback() {
     let feedbackCounter = document.getElementById('feedbackCounter');
     feedbackCounter.innerHTML = "";
-    feedbackCounter.innerHTML = cards.filter(card => card.group == "Awaiting Feedback").length;
+    feedbackCounter.innerHTML = todos.filter(card => card.status == "Awaiting Feedback").length;
 }
 
 
 function countUrgent() {
     let urgentCounter = document.getElementById('urgentCounter');
     urgentCounter.innerHTML = "";
-    urgentCounter.innerHTML = cards.filter(card => card.priority == "urgent").length;
+    urgentCounter.innerHTML = todos.filter(card => card.priority == "High").length;
 }
 
 
@@ -53,7 +53,7 @@ function showUpcomingDeadline() {
  * @returns String containing month, day and year.
  */
 function returnDeadline() {
-    let urgentDeadlines = cards.filter(card => card.priority == "urgent");
+    let urgentDeadlines = todos.filter(card => card.priority == "High");
     if (urgentDeadlines.length >= 1) {
         let month = mostUrgentDeadline(urgentDeadlines).getMonth() + 1;
         let day = mostUrgentDeadline(urgentDeadlines).getDate();
@@ -84,12 +84,12 @@ function mostUrgentDeadline(urgentDeadlines) {
 function countToDo() {
     let todoCounter = document.getElementById('todoCounter');
     todoCounter.innerHTML = "";
-    todoCounter.innerHTML = cards.filter(card => card.group == "To do").length;
+    todoCounter.innerHTML = todos.filter(card => card.status == "Todo").length;
 }
 
 
 function countDone() {
     let doneCounter = document.getElementById('doneCounter');
     doneCounter.innerHTML = "";
-    doneCounter.innerHTML = cards.filter(card => card.group == "Done").length;
+    doneCounter.innerHTML = todos.filter(card => card.status == "Done").length;
 }
