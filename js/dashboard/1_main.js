@@ -8,7 +8,7 @@ let subtasks = [];
 let todos = [];
 
 const baseUrl = 'http://127.0.0.1:8000/api/v1/';
-const token = document.cookie.split('token=')[1].split(';')[0];
+const token = localStorage.getItem('token').replace(/"/g, '');
 
 /**
  * Init function that is called when dashboard.html is loaded.
@@ -30,7 +30,7 @@ async function init() {
  * Simple check if a token is available to prevent manual access via url.
  */
 function hasToken() {
-    return document.cookie == "" ? false : true;
+    return localStorage.getItem('token') != null ? true : false;
 }
 
 /**

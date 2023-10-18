@@ -3,7 +3,6 @@
  * Left sidebar menu and bottom menu are handled here as well as
  * the small menu on the top right corner of the page.
  */
-const csrfToken = document.cookie.split(';')[1].split('=')[1];
 
 let links = {
     login: "login.html",
@@ -47,12 +46,12 @@ async function logout() {
     let response = await fetch('http://127.0.0.1:8000/' + 'logout/', {
         method: 'POST',
         credentials: 'include',
-        headers: { 'Authorization': " Token " + token, 'X-CSRFToken': csrfToken },
+        headers: { 'Authorization': " Token " + token},
     }).catch(error => { console.log(error) });
     if (response.status === 200) {
-        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "csrftoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         localStorage.removeItem('username');
+        localStorage.removeItem('token');
         window.open('./login.html', '_self'); // Redirect to Login page
     }
 }

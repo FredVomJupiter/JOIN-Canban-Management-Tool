@@ -67,10 +67,13 @@ async function startHttpRequest() {
         handleErrors(data);
         return;
     }
-    removeErrors();
-    rememberUser();
-    localStorage.setItem('username', JSON.stringify(email.value));
-    window.open('./dashboard.html', '_self'); // Redirect to Dashboard
+    if (response.status == 200) {
+        removeErrors();
+        rememberUser();
+        localStorage.setItem('token', JSON.stringify(json.token));
+        localStorage.setItem('username', JSON.stringify(email.value));
+        window.open('./dashboard.html', '_self'); // Redirect to Dashboard
+    }
 }
 
 /**
