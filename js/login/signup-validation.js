@@ -2,6 +2,7 @@ const signupForm = document.getElementById('signupForm');
 const signupName = document.getElementById('signupName');
 const signupEmail = document.getElementById('signupEmail');
 const signupPassword = document.getElementById('signupPw');
+const signupPassword2 = document.getElementById('signupConfirm');
 
 /**
  * On submit of signup form, validate inputs.
@@ -13,22 +14,14 @@ signupForm.addEventListener('submit', e => {
 
 
 const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
+    const errorDisplay = document.getElementById(element);
     errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success');
 }
 
 
 const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
+    const errorDisplay = document.getElementById(element);
     errorDisplay.innerText = "";
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
 }
 
 /**
@@ -46,6 +39,7 @@ const validateSignupInputs = () => {
     const nameValue = signupName.value.trim();
     const emailValue = signupEmail.value.trim();
     const passwordValue = signupPassword.value.trim();
+    const password2Value = signupPassword2.value.trim();
 
     let correctName = false;
     let correctMail = false;
@@ -53,43 +47,71 @@ const validateSignupInputs = () => {
 
     // Validate name
     if (nameValue === '') {
-        setError(signupName, 'Name is required');
+        setError('signupNameError', 'Name is required');
         correctName = false;
     } else {
-        setSuccess(signupName);
+        setSuccess('signupNameError');
         correctName = true;
     }
 
     // Validate email
     if (emailValue === '') {
-        setError(signupEmail, 'Email is required');
+        setError('signupEmailError', 'Email is required');
         correctMail = false;
     } else if (!isValidSignupEmail(emailValue)) {
-        setError(signupEmail, 'Only valid email formats allowed with @ and ending ".xy(z)"');
+        setError('signupEmailError', 'Only valid email formats allowed with @ and ending ".xy(z)"');
         correctMail = false;
     } else {
-        setSuccess(signupEmail);
+        setSuccess('signupEmailError');
         correctMail = true;
     }
 
     // Validate password
     if (passwordValue === '') {
-        setError(signupPassword, 'Password is required');
+        setError('signupPwError', 'Password is required');
+        correctPassword = false;
+    } else if (passwordValue != password2Value) {
+        setError('signupPwError', 'Passwords do not match');
         correctPassword = false;
     } else {
-        setSuccess(signupPassword);
+        setSuccess('signupPwError');
         correctPassword = true;
     }
 
     // Create new user if all inputs are valid
     if (correctName & correctMail & correctPassword) {
-        createNewUser(nameValue, emailValue, hashInput(passwordValue));
+        createNewUser();
     }
 };
 
 
-function createNewUser(nameValue, emailValue, passwordValue) {
-    users.push(new User(nameValue, emailValue, passwordValue, 0)); // 0 = not logged in, 1 = logged in
-    saveLocalStorage();
-    openPage('login');
+async function createNewUser() {
+    let data = {
+        username: signupName.value,
+        email: signupEmail.value,
+        password: signupPassword.value
+    }
+    let response = await fetch(baseUrl + 'register-account/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).catch(error => { console.log(error) });
+    let json = await response.json();
+    if (response.status != 200) {
+        return;
+    }
+    if (response.status == 200) {
+        clearSignupForm();
+        openPage('login');
+    }
+}
+
+
+function clearSignupForm() {
+    signupName.value = "";
+    signupEmail.value = "";
+    signupPassword.value = "";
+    signupPassword2.value = "";
 }
