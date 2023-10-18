@@ -179,16 +179,20 @@
                         <div class="error"></div>
                     </div>
                     <div class="login-input-border">
-                        <input class="login-input pw-icon" type="text" placeholder="E-Mail" id="signupEmail">
+                        <input class="login-input mail-icon" type="text" placeholder="E-Mail" id="signupEmail">
                         <div class="error"></div>
                     </div>
                     <div class="login-input-border">
-                        <input class="login-input mail-icon" type="password" placeholder="Password" id="signupPw">
+                        <input class="login-input pw-icon" type="password" placeholder="Password" id="signupPw">
+                        <div class="error"></div>
+                    </div>
+                    <div class="login-input-border">
+                        <input class="login-input pw-icon" type="password" placeholder="Confirm Password" id="signupConfirm">
                         <div class="error"></div>
                     </div>
 
                     <div class="signup-button-wrap">
-                        <button class="signup-button" type="submit">Sign up</button>
+                        <button class="signup-button" onclick="signup()">Sign up</button>
                     </div>
                 </form>
 

@@ -564,7 +564,7 @@ body {
     align-items: center;
     gap: 35px;
     width: 652px;
-    height: 559px;
+    height: fit-content;
     background: var(--white);
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
@@ -576,7 +576,7 @@ body {
     top: 41px;
     align-self: flex-start;
     width: 37px;
-    height: 37px;
+    height: 0px;
 }
 
 .signup-bluearrow-img {
@@ -594,7 +594,6 @@ body {
 
 .signup-title {
     width: 315px;
-    height: 73px;
 
     font-style: normal;
     font-weight: 700;
@@ -616,6 +615,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+    padding-bottom: 2rem;
 }
 
 .name-icon {
@@ -941,8 +941,8 @@ body {
 
     .signup-container {
         box-sizing: border-box;
-        width: 80vw;
-        height: 70vh;
+        width: fit-content;
+        height: fit-content;
         padding: 15px 0px;
         gap: unset;
         justify-content: space-evenly;
@@ -951,14 +951,14 @@ body {
     .signup-bluearrow {
         left: 20px;
         top: 0;
-        height: 25px;
         width: 25px;
     }
 
     .signup-title-wrap {
         width: unset;
         height: unset;
-        gap: 20px;
+        gap: 10px;
+        margin-bottom: 1rem;
     }
 
     .signup-title {
@@ -975,6 +975,7 @@ body {
         align-items: center;
         height: unset;
         width: 300px;
+        padding-bottom: unset;
     }
 
     .signup-button-wrap {
