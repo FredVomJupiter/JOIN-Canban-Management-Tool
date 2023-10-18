@@ -8,6 +8,7 @@ let subtasks = [];
 let todos = [];
 
 const baseUrl = 'http://127.0.0.1:8000/api/v1/';
+const token = document.cookie.split('token=')[1].split(';')[0];
 
 /**
  * Init function that is called when dashboard.html is loaded.
@@ -47,7 +48,7 @@ async function getContacts() {
     let response = await fetch(baseUrl + 'contacts/', {
         method: 'GET',
         credentials: 'include',
-        headers: { 'Authorization': " Token " + document.cookie.split('=')[1] },
+        headers: { 'Authorization': " Token " + token },
     }).catch(error => { console.log(error) });
     let data = await response.json();
     contacts = data;
@@ -58,7 +59,7 @@ async function getCategories() {
     let response = await fetch(baseUrl + 'categories/', {
         method: 'GET',
         credentials: 'include',
-        headers: { 'Authorization': " Token " + document.cookie.split('=')[1] },
+        headers: { 'Authorization': " Token " + token },
     }).catch(error => { console.log(error) });
     let data = await response.json();
     categories = data;
@@ -69,7 +70,7 @@ async function getSubtasks() {
     let response = await fetch(baseUrl + 'subtasks/', {
         method: 'GET',
         credentials: 'include',
-        headers: { 'Authorization': " Token " + document.cookie.split('=')[1] },
+        headers: { 'Authorization': " Token " + token },
     }).catch(error => { console.log(error) });
     let data = await response.json();
     subtasks = data;
@@ -80,7 +81,7 @@ async function getTodos() {
     let response = await fetch(baseUrl + 'todos/', {
         method: 'GET',
         credentials: 'include',
-        headers: { 'Authorization': " Token " + document.cookie.split('=')[1] },
+        headers: { 'Authorization': " Token " + token },
     }).catch(error => { console.log(error) });
     let data = await response.json();
     todos = data;

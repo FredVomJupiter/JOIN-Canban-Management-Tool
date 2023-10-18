@@ -55,28 +55,22 @@ async function startHttpRequest() {
         username: email.value,
         password: password.value
     }
-    await fetch(baseUrl + 'login/', {
+    let response = await fetch(baseUrl + 'login/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-    }).then(response => {
-        response.json()
-            .then(data => {
-                if (response.status != 200) {
-                    handleErrors(data);
-                    return;
-                }
-                document.cookie = "token=" + data.token; // Set token as cookie
-                removeErrors();
-                rememberUser();
-                localStorage.setItem('username', JSON.stringify(email.value));
-                window.open('./dashboard.html', '_self'); // Redirect to Dashboard
-            });
-    }).catch(error => {
-        console.log(error);
-    });
+    }).catch(error => { console.log(error) });
+    let json = await response.json();
+    if (response.status != 200) {
+        handleErrors(data);
+        return;
+    }
+    removeErrors();
+    rememberUser();
+    localStorage.setItem('username', JSON.stringify(email.value));
+    window.open('./dashboard.html', '_self'); // Redirect to Dashboard
 }
 
 /**
