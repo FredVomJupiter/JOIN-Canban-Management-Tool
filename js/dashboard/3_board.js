@@ -4,7 +4,7 @@ const feedback = document.getElementById("feedback-canvas");
 const done = document.getElementById("done-canvas");
 
 // Render process for Board page
-function renderCards() {
+function renderTasks() {
     clearBoardColumns();
     fillBoardColumns();
     addDropzones();
@@ -20,11 +20,11 @@ function clearBoardColumns() {
 
 
 function fillBoardColumns() {
-    cards.forEach(card => {
-        card.group === 'To do' ? todo.innerHTML += taskTemplate.getBoardTask(card): "";
-        card.group === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(card) : "";
-        card.group === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(card) : "";
-        card.group === "Done" ? done.innerHTML += taskTemplate.getBoardTask(card) : "";
+    tasks.forEach(task => {
+        task.status === 'To do' ? todo.innerHTML += taskTemplate.getBoardTask(task): "";
+        task.status === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(task) : "";
+        task.status === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(task) : "";
+        task.status === "Done" ? done.innerHTML += taskTemplate.getBoardTask(task) : "";
     });
 }
 
@@ -77,12 +77,12 @@ function returnInitials(name) {
 
 /**
  * Shows the task's details when user clicks on a small card on the Board.
- * @param {*} cardId as string.
+ * @param {*} taskId as string.
  */
-function showCardDetails(cardId) {
+function showTaskDetails(taskId) {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
-    renderOverlayCard(cardId);
+    renderOverlayTask(taskId);
 }
 
 
@@ -108,7 +108,7 @@ function moveCard(cardId, group) {
  */
 function closeOverlay() {
     isNewTask = true; // Sets the logic to a new task.
-    let domElementList = ['overlayBackground', 'overlayCard', 'addtaskOverlay', 'addcontactOverlay', 'editcontactOverlay', 'taskClearButton'];
+    let domElementList = ['overlayBackground', 'overlayTask', 'addtaskOverlay', 'addcontactOverlay', 'editcontactOverlay', 'taskClearButton'];
     domElementList.forEach(element => {
         let domElement = document.getElementById(element);
         domElement.classList.add('d-none');
@@ -119,14 +119,14 @@ function closeOverlay() {
 }
 
 /**
- * Rendering the html template. Called by showCardDetails(cardId).
- * @param {*} cardId as string.
+ * Rendering the html template. Called by showTaskDetails(taskId).
+ * @param {*} taskId as string.
  */
-function renderOverlayCard(cardId) {
-    let overlayCard = document.getElementById('overlayCard');
-    overlayCard.classList.remove('d-none');
-    overlayCard.innerHTML = "";
-    overlayCard.innerHTML += taskTemplate.getOverlayTask(cardId);
+function renderOverlayTask(taskId) {
+    let overlayTask = document.getElementById('overlayTask');
+    overlayTask.classList.remove('d-none');
+    overlayTask.innerHTML = "";
+    overlayTask.innerHTML += taskTemplate.getOverlayTask(taskId);
 }
 
 

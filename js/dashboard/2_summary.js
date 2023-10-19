@@ -21,28 +21,28 @@ function updateCounters() {
 function countTasks() {
     let tasksCounter = document.getElementById('tasksCounter');
     tasksCounter.innerHTML = "";
-    tasksCounter.innerHTML = todos.length;
+    tasksCounter.innerHTML = tasks.length;
 }
 
 
 function countProgress() {
     let progressCounter = document.getElementById('progressCounter');
     progressCounter.innerHTML = "";
-    progressCounter.innerHTML = todos.filter(card => card.status == "In Progress").length;
+    progressCounter.innerHTML = tasks.filter(card => card.status == "In Progress").length;
 }
 
 
 function countFeedback() {
     let feedbackCounter = document.getElementById('feedbackCounter');
     feedbackCounter.innerHTML = "";
-    feedbackCounter.innerHTML = todos.filter(card => card.status == "Awaiting Feedback").length;
+    feedbackCounter.innerHTML = tasks.filter(card => card.status == "Awaiting Feedback").length;
 }
 
 
 function countUrgent() {
     let urgentCounter = document.getElementById('urgentCounter');
     urgentCounter.innerHTML = "";
-    urgentCounter.innerHTML = todos.filter(card => card.priority == "High").length;
+    urgentCounter.innerHTML = tasks.filter(card => card.priority == "High").length;
 }
 
 
@@ -54,13 +54,13 @@ function showUpcomingDeadline() {
 
 
 /**
- * This functon filters todos with prority "High" and if more than 1
- * urgent todo exists, it hands over the list of todos to the "mostUrgentDeadline()"
+ * This functon filters tasks with prority "High" and if more than 1
+ * urgent todo exists, it hands over the list of tasks to the "mostUrgentDeadline()"
  * function.
  * @returns String containing month, day and year.
  */
 function returnDeadline() {
-    let urgentDeadlines = todos.filter(card => card.priority == "High");
+    let urgentDeadlines = tasks.filter(card => card.priority == "High");
     if (urgentDeadlines.length >= 1) {
         let theChosenOne = mostUrgentDeadline(urgentDeadlines);
         return formatDeadline(theChosenOne);
@@ -72,7 +72,7 @@ function returnDeadline() {
 
 /**
  * 
- * @param {array} urgentDeadlines containing filtered todos with priority "High".
+ * @param {array} urgentDeadlines containing filtered tasks with priority "High".
  * @returns the first date of a ascending sorted list of dates.
  */
 function mostUrgentDeadline(urgentDeadlines) {
@@ -96,12 +96,12 @@ function formatDeadline(date) {
 function countToDo() {
     let todoCounter = document.getElementById('todoCounter');
     todoCounter.innerHTML = "";
-    todoCounter.innerHTML = todos.filter(card => card.status == "Todo").length;
+    todoCounter.innerHTML = tasks.filter(card => card.status == "Todo").length;
 }
 
 
 function countDone() {
     let doneCounter = document.getElementById('doneCounter');
     doneCounter.innerHTML = "";
-    doneCounter.innerHTML = todos.filter(card => card.status == "Done").length;
+    doneCounter.innerHTML = tasks.filter(card => card.status == "Done").length;
 }

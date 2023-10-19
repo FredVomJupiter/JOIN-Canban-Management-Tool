@@ -72,7 +72,7 @@ function openPage(pageName) {
 function renderPageSpecificContent(pageName) {
     pageName === 'summary' ? updateCounters() : "";
     pageName === 'contacts' ? renderContactList() : "";
-    pageName === 'board' ? renderCards() : "";
+    pageName === 'board' ? renderTasks() : "";
     pageName === 'addtask' ? initNewTask() : ""; // TODO: Check if this is necessary
 }
 
