@@ -87,3 +87,22 @@ async function getTodos() {
     let data = await response.json();
     tasks = data;
 }
+
+/**
+ * Updates a specific task in the database.
+ * @param {*} task as object
+ * @returns task as object
+ */
+async function setTodo(task) {
+    let response = await fetch(baseUrl + 'todos/' + task.id + '/', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    return data;
+}
