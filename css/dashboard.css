@@ -853,7 +853,7 @@ body {
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
-.board-cardshadow {
+.board-taskshadow {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -863,7 +863,7 @@ body {
     border-radius: 30px;
 }
 
-.board-cardbackground {
+.board-taskbackground {
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
@@ -877,7 +877,7 @@ body {
     border-radius: 30px;
 }
 
-.board-cardinner {
+.board-taskinner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -885,7 +885,7 @@ body {
     width: 211px;
 }
 
-.board-cardcategory {
+.board-taskcategory {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -902,7 +902,7 @@ body {
     color: var(--white);
 }
 
-.board-cardtext-wrap {
+.board-tasktext-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -910,7 +910,7 @@ body {
     width: 207px;
 }
 
-.board-cardtext-inner {
+.board-tasktext-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -919,7 +919,7 @@ body {
     border-radius: 10px;
 }
 
-.board-cardtitle {
+.board-tasktitle {
     width: 170px;
 
     font-style: normal;
@@ -929,7 +929,7 @@ body {
     color: var(--primary-color);
 }
 
-.board-cardtext {
+.board-tasktext {
     width: 207px;
 
     font-style: normal;
@@ -972,7 +972,7 @@ body {
     color: var(--black);
 }
 
-.board-cardbottom-wrap {
+.board-taskbottom-wrap {
     display: flex;
     flex-direction: row;
     justify-content: center;
