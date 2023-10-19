@@ -1,6 +1,6 @@
 /**
  * All drag & drop functions are here. In mobile version these functions are not working.
- * Dropzones are below cards and the cards themselves.
+ * Dropzones are below tasks (light gray shade) and the tasks themselves.
  */
 
 let draggedTaskId;

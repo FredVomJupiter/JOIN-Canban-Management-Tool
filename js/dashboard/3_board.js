@@ -104,7 +104,7 @@ function moveTask(taskId, status) {
 }
 
 /**
- * Hides the Overlay when user clicks on the background or the close button.
+ * Hides all overlays when user clicks on the overlay's grey background or its close button.
  */
 function closeOverlay() {
     isNewTask = true; // Sets the logic to a new task.
@@ -148,15 +148,17 @@ function returnFormatedDate(date) {
     }
 }
 
-
-function openAddtaskOverlay(group) {
+/**
+ * Opens the overlay with the addtask form and initializes the newTask object,
+ * then sets the status depending on the button clicked.
+ * @param {*} status as string (Todo, In Progress, Awaiting Feedback or Done).
+ */
+function openAddtaskOverlay(status) {
     let background = document.getElementById("overlayBackground");
     background.classList.remove("d-none");
     let taskoverlay = document.getElementById('addtaskOverlay');
     taskoverlay.classList.remove('d-none');
     taskoverlay.classList.remove('hidden');
     initNewTask();
-    newTask.group = group;
+    newTask.status = status;
 }
-
-// End render process for Board page
