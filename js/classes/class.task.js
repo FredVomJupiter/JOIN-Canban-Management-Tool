@@ -1,24 +1,24 @@
 class Task {
-    id = "task"+ new Date().getTime();
+    id;
     title;
-    text;
-    category = "General";
-    group;
+    description;
+    category;
+    status = "Todo";
     color;
-    date;
-    priority = "low";
-    assigned = [];
-    subtask = [];
+    due_date;
+    priority = "Low";
+    assigned_to = [];
+    subtasks = [];
 
-    constructor(title, text, category, group, color, date, priority, assigned, subtask) {
+    constructor(title, text, category, status, color, due_date, priority, assigned_to, subtasks) {
         this.title = title;
-        this.text = text;
+        this.description = description;
         this.category = category;
-        this.group = group;
+        this.status = status;
         this.color = color;
-        this.date = date;
+        this.due_date = due_date;
         this.priority = priority;
-        this.assigned = assigned;
-        this.subtask = subtask;
+        this.assigned_to = assigned_to;
+        this.subtasks = subtasks;
     }
 }
