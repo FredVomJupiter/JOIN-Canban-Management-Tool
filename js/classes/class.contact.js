@@ -1,5 +1,5 @@
 class Contact {
-    id = "contact" + new Date().getTime();
+    id;
     name;
     email;
     phone;
