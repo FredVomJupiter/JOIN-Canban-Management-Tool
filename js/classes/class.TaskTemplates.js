@@ -172,7 +172,7 @@ class TaskTemplate {
 
     getDropzone(location) {
         if (location === "todo") {
-            return `<div class="dropzone" id="dropZoneTodo" ondrop="dragend(event, '${'To do'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneTodo')" ondragleave="dragleave(event, 'dropZoneTodo')"></div>`;
+            return `<div class="dropzone" id="dropZoneTodo" ondrop="dragend(event, '${'Todo'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneTodo')" ondragleave="dragleave(event, 'dropZoneTodo')"></div>`;
         }
         if (location === "progress") {
             return `<div class="dropzone" id="dropZoneProgress" ondrop="dragend(event, '${'In Progress'}')" ondragover="dragover(event)" ondragenter="dragenter(event, 'dropZoneProgress')" ondragleave="dragleave(event, 'dropZoneProgress')"></div>`;
@@ -209,12 +209,12 @@ class TaskTemplate {
             <div class="board-taskoverlay-btnwrap">
                 <div class="board-taskoverlay-delete" onclick="deleteTask('${taskId}')"></div>
                 <div class="board-taskoverlay-move" onclick="showMoveList()"></div>
-                <div class="board-taskoverlay-edit" onclick="edittask('${taskId}')"></div>
+                <div class="board-taskoverlay-edit" onclick="editTask('${taskId}')"></div>
                 <div class="board-taskoverlay-moveMenu d-none" id="moveList">
-                    <span onclick="movetask('${taskId}', 'To do')">to do</span>
-                    <span onclick="movetask('${taskId}', 'In Progress')">progressing</span>
-                    <span onclick="movetask('${taskId}', 'Awaiting Feedback')">needs feedback</span>
-                    <span onclick="movetask('${taskId}', 'Done')">done</span>
+                    <span onclick="moveTask('${taskId}', 'Todo')">Todo</span>
+                    <span onclick="moveTask('${taskId}', 'In Progress')">In Progres</span>
+                    <span onclick="moveTask('${taskId}', 'Awaiting Feedback')">Awaiting Feedback</span>
+                    <span onclick="moveTask('${taskId}', 'Done')">Done</span>
                 </div>
                 
             </div>

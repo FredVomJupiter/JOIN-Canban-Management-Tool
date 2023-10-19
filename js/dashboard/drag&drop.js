@@ -3,21 +3,21 @@
  * Dropzones are below cards and the cards themselves.
  */
 
-let theCard;
+let draggedTaskId;
 
-function dragstart(event, cardId) {
-    theCard = cardId;
+function dragstart(event, taskId) {
+    draggedTaskId = taskId;
 }
 
 
-function dragend(event, group) {
-    cards.forEach(card => {
-        if (card.id === theCard) {
-            card.group = group;
+function dragend(event, status) {
+    tasks.forEach(task => {
+        if (task.id == draggedTaskId) {
+            task.status = status;
+            setTodo(task);
+            renderTasks();
         }
     });
-    saveLocalStorage('cards');
-    renderCards();
 }
 
 

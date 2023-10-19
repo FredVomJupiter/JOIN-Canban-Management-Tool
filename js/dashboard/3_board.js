@@ -21,7 +21,7 @@ function clearBoardColumns() {
 
 function fillBoardColumns() {
     tasks.forEach(task => {
-        task.status === 'To do' ? todo.innerHTML += taskTemplate.getBoardTask(task): "";
+        task.status === 'Todo' ? todo.innerHTML += taskTemplate.getBoardTask(task) : "";
         task.status === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(task) : "";
         task.status === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(task) : "";
         task.status === "Done" ? done.innerHTML += taskTemplate.getBoardTask(task) : "";
@@ -40,9 +40,9 @@ function addDropzones() {
 function filterCards() {
     let searchField = document.getElementById('searchField').value.toLowerCase();
     let filteredList = [];
-    cards.forEach(card => {
-        if ((card.title.toLowerCase()).includes(searchField) || (card.text.toLowerCase()).includes(searchField)) {
-            filteredList.push(card);
+    tasks.forEach(task => {
+        if ((task.title.toLowerCase()).includes(searchField) || (task.description.toLowerCase()).includes(searchField)) {
+            filteredList.push(task);
         }
     });
     renderFilteredCards(filteredList);
@@ -57,11 +57,11 @@ function renderFilteredCards(filteredList) {
 
 
 function fillBoardColumnsWithFilteredCards(filteredList) {
-    filteredList.forEach(card => {
-        card.group === 'To do' ? todo.innerHTML += taskTemplate.getBoardTask(card): "";
-        card.group === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(card) : "";
-        card.group === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(card) : "";
-        card.group === "Done" ? done.innerHTML += taskTemplate.getBoardTask(card) : "";
+    filteredList.forEach(task => {
+        task.status === 'Todo' ? todo.innerHTML += taskTemplate.getBoardTask(task) : "";
+        task.status === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(task) : "";
+        task.status === "Awaiting Feedback" ? feedback.innerHTML += taskTemplate.getBoardTask(task) : "";
+        task.status === "Done" ? done.innerHTML += taskTemplate.getBoardTask(task) : "";
     });
 }
 
@@ -92,15 +92,15 @@ function showMoveList() {
 }
 
 
-function moveCard(cardId, group) {
-    cards.forEach(card => {
-        if (card.id === cardId) {
-            card.group = group;
+function moveTask(taskId, status) {
+    tasks.forEach(task => {
+        if (task.id == taskId) {
+            task.status = status;
+            setTodo(task);
+            showMoveList();
+            renderTasks();
         }
     });
-    showMoveList();
-    saveLocalStorage('cards');
-    renderCards();
 }
 
 /**
