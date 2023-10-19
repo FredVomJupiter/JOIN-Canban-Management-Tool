@@ -10,7 +10,9 @@ function renderTasks() {
     addDropzones();
 }
 
-
+/**
+ * Clears all board columns.
+ */
 function clearBoardColumns() {
     todo.innerHTML = "";
     progress.innerHTML = "";
@@ -18,7 +20,9 @@ function clearBoardColumns() {
     done.innerHTML = "";
 }
 
-
+/**
+ * Responsible for filling the board columns with tasks fitting the status.
+ */
 function fillBoardColumns() {
     tasks.forEach(task => {
         task.status === 'Todo' ? todo.innerHTML += taskTemplate.getBoardTask(task) : "";
@@ -28,7 +32,9 @@ function fillBoardColumns() {
     });
 }
 
-
+/**
+ * In addition to the dropzones on tasks itself, one dedicated dropzone is added to each column.
+ */
 function addDropzones() {
     todo.innerHTML += taskTemplate.getDropzone('todo');
     progress.innerHTML += taskTemplate.getDropzone('progress');
@@ -36,8 +42,10 @@ function addDropzones() {
     done.innerHTML += taskTemplate.getDropzone('done');
 }
 
-
-function filterCards() {
+/**
+ * Filter process attached to the search field.
+ */
+function filterTasks() {
     let searchField = document.getElementById('searchField').value.toLowerCase();
     let filteredList = [];
     tasks.forEach(task => {
@@ -45,18 +53,18 @@ function filterCards() {
             filteredList.push(task);
         }
     });
-    renderFilteredCards(filteredList);
+    renderFilteredTasks(filteredList);
 }
 
 
-function renderFilteredCards(filteredList) {
+function renderFilteredTasks(filteredList) {
     clearBoardColumns();
-    fillBoardColumnsWithFilteredCards(filteredList);
+    fillBoardColumnsWithFilteredTasks(filteredList);
     addDropzones();
 }
 
 
-function fillBoardColumnsWithFilteredCards(filteredList) {
+function fillBoardColumnsWithFilteredTasks(filteredList) {
     filteredList.forEach(task => {
         task.status === 'Todo' ? todo.innerHTML += taskTemplate.getBoardTask(task) : "";
         task.status === "In Progress" ? progress.innerHTML += taskTemplate.getBoardTask(task) : "";
@@ -129,7 +137,10 @@ function renderOverlayTask(taskId) {
     overlayTask.innerHTML += taskTemplate.getOverlayTask(taskId);
 }
 
-
+/**
+ * Prevents the click event to bubble up to the parent element.
+ * @param {*} event 
+ */
 function stopPropagation(event) {
     event.stopPropagation();
 }
@@ -149,8 +160,8 @@ function returnFormatedDate(date) {
 }
 
 /**
- * Opens the overlay with the addtask form and initializes the newTask object,
- * then sets the status depending on the button clicked.
+ * Opens the overlay with the addtask form and calls the initNewTask() function,
+ * then sets the new tasks' status depending on the button clicked.
  * @param {*} status as string (Todo, In Progress, Awaiting Feedback or Done).
  */
 function openAddtaskOverlay(status) {
@@ -161,4 +172,12 @@ function openAddtaskOverlay(status) {
     taskoverlay.classList.remove('hidden');
     initNewTask();
     newTask.status = status;
+}
+
+/**
+ * Creates a new task with default values.
+ */
+function initNewTask() {
+    // Empty new task template with standard values for group, color and priority
+    newTask = new Task("", "", "General", "Todo", "#FF7A00", "", "Low", [], []);
 }

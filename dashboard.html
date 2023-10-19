@@ -14,8 +14,8 @@
     <script src="./js/classes/class.TaskTemplates.js"></script>
     <script src="./js/classes/class.TaskDetailTemplates.js"></script>
     <script src="./js/classes/class.ContactTemplates.js"></script>
-    <script src="./js/dashboard/2_summary.js"></script>
-    <script src="./js/dashboard/1_main.js"></script>
+    <script defer src="./js/dashboard/1_main.js"></script>
+    <script defer src="./js/dashboard/2_summary.js"></script>
     <script defer src="./js/dashboard/3_board.js"></script>
     <script defer src="./js/dashboard/4_addtask.js"></script>
     <script defer src="./js/dashboard/4.1_addtask_validation.js"></script>
@@ -336,7 +336,7 @@
                         <div class="board-searchbar-outer">
                             <div class="board-searchbar-inner">
                                 <input class="board-searchbar-text" id="searchField" type="search"
-                                    placeholder="Find Task" onkeyup="filterCards()">
+                                    placeholder="Find Task" onkeyup="filterTasks()">
                             </div>
                             <div class="board-searchbar-icon-wrap">
                                 <div class="board-searchbar-verticalline"></div>
@@ -346,7 +346,7 @@
                     </div>
 
                     <!-- addTask Button -->
-                    <div class="board-addtask-button" onclick="openAddtaskOverlay('To do')">
+                    <div class="board-addtask-button" onclick="openAddtaskOverlay('Todo')">
                         <span class="board-addtask-button-text">Add task</span>
                         <div class="board-addtask-button-icon-outer">
                             <div class="board-addtask-button-icon-inner">+
@@ -363,7 +363,7 @@
                 <div class="board-column">
                     <div class="board-column-top tooltip">
                         <img class="board-column-icon" src="./assets/img/addbtn.svg"
-                            onclick="openAddtaskOverlay('To do')">
+                            onclick="openAddtaskOverlay('Todo')">
                         <span class="board-column-title">Todo</span>
                     </div>
 
