@@ -12,6 +12,7 @@
     <script src="./js/classes/class.categories.js"></script>
     <script src="./js/classes/class.contact.js"></script>
     <script src="./js/classes/class.TaskTemplates.js"></script>
+    <script src="./js/classes/class.TaskDetailTemplates.js"></script>
     <script src="./js/classes/class.ContactTemplates.js"></script>
     <script src="./js/dashboard/2_summary.js"></script>
     <script src="./js/dashboard/1_main.js"></script>
@@ -43,7 +44,7 @@
     <div class="overlay-background d-none" id="overlayBackground" onclick="closeOverlay()">
 
         <!-- Card Overlay -->
-        <div class="board-taskoverlay-container d-none" id="overlayCard" onclick="stopPropagation(event)">
+        <div class="board-taskoverlay-container d-none" id="overlayTask" onclick="stopPropagation(event)">
         </div>
 
         <!-- Add Task Overlay -->
@@ -363,7 +364,7 @@
                     <div class="board-column-top tooltip">
                         <img class="board-column-icon" src="./assets/img/addbtn.svg"
                             onclick="openAddtaskOverlay('To do')">
-                        <span class="board-column-title">to do</span>
+                        <span class="board-column-title">Todo</span>
                     </div>
 
                     <div class="canvas" id="todo-canvas"></div>
@@ -374,7 +375,7 @@
                     <div class="board-column-top tooltip">
                         <img class="board-column-icon" src="./assets/img/addbtn.svg"
                             onclick="openAddtaskOverlay('In Progress')">
-                        <span class="board-column-title">progressing</span>
+                        <span class="board-column-title">In Progress</span>
                     </div>
 
                     <div class="canvas" id="progress-canvas"></div>
@@ -385,7 +386,7 @@
                     <div class="board-column-top tooltip">
                         <img class="board-column-icon" src="./assets/img/addbtn.svg"
                             onclick="openAddtaskOverlay('Awaiting Feedback')">
-                        <span class="board-column-title">needs feedback</span>
+                        <span class="board-column-title">Awaiting Feedback</span>
                     </div>
 
                     <div class="canvas" id="feedback-canvas"></div>
@@ -397,7 +398,7 @@
                     <div class="board-column-top tooltip">
                         <img class="board-column-icon" src="./assets/img/addbtn.svg"
                             onclick="openAddtaskOverlay('Done')">
-                        <span class="board-column-title">done</span>
+                        <span class="board-column-title">Done</span>
                     </div>
 
                     <div class="canvas" id="done-canvas"></div>
