@@ -10,7 +10,7 @@ class Task {
     assigned_to = [];
     subtasks = [];
 
-    constructor(title, text, category, status, color, due_date, priority, assigned_to, subtasks) {
+    constructor(title, description, category, status, color, due_date, priority, assigned_to, subtasks) {
         this.title = title;
         this.description = description;
         this.category = category;
