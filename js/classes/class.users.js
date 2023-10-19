@@ -1,15 +1,12 @@
 class User {
-    id = "user" + new Date().getTime();
-    name;
+    id;
+    username;
     email;
     password;
-    session;
-    remembered = 0;
 
-    constructor(name, email, password, session) {
-        this.name = name;
+    constructor(username, email, password) {
+        this.username = username;
         this.email = email;
         this.password = password;
-        this.session = session;
     }
 }

@@ -1,5 +1,5 @@
 class Categories {
-    id = "category" + new Date().getTime();
+    id;
     name;
     color;
 
