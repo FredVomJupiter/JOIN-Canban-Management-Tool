@@ -12,11 +12,12 @@ class TaskTemplate {
      * @returns html template.
      */
     getBoardTask(task) {
+        let category = categories.find(cat => cat.id == task.category);
         return `
             <div class="board-taskshadow" id="${task.id}" draggable="true" onclick="showTaskDetails('${task.id}')" ondragstart="dragstart(event, '${task.id}')" ondrop="dragend(event, '${task.status}')" ondragover="dragover(event)">
                 <div class="board-taskbackground">
                     <div class="board-taskinner">
-                        <div class="board-taskcategory" style="background:${categories.find(cat => cat.id == task.category).color}">${categories.find(cat => cat.id == task.category).name}</div>
+                        <div class="board-taskcategory" style="background:${category.color}">${category.name}</div>
                         <div class="board-tasktext-wrap">
                             <div class="board-tasktext-inner">
                                 <span class="board-tasktitle">${task.title}</span>
