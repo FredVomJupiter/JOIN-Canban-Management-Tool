@@ -1002,7 +1002,6 @@ body {
     width: 35px;
     height: 35px;
     background: #4E963D;
-    border: 1px solid var(--white);
     border-radius: 58px;
 }
 
@@ -1018,7 +1017,6 @@ body {
     width: 35px;
     height: 35px;
     background: #9327FF;
-    border: 1px solid var(--white);
     border-radius: 58px;
     margin: 0px -6px;
 }
@@ -1035,7 +1033,6 @@ body {
     width: 35px;
     height: 35px;
     background: var(--primary-color);
-    border: 1px solid var(--white);
     border-radius: 58px;
 }
 
@@ -1645,7 +1642,6 @@ body {
 }
 
 .addtask-leftcontainer-assigned-circle {
-
     font-size: 12px;
     color: var(--white);
     box-sizing: border-box;
@@ -1658,7 +1654,6 @@ body {
     gap: 10px;
     width: 35px;
     height: 35px;
-    border: 1px solid var(--white);
     border-radius: 58px;
 }
 

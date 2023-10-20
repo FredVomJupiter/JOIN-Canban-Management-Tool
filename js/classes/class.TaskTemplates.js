@@ -153,12 +153,12 @@ class TaskTemplate {
 
 
     getPriority(task) {
-        if (task.priority == "urgent") {
+        if (task.priority == "High") {
             return `
                 <img class="board-prio-icon" src="./assets/img/priohigh.svg">
             `
         }
-        else if (task.priority == "medium") {
+        else if (task.priority == "Medium") {
             return `
                 <img class="board-prio-icon" src="./assets/img/priomedium.svg">
             `
@@ -194,13 +194,14 @@ class TaskTemplate {
      */
     getOverlayTask(taskId) {
         let task = tasks.find(task => task.id == taskId);
+        let category = categories.find(cat => cat.id == task.category);
         return `
             <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
-            <div class="board-taskoverlay-category" style="background:${task.color}">${task.category}</div>
+            <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
             <span class="board-taskoverlay-title">${task.title}</span>
             <span class="board-taskoverlay-text">${task.description}</span>
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${this.getPriority(task)}</div>
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
             ${this.getOverlaySubtasksPercentage(task)}
             ${this.getOverlaySubtasks(task)}
@@ -218,7 +219,6 @@ class TaskTemplate {
                 </div>
                 
             </div>
-            
         `
     }
 
