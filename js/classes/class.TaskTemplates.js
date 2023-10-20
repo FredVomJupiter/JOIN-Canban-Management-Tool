@@ -198,7 +198,7 @@ class TaskTemplate {
         let category = categories.find(cat => cat.id == task.category);
         if (task.user == loggedUser.id) {
             return `
-            <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
+            <div class="board-taskoverlay-close-btn" onclick="hideTaskDetails()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
             <span class="board-taskoverlay-title">${task.title}</span>
             <span class="board-taskoverlay-text">${task.description}</span>
@@ -223,7 +223,7 @@ class TaskTemplate {
             `
         } else {
             return `
-            <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
+            <div class="board-taskoverlay-close-btn" onclick="hideTaskDetails()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
             <span class="board-taskoverlay-title">${task.title}</span>
             <span class="board-taskoverlay-text">${task.description}</span>
