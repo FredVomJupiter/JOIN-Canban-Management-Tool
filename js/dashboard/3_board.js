@@ -179,5 +179,5 @@ function openAddtaskOverlay(status) {
  */
 function initNewTask() {
     // Empty new task template with standard values for group, color and priority
-    newTask = new Task("", "", "General", "Todo", "#FF7A00", "", "Low", [], []);
+    newTask = new Task(null, null, null, "Todo", null, "Low", [], []);
 }
