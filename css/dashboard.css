@@ -125,6 +125,7 @@ body {
     z-index: 2;
 }
 
+/* Top left navbar logo only visible in mobile sceen size */
 .topnav-logo {
     display: none;
 }
