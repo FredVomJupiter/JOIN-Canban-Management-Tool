@@ -1,0 +1,127 @@
+.sidebar {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 66px 20px;
+    gap: 150px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background: var(--primary-color);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.sidebar-menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.sidebar-menu-option-dark {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 53px;
+    gap: 20px;
+    width: 250px;
+    height: 46px;
+    background: #091931;
+}
+
+.sidebar-menu-option-light {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 53px;
+    gap: 20px;
+    width: 250px;
+    height: 46px;
+}
+
+.sidebar-menu-option-light:hover {
+    background: #091931;
+}
+
+.sidebar-menu-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--white);
+    flex: none;
+    user-select: none;
+}
+
+.margin-top {
+    margin-top: 140px;
+}
+
+@media screen and (max-width: 700px) {
+
+}
+
+
+@media screen and (max-width: 900px) {
+    .sidebar {
+        right: 0;
+        top: unset;
+        width: unset;
+        height: 80px;
+        padding: 0px;
+    }
+
+    .sidebar-logo {
+        display: none;
+    }
+
+    .sidebar-menu-container {
+        flex-direction: row;
+        gap: unset;
+        box-sizing: border-box;
+        gap: 20px;
+    }
+
+    .sidebar-menu-option-dark {
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100px;
+        width: 75px;
+        min-width: 75px;
+        gap: unset;
+        padding: unset;
+        padding-bottom: 20px;
+    }
+
+    .sidebar-menu-option-light {
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100px;
+        width: 75px;
+        min-width: 75px;
+        gap: unset;
+        padding: unset;
+        padding-bottom: 20px;
+    }
+
+    .sidebar-menu-text {
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    #menu-legal {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+
+}

@@ -1,0 +1,91 @@
+.topnav {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px 36px;
+    position: fixed;
+    left: 250px;
+    top: 0;
+    right: 0;
+    height: 80px;
+    background: var(--white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+/* Top left navbar logo only visible in mobile sceen size */
+.topnav-logo {
+    display: none;
+}
+
+.topnav-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    color: var(--black);
+}
+
+.topnav-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 26px;
+    width: 106px;
+}
+
+.topnav-help {
+    cursor: pointer;
+}
+
+.topnav-profile {
+    cursor: pointer;
+    border-radius: 35px;
+    padding: 2px 2px;
+    background: white;
+    border: 3px solid var(--primary-color);
+}
+
+.topnav-signout {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+    top: 80px;
+    right: 130px;
+    width: 300px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border-top-right-radius: unset;
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 700px) {
+
+}
+
+@media screen and (max-width: 900px) {
+    .topnav {
+        left: 0;
+    }
+
+    .topnav-logo {
+        display: flex;
+        height: 50px;
+    }
+
+    .topnav-text {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+
+}

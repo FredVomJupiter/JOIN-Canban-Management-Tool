@@ -1,0 +1,152 @@
+:root {
+    --primary-color: #2A3647;
+    --secondary-color: #29ABE2;
+    --white: #FFFFFF;
+    --black: #000000;
+    --grey: #D1D1D1;
+    --background: #F6F7F8;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+body {
+    font-family: 'Inter';
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    height: -webkit-fill-available;
+}
+
+/** Content Container **/
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: fixed;
+    top: 80px;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-large {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    color: var(--black);
+}
+
+.title-medium {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--black);
+}
+
+.title-small {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    color: var(--black);
+}
+
+.title-tiny {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--black);
+}
+
+.subtitle-light {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    color: var(--black);
+}
+
+.align-left {
+    align-items: flex-start;
+}
+
+.color-primary {
+    color: var(--primary-color) !important;
+}
+
+.gap-25 {
+    gap: 25px;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+.icon-large {
+    width: 60px;
+    height: 60px;
+}
+
+.icon-medium {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-small {
+    width: 30px;
+    height: 30px;
+}
+
+.text-small {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--black);
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-grey {
+    color: var(--grey);
+}
