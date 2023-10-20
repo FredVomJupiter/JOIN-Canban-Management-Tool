@@ -18,10 +18,10 @@ class TaskTemplate {
                 <div class="board-taskbackground">
                     <div class="board-taskinner">
                         <div class="board-taskcategory" style="background:${category.color}">${category.name}</div>
-                        <div class="board-tasktext-wrap">
-                            <div class="board-tasktext-inner">
-                                <span class="board-tasktitle">${task.title}</span>
-                                <span class="board-tasktext">${task.description}</span>
+                        <div>
+                            <div class="flex-column gap-10">
+                                <span class="text-bold">${task.title}</span>
+                                <span class="text-grey">${task.description}</span>
                             </div>
                         </div>
                         ${this.getProgressbar(task)}
@@ -47,7 +47,7 @@ class TaskTemplate {
                     <div class="board-progressbar-outer">
                         <div class="board-progressbar-inner" style="width: calc(138px * ${this.calculateProgressFactor(task)})"></div>
                     </div>
-                    <span class="board-progressbar-text">${this.countFinishedSubtasks(task)}/${task.subtasks.length} Done</span>
+                    <span class="text-small">${this.countFinishedSubtasks(task)}/${task.subtasks.length} Done</span>
                 </div>
             `
         } else {
@@ -200,15 +200,15 @@ class TaskTemplate {
             return `
             <div class="board-taskoverlay-close-btn" onclick="hideTaskDetails()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
-            <span class="board-taskoverlay-title">${task.title}</span>
-            <span class="board-taskoverlay-text">${task.description}</span>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
+            <span class="title-large color-primary">${task.title}</span>
+            <span class="color-primary">${task.description}</span>
+            <div class="flex-center gap-25"><span class="title-small color-primary">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
+            <div class="flex-center gap-25"><span class="title-small color-primary">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
+            <div class="flex-center"><span class="title-small color-primary">Assigned to:</span></div>
+            ${this.getOverlayAssigned(task.assigned_to)}
+            <div class="flex-center"><span class="title-small color-primary">Subtasks:</span></div>
             ${this.getOverlaySubtasksPercentage(task)}
             ${this.getOverlaySubtasks(task)}
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
-            ${this.getOverlayAssigned(task.assigned_to)}
             <div class="board-taskoverlay-btnwrap">
                 <div class="board-taskoverlay-btn delete-icon" onclick="deleteTask('${taskId}')"></div>
                 <div class="board-taskoverlay-btn move-icon" onclick="showMoveList()"></div>
@@ -225,15 +225,15 @@ class TaskTemplate {
             return `
             <div class="board-taskoverlay-close-btn" onclick="hideTaskDetails()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
-            <span class="board-taskoverlay-title">${task.title}</span>
-            <span class="board-taskoverlay-text">${task.description}</span>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
+            <span class="title-large color-primary">${task.title}</span>
+            <span class="color-primary">${task.description}</span>
+            <div class="flex-center gap-25"><span class="title-small color-primary">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
+            <div class="flex-center gap-25"><span class="title-small color-primary">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
+            <div class="flex-center"><span class="title-small color-primary">Assigned to:</span></div>
+            ${this.getOverlayAssigned(task.assigned_to)}
+            <div class="flex-center"><span class="title-small color-primary">Subtasks:</span></div>
             ${this.getOverlaySubtasksPercentage(task)}
             ${this.getOverlaySubtasks(task)}
-            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
-            ${this.getOverlayAssigned(task.assigned_to)}
             `
         }
     }
@@ -242,11 +242,11 @@ class TaskTemplate {
     getOverlaySubtasksPercentage(task) {
         if (task.subtasks.length > 0) {
             return `
-                <div class="board-taskoverlay-percentage">
+                <div class="flex-center gap-25">
                     <div class="board-taskoverlay-percentage-inner-gray">
                         <div class="board-taskoverlay-percentage-inner-blue" style="width: calc(200px * ${this.calculateProgressFactor(task)})"></div>
                     </div>
-                    <span class="board-taskoverlay-percetage-text">${this.countFinishedSubtasks(task)}/${task.subtasks.length} Done</span>
+                    <span>${this.countFinishedSubtasks(task)}/${task.subtasks.length} Done</span>
                 </div>
             `;
         } else {
@@ -260,36 +260,36 @@ class TaskTemplate {
             let lines = "";
             task.subtasks.forEach(subtask => {
                 let sub = subtasks.find(sub => sub.id == subtask);
-                lines += `<span class="board-taskoverlay-value">
+                lines += `<span>
                         ${sub.completed == true ? this.placeOverlayCheckbox(true, sub) : this.placeOverlayCheckbox(false, sub)} ${sub.title}
                         </span>
                     `;
             });
             return lines;
         } else {
-            return `<span class="board-taskoverlay-value">none</span>`;
+            return `<span>none</span>`;
         }
     }
 
 
     placeOverlayCheckbox(completed, subtask) {
         if (completed == true) {
-            return `<input type="checkbox" id="sub${subtask.id}" checked onclick="checkOverlayCheckbox('${subtask.id}')">`;
+            return `<input type="checkbox" id="sub${subtask.id}" disabled="disabled" checked>`;
         } else {
-            return `<input type="checkbox" id="sub${subtask.id}" onclick="checkOverlayCheckbox('${subtask.id}')">`;
+            return `<input type="checkbox" id="sub${subtask.id}" disabled="disabled">`;
         }
     }
 
 
     getOverlayAssigned(assigned) {
-        let lines = `<div class="board-taskoverlay-box">`;
+        let lines = `<div class="flex-column align-left gap-10">`;
         assigned.forEach(person => {
             lines += `
-                <div class="board-taskoverlay-line">
+                <div class="flex-center gap-25">
                     <div class="board-circleleft" style="background:${contacts.find(contact => contact.id == person).color}">
                         <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == person).name)}</span>
                     </div>
-                    <span class="board-taskoverlay-value">${contacts.find(contact => contact.id == person).name}</span>
+                    <span>${contacts.find(contact => contact.id == person).name}</span>
                 </div>
             `;
         });
