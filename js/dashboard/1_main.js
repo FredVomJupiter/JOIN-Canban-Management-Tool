@@ -18,9 +18,9 @@ const token = localStorage.getItem('token').replace(/"/g, '');
  */
 async function init() {
     if (hasToken()) {
-        greetUser();
         let promises = [getContacts(), getCategories(), getSubtasks(), getTodos(), getLoggedUser()];
         await Promise.all(promises).finally(() => {
+            greetUser();
             updateCounters(); // In 2_summary.js
         }).catch(error => { console.log(error) });
     } else {
@@ -39,10 +39,9 @@ function hasToken() {
  * Writes greeting with username from localStorage.
  */
 function greetUser() {
-    let user = JSON.parse(localStorage.getItem('username'));
     let greeting = document.getElementById('username');
     greeting.innerHTML = "";
-    greeting.innerHTML = user;
+    greeting.innerHTML = loggedUser.username;
 }
 
 
