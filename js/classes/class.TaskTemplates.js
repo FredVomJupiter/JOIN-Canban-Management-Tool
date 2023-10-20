@@ -77,11 +77,11 @@ class TaskTemplate {
     }
 
 
-/**
- * Returns html template of circles with initials from Name & Surname of assigned persons.
- * @param {object} task as object.
- * @returns html template.
- */
+    /**
+     * Returns html template of circles with initials from Name & Surname of assigned persons.
+     * @param {object} task as object.
+     * @returns html template.
+     */
     getAssignments(task) {
 
         if (task.assigned_to.length == 1) {
@@ -196,7 +196,8 @@ class TaskTemplate {
     getOverlayTask(taskId) {
         let task = tasks.find(task => task.id == taskId);
         let category = categories.find(cat => cat.id == task.category);
-        return `
+        if (task.user == loggedUser.id) {
+            return `
             <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
             <span class="board-taskoverlay-title">${task.title}</span>
@@ -218,12 +219,26 @@ class TaskTemplate {
                     <span onclick="moveTask('${taskId}', 'Awaiting Feedback')">Awaiting Feedback</span>
                     <span onclick="moveTask('${taskId}', 'Done')">Done</span>
                 </div>
-                
             </div>
-        `
+            `
+        } else {
+            return `
+            <div class="board-taskoverlay-close-btn" onclick="closeOverlay()"></div>
+            <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
+            <span class="board-taskoverlay-title">${task.title}</span>
+            <span class="board-taskoverlay-text">${task.description}</span>
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Subtasks:</span></div>
+            ${this.getOverlaySubtasksPercentage(task)}
+            ${this.getOverlaySubtasks(task)}
+            <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
+            ${this.getOverlayAssigned(task.assigned_to)}
+            `
+        }
     }
 
-    
+
     getOverlaySubtasksPercentage(task) {
         if (task.subtasks.length > 0) {
             return `
