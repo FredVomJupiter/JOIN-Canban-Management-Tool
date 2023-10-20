@@ -2,13 +2,6 @@ let taskTemplate = new TaskTemplate();
 let taskDetailTemplate = new TaskDetailTemplates();
 let contactTemplate = new ContactTemplate();
 
-// Local instance of the database collected from the server.
-let contacts = [];
-let categories = [];
-let subtasks = [];
-let tasks = [];
-let loggedUser = {};
-
 const baseUrl = 'http://127.0.0.1:8000/api/v1/';
 const token = localStorage.getItem('token').replace(/"/g, '');
 
@@ -43,6 +36,11 @@ function greetUser() {
     greeting.innerHTML = "";
     greeting.innerHTML = loggedUser.username;
 }
+
+
+//
+// API CALLS START HERE
+//
 
 
 async function getLoggedUser() {

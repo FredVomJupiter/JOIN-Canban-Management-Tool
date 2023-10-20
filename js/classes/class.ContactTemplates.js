@@ -8,7 +8,7 @@ class ContactTemplate {
 
     getEditcontactOverlay(name, email, phone) {
         return `
-            <img class="addcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
+            <img class="addcontact-task-close" src="./assets/img/clear.svg" onclick="null">
             <div class="addcontact-title-container">
                 <img class="addcontact-logo" src="./assets/img/logo_white.svg" alt="logo">
                 <div class="addcontact-title">Edit contact</div>

@@ -1,4 +1,4 @@
-class Categories {
+class Category {
     id;
     name;
     color;
