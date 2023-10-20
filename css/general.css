@@ -109,6 +109,10 @@ body {
     color: var(--primary-color) !important;
 }
 
+.gap-56 {
+    gap: 56px;
+}
+
 .gap-25 {
     gap: 25px;
 }
@@ -117,8 +121,20 @@ body {
     gap: 10px;
 }
 
+.width-100 {
+    width: 100% !important;
+}
+
+.width-40 {
+    width: 40% !important;
+}
+
 .padding-20 {
     padding: 20px;
+}
+
+.padding-1632 {
+    padding: 16px 32px;
 }
 
 .icon-large {

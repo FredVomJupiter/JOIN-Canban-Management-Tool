@@ -123,40 +123,40 @@
             </div>
 
             <!-- Center content -->
-            <div class="summary-tile-container">
+            <div class="flex-column gap-25">
                 <!-- TOP part of center content -->
-                <div class="summary-tile-topwrap">
-                    <div class="summary-tile" onclick="openPage('board')">
-                        <div class="summary-tile-inner">
-                            <span class="summary-tile-counter" id="tasksCounter"></span>
-                            <span class="summary-tile-text">Tasks on Board</span>
+                <div class="flex-row flex-center flex-space-between width-100">
+                    <div class="summary-tile padding-1632" onclick="openPage('board')">
+                        <div class="flex-column flex-center">
+                            <span class="title-tiny" id="tasksCounter"></span>
+                            <span class="text-small">Tasks on Board</span>
                         </div>
                     </div>
-                    <div class="summary-tile" onclick="openPage('board')">
-                        <div class="summary-tile-inner">
-                            <span class="summary-tile-counter" id="progressCounter"></span>
-                            <span class="summary-tile-text">Tasks in Progress</span>
+                    <div class="summary-tile padding-1632" onclick="openPage('board')">
+                        <div class="flex-column flex-center">
+                            <span class="title-tiny" id="progressCounter"></span>
+                            <span class="text-small">Tasks in Progress</span>
                         </div>
                     </div>
-                    <div class="summary-tile" onclick="openPage('board')">
-                        <div class="summary-tile-inner">
-                            <span class="summary-tile-counter" id="feedbackCounter"></span>
-                            <span class="summary-tile-text">Awaiting Feedback</span>
+                    <div class="summary-tile padding-1632" onclick="openPage('board')">
+                        <div class="flex-column flex-center">
+                            <span class="title-tiny" id="feedbackCounter"></span>
+                            <span class="text-small">Awaiting Feedback</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- MIDDLE part of center content -->
-                <div class="summary-tile-middlewrap" onclick="openPage('board')">
+                <div class="summary-tile padding-1632 flex-row flex-center gap-25 width-100" onclick="openPage('board')">
 
                     <!-- MIDDLE LEFT part -->
-                    <div class="summary-tile-middle-left">
-                        <div class="summary-tile-middle-left-icon-outer">
-                            <img class="summary-tile-middle-left-icon" src="./assets/img/urgent.svg">
+                    <div class="flex-row flex-center gap-10">
+                        <div class="flex-row">
+                            <img class="icon-small" src="./assets/img/urgent.svg">
                         </div>
-                        <div class="summary-tile-middle-left-counter-outer">
-                            <span class="summary-tile-middle-left-counter" id="urgentCounter"></span>
-                            <span class="summary-tile-middle-text">Urgent</span>
+                        <div class="flex-column flex-center">
+                            <span class="title-tiny" id="urgentCounter"></span>
+                            <span class="text-small">Urgent</span>
                         </div>
                     </div>
 
@@ -164,34 +164,34 @@
                     <div class="summary-tile-middle-line"></div>
 
                     <!-- MIDDLE RIGHT part -->
-                    <div class="summary-tile-middle-right">
-                        <span class="summary-tile-middle-right-date" id="urgentDate"></span>
-                        <span class="summary-tile-middle-text">Upcoming deadline</span>
+                    <div class="flex-column">
+                        <span class="text-bold" id="urgentDate"></span>
+                        <span class="text-small">Upcoming deadline</span>
                     </div>
                 </div>
 
                 <!-- BOTTOM part of center content -->
-                <div class="summary-tile-bottomwrap">
+                <div class="flex-row flex-space-between width-100">
 
                     <!-- TO DO part left -->
-                    <div class="summary-bottom-tile" onclick="openPage('board')">
+                    <div class="summary-tile flex-row flex-center gap-10 width-40 todo-hover" onclick="openPage('board')">
                         <div class="summary-bottom-tile-iconwrap">
-                            <div class="summary-bottom-todo-icon"></div>
+                            <div class="icon-small todo-icon"></div>
                         </div>
-                        <div class="summary-bottom-counter-outer">
-                            <span class="summary-bottom-counter" id="todoCounter"></span>
-                            <span class="summary-bottom-text">Todo</span>
+                        <div class="flex-column flex-center">
+                            <span class="title-tiny" id="todoCounter"></span>
+                            <span class="text-small">Todo</span>
                         </div>
                     </div>
 
                     <!-- DONE part right -->
-                    <div class="summary-bottom-tile" onclick="openPage('board')">
+                    <div class="summary-tile flex-row flex-center gap-10 width-40 done-hover" onclick="openPage('board')">
                         <div class="summary-bottom-tile-iconwrap">
-                            <div class="summary-bottom-done-icon"></div>
+                            <div class="icon-small done-icon"></div>
                         </div>
-                        <div class="summary-bottom-counter-outer">
-                            <span class="summary-bottom-counter" id="doneCounter"></span>
-                            <span class="summary-bottom-text">Done</span>
+                        <div class="flex-column flex-center">
+                            <span class="title-tiny" id="doneCounter"></span>
+                            <span class="text-small">Done</span>
                         </div>
                     </div>
 

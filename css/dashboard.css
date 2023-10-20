@@ -79,134 +79,26 @@
     color: var(--secondary-color);
 }
 
-.summary-tile-container {
-    box-sizing: border-box;
-    display: flex;
-    height: 520px;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 100px;
-    margin-top: 24px;
-    margin-bottom: 16px;
-}
-
-.summary-tile-topwrap {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 580px;
-}
-
 .summary-tile {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    gap: 13px;
-    width: 160px;
-    min-height: 150px;
-    max-height: 150px;
+    width: fit-content;
+    height: fit-content;
     background: var(--white);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-}
-
-.summary-tile-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 87px;
-    height: 127px;
-}
-
-.summary-tile-counter {
-    width: 41px;
-    height: 77px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 56px;
-    text-align: center;
-    color: var(--black);
-}
-
-.summary-tile-text {
-    width: 87px;
-    height: 50px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    text-align: center;
-    color: var(--primary-color);
-}
-
-.summary-tile-middlewrap {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    border-radius: 20px;
     box-sizing: border-box;
-    gap: 61px;
-    width: 580px;
-    min-height: 150px;
-    max-height: 150px;
-    background: var(--white);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.summary-tile-middle-left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 18px;
-    width: 130px;
-    height: 75px;
+.summary-tile:hover {
+    transition: all 225ms ease-in-out;
+    transform: scale(1.1);
+    background: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.summary-tile-middle-left-icon-outer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 60px;
-    height: 60px;
-}
-
-.summary-tile-middle-left-icon {
-    width: 60px;
-    height: 60px;
-}
-
-.summary-tile-middle-left-counter-outer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 52px;
-    height: 75px;
-}
-
-.summary-tile-middle-left-counter {
-    width: 50px;
-    height: 56px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 47px;
-    text-align: center;
-    color: var(--black);
-}
-
-.summary-tile-middle-text {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--primary-color);
+.summary-tile:hover span {
+    color: var(--white);
 }
 
 .summary-tile-middle-line {
@@ -216,135 +108,21 @@
     border-radius: 10px;
 }
 
-.summary-tile-middle-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 13px;
-}
-
-.summary-tile-middle-right-date {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    color: var(--primary-color);
-}
-
-.summary-tile-bottomwrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 35px;
-    width: 580px;
-}
-
-.summary-bottom-tile {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    gap: 18px;
-    width: 272px;
-    min-height: 150px;
-    max-height: 150px;
-    background: var(--white);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-}
-
-.summary-bottom-tile-iconwrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 70px;
-    height: 70px;
-}
-
-.summary-bottom-todo-icon {
-    width: 70px;
-    height: 70px;
+.todo-icon {
     background-image: url("../assets/img/todo_black.svg");
+    background-size: contain;
 }
 
-.summary-bottom-counter-outer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60px;
-    height: 102px;
-}
-
-.summary-bottom-counter {
-    width: 31px;
-    height: 77px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 64px;
-    text-align: center;
-    color: var(--black);
-}
-
-.summary-bottom-text {
-    width: 60px;
-    height: 25px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    color: var(--primary-color);
-}
-
-.summary-bottom-done-icon {
-    width: 70px;
-    height: 70px;
+.done-icon {
     background-image: url("../assets/img/done_black.svg");
+    background-size: contain;
 }
 
-/* Summary Hover Effects */
-.summary-tile:hover {
-    transition: all 225ms ease-in-out;
-    transform: scale(1.1);
-    background: var(--primary-color);
-    color: var(--white);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.summary-tile:hover span {
-    color: var(--white);
-}
-
-.summary-tile-middlewrap:hover {
-    transition: all 225ms ease-in-out;
-    transform: scale(1.1);
-    background: var(--primary-color);
-    color: var(--white);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.summary-tile-middlewrap:hover span {
-    color: var(--white);
-}
-
-.summary-bottom-tile:hover {
-    transition: all 225ms ease-in-out;
-    background: var(--primary-color);
-    color: var(--white);
-    transform: scale(1.1);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.summary-bottom-tile:hover span {
-    color: var(--white);
-}
-
-.summary-bottom-tile:hover .summary-bottom-todo-icon {
+.todo-hover:hover .todo-icon {
     background-image: url("../assets/img/todo_white.svg");
 }
 
-.summary-bottom-tile:hover .summary-bottom-done-icon {
+.done-hover:hover .done-icon {
     background-image: url("../assets/img/done_white.svg");
 }
 
@@ -2532,125 +2310,14 @@
         display: none;
     }
 
-    .summary-tile-container {
-        height: 440px;
-        padding: unset;
-    }
-
-    .summary-tile-topwrap {
-        width: 440px;
-        height: 120px;
-    }
-
     .summary-tile {
         width: 120px;
         min-height: 120px;
         max-height: 120px;
     }
 
-    .summary-tile-inner {
-        width: unset;
-        height: unset;
-    }
-
-    .summary-tile-counter {
-        font-size: 40px;
-        width: unset;
-        height: unset;
-    }
-
-    .summary-tile-text {
-        font-size: 16px;
-        padding: 0px 20px;
-        width: unset;
-        height: unset;
-    }
-
-    .summary-tile-middlewrap {
-        width: 440px;
-        min-height: 120px;
-        max-height: 120px;
-        padding: unset;
-    }
-
-    .summary-tile-middle-left {
-        width: unset;
-        height: unset;
-    }
-
-    .summary-tile-middle-left-icon-outer {
-        width: 40px;
-        height: 40px;
-    }
-
-    .summary-tile-middle-left-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .summary-tile-middle-left-counter-outer  {
-        width: unset;
-        height: unset;
-    }
-
-    .summary-tile-middle-left-counter {
-        width: unset;
-        height: unset;
-        font-size: 40px;
-    }
-
     .summary-tile-middle-line {
         height: 50px;
-    }
-
-    .summary-tile-middle-right-date {
-        font-size: 16px;
-    }
-
-    .summary-tile-bottomwrap {
-        width: 440px;
-        min-height: 120px;
-        max-height: 120px;
-    }
-
-    .summary-bottom-tile {
-        width: 200px;
-        min-height: 120px;
-        max-height: 120px;
-    }
-
-    .summary-bottom-tile-iconwrap {
-        width: unset;
-        height: unset;
-    }
-
-    .summary-bottom-todo-icon {
-        width: 40px;
-        height: 40px;
-        background-size: contain;
-    }
-
-    .summary-bottom-counter-outer {
-        width: unset;
-        height: unset;
-    }
-
-    .summary-bottom-counter {
-        width: unset;
-        height: unset;
-        font-size: 40px;
-    }
-
-    .summary-bottom-text {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .summary-bottom-done-icon {
-        width: 40px;
-        height: 40px;
-        background-size: contain;
     }
 
     .board {
@@ -2908,98 +2575,13 @@
 
 @media screen and (max-width: 700px) {
 
-    .summary-tile-container {
-        height: calc(100vh - 100px);
-        justify-content: unset;
-        gap: 1rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .summary-tile-topwrap {
-        width: 320px;
-        height: 90px;
-    }
-
     .summary-tile {
         width: 90px;
         min-height: 90px;
         max-height: 90px;
     }
 
-    .summary-tile-counter {
-        font-size: 24px;
-    }
-
-    .summary-tile-text {
-        font-size: 13px;
-    }
-
-    .summary-tile-middlewrap {
-        width: 320px;
-        min-height: 90px;
-        max-height: 90px;
-        gap: 20px;
-    }
-
-    .summary-tile-middle-left-icon-outer {
-        width: 30px;
-        height: 30px;
-    }
-
-    .summary-tile-middle-left-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .summary-tile-middle-left-counter {
-        font-size: 24px;
-    }
-
-    .summary-tile-middle-text {
-        font-size: 12px;
-    }
-
     .summary-tile-middle-line {
-        height: 30px;
-    }
-
-    .summary-tile-middle-right {
-        gap: unset;
-    }
-
-    .summary-tile-middle-right-date {
-        font-size: 12px;
-    }
-
-    .summary-tile-bottomwrap {
-        width: 320px;
-        min-height: 90px;
-        max-height: 90px;
-    }
-
-    .summary-bottom-tile {
-        padding: unset;
-        width: 150px;
-        min-height: 90px;
-        max-height: 90px;
-    }
-
-    .summary-bottom-todo-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .summary-bottom-counter {
-        font-size: 24px;
-    }
-
-    .summary-bottom-text {
-        font-size: 12px;
-    }
-
-    .summary-bottom-done-icon {
-        width: 30px;
         height: 30px;
     }
 
