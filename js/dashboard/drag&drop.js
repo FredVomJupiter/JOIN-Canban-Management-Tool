@@ -52,8 +52,8 @@ function dragleave(event, zone) {
  * @param {*} taskid 
  * @returns true or false.
  */
-function checkPermission(taskid) {
-    return tasks.find(task => task.id == taskid).user.id == loggedUser.id;
+function checkPermission(taskId) {
+    return tasks.find(task => task.id == taskId).user == loggedUser.id;
 }
 
 
