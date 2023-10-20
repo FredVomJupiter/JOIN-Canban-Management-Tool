@@ -8,21 +8,27 @@
     <title>JOIN</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/logo_white.svg">
 
+    <!-- Classes -->
     <script src="./js/classes/class.task.js"></script>
     <script src="./js/classes/class.categories.js"></script>
     <script src="./js/classes/class.contact.js"></script>
     <script src="./js/classes/class.TaskTemplates.js"></script>
     <script src="./js/classes/class.TaskDetailTemplates.js"></script>
     <script src="./js/classes/class.ContactTemplates.js"></script>
-    <script defer src="./js/dashboard/1_main.js"></script>
-    <script defer src="./js/dashboard/2_summary.js"></script>
-    <script defer src="./js/dashboard/board/3_board.js"></script>
-    <script defer src="./js/dashboard/4_addtask.js"></script>
-    <script defer src="./js/dashboard/4.1_addtask_validation.js"></script>
-    <script defer src="./js/dashboard/4.2_edittask.js"></script>
-    <script defer src="./js/dashboard/5_contact.js"></script>
+
+    <!-- Init Scripts -->
+    <script defer src="./js/dashboard/main.js"></script>
+    <script defer src="./js/dashboard/summary.js"></script>
     <script defer src="./js/dashboard/menu-navigation.js"></script>
-    <script defer src="./js/dashboard/drag&drop.js"></script>
+
+    <!-- Board Scripts -->
+    <script defer src="./js/dashboard/board/1_board_main.js"></script>
+    <script defer src="./js/dashboard/board/2_board_filter.js"></script>
+    <script defer src="./js/dashboard/board/3_board_taskdetail.js"></script>
+    <script defer src="./js/dashboard/board/4_board_dragdrop.js"></script>
+
+    <!-- Contact Scripts -->
+    <script defer src="./js/dashboard/contacts/contact.js"></script>
 
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/alert.css">
@@ -33,150 +39,11 @@
 
     <div class="background"></div>
 
-    <!-- Task creation confirmation msg -->
-    <div class="addtask-confirmation-outer" id="messageTask">
-        <div class="addtask-confirmation-border">
-            <img src="./assets/img/check.svg">
-            <span class="addtask-confirmation-text">Task added to board</span>
-        </div>
-    </div>
+    <!-- Task Detail Overlay -->
+    <div class="overlay-background d-none" id="taskDetailsBackground" onclick="hideTaskDetails()">
 
-    <!-- All Overlays Are Here -->
-    <div class="overlay-background d-none" id="overlayBackground" onclick="closeOverlay()">
-
-        <!-- Card Overlay -->
+        <!-- Task Details -->
         <div class="board-taskoverlay-container d-none" id="overlayTask" onclick="stopPropagation(event)">
-        </div>
-
-        <!-- Add Task Overlay -->
-        <form class="addtask-overlay-container d-none" id="addtaskOverlay" onclick="stopPropagation(event)">
-            <!-- Content left side -->
-            <div class="addtask-leftcontainer">
-                <div class="addtask-leftcontainer-title">
-                    <span class="addtask-leftcontainer-titletext">Title</span>
-                    <input class="addtask-leftcontainer-titlefield" type="text" id="addtaskOverlayTitle"
-                        placeholder="Enter a title">
-                    <div class="error"></div>
-                </div>
-
-                <div class="addtask-leftcontainer-description">
-                    <span class="addtask-leftcontainer-descriptiontext">Description</span>
-                    <textarea class="addtask-leftcontainer-descriptionfield" cols="1" rows="2"
-                        id="addtaskOverlayDescription" placeholder="Enter a description"></textarea>
-                    <div class="error"></div>
-                </div>
-
-                <div class="addtask-leftcontainer-category">
-                    <span class="addtask-leftcontainer-categorytext">Category</span>
-                    <div class="addtask-leftcontainer-categoryfield" id="addtaskOverlayCategory"
-                        onclick="expandCategories('overlay')">Select task category
-                    </div>
-                </div>
-
-                <div class="addtask-leftcontainer-assigned">
-                    <span class="addtask-leftcontainer-assignedtext">Assigned to</span>
-                    <div class="addtask-leftcontainer-assignedfield" id="addtaskOverlayAssigned"
-                        onclick="expandAssigned('overlay')">Select contacts to assign
-                    </div>
-                </div>
-                <div class="addtask-leftcontainer-assigned-display" id="displayOverlayAssigned"></div>
-            </div>
-
-            <div class="addtask-line"></div>
-
-            <!-- Content right side -->
-            <div class="addtask-rightcontainer">
-                <div class="addtask-close-btn" onclick="closeOverlay()"></div>
-                <div class="addtask-rightcontainer-date">
-                    <span class="addtask-rightcontainer-datetext">Due date</span>
-                    <input class="addtask-rightcontainer-datefield" type="date" id="addtaskOverlayDate">
-                    <div class="error"></div>
-                </div>
-
-                <div class="addtask-rightcontainer-prio">
-                    <span class="addtask-rightcontainer-priotext">Prio</span>
-                    <div class="addtask-rightcontainer-priobtns" id="addtaskOverlayPrio">
-                        <div class="addtask-rightcontainer-priobtns-outline" onclick="setPriority('overlay', 'urgent')">
-                            <span class="addtask-rightcontainer-priobtns-text">Urgent</span>
-                            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priohigh.svg">
-                        </div>
-                        <div class="addtask-rightcontainer-priobtns-outline" onclick="setPriority('overlay', 'medium')">
-                            <span class="addtask-rightcontainer-priobtns-text">Medium</span>
-                            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priomedium.svg">
-                        </div>
-                        <div class="addtask-rightcontainer-priobtns-outline" onclick="setPriority('overlay', 'low')">
-                            <span class="addtask-rightcontainer-priobtns-text">Low</span>
-                            <img class="addtast-rightcontainer-priobtns-icon" src="./assets/img/priolow.svg">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="addtask-rightcontainer-subtask">
-                    <span class="addtask-rightcontainer-subtasktext">Subtask</span>
-                    <div class="addtask-rightcontainer-subtaskborder">
-                        <input class="addtask-rightcontainer-subtaskfield" type="text" placeholder="Add new subtask"
-                            id="addtaskOverlaySub">
-                        <img class="addtask-rightcontainer-subtask-icon" src="./assets/img/plus.svg"
-                            onclick="addSubtask('overlay')">
-                    </div>
-                    <div class="gap" id="addtaskOverlaySubbox">
-                    </div>
-                </div>
-
-                <!-- Buttons bottom right -->
-                <div class="addtask-button-container">
-                    <div class="addtask-button-inner">
-                        <div class="addtask-button-clear" onclick="clearOverlay()" id="taskClearButton">
-                            Clear
-                            <div class="addtask-button-clearicon"></div>
-                        </div>
-                        <button class="addtask-button-createtask" type="submit" id="overlaySubmit" value="Add task">
-                            Add Task
-                            <div class="addtask-button-createicon"></div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <!-- Add Contact Overlay-->
-        <div class="addcontact-content d-none" id="addcontactOverlay" onclick="stopPropagation(event)">
-            <img class="addcontact-task-close" src="./assets/img/clear.svg" onclick="closeOverlay()">
-            <div class="addcontact-title-container">
-                <img class="addcontact-logo" src="./assets/img/logo_white.svg" alt="logo">
-                <div class="addcontact-title">Add contact</div>
-                <div class="addcontact-subtitle">Tasks are better with a team</div>
-                <img src="./assets/img/horizontal_blue_line.svg">
-            </div>
-            <div class="addcontact-form">
-                <div class="addcontact-user-badge">
-                    <img src="./assets/img/user_guest.svg">
-                </div>
-                <form class="addcontact-form-right" id="formAddcontact">
-                    <div class="addcontact-form-container">
-                        <input class="addcontact-input-profile" type="text" id="addcontactInputName" placeholder="Name">
-                        <div class="error"></div>
-                    </div>
-                    <div class="addcontact-form-container">
-                        <input class="addcontact-input-email" type="text" id="addcontactInputEmail" placeholder="Email">
-                        <div class="error"></div>
-                    </div>
-                    <div class="addcontact-form-container">
-                        <input class="addcontact-input-phone" type="text" id="addcontactInputPhone" placeholder="Phone">
-                        <div class="error"></div>
-                    </div>
-                    <div class="addcontact-submit-btns">
-                        <input class="addcontact-clear-btn" type="button" value="Clear"
-                            onclick="clearNewcontactInputfields()">
-                        <input class="addcontact-create-btn" type="submit" value="Create contact">
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Edit Contact Overlay -->
-        <div class="addcontact-content d-none" id="editcontactOverlay" onclick="stopPropagation(event)">
-
         </div>
 
     </div>
@@ -347,7 +214,7 @@
                     </div>
 
                     <!-- addTask Button -->
-                    <div class="board-addtask-button" onclick="openAddtaskOverlay('Todo')">
+                    <div class="board-addtask-button">
                         <span class="board-addtask-button-text">Add task</span>
                         <div class="board-addtask-button-icon-outer">
                             <div class="board-addtask-button-icon-inner">+
@@ -363,8 +230,7 @@
                 <!-- TODO column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
-                            onclick="openAddtaskOverlay('Todo')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
                         <span class="board-column-title">Todo</span>
                     </div>
 
@@ -374,8 +240,7 @@
                 <!-- PROGRESS column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
-                            onclick="openAddtaskOverlay('In Progress')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
                         <span class="board-column-title">In Progress</span>
                     </div>
 
@@ -385,8 +250,7 @@
                 <!-- FEEDBACK column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
-                            onclick="openAddtaskOverlay('Awaiting Feedback')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
                         <span class="board-column-title">Awaiting Feedback</span>
                     </div>
 
@@ -397,8 +261,7 @@
                 <!-- DONE column -->
                 <div class="board-column">
                     <div class="board-column-top tooltip">
-                        <img class="board-column-icon" src="./assets/img/addbtn.svg"
-                            onclick="openAddtaskOverlay('Done')">
+                        <img class="board-column-icon" src="./assets/img/addbtn.svg">
                         <span class="board-column-title">Done</span>
                     </div>
 
@@ -530,7 +393,7 @@
 
             </div>
 
-            <div class="contact-addcontact-button" onclick="openAddcontactOverlay('To do')">
+            <div class="contact-addcontact-button">
                 <span class="contact-addcontact-button-text">New contact</span>
                 <img class="contact-addcontact-button-icon" src="./assets/img/addcontact.svg">
             </div>

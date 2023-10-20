@@ -1,12 +1,3 @@
-// Functionality for Contacts Page
-function openAddcontactOverlay() {
-    let background = document.getElementById("overlayBackground");
-    background.classList.remove("d-none");
-    let addcontact = document.getElementById('addcontactOverlay');
-    addcontact.classList.remove('d-none');
-}
-
-
 function renderContactList() {
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = "";
@@ -68,20 +59,6 @@ function markSelectedContact(id) {
     name.classList.remove('contact-template-name');
     name.classList.add('contact-template-name-light');
 }
-
-
-// Adding Contacts Here
-
-const addForm = document.getElementById('formAddcontact');
-const addContactname = document.getElementById('addcontactInputName');
-const addEmail = document.getElementById('addcontactInputEmail');
-const addPhone = document.getElementById('addcontactInputPhone');
-
-
-addForm.addEventListener('submit', e => {
-    e.preventDefault();
-    validateAddInputs();
-});
 
 
 const setAddError = (element, message) => {

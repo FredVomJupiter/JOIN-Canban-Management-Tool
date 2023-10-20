@@ -73,7 +73,7 @@ function renderPageSpecificContent(pageName) {
     pageName === 'summary' ? updateCounters() : "";
     pageName === 'contacts' ? renderContactList() : "";
     pageName === 'board' ? renderTasks() : "";
-    pageName === 'addtask' ? initNewTask() : ""; // TODO: Check if this is necessary
+    pageName === 'addtask' ? null : "";
 }
 
 

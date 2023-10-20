@@ -3,7 +3,7 @@
  * @param {*} taskId as string.
  */
 function showTaskDetails(taskId) {
-    let background = document.getElementById("overlayBackground");
+    let background = document.getElementById("taskDetailsBackground");
     background.classList.remove("d-none");
     renderOverlayTask(taskId);
 }
@@ -69,6 +69,6 @@ function returnFormatedDate(date) {
 function hideTaskDetails() {
     let overlayTask = document.getElementById('overlayTask');
     overlayTask.classList.add('d-none');
-    let background = document.getElementById("overlayBackground");
+    let background = document.getElementById("taskDetailsBackground");
     background.classList.add("d-none");
 }
