@@ -7,6 +7,7 @@ let contacts = [];
 let categories = [];
 let subtasks = [];
 let tasks = [];
+let loggedUser = {};
 
 const baseUrl = 'http://127.0.0.1:8000/api/v1/';
 const token = localStorage.getItem('token').replace(/"/g, '');
@@ -18,7 +19,7 @@ const token = localStorage.getItem('token').replace(/"/g, '');
 async function init() {
     if (hasToken()) {
         greetUser();
-        let promises = [getContacts(), getCategories(), getSubtasks(), getTodos()];
+        let promises = [getContacts(), getCategories(), getSubtasks(), getTodos(), getLoggedUser()];
         await Promise.all(promises).finally(() => {
             updateCounters(); // In 2_summary.js
         }).catch(error => { console.log(error) });
@@ -42,6 +43,17 @@ function greetUser() {
     let greeting = document.getElementById('username');
     greeting.innerHTML = "";
     greeting.innerHTML = user;
+}
+
+
+async function getLoggedUser() {
+    let response = await fetch(baseUrl + 'user/', {
+        method: 'GET',
+        credentials: 'include',
+        headers: { 'Authorization': " Token " + token },
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    loggedUser = data;
 }
 
 
