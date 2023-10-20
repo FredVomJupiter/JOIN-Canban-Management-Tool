@@ -72,7 +72,6 @@ async function startHttpRequest() {
         removeErrors();
         rememberUser();
         localStorage.setItem('token', JSON.stringify(json.token));
-        localStorage.setItem('username', JSON.stringify(email.value));
         window.open('./dashboard.html', '_self'); // Redirect to Dashboard
     }
 }
