@@ -117,3 +117,18 @@ async function setTodo(task) {
     let data = await response.json();
     return data;
 }
+
+
+async function setSubtask(subtask) {
+    let response = await fetch(baseUrl + 'subtasks/' + subtask.id + '/', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subtask)
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    return data;
+}
