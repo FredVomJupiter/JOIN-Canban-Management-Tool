@@ -210,9 +210,9 @@ class TaskTemplate {
             <div class="board-taskoverlay-line"><span class="board-taskoverlay-subtitle">Assigned to:</span></div>
             ${this.getOverlayAssigned(task.assigned_to)}
             <div class="board-taskoverlay-btnwrap">
-                <div class="board-taskoverlay-delete" onclick="deleteTask('${taskId}')"></div>
-                <div class="board-taskoverlay-move" onclick="showMoveList()"></div>
-                <div class="board-taskoverlay-edit" onclick="editTask('${taskId}')"></div>
+                <div class="board-taskoverlay-btn delete-icon" onclick="deleteTask('${taskId}')"></div>
+                <div class="board-taskoverlay-btn move-icon" onclick="showMoveList()"></div>
+                <div class="board-taskoverlay-btn edit-icon" onclick="editTask('${taskId}')"></div>
                 <div class="board-taskoverlay-moveMenu d-none" id="moveList">
                     <span onclick="moveTask('${taskId}', 'Todo')">Todo</span>
                     <span onclick="moveTask('${taskId}', 'In Progress')">In Progres</span>

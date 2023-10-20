@@ -1,13 +1,3 @@
-/* Yep, this file is very long. If I would remake this project, I would rely on fewer classes.
-    However, I decided to only clean it up and else leave it as is to show the progress of my
-    learning. This is my first big project. In the meantime I learned many more CSS tricks.
-    
-    The upside of this very detailed class system is preventig unintended global changes when only
-    intending to change a single e.g. input field or span.
-    
-    The downside is the sheer overwhelming mass of CSS lines for a relatively small scale project.
-*/
-
 :root {
     --primary-color: #2A3647;
     --secondary-color: #29ABE2;
@@ -1070,9 +1060,8 @@ body {
 }
 
 /* Task Overlay on board page*/
-.board-taskoverlay-container {
+.overlay-container {
     display: flex;
-    position: absolute;
     align-self: center;
     justify-self: center;
     flex-direction: column;
@@ -1092,7 +1081,7 @@ body {
     scrollbar-width: none;
 }
 
-.board-taskoverlay-container::-webkit-scrollbar {
+.overlay-container::-webkit-scrollbar {
     display: none;
 }
 
@@ -1216,38 +1205,27 @@ body {
     translate: 51px 40px;
 }
 
-.board-taskoverlay-delete {
+.board-taskoverlay-btn {
     cursor: pointer;
     width: 40px;
     height: 40px;
     background: var(--primary-color);
     border-radius: 10px;
-    background-image: url("../assets/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.delete-icon {
+    background-image: url("../assets/img/delete.png");
     background-size: 32px;
 }
 
-.board-taskoverlay-move {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    background: var(--primary-color);
-    border-radius: 10px;
+.move-icon {
     background-image: url("../assets/img/check.svg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
-.board-taskoverlay-edit {
-    cursor: pointer;
-    width: 40px;
-    min-height: 40px;
-    background: var(--primary-color);
-    border-radius: 10px;
+.edit-icon {
     background-image: url("../assets/img/pencil_white.svg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .board-taskoverlay-moveMenu {
@@ -3970,9 +3948,9 @@ input:invalid {
         flex-wrap: wrap;
     }
 
-    .board-taskoverlay-container {
+    .overlay-container {
         max-width: 100vw;
-        max-height: calc(100vh - 80px);
+        max-height: 100vh;
     }
 
     .board-taskoverlay-value {
