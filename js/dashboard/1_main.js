@@ -36,7 +36,7 @@ function hasToken() {
 }
 
 /**
- * Writes greeting with username from localStorage.
+ * Writes greeting with username from api call to the summary page.
  */
 function greetUser() {
     let greeting = document.getElementById('username');
