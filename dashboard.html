@@ -117,25 +117,25 @@
             <div class="flex-row flex-center gap-25">
 
                 <!-- Center content -->
-                <div class="flex-column gap-25">
+                <div class="flex-column gap-25 padding-20">
                     <!-- TOP part of center content -->
                     <div class="flex-row flex-center flex-space-between width-100">
-                        <div class="summary-tile padding-1632" onclick="openPage('board')">
+                        <div class="summary-tile flex-center padding-1632 top-tile" onclick="openPage('board')">
                             <div class="flex-column flex-center">
                                 <span class="title-tiny" id="tasksCounter"></span>
-                                <span class="text-small">Tasks on Board</span>
+                                <span class="text-small text-center">Total Tasks</span>
                             </div>
                         </div>
-                        <div class="summary-tile padding-1632" onclick="openPage('board')">
+                        <div class="summary-tile flex-center padding-1632 top-tile" onclick="openPage('board')">
                             <div class="flex-column flex-center">
                                 <span class="title-tiny" id="progressCounter"></span>
-                                <span class="text-small">Tasks in Progress</span>
+                                <span class="text-small text-center">Tasks in Progress</span>
                             </div>
                         </div>
-                        <div class="summary-tile padding-1632" onclick="openPage('board')">
+                        <div class="summary-tile flex-center padding-1632 top-tile" onclick="openPage('board')">
                             <div class="flex-column flex-center">
                                 <span class="title-tiny" id="feedbackCounter"></span>
-                                <span class="text-small">Awaiting Feedback</span>
+                                <span class="text-small text-center">Awaiting Feedback</span>
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                     <div class="flex-row flex-space-between width-100">
 
                         <!-- TO DO part left -->
-                        <div class="summary-tile flex-row flex-center gap-10 width-40 todo-hover"
+                        <div class="summary-tile flex-row flex-center gap-10 width-40 todo-hover padding-1632"
                             onclick="openPage('board')">
                             <div class="icon-small todo-icon"></div>
                             <div class="flex-column flex-center">
@@ -177,7 +177,7 @@
                         </div>
 
                         <!-- DONE part right -->
-                        <div class="summary-tile flex-row flex-center gap-10 width-40 done-hover"
+                        <div class="summary-tile flex-row flex-center gap-10 width-40 done-hover padding-1632"
                             onclick="openPage('board')">
                             <div class="icon-small done-icon"></div>
                             <div class="flex-column flex-center">
@@ -210,21 +210,13 @@
                 <div class="flex-row flex-center gap-25">
                     <div class="flex-row gap-25">
                         <!-- Searchbar -->
-                        <div class="board-searchbar-border">
-                            <div class="board-searchbar-outer">
-                                <div class="board-searchbar-inner">
-                                    <input class="board-searchbar-text" id="searchField" type="search"
-                                        placeholder="Find Task" onkeyup="filterTasks()">
-                                </div>
-                                <div class="board-searchbar-icon-wrap">
-                                    <div class="board-searchbar-verticalline"></div>
-                                    <img class="board-searchbar-icon" src="./assets/img/search.svg">
-                                </div>
-                            </div>
+                        <div class="flex-row flex-center gap-25" style="margin-bottom:20px;">
+                            <input class="input-field" style="width:200px;" id="searchField" type="search" placeholder="Find Task"
+                                onkeyup="filterTasks()">
+                            <!-- addTask Button -->
+                            <div class="btn-primary cursor-pointer text-bold">Add Task</div>
                         </div>
 
-                        <!-- addTask Button -->
-                        <div class="btn-primary cursor-pointer text-bold">Add task</div>
                     </div>
                 </div>
             </div>
@@ -234,7 +226,7 @@
             <div class="flex-column gap-25">
 
                 <!-- TODO column -->
-                <div class="flex-column gap-10">
+                <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
                         <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
                         <span class="title-tiny color-primary">Todo</span>
@@ -244,7 +236,7 @@
                 </div>
 
                 <!-- PROGRESS column -->
-                <div class="flex-column gap-10">
+                <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
                         <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
                         <span class="title-tiny color-primary">In Progress</span>
@@ -254,7 +246,7 @@
                 </div>
 
                 <!-- FEEDBACK column -->
-                <div class="flex-column gap-10">
+                <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
                         <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
                         <span class="title-tiny color-primary">Awaiting Feedback</span>
@@ -265,7 +257,7 @@
 
 
                 <!-- DONE column -->
-                <div class="flex-column gap-10">
+                <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
                         <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
                         <span class="title-tiny color-primary">Done</span>

@@ -14,25 +14,21 @@ class TaskTemplate {
     getBoardTask(task) {
         let category = categories.find(cat => cat.id == task.category);
         return `
-            <div class="board-taskshadow" id="${task.id}" draggable="true" onclick="showTaskDetails('${task.id}')" ondragstart="dragstart(event, '${task.id}')" ondrop="dragend(event, '${task.status}')" ondragover="dragover(event)">
-                <div class="board-taskbackground">
-                    <div class="board-taskinner">
-                        <div class="board-taskcategory" style="background:${category.color}">${category.name}</div>
-                        <div>
-                            <div class="flex-column gap-10">
-                                <span class="text-bold">${task.title}</span>
-                                <span class="text-grey">${task.description}</span>
-                            </div>
-                        </div>
-                        ${this.getProgressbar(task)}
-                        <div class="board-taskbottom-wrap">
-                            <div class="board-assignments">
-                                ${this.getAssignments(task)}
-                            </div>
-                            <div class="board-prio-wrap">
-                                ${this.getPriority(task)}
-                            </div>
-                        </div>
+            <div class="board-task padding-20 gap-25 flex-column flex-start" id="${task.id}" draggable="true" onclick="showTaskDetails('${task.id}')" ondragstart="dragstart(event, '${task.id}')" ondrop="dragend(event, '${task.status}')" ondragover="dragover(event)">
+                <div class="padding-816 text-normal text-white border-radius-8" style="background:${category.color}">${category.name}</div>
+                <div>
+                    <div class="flex-column gap-10">
+                        <span class="text-bold">${task.title}</span>
+                        <span class="text-grey">${task.description}</span>
+                    </div>
+                </div>
+                ${this.getProgressbar(task)}
+                <div class="flex-row flex-space-between width-100">
+                    <div class="flex-row flex-center">
+                        ${this.getAssignments(task)}
+                    </div>
+                    <div class="flex-row">
+                        ${this.getPriority(task)}
                     </div>
                 </div>
             </div>
@@ -104,8 +100,8 @@ class TaskTemplate {
 
     getOneCircle(task) {
         return `
-                <div class="board-circleleft" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
+                <div class="board-circle" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
                 </div>
             `
     }
@@ -113,11 +109,11 @@ class TaskTemplate {
 
     getTwoCircles(task) {
         return `
-                <div class="board-circleleft" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
+                <div class="board-circle" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
                 </div>
-                <div class="board-circlemiddle" style="background:${contacts.find(contact => contact.id == task.assigned_to[1]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[1]).name)}</span>
+                <div class="board-circle board-circlemiddle" style="background:${contacts.find(contact => contact.id == task.assigned_to[1]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[1]).name)}</span>
                 </div>
             `
     }
@@ -125,14 +121,14 @@ class TaskTemplate {
 
     getThreeCircles(task) {
         return `
-                <div class="board-circleleft" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
+                <div class="board-circle" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
                 </div>
-                <div class="board-circlemiddle" style="background:${contacts.find(contact => contact.id == task.assigned_to[1]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[1]).name)}</span>
+                <div class="board-circle board-circlemiddle" style="background:${contacts.find(contact => contact.id == task.assigned_to[1]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[1]).name)}</span>
                 </div>
-                <div class="board-circleright" style="background:${contacts.find(contact => contact.id == task.assigned_to[2]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[2]).name)}</span>
+                <div class="board-circle" style="background:${contacts.find(contact => contact.id == task.assigned_to[2]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[2]).name)}</span>
                 </div>
             `
     }
@@ -140,14 +136,14 @@ class TaskTemplate {
 
     getMoreCircles(task) {
         return `
-                <div class="board-circleleft" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
+                <div class="board-circle" style="background:${contacts.find(contact => contact.id == task.assigned_to[0]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[0]).name)}</span>
                 </div>
-                <div class="board-circlemiddle" style="background:${contacts.find(contact => contact.id == task.assigned_to[1]).color}">
-                    <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[1]).name)}</span>
+                <div class="board-circle board-circlemiddle" style="background:${contacts.find(contact => contact.id == task.assigned_to[1]).color}">
+                    <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == task.assigned_to[1]).name)}</span>
                 </div>
-                <div class="board-circleright">
-                    <span class="board-circle-text">+${task.assigned_to.length - 2}</span>
+                <div class="board-circle">
+                    <span class="text-small text-white">+${task.assigned_to.length - 2}</span>
                 </div>
             `
     }
@@ -156,16 +152,16 @@ class TaskTemplate {
     getPriority(task) {
         if (task.priority == "High") {
             return `
-                <img class="board-prio-icon" src="./assets/img/priohigh.svg">
+                <img class="icon-small" src="./assets/img/priohigh.svg">
             `
         }
         else if (task.priority == "Medium") {
             return `
-                <img class="board-prio-icon" src="./assets/img/priomedium.svg">
+                <img class="icon-small" src="./assets/img/priomedium.svg">
             `
         } else {
             return `
-                <img class="board-prio-icon" src="./assets/img/priolow.svg">
+                <img class="icon-small" src="./assets/img/priolow.svg">
             `
         }
     }
@@ -286,8 +282,8 @@ class TaskTemplate {
         assigned.forEach(person => {
             lines += `
                 <div class="flex-center gap-25">
-                    <div class="board-circleleft" style="background:${contacts.find(contact => contact.id == person).color}">
-                        <span class="board-circle-text">${returnInitials(contacts.find(contact => contact.id == person).name)}</span>
+                    <div class="board-circle" style="background:${contacts.find(contact => contact.id == person).color}">
+                        <span class="text-small text-white">${returnInitials(contacts.find(contact => contact.id == person).name)}</span>
                     </div>
                     <span>${contacts.find(contact => contact.id == person).name}</span>
                 </div>

@@ -1,16 +1,4 @@
-:root {
-    --primary-color: #2A3647;
-    --secondary-color: #29ABE2;
-    --white: #FFFFFF;
-    --black: #000000;
-    --grey: #D1D1D1;
-    --background: #F6F7F8;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
-}
+/** These classes handle the animation for info messages **/
 
 .alert {
     display: flex;
@@ -40,7 +28,7 @@
 
     100% {
         opacity: 1;
-        top: 20%;
+        top: 50%;
         left: calc(50% - 100px);
     }
 }

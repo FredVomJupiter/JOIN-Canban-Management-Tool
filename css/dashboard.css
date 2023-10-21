@@ -18,12 +18,19 @@
 
 .summary-tile {
     cursor: pointer;
+    min-width: 90px;
+    min-height: 90px;
     width: fit-content;
     height: fit-content;
     background: var(--white);
     border-radius: 20px;
     box-sizing: border-box;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-tile {
+    max-width: 90px;
+    max-height: 90px;
 }
 
 .summary-tile:hover {
@@ -63,133 +70,7 @@
     background-image: url("../assets/img/done_white.svg");
 }
 
-/** End Summary Content **/
-
-/** Board Content **/
-
-
-.board::-webkit-scrollbar {
-    display: none;
-}
-
-.board-searchbar-border {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 251px;
-    height: 51px;
-    background: var(--white);
-    border: 1px solid var(--grey);
-    border-radius: 10px;
-}
-
-.board-searchbar-outer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    width: 226px;
-    height: 31px;
-}
-
-.board-searchbar-inner {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 13px;
-    width: 100px;
-    height: 19px;
-}
-
-.board-searchbar-text {
-    width: 100px;
-    height: 31px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    border: unset;
-    background: unset;
-    color: var(--primary-color);
-}
-
-.board-searchbar-text:focus {
-    outline: none;
-}
-
-.board-searchbar-icon-wrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    width: 43px;
-    height: 31px;
-}
-
-.board-searchbar-verticalline {
-    width: 0px;
-    height: 31px;
-    border: 1px solid var(--grey);
-}
-
-.board-searchbar-icon {
-    width: 20.31px;
-    height: 20.31px;
-}
-
-.board-addtask-button {
-    cursor: pointer;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
-    width: 137px;
-    height: 51px;
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-
-.board-addtask-button:hover {
-    background: var(--secondary-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.board-addtask-button-text {
-    width: 92px;
-    height: 25px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    color: var(--white);
-    flex: none;
-}
-
-.board-addtask-button-icon-outer {
-    width: 15px;
-    height: 15px;
-}
-
-.board-addtask-button-icon-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--white);
-    width: 15px;
-    height: 15px;
-}
-
-/* One column for: done, feedback, progress & todo */
+/* Board: One column for: done, feedback, progress & todo */
 .dropzone {
     width: 250px;
     height: 200px;
@@ -198,51 +79,20 @@
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
-.board-taskshadow {
+.board-task {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    width: 250px;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-    border-radius: 30px;
-}
-
-.board-taskbackground {
-    cursor: pointer;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 19px;
-    gap: 10px;
-    width: 250px;
     background: var(--white);
     border-radius: 30px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
-.board-taskinner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    width: 211px;
-}
-
-.board-taskcategory {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 4px 25px;
-    gap: 10px;
-    height: 27px;
-    border-radius: 8px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--white);
+.board-task:hover {
+    transition: all 225ms ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.25);
 }
 
 .board-progressbar-wrap {
@@ -269,59 +119,10 @@
     border-radius: 2px;
 }
 
-.board-taskbottom-wrap {
+.board-circle {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 113px;
-    width: 207px;
-    height: 35px;
-}
-
-.board-assignments {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 64px;
-    height: 35px;
-}
-
-.board-circleleft {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px 8px;
-    gap: 10px;
-    width: 35px;
-    height: 35px;
-    background: #4E963D;
-    border-radius: 58px;
-}
-
-.board-circlemiddle {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px 8px;
-    gap: 10px;
-    width: 35px;
-    height: 35px;
-    background: #9327FF;
-    border-radius: 58px;
-    margin: 0px -6px;
-}
-
-.board-circleright {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -333,27 +134,8 @@
     border-radius: 58px;
 }
 
-.board-circle-text {
-    width: 19px;
-    height: 14px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    color: var(--white);
-}
-
-.board-prio-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-}
-
-.board-prio-icon {
-    width: 17px;
-    height: 12px;
+.board-circlemiddle {
+    margin: 0px -6px;
 }
 
 /* Canvas for drawing cards */
@@ -1563,40 +1345,12 @@
 
 @media screen and (max-width: 1400px) {
 
-    .summary-greeting-wrap {
-        display: none;
-    }
-
-    .summary-title-line {
-        display: none;
-    }
-
-    .summary-title-text {
-        display: none;
-    }
-
     .overlay-background {
         align-items: unset;
     }
 
     .addtask-close-btn {
         translate: 27px -525px;
-    }
-
-    .addtask-overlay-container {
-        box-sizing: border-box;
-        flex-direction: column;
-        padding: unset;
-        align-items: center;
-        padding: 50px;
-        overflow-y: scroll;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        overflow-x: hidden;
-    }
-
-    .addtask-overlay-container::-webkit-scrollbar {
-        display: none;
     }
 
     .addtask {
@@ -1944,50 +1698,13 @@
 
 @media screen and (max-width: 900px) {
 
+    /** used for all texts that should be hidden on small screens**/
     .greeting {
         display: none;
     }
 
     .summary-tile-middle-line {
         height: 50px;
-    }
-
-    .board-searchbar-border {
-        width: 100px;
-        height: 30px;
-        border-radius: 7px;
-        padding: 11px 10px;
-    }
-
-    .board-searchbar-outer {
-        justify-content: flex-start;
-        width: 100px;
-        height: 25px;
-    }
-
-    .board-searchbar-inner {
-        justify-content: flex-start;
-        width: 100px;
-    }
-
-    .board-searchbar-text {
-        box-sizing: border-box;
-        width: 80px;
-        height: unset;
-        font-size: 12px;
-        padding: unset;
-    }
-
-    .board-searchbar-icon-wrap {
-        display: none;
-    }
-
-    .board-searchbar-verticalline {
-        display: none;
-    }
-
-    .board-searchbar-icon {
-        display: none;
     }
 
     .dropzone {
@@ -2134,19 +1851,8 @@
 
 @media screen and (max-width: 700px) {
 
-    .summary-tile {
-        width: 90px;
-        min-height: 90px;
-        max-height: 90px;
-    }
-
     .summary-tile-middle-line {
         height: 30px;
-    }
-
-    .overlay-container {
-        max-width: 100vw;
-        max-height: 100vh;
     }
 
     .dropzone {
