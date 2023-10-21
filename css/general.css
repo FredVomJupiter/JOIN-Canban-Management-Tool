@@ -109,6 +109,10 @@ body {
     color: var(--primary-color) !important;
 }
 
+.color-secondary {
+    color: var(--secondary-color) !important;
+}
+
 .gap-56 {
     gap: 56px;
 }

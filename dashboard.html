@@ -107,7 +107,7 @@
     <div class="container">
 
         <!-- SUMMARY -->
-        <main class="summary" id="summary">
+        <main class="flex-column summary padding-20" id="summary">
 
             <!-- Title on top -->
             <div class="flex-row flex-center gap-25">
@@ -116,87 +116,89 @@
                 <span class="subtitle-light">Everything in a nutshell!</span>
             </div>
 
-            <!-- Greeting on the right -->
-            <div class="summary-greeting-wrap">
-                <span class="summary-greeting">Welcome aboard,</span>
-                <span class="summary-username" id="username">Guest</span>
-            </div>
+            <div class="flex-row flex-center gap-25">
 
-            <!-- Center content -->
-            <div class="flex-column gap-25">
-                <!-- TOP part of center content -->
-                <div class="flex-row flex-center flex-space-between width-100">
-                    <div class="summary-tile padding-1632" onclick="openPage('board')">
-                        <div class="flex-column flex-center">
-                            <span class="title-tiny" id="tasksCounter"></span>
-                            <span class="text-small">Tasks on Board</span>
+                <!-- Center content -->
+                <div class="flex-column gap-25">
+                    <!-- TOP part of center content -->
+                    <div class="flex-row flex-center flex-space-between width-100">
+                        <div class="summary-tile padding-1632" onclick="openPage('board')">
+                            <div class="flex-column flex-center">
+                                <span class="title-tiny" id="tasksCounter"></span>
+                                <span class="text-small">Tasks on Board</span>
+                            </div>
+                        </div>
+                        <div class="summary-tile padding-1632" onclick="openPage('board')">
+                            <div class="flex-column flex-center">
+                                <span class="title-tiny" id="progressCounter"></span>
+                                <span class="text-small">Tasks in Progress</span>
+                            </div>
+                        </div>
+                        <div class="summary-tile padding-1632" onclick="openPage('board')">
+                            <div class="flex-column flex-center">
+                                <span class="title-tiny" id="feedbackCounter"></span>
+                                <span class="text-small">Awaiting Feedback</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="summary-tile padding-1632" onclick="openPage('board')">
-                        <div class="flex-column flex-center">
-                            <span class="title-tiny" id="progressCounter"></span>
-                            <span class="text-small">Tasks in Progress</span>
-                        </div>
-                    </div>
-                    <div class="summary-tile padding-1632" onclick="openPage('board')">
-                        <div class="flex-column flex-center">
-                            <span class="title-tiny" id="feedbackCounter"></span>
-                            <span class="text-small">Awaiting Feedback</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- MIDDLE part of center content -->
-                <div class="summary-tile padding-1632 flex-row flex-center gap-25 width-100" onclick="openPage('board')">
+                    <!-- MIDDLE part of center content -->
+                    <div class="summary-tile padding-1632 flex-row flex-center gap-25 width-100"
+                        onclick="openPage('board')">
 
-                    <!-- MIDDLE LEFT part -->
-                    <div class="flex-row flex-center gap-10">
-                        <div class="flex-row">
+                        <!-- MIDDLE LEFT part -->
+                        <div class="flex-row flex-center gap-10">
                             <img class="icon-small" src="./assets/img/urgent.svg">
+                            <div class="flex-column flex-center">
+                                <span class="title-tiny" id="urgentCounter"></span>
+                                <span class="text-small">Urgent</span>
+                            </div>
                         </div>
-                        <div class="flex-column flex-center">
-                            <span class="title-tiny" id="urgentCounter"></span>
-                            <span class="text-small">Urgent</span>
+
+                        <!-- MIDDLE CENTER line-->
+                        <div class="summary-tile-middle-line"></div>
+
+                        <!-- MIDDLE RIGHT part -->
+                        <div class="flex-column">
+                            <span class="text-bold" id="urgentDate"></span>
+                            <span class="text-small">Upcoming deadline</span>
                         </div>
                     </div>
 
-                    <!-- MIDDLE CENTER line-->
-                    <div class="summary-tile-middle-line"></div>
+                    <!-- BOTTOM part of center content -->
+                    <div class="flex-row flex-space-between width-100">
 
-                    <!-- MIDDLE RIGHT part -->
-                    <div class="flex-column">
-                        <span class="text-bold" id="urgentDate"></span>
-                        <span class="text-small">Upcoming deadline</span>
-                    </div>
-                </div>
-
-                <!-- BOTTOM part of center content -->
-                <div class="flex-row flex-space-between width-100">
-
-                    <!-- TO DO part left -->
-                    <div class="summary-tile flex-row flex-center gap-10 width-40 todo-hover" onclick="openPage('board')">
-                        <div class="summary-bottom-tile-iconwrap">
+                        <!-- TO DO part left -->
+                        <div class="summary-tile flex-row flex-center gap-10 width-40 todo-hover"
+                            onclick="openPage('board')">
                             <div class="icon-small todo-icon"></div>
+                            <div class="flex-column flex-center">
+                                <span class="title-tiny" id="todoCounter"></span>
+                                <span class="text-small">Todo</span>
+                            </div>
                         </div>
-                        <div class="flex-column flex-center">
-                            <span class="title-tiny" id="todoCounter"></span>
-                            <span class="text-small">Todo</span>
-                        </div>
-                    </div>
 
-                    <!-- DONE part right -->
-                    <div class="summary-tile flex-row flex-center gap-10 width-40 done-hover" onclick="openPage('board')">
-                        <div class="summary-bottom-tile-iconwrap">
+                        <!-- DONE part right -->
+                        <div class="summary-tile flex-row flex-center gap-10 width-40 done-hover"
+                            onclick="openPage('board')">
                             <div class="icon-small done-icon"></div>
+                            <div class="flex-column flex-center">
+                                <span class="title-tiny" id="doneCounter"></span>
+                                <span class="text-small">Done</span>
+                            </div>
                         </div>
-                        <div class="flex-column flex-center">
-                            <span class="title-tiny" id="doneCounter"></span>
-                            <span class="text-small">Done</span>
-                        </div>
-                    </div>
 
+                    </div>
                 </div>
+
+                <!-- Greeting on the right -->
+                <div class="flex-column greeting">
+                    <span class="title-medium color-primary">Welcome aboard,</span>
+                    <span class="title-medium color-secondary" id="username">Guest</span>
+                </div>
+
             </div>
+
         </main>
 
         <!-- BOARD -->
@@ -207,7 +209,7 @@
                 <span class="title-large">Board</span>
             </div>
 
-            <div  class="flex-row flex-center gap-25">
+            <div class="flex-row flex-center gap-25">
                 <div class="board-topright">
                     <!-- Searchbar -->
                     <div class="board-searchbar-border">

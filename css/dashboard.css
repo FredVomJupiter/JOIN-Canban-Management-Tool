@@ -28,13 +28,10 @@
 
 /** Summary Content **/
 .summary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    align-items: flex-start;
 }
 
 .summary::-webkit-scrollbar {
@@ -46,37 +43,6 @@
     height: 59px;
     border: 3px solid var(--secondary-color);
     border-radius: 10px;
-}
-
-.summary-greeting-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 3px;
-    position: fixed;
-    height: 136px;
-    left: 1002px;
-    top: 440px;
-}
-
-.summary-greeting {
-    height: 56px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 47px;
-    color: var(--primary-color);
-}
-
-.summary-username {
-    width: 385px;
-    height: 77px;
-
-    font-style: normal;
-    font-weight: 700;
-    font-size: 64px;
-
-    color: var(--secondary-color);
 }
 
 .summary-tile {
@@ -405,11 +371,9 @@
     gap: 10px;
     height: 27px;
     border-radius: 8px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-
     color: var(--white);
 }
 
@@ -504,7 +468,6 @@
 .board-circle-text {
     width: 19px;
     height: 14px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -1059,7 +1022,6 @@
 .addtask-rightcontainer-priotext {
     width: 39px;
     height: 25px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1138,7 +1100,6 @@
 .addtask-rightcontainer-subtasktext {
     width: 92px;
     height: 25px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1221,7 +1182,6 @@
 
 .addtask-rightcontainer-subtask-checkboxtext {
     height: 19px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1263,7 +1223,6 @@
     height: 51px;
     border: 1px solid var(--primary-color);
     border-radius: 10px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1441,7 +1400,6 @@
     height: 42px;
     background: var(--white);
     border-radius: 45px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -1463,7 +1421,6 @@
 }
 
 .contact-template-name {
-
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
@@ -1485,7 +1442,6 @@
 }
 
 .contact-template-email {
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1591,7 +1547,6 @@
 .contact-canvas-addtast-text {
     width: 100px;
     height: 19px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1634,7 +1589,6 @@
 .contact-canvas-info-edittext {
     width: 100px;
     height: 19px;
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1658,7 +1612,6 @@
 }
 
 .contact-canvas-innertitle {
-
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -1668,7 +1621,6 @@
 }
 
 .contact-canvas-email {
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1709,11 +1661,9 @@
 .contact-addcontact-button-text {
     width: 135px;
     height: 25px;
-
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
-
     color: var(--white);
 }
 
@@ -1747,7 +1697,6 @@
 .legal-title-span {
     width: max-content;
     height: 73px;
-
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -1764,7 +1713,6 @@
 }
 
 .legal-responsible-title {
-
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -1772,7 +1720,6 @@
 }
 
 .legal-responsible-txt {
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1781,7 +1728,6 @@
 
 .legal-content-title {
     margin-top: 20px;
-
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -1789,7 +1735,6 @@
 }
 
 .legal-content-text {
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1815,7 +1760,6 @@
 }
 
 .help-title-span {
-
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
@@ -1832,7 +1776,6 @@
 }
 
 .help-whatIsJoin-title {
-
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -1840,7 +1783,6 @@
 }
 
 .help-whatIsJoin-txt {
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1848,7 +1790,6 @@
 }
 
 .help-howToUseIt-title {
-
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -1878,7 +1819,6 @@
 }
 
 .help-howToUseIt-text {
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2296,24 +2236,8 @@
         overflow-y: unset;
     }
 
-    .summary {
-        position: fixed;
-        align-items: center;
-        left: 0;
-        right: 0;
-        top: 81px;
-        bottom: 80px;
-        overflow-x: hidden;
-    }
-
-    .summary-greeting-wrap {
+    .greeting {
         display: none;
-    }
-
-    .summary-tile {
-        width: 120px;
-        min-height: 120px;
-        max-height: 120px;
     }
 
     .summary-tile-middle-line {
