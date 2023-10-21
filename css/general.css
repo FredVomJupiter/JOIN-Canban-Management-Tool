@@ -181,6 +181,11 @@ body {
     height: 30px;
 }
 
+.icon-very-small {
+    width: 20px;
+    height: 20px;
+}
+
 .text-normal {
     font-style: normal;
     font-weight: 400;
@@ -213,6 +218,10 @@ body {
 
 .border-radius-8 {
     border-radius: 8px;
+}
+
+.border-box {
+    box-sizing: border-box;
 }
 
 .cursor-pointer {
@@ -260,6 +269,7 @@ body {
     border: 1px solid var(--grey);
     border-radius: 8px;
     padding: 8px 16px;
+    min-height: 37.5px;
     outline: none;
     font-style: normal;
     font-weight: 400;
