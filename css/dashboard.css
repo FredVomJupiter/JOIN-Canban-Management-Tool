@@ -1865,17 +1865,6 @@
         height: unset;
     }
 
-    .contact-addcontact-button {
-        width: unset;
-        height: unset;
-        position: fixed;
-        top: unset;
-        bottom: 120px;
-        right: 20px;
-        margin: unset;
-        padding: 10px 10px;
-    }
-
     .addcontact-task-close {
         position: fixed;
         align-self: flex-end;
@@ -2001,30 +1990,6 @@
         display: none;
     }
 
-    .board-addtask-button {
-        width: 100px;
-        height: 30px;
-        padding: unset;
-        border-radius: 7px;
-    }
-
-    .board-addtask-button-text {
-        font-size: 14px;
-        height: unset;
-        width: unset;
-    }
-
-    .board-addtask-button-icon-outer {
-        width: 10px;
-        height: 10px;
-        translate: 0px -2px;
-    }
-
-    .board-addtask-button-icon-inner {
-        height: 10px;
-        width: 10px;
-    }
-
     .dropzone {
         height: 100px;
     }
@@ -2115,29 +2080,6 @@
         color: var(--black);
     }
 
-    .contact-addcontact-button {
-        width: unset;
-        height: unset;
-        position: absolute;
-        top: 90px;
-        bottom: unset;
-        right: unset;
-        margin: unset;
-        padding: 10px 10px;
-        z-index: 19;
-    }
-
-    .contact-addcontact-button-text {
-        width: unset;
-        height: unset;
-        font-size: 16px;
-    }
-
-    .contact-addcontact-button-icon {
-        width: 20px;
-        height: 20px;
-    }
-
     .help {
         overflow-y: scroll;
     }
@@ -2213,20 +2155,6 @@
 
     .addtask-rightcontainer-priobtns {
         flex-direction: column;
-    }
-
-    .addtask-button-clear {
-        padding: unset;
-        font-size: 1rem;
-        width: 120px;
-        height: 40px;
-    }
-
-    .addtask-button-createtask {
-        padding: unset;
-        font-size: 1rem;
-        width: 120px;
-        height: 40px;
     }
 
     .addcontact-user-badge {
