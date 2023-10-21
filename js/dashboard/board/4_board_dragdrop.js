@@ -61,7 +61,7 @@ function showAlert() {
     if (alertTriggered) return;
     let alert = document.createElement("div");
     alert.classList.add("alert");
-    alert.innerHTML = "You don't have permission to move this task.";
+    alert.innerHTML = "This task is not yours!";
     document.body.appendChild(alert);
     setTimeout(() => {
         document.querySelector(".alert").remove();
