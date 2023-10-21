@@ -105,7 +105,7 @@
     <div class="container">
 
         <!-- SUMMARY -->
-        <main class="flex-column padding-20" id="summary">
+        <main class="flex-column" id="summary">
 
             <!-- Title on top -->
             <div class="flex-row flex-center gap-25">
@@ -200,13 +200,13 @@
         </main>
 
         <!-- BOARD -->
-        <main class="flex-column flex-center gap-10 d-none padding-20" id="board">
+        <main class="flex-column flex-center gap-10 d-none" id="board">
 
             <div class="flex-column flex-center">
                 <div class="flex-row flex-center gap-25">
                     <span class="title-large">Board</span>
                 </div>
-    
+
                 <div class="flex-row flex-center gap-25">
                     <div class="flex-row gap-25">
                         <!-- Searchbar -->
@@ -222,19 +222,13 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <!-- addTask Button -->
-                        <div class="board-addtask-button">
-                            <span class="board-addtask-button-text">Add task</span>
-                            <div class="board-addtask-button-icon-outer">
-                                <div class="board-addtask-button-icon-inner">+
-                                </div>
-                            </div>
-                        </div>
+                        <div class="btn-primary cursor-pointer text-bold">Add task</div>
                     </div>
                 </div>
             </div>
-            
+
 
             <!-- Content -->
             <div class="flex-column gap-25">
@@ -284,7 +278,7 @@
         </main>
 
         <!-- ADDTASK -->
-        <main class="flex-column flex-center gap-10 padding-20 d-none" id="addtask">
+        <main class="flex-column flex-center gap-10 d-none" id="addtask">
 
             <!-- Title -->
             <div class="flex-row flex-center gap-25">
@@ -367,16 +361,12 @@
                     </div>
 
                     <!-- Buttons bottom right -->
-                    <div class="addtask-button-container">
-                        <div class="addtask-button-inner">
-                            <div class="addtask-button-clear" onclick="clearAddtaskMenu()">
-                                Clear
-                                <div class="addtask-button-clearicon"></div>
-                            </div>
-                            <button class="addtask-button-createtask" type="submit" id="overlaySubmit" value="Add task">
-                                Add Task
-                                <div class="addtask-button-createicon"></div>
-                            </button>
+                    <div class="flex-row flex-center gap-25 padding-20">
+                        <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="clearAddtaskMenu()">
+                            Clear
+                        </div>
+                        <div class="btn-primary cursor-pointer text-bold check-icon">
+                            Add Task
                         </div>
                     </div>
                 </div>
@@ -384,7 +374,7 @@
         </main>
 
         <!-- CONTACTS -->
-        <main class="flex-column flex-center gap-10 padding-20 d-none" id="contacts">
+        <main class="flex-column flex-center gap-10 d-none" id="contacts">
 
             <!-- Title -->
             <div class="flex-row flex-center gap-25">
@@ -405,9 +395,8 @@
 
             </div>
 
-            <div class="contact-addcontact-button">
-                <span class="contact-addcontact-button-text">New contact</span>
-                <img class="contact-addcontact-button-icon" src="./assets/img/addcontact.svg">
+            <div class="btn-primary cursor-pointer text-bold add-icon">
+                New Contact
             </div>
 
         </main>
