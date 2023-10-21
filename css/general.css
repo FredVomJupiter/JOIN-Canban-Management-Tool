@@ -31,13 +31,27 @@ body {
     box-sizing: border-box;
     position: fixed;
     top: 80px;
-    left: 250px;
+    left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 80px;
+    overflow-y: scroll;
 }
 
 .container::-webkit-scrollbar {
     display: none;
+}
+
+.overlay-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 5;
 }
 
 .d-none {
@@ -169,4 +183,8 @@ body {
 
 .text-grey {
     color: var(--grey);
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
