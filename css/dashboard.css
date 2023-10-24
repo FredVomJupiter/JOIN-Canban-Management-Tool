@@ -291,7 +291,6 @@
 }
 
 .contact-line-container {
-    padding: 14px 12px;
     gap: 10px;
     width: 347px;
     height: 28px;
@@ -309,6 +308,15 @@
     border-radius: 45px;
     color: var(--white);
     border: 2px solid var(--white);
+}
+
+.contact-back {
+    transition: all 125ms ease-in-out;
+}
+
+.contact-back:hover {
+    transition: all 125ms ease-in-out;
+    transform: scale(1.1);
 }
 
 @media screen and (max-width: 900px) {

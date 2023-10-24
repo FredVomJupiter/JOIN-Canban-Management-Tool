@@ -43,7 +43,7 @@ class ContactTemplate {
 
     getContactList(contact) {
         return `
-            <div class="flex-row padding-1632 cursor-pointer gap-25 contact" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
+            <div class="flex-row flex-center padding-20 cursor-pointer gap-25 contact width-100 border-box" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
                 <div class="flex-row flex-center contact-circle icon-medium" style="background:${contact.color}">
                     ${returnInitials(contact.name)}
                 </div>
@@ -61,7 +61,7 @@ class ContactTemplate {
             <div class="flex-column flex-center">
                 <span class="title-tiny">${letter}</span>
             </div>
-            <div class="contact-line-container flex-column align-left">
+            <div class="width-100 flex-column align-left margin-bottom-20">
                 <div class="contact-line"></div>
             </div>
         `;
@@ -70,7 +70,7 @@ class ContactTemplate {
 
     getContactDetails(name, email, phone, color) {
         return `
-            <div class="cursor-pointer flex-row self-start margin-bottom-20" onclick="hideContact()"><- back</div>
+            <div class="cursor-pointer flex-row self-start margin-bottom-20 contact-back" onclick="hideContact()"><- back</div>
             <div class="flex-row gap-25 margin-bottom-20">
                 <div class="flex-row flex-center contact-circle icon-large" style="background:${color}">
                     <span class="title-tiny text-white">${returnInitials(name)}</span>
