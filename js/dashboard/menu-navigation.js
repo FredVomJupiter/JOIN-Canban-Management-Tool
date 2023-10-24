@@ -112,3 +112,13 @@ function addMenuSelectionForPage(pageName) {
         menupoint.classList.add('sidebar-menu-option-dark');
     }
 }
+
+/**
+ * Special function used for all buttons on board page as well as the add task button on the bottom or left sidenav menu.
+ * This creates a new task with the given status and redirects to the add task page.
+ * @param {*} status as string.
+ */
+function prepareNewTask(status) {
+    newTask = new Task(null, null, null, status, null, "Low", [], []);
+    openPage('addtask')
+}

@@ -86,7 +86,7 @@
                 <div><img src="./assets/img/board_icon.svg"></div>
                 <p class="sidebar-menu-text">Board</p>
             </div>
-            <div class="sidebar-menu-option-light" id="menu-addtask" onclick="openPage('addtask')">
+            <div class="sidebar-menu-option-light" id="menu-addtask" onclick="prepareNewTask('Todo')">
                 <div><img src="./assets/img/addTask_icon.svg"></div>
                 <p class="sidebar-menu-text">Add Task</p>
             </div>
@@ -214,7 +214,7 @@
                             <input class="input-field" style="width:200px;" id="searchField" type="search"
                                 placeholder="Find Task" onkeyup="filterTasks()">
                             <!-- addTask Button -->
-                            <div class="btn-primary cursor-pointer text-bold">Add Task</div>
+                            <div class="btn-primary cursor-pointer text-bold" onclick="prepareNewTask('Todo')">Add Task</div>
                         </div>
 
                     </div>
@@ -228,7 +228,7 @@
                 <!-- TODO column -->
                 <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
-                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
+                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg" onclick="prepareNewTask('Todo')">
                         <span class="title-tiny color-primary">Todo</span>
                     </div>
 
@@ -238,7 +238,7 @@
                 <!-- PROGRESS column -->
                 <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
-                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
+                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg" onclick="prepareNewTask('In Progress')">
                         <span class="title-tiny color-primary">In Progress</span>
                     </div>
 
@@ -248,7 +248,7 @@
                 <!-- FEEDBACK column -->
                 <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
-                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
+                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg" onclick="prepareNewTask('Awaiting Feedback')">
                         <span class="title-tiny color-primary">Awaiting Feedback</span>
                     </div>
 
@@ -259,7 +259,7 @@
                 <!-- DONE column -->
                 <div class="flex-column gap-10 flex-start">
                     <div class="flex-row flex-center gap-10">
-                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg">
+                        <img class="flex-row flex-center icon-small cursor-pointer" src="./assets/img/addbtn.svg" onclick="prepareNewTask('Done')">
                         <span class="title-tiny color-primary">Done</span>
                     </div>
 
