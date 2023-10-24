@@ -287,8 +287,8 @@
                         placeholder="Enter a title">
 
                     <span class="title-tiny">Description</span>
-                    <textarea class="input-field width-100 border-box" style="font-family:'Inter';max-height:100px;" cols="1" rows="2" id="addtaskMenuDescription"
-                        placeholder="Enter a description"></textarea>
+                    <textarea class="input-field width-100 border-box" style="font-family:'Inter';max-height:100px;"
+                        cols="1" rows="2" id="addtaskMenuDescription" placeholder="Enter a description"></textarea>
 
                     <span class="title-tiny">Category</span>
                     <div class="input-field width-100 border-box" id="addtaskMenuCategory"
@@ -305,7 +305,8 @@
 
                     <!-- Content right side -->
                     <span class="title-tiny">Due date</span>
-                    <input class="input-field width-100 border-box" style="font-family:'Inter';" type="date" id="addtaskMenuDate">
+                    <input class="input-field width-100 border-box" style="font-family:'Inter';" type="date"
+                        id="addtaskMenuDate">
 
                     <span class="title-tiny">Prio</span>
                     <div class="flex-row flex-center gap-10" id="addtaskMenuPrio">
@@ -376,20 +377,16 @@
         </main>
 
         <!-- LEGAL -->
-        <main class="legal d-none" id="legal">
+        <main class="flex-column padding-1632 d-none" id="legal">
 
             <!-- Content -->
-            <div class="legal-title">
-                <span class="legal-title-span">Legal Notice</span>
-            </div>
+            <img class="flex-end icon-small cursor-pointer" src="./assets/img/blackarrow.svg" onclick="openPage('summary')">
+            <span class="title-large">Legal Notice</span>
 
-            <div class="legal-join-inner">
-                <div class="legal-blackArrow-wrap">
-                    <img src="./assets/img/blackarrow.svg" onclick="openPage('summary')">
-                </div>
+            <div class="flex-column gap-10">
 
-                <span class="legal-responsible-title">Legally responsible contact person </span>
-                <span class="legal-responsible-txt">
+                <span class="title-tiny">Legally responsible contact person </span>
+                <span class="text-normal">
                     Frederic Mathias Rieg<br>
                     Mahatma Gandi Cd. 79<br>
                     Appartment 8<br>
@@ -401,8 +398,8 @@
                     Frederic Rieg<br>
                 </span>
 
-                <span class="legal-content-title">Concerning external links and user-created contents</span>
-                <span class="legal-content-text">
+                <span class="title-tiny">Concerning external links and user-created contents</span>
+                <span class="text-normal">
                     The above mentioned persons are not liable for any offending user-created content that third parties
                     post here. This web-app is being checked for offending contents on a regular basis. If offending
                     contents are identfied, they will be removed.
@@ -413,23 +410,19 @@
         </main>
 
         <!-- HELP -->
-        <main class="help d-none" id="help">
+        <main class="flex-column padding-1632 d-none" id="help">
 
             <!-- Content -->
-            <div class="help-title">
-                <span class="help-title-span">Help</span>
-            </div>
+            <img class="flex-end icon-small cursor-pointer" src="./assets/img/blackarrow.svg"
+                onclick="openPage('summary')">
+            <span class="title-large">Help</span>
 
-            <div class="help-join-inner">
-                <div class="help-blackArrow-wrap">
-                    <img src="./assets/img/blackarrow.svg" onclick="openPage('summary')">
-                </div>
+            <div class="flex-column gap-10">
 
-                <span class="help-whatIsJoin-title">
-                    What is Join?
-                </span>
 
-                <span class="help-whatIsJoin-txt">
+                <span class="title-tiny">What is Join?</span>
+
+                <span class="text-normal">
                     JOIN is a team-oriented canban board that helps you keep track of your and your team's tasks.
                     This app is divided into four sections: summary, board, add task and contacts. The summary provides
                     you an overview of how many tasks are on board, in progress, awaiting feedback, to-do, done as well
@@ -442,37 +435,37 @@
                     an overview of existing contacts. Here you can add new and edit existing contacts.
                 </span>
 
-                <span class="help-howToUseIt-title">How to use it</span>
+                <span class="title-tiny">How to use it</span>
 
-                <div class="help-howToUseIt-wrap">
+                <div class="flex-column gap-10">
 
-                    <div class="help-howToUseIt-inner">
+                    <div class="flex-row gap-25">
 
-                        <span class="help-howToUseIt-number">1.</span>
+                        <span class="title-tiny min-width-20">1.</span>
 
-                        <span class="help-howToUseIt-text">Create a new task via the board-overlay by clicking on
+                        <span class="text-normal">Create a new task via the board-overlay by clicking on
                             "addtask" or the
                             + symbol on either of the board-categories headlines.
                         </span>
 
                     </div>
 
-                    <div class="help-howToUseIt-inner">
+                    <div class="flex-row gap-25">
 
-                        <span class="help-howToUseIt-number">2.</span>
+                        <span class="title-tiny min-width-20">2.</span>
 
-                        <span class="help-howToUseIt-text">Type in at least a title, date and description text in order
+                        <span class="text-normal">Type in at least a title, date and description text in order
                             to create a new task. All other
                             information are not mandatory.
                         </span>
 
                     </div>
 
-                    <div class="help-howToUseIt-inner">
+                    <div class="flex-row gap-25">
 
-                        <span class="help-howToUseIt-number">3.</span>
+                        <span class="title-tiny min-width-20">3.</span>
 
-                        <span class="help-howToUseIt-text">If you want to edit a task, just click on the desired
+                        <span class="text-normal">If you want to edit a task, just click on the desired
                             task-card and click on the edit-button
                             that shows on the task-detail overlay. As with creating a new task, title, description and
                             date are mandatory fields.
