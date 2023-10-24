@@ -39,6 +39,8 @@ function showContact(id) {
 function drawContactTemplate(contact) {
     let contactCanvas = document.getElementById('contactCanvas');
     contactCanvas.classList.remove('d-none');
+    let contactList = document.getElementById('contactsInner');
+    contactList.classList.add('d-none');
     contactCanvas.innerHTML = "";
     contactCanvas.innerHTML = contactTemplate.getContactDetails(contact.name, contact.email, contact.phone, contact.color);
 }
@@ -47,17 +49,18 @@ function drawContactTemplate(contact) {
 function hideContact() {
     let contactCanvas = document.getElementById('contactCanvas');
     contactCanvas.classList.add('d-none');
+    let contactList = document.getElementById('contactsInner');
+    contactList.classList.remove('d-none');
 }
 
 
 function markSelectedContact(id) {
     renderContactList();
     let wrapper = document.getElementById(`${id}wrap`);
-    wrapper.classList.remove('contact-template-wrap');
-    wrapper.classList.add('contact-template-wrap-dark');
+    wrapper.classList.remove('contact');
+    wrapper.classList.add('contact-dark');
     let name = document.getElementById(`${id}name`);
-    name.classList.remove('contact-template-name');
-    name.classList.add('contact-template-name-light');
+    name.classList.add('text-white');
 }
 
 

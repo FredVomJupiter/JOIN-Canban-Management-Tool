@@ -127,6 +127,10 @@ body {
     align-items: flex-start;
 }
 
+.self-start {
+    align-self: flex-start;
+}
+
 .flex-end {
     align-self: flex-end;
 }
@@ -175,6 +179,10 @@ body {
     padding: 8px 16px;
 }
 
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
 .icon-large {
     width: 60px;
     height: 60px;
@@ -193,6 +201,13 @@ body {
 .icon-very-small {
     width: 20px;
     height: 20px;
+}
+
+.text-larger {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--black);
 }
 
 .text-normal {
@@ -223,6 +238,10 @@ body {
 
 .text-white {
     color: var(--white);
+}
+
+.text-blue {
+    color: var(--secondary-color);
 }
 
 .border-radius-8 {

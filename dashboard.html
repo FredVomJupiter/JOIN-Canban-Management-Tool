@@ -351,28 +351,30 @@
         <!-- CONTACTS -->
         <main class="flex-column flex-center gap-10 d-none" id="contacts">
 
-            <!-- Title -->
-            <div class="flex-row flex-center gap-25">
-                <span class="title-large">Contacts</span>
-                <div class="vertical-blue-line"></div>
-                <span class="subtitle-light">Better with a team</span>
-            </div>
+            <div class="flex-column flex-center" id="contactsInner">
+                <!-- Title -->
+                <div class="flex-row flex-center gap-25">
+                    <span class="title-large">Contacts</span>
+                    <div class="vertical-blue-line"></div>
+                    <span class="subtitle-light">Better with a team</span>
+                </div>
 
-            <!-- Content -->
-            <div class="contact-container">
-                <div class="contact-container-inner" id="contactList">
+                <div class="btn-primary cursor-pointer text-bold add-icon">
+                    New Contact
+                </div>
 
+                <!-- Content -->
+                <div class="flex-column padding-20" id="contactList">
 
                 </div>
             </div>
 
-            <div class="contact-canvas d-none" id="contactCanvas">
+
+            <div class="flex-column flex-center padding-20 d-none" id="contactCanvas">
 
             </div>
 
-            <div class="btn-primary cursor-pointer text-bold add-icon">
-                New Contact
-            </div>
+
 
         </main>
 
@@ -380,7 +382,8 @@
         <main class="flex-column padding-1632 d-none" id="legal">
 
             <!-- Content -->
-            <img class="flex-end icon-small cursor-pointer" src="./assets/img/blackarrow.svg" onclick="openPage('summary')">
+            <img class="flex-end icon-small cursor-pointer" src="./assets/img/blackarrow.svg"
+                onclick="openPage('summary')">
             <span class="title-large">Legal Notice</span>
 
             <div class="flex-column gap-10">
