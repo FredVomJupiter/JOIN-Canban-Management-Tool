@@ -272,6 +272,10 @@
 .assigned-icon {
     margin-left: 100px;
 }
+
+.priority-btn-selected {
+    box-shadow: 0px 4px 4px rgba(0, 0, 255, 0.25);
+}
 /* Ende Addtask Content */
 
 /** Contacts Content **/

@@ -32,7 +32,7 @@
     <script defer src="./js/dashboard/board/4_board_dragdrop.js"></script>
 
     <!-- Addtask Scripts -->
-
+    <script defer src="./js/dashboard/addtask/addtask.js"></script>
 
     <!-- Contact Scripts -->
     <script defer src="./js/dashboard/contacts/contact.js"></script>
@@ -310,18 +310,18 @@
 
                     <span class="title-tiny">Prio</span>
                     <div class="flex-row flex-center gap-10" id="addtaskMenuPrio">
-                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10"
-                            onclick="setPriority('menu', 'urgent')">
+                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
+                            onclick="setPriority('High', event.target)" id="btnHigh">
                             <span class="text-normal">High</span>
                             <img class="icon-very-small" src="./assets/img/priohigh.svg">
                         </div>
-                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10"
-                            onclick="setPriority('menu', 'medium')">
+                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
+                            onclick="setPriority('Medium', event.target)" id="btnMedium">
                             <span class="text-normal">Medium</span>
                             <img class="icon-very-small" src="./assets/img/priomedium.svg">
                         </div>
-                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10"
-                            onclick="setPriority('menu', 'low')">
+                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
+                            onclick="setPriority('Low', event.target)" id="btnLow">
                             <span class="text-normal">Low</span>
                             <img class="icon-very-small" src="./assets/img/priolow.svg">
                         </div>
@@ -338,7 +338,7 @@
                         <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="clearAddtaskMenu()">
                             Clear
                         </div>
-                        <div class="btn-primary cursor-pointer text-bold check-icon">
+                        <div class="btn-primary cursor-pointer text-bold check-icon" onclick="collectData()">
                             Add Task
                         </div>
                     </div>
