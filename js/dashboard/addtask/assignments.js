@@ -13,7 +13,7 @@ function renderAssignments() {
         let option = document.createElement('option');
         option.value = contact.id;
         option.text = contact.name + " (" + contact.color + ")";
-        option.setAttribute('onclick', 'showSelected()');
+        option.setAttribute('onclick', 'showSelectedContacts()');
         assignmentList.appendChild(option);
     });
 }
