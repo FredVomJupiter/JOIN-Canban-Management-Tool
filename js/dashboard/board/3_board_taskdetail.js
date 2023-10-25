@@ -25,7 +25,7 @@ function moveTask(taskId, status) {
     tasks.forEach(task => {
         if (task.id == taskId) {
             task.status = status;
-            setTodo(task);
+            setTask(task);
             showMoveList();
             renderTasks();
         }

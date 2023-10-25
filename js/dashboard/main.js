@@ -11,7 +11,7 @@ const token = localStorage.getItem('token').replace(/"/g, '');
  */
 async function init() {
     if (hasToken()) {
-        let promises = [getContacts(), getCategories(), getSubtasks(), getTodos(), getLoggedUser()];
+        let promises = [getContacts(), getCategories(), getSubtasks(), getTasks(), getLoggedUser()];
         await Promise.all(promises).finally(() => {
             greetUser();
             updateCounters(); // In 2_summary.js
@@ -87,7 +87,7 @@ async function getSubtasks() {
 }
 
 
-async function getTodos() {
+async function getTasks() {
     let response = await fetch(baseUrl + 'todos/', {
         method: 'GET',
         credentials: 'include',
@@ -102,7 +102,7 @@ async function getTodos() {
  * @param {*} task as object
  * @returns task as object
  */
-async function setTodo(task) {
+async function setTask(task) {
     let response = await fetch(baseUrl + 'todos/' + task.id + '/', {
         method: 'PUT',
         credentials: 'include',
@@ -156,6 +156,36 @@ async function createCategory(category) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(category)
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    return data;
+}
+
+
+async function createSubtask(subtask) {
+    let response = await fetch(baseUrl + 'subtasks/', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subtask)
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    return data;
+}
+
+
+async function createTask() {
+    let response = await fetch(baseUrl + 'todos/', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTask)
     }).catch(error => { console.log(error) });
     let data = await response.json();
     return data;

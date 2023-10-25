@@ -19,7 +19,7 @@ function dragend(event, status) {
     tasks.forEach(task => {
         if (task.id == draggedTaskId) {
             task.status = status;
-            setTodo(task);
+            setTask(task);
             renderTasks();
         }
     });
