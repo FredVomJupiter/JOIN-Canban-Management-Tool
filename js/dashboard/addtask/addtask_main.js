@@ -1,6 +1,7 @@
 function renderAll() {
     renderCategories();
     renderAssignments();
+    updateSubtaskList();
 }
 
 /**
@@ -10,6 +11,7 @@ function renderAll() {
 function clearAddtaskMenu() {
     oldStatus = newTask.status;
     newTask = new Task(null, null, null, oldStatus, null, "Low", [], []);
+    newSubtasks = [];
     renderAll();
     resetAddtaskInputs();
     toggleButton('Low');
