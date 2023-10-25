@@ -4,7 +4,6 @@
  */
 
 let draggedTaskId = null;
-let alertTriggered = false;
 
 /**
  * Runs when a task is dragged. Only the owner of the task can move it.
@@ -12,7 +11,7 @@ let alertTriggered = false;
  * @param {*} taskId 
  */
 function dragstart(event, taskId) {
-    checkPermission(taskId) ? draggedTaskId = taskId : showAlert();
+    checkPermission(taskId) ? draggedTaskId = taskId : showAlert("You can only move your own tasks.");
 }
 
 
@@ -54,17 +53,4 @@ function dragleave(event, zone) {
  */
 function checkPermission(taskId) {
     return tasks.find(task => task.id == taskId).user == loggedUser.id;
-}
-
-
-function showAlert() {
-    if (alertTriggered) return;
-    let alert = document.createElement("div");
-    alert.classList.add("alert");
-    alert.innerHTML = "This task is not yours!";
-    document.body.appendChild(alert);
-    setTimeout(() => {
-        document.querySelector(".alert").remove();
-        alertTriggered = false;
-    }, 3000);
 }
