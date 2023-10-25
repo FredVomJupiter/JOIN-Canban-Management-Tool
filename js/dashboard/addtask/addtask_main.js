@@ -6,6 +6,12 @@ function clearAddtaskMenu() {
     console.log("clearAddtaskMenu");
     oldStatus = newTask.status;
     newTask = new Task(null, null, null, oldStatus, null, "Low", [], []);
+    renderAll();
+    document.getElementById('addtaskMenuTitle').value = "";
+    document.getElementById('addtaskMenuDescription').value = "";
+    document.getElementById('addtaskMenuDate').value = "";
+    document.getElementById('subtaskInput').value = "";
+    toggleButton('Low');
 }
 
 /**
