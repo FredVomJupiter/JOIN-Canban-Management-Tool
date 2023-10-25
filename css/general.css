@@ -167,6 +167,10 @@ body {
     min-width: 20px !important;
 }
 
+.max-height {
+    max-height: 100px;
+}
+
 .padding-20 {
     padding: 20px;
 }
