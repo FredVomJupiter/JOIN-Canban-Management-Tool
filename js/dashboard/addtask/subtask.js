@@ -47,8 +47,8 @@ function updateSubtaskList() {
  */
 function getSubtaskHTML(subtask) {
     return `
-    <div class="flex-row flex-center">
-        <span class="text-normal">${subtask.title}</span>
+    <div class="flex-row flex-center gap-10">
+        <span class="text-normal max-width-200">${subtask.title}</span>
         <div class="btn-secondary cursor-pointer" onclick="removeSubtask('${subtask.title}')">
             Remove
         </div>

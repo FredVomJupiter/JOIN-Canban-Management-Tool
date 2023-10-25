@@ -167,6 +167,10 @@ body {
     min-width: 20px !important;
 }
 
+.max-width-200 {
+    max-width: 200px;
+}
+
 .max-height {
     max-height: 100px;
 }
