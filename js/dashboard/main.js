@@ -145,3 +145,18 @@ async function createContact(contact) {
     let data = await response.json();
     return data;
 }
+
+
+async function createCategory(category) {
+    let response = await fetch(baseUrl + 'categories/', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(category)
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    return data;
+}
