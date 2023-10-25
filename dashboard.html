@@ -303,17 +303,25 @@
                     <span class="title-tiny">Category</span>
                     <select class="input-field width-100 border-box" id="addtaskMenuCategory">
                         <option value="">Select task category</option>
+                        <option value="" onclick="showCreateCategory()">Create new category</option>
                     </select>
+                    <div class="flex-column gap-10 d-none" id="addtaskCreateCategory">
+                        <input class="input-field width-100 border-box" id="addtaskCreateCategoryInput" placeholder="Name">
+                        <div class="flex-row gap-25">
+                            <div class="btn-primary cursor-pointer" onclick="nextStepCategory()">OK</div>
+                            <div class="btn-secondary cursor-pointer" onclick="cancelCreateCategory()">Cancel</div>
+                        </div>
+                    </div>
 
                     <span class="title-tiny">Assigned to</span>
                     <select class="input-field width-100 max-height border-box" id="addtaskMenuAssigned" multiple>
-                        <option value="" class="text-small" onclick="showSelected()">Select (command or alt + left mouse click)</option>
+                        <option value="" class="text-small" onclick="showSelectedContacts()">Select (command or alt + left mouse click)</option>
                         <option value="" onclick="showCreateContact()">Create new contact</option>
                     </select>
                     <div class="flex-column gap-10 d-none" id="addtaskCreateContact">
                         <input class="input-field width-100 border-box" id="addtaskCreateContactInput" placeholder="Name">
                         <div class="flex-row gap-25">
-                            <div class="btn-primary cursor-pointer" onclick="nextStep()">OK</div>
+                            <div class="btn-primary cursor-pointer" onclick="nextStepContact()">OK</div>
                             <div class="btn-secondary cursor-pointer" onclick="cancelCreateContact()">Cancel</div>
                         </div>
                     </div>
