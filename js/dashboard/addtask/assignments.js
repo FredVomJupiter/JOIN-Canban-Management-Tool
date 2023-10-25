@@ -25,13 +25,13 @@ function renderAssignments() {
 function resetAssignmentsList(assignmentList) {
     assignmentList.innerHTML = "";
     assignmentList.innerHTML = `
-        <option value="" class="text-small" onclick="showSelected()">Select (command or alt + left mouse click)</option>
+        <option value="" class="text-small" onclick="showSelectedContacts()">Select (command or alt + left mouse click)</option>
         <option value="" onclick="showCreateContact()">Create new contact</option>
         `;
 }
 
 
-function showSelected() {
+function showSelectedContacts() {
     let selected = document.getElementById('addtaskMenuAssigned');
     const selectedOptions = [];
 
@@ -75,7 +75,7 @@ function cancelCreateContact() {
 /**
  * Procedure for creating a new contact.
  */
-function nextStep() {
+function nextStepContact() {
     step++;
     step === 1 ? collectName() : null;
     step === 2 ? collectEmail() : null;
@@ -86,7 +86,7 @@ function nextStep() {
 
 
 function collectName() {
-    if (document.getElementById('addtaskCreateContactInput').value == "") {
+    if (hasNoInputValue()) {
         showAlert("Please enter a name.");
         step--;
         return;
@@ -141,7 +141,7 @@ function collectColor() {
  * @returns true if input value is empty
  */
 function hasNoInputValue() {
-    return document.getElementById('addtaskCreateContactInput').value == "" ? true : false;
+    return document.getElementById('addtaskCreateContactInput').value.trim() == "" ? true : false;
 }
 
 /**
