@@ -116,7 +116,11 @@ async function setTask(task) {
     return data;
 }
 
-
+/**
+ * Updates a specific subtask in the databse.
+ * @param {*} subtask as object
+ * @returns subtask as object
+ */
 async function setSubtask(subtask) {
     let response = await fetch(baseUrl + 'subtasks/' + subtask.id + '/', {
         method: 'PUT',

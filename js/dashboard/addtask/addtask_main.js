@@ -1,4 +1,5 @@
 function renderAll() {
+    resetAddtaskInputs();
     renderCategories();
     renderAssignments();
     updateSubtaskList();
@@ -25,11 +26,59 @@ function resetAddtaskInputs() {
     document.getElementById('subtaskInput').value = "";
 }
 
+
+function prepareEditTask(taskId) {
+    hideTaskDetails();
+    changeAddtaskBottomButtons(); // change buttons to "Update Task" and remove "Cancel"
+    newTask = tasks.find(task => task.id == taskId);
+    newSubtasks = newTask.subtasks.map(subtask => {
+        return subtasks.find(s => s.id == subtask);
+    });
+    openPage('addtask');
+    setInputValues(newTask);
+    showSelectedContacts();
+    toggleButton(newTask.priority);
+}
+
+
+function setInputValues(task) {
+    document.getElementById('addtaskMenuTitle').value = task.title;
+    document.getElementById('addtaskMenuDescription').value = task.description;
+    document.getElementById('addtaskMenuDate').value = task.due_date.slice(0, 10);
+    document.getElementById('addtaskMenuCategory').value = task.category;
+    let selected = document.getElementById('addtaskMenuAssigned');
+    for (const option of selected.options) {
+        if (task.assigned_to.includes(Number(option.value))) {
+            option.selected = true;
+        }
+    }
+}
+
+
+function changeAddtaskBottomButtons() {
+    let addtaskButtons = document.getElementById('addtaskButtons');
+    let edittaskButtons = document.getElementById('edittaskButtons');
+    addtaskButtons.classList.contains('d-none') ? addtaskButtons.classList.remove('d-none') : addtaskButtons.classList.add('d-none');
+    edittaskButtons.classList.contains('d-none') ? edittaskButtons.classList.remove('d-none') : edittaskButtons.classList.add('d-none');
+}
+
 /**
- * Triggered by the addtask button.
- * Collects form data, validates it and sends the validated data to the Backend.
+ * Triggered by the "Cancel" button during edit of task.
+ * 
  */
-async function collectValidateSendData() {
+function cancelEditTask() {
+    changeAddtaskBottomButtons(); // change buttons back to "Add Task" and "Clear"
+    clearAddtaskMenu();
+    showSelectedContacts(); // Will reset the display of selected contacts to the original state (empty).
+    openPage('board');
+}
+
+/**
+ * Triggered by the "Add Task" or "Update Task" button.
+ * Collects form data, validates it and sends the validated data to the Backend,
+ * then calls API for updated data and moves to the board page.
+ */
+async function collectValidateSendData(type) {
     newTask.title = document.getElementById('addtaskMenuTitle').value.trim();
     newTask.description = document.getElementById('addtaskMenuDescription').value.trim();
     newTask.category = document.getElementById('addtaskMenuCategory').value;
@@ -37,17 +86,31 @@ async function collectValidateSendData() {
     for (const option of selected.options) {
         if (option.selected) {
             newTask.assigned_to.push(option.value)
+        } else {
+            // remove unselected contacts from assigned_to if they exist.
+            newTask.assigned_to = newTask.assigned_to.filter(id => id != option.value);
         }
     }
     newTask.due_date = document.getElementById('addtaskMenuDate').value + "T00:00:00Z";
     await Promise.all(newSubtasks.map(async subtask => {
+        if (subtask.id) {
+            // if subtask already exists, update it
+            await setSubtask(subtask);
+        } else {
             let response = await createSubtask(subtask);
             newTask.subtasks.push(response.id);
+        }
     }));
-    let response = await createTask(newTask);
+    if (type == "update") {
+        await setTask(newTask);
+        showAlert("Task updated successfully.");
+        changeAddtaskBottomButtons(); // change buttons back to "Add Task" and "Clear"
+    } else {
+        await createTask(newTask);
+        showAlert("Task created successfully.");
+    }
     await getSubtasks();
     await getTasks();
-    showAlert("Task created successfully.");
     clearAddtaskMenu();
     setTimeout(() => {
         openPage('board');

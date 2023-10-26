@@ -49,17 +49,27 @@ function getSubtaskHTML(subtask) {
     return `
     <div class="flex-row flex-center gap-10">
         <span class="text-normal max-width-200">${subtask.title}</span>
+        <input type="checkbox" class="cursor-pointer" ${subtask.completed ? "checked" : ""} onclick="toggleSubtask('${subtask.title}')">
         <div class="btn-secondary cursor-pointer" onclick="removeSubtask('${subtask.title}')">
             Remove
         </div>
     </div>`;
 }
 
+
+function toggleSubtask(title) {
+    let subtask = newSubtasks.find(subtask => subtask.title === title);
+    subtask.completed = !subtask.completed;
+    updateSubtaskList();
+}
+
 /**
- * Removes the subtask with the corresponding title from the newSubtasks array.
+ * Removes the subtask with the corresponding title from the newSubtasks array and updates the newTask-Object's subtasks.
  * @param {*} title as string.
  */
 function removeSubtask(title) {
     newSubtasks = newSubtasks.filter(subtask => subtask.title != title);
+    keepSubtaskIds = newSubtasks.map(subtask => subtask.id);
+    newTask.subtasks = keepSubtaskIds;
     updateSubtaskList();
 }

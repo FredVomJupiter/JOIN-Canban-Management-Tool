@@ -359,13 +359,22 @@
                     </div>
 
                     <!-- Buttons bottom right -->
-                    <div class="flex-row flex-center gap-25 padding-20">
+                    <div class="flex-row flex-center gap-25" id="addtaskButtons">
                         <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="clearAddtaskMenu()">
                             Clear
                         </div>
                         <div class="btn-primary cursor-pointer text-bold check-icon"
-                            onclick="collectValidateSendData()">
+                            onclick="collectValidateSendData('create')">
                             Add Task
+                        </div>
+                    </div>
+                    <div class="flex-row flex-center gap-25 d-none" id="edittaskButtons">
+                        <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="cancelEditTask()">
+                            Cancel
+                        </div>
+                        <div class="btn-primary cursor-pointer text-bold check-icon"
+                            onclick="collectValidateSendData('update')">
+                            Update Task
                         </div>
                     </div>
 
