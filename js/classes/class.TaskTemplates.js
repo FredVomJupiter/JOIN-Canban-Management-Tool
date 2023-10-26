@@ -196,13 +196,13 @@ class TaskTemplate {
             return `
             <div class="board-taskoverlay-close-btn" onclick="hideTaskDetails()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
-            <span class="title-large color-primary">${task.title}</span>
+            <span class="title-medium color-primary">${task.title}</span>
             <span class="color-primary">${task.description}</span>
-            <div class="flex-center gap-25"><span class="title-small color-primary">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
-            <div class="flex-center gap-25"><span class="title-small color-primary">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
-            <div class="flex-center"><span class="title-small color-primary">Assigned to:</span></div>
+            <div class="flex-center gap-25"><span class="title-tiny color-primary">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
+            <div class="flex-center gap-25"><span class="title-tiny color-primary">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
+            <div class="flex-center"><span class="title-tiny color-primary">Assigned to:</span></div>
             ${this.getOverlayAssigned(task.assigned_to)}
-            <div class="flex-center"><span class="title-small color-primary">Subtasks:</span></div>
+            <div class="flex-center"><span class="title-tiny color-primary">Subtasks:</span></div>
             ${this.getOverlaySubtasksPercentage(task)}
             ${this.getOverlaySubtasks(task)}
             <div class="board-taskoverlay-btnwrap">
@@ -221,13 +221,13 @@ class TaskTemplate {
             return `
             <div class="board-taskoverlay-close-btn" onclick="hideTaskDetails()"></div>
             <div class="board-taskoverlay-category" style="background:${category.color}">${category.name}</div>
-            <span class="title-large color-primary">${task.title}</span>
+            <span class="title-medium color-primary">${task.title}</span>
             <span class="color-primary">${task.description}</span>
-            <div class="flex-center gap-25"><span class="title-small color-primary">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
-            <div class="flex-center gap-25"><span class="title-small color-primary">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
-            <div class="flex-center"><span class="title-small color-primary">Assigned to:</span></div>
+            <div class="flex-center gap-25"><span class="title-tiny color-primary">Due date:</span><span class="board-taskoverlay-value">${returnFormatedDate(new Date(task.due_date))}</span></div>
+            <div class="flex-center gap-25"><span class="title-tiny color-primary">Priority:</span>${task.priority} ${this.getPriority(task)}</div>
+            <div class="flex-center"><span class="title-tiny color-primary">Assigned to:</span></div>
             ${this.getOverlayAssigned(task.assigned_to)}
-            <div class="flex-center"><span class="title-small color-primary">Subtasks:</span></div>
+            <div class="flex-center"><span class="title-tiny color-primary">Subtasks:</span></div>
             ${this.getOverlaySubtasksPercentage(task)}
             ${this.getOverlaySubtasks(task)}
             `
@@ -242,7 +242,7 @@ class TaskTemplate {
                     <div class="board-taskoverlay-percentage-inner-gray">
                         <div class="board-taskoverlay-percentage-inner-blue" style="width: calc(200px * ${this.calculateProgressFactor(task)})"></div>
                     </div>
-                    <span>${this.countFinishedSubtasks(task)}/${task.subtasks.length} Done</span>
+                    <span class="text-small">${this.countFinishedSubtasks(task)}/${task.subtasks.length} Done</span>
                 </div>
             `;
         } else {
