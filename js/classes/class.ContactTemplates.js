@@ -43,12 +43,12 @@ class ContactTemplate {
 
     getContactList(contact) {
         return `
-            <div class="flex-row flex-center padding-20 cursor-pointer gap-25 contact width-100 border-box" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
+            <div class="flex-row padding-20 cursor-pointer gap-25 contact width-100 border-box align-left" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
                 <div class="flex-row flex-center contact-circle icon-medium" style="background:${contact.color}">
                     ${returnInitials(contact.name)}
                 </div>
                 <div class="flex-column align-left">
-                    <span class="title-tiny" id="${contact.id}name">${contact.name}</span>
+                    <span class="title-tiny color-primary" id="${contact.id}name">${contact.name}</span>
                     <span class="text-blue">${contact.email}</span>
                 </div>
             </div>
