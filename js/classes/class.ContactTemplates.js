@@ -42,7 +42,7 @@ class ContactTemplate {
                 </div>
                 <div class="flex-column gap-10">
                     <span class="title-tiny">${name}</span>
-                    <div class="flex-row gap-10 cursor-pointer contact-btn" onclick="addtaskWithContact('${contacts.find(c => c.name == name).id}')">
+                    <div class="flex-row gap-10 cursor-pointer contact-btn" onclick="addtaskWithContact('${contacts.find(c => c.email == email).id}')">
                         <img class="icon-very-small" src="./assets/img/addtask_blue.svg">
                         <span class="text-normal text-blue">Add task</span>
                     </div>
@@ -51,7 +51,7 @@ class ContactTemplate {
     
             <div class="flex-column flex-start gap-25 margin-bottom-20">
                 <span class="text-larger">Contact Information</span>
-                <div class="flex-row cursor-pointer gap-10 contact-btn" onclick="openEditcontactOverlay('${name}')">
+                <div class="flex-row cursor-pointer gap-10 contact-btn" onclick="showEditContact('${contacts.find(c => c.email == email).id}')">
                     <img class="icon-very-small" src="./assets/img/black_pencil.svg">
                     <span class="text-normal">Edit Contact</span>
                 </div>
