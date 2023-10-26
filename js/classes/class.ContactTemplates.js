@@ -51,15 +51,16 @@ class ContactTemplate {
     
             <div class="flex-column flex-start gap-25 margin-bottom-20">
                 <span class="text-larger">Contact Information</span>
-                <div class="flex-row cursor-pointer gap-10 contact-btn" onclick="showEditContact('${contacts.find(c => c.email == email).id}')">
-                    <img class="icon-very-small" src="./assets/img/black_pencil.svg">
-                    <span class="text-normal">Edit Contact</span>
-                </div>
 
                 <span class="text-normal text-bold">Email</span>
                 <span class="text-normal text-blue">${email}</span>
                 <span class="text-normal text-bold">Phone</span>
                 <span class="text-normal">${phone}</span>
+
+                <div class="flex-row cursor-pointer gap-10 contact-btn" onclick="showEditContact('${contacts.find(c => c.email == email).id}')">
+                    <img class="icon-very-small" src="./assets/img/black_pencil.svg">
+                    <span class="text-normal">Edit Contact</span>
+                </div>
             </div>
         `;
     }
