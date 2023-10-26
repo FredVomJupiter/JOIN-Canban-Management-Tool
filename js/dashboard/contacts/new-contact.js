@@ -58,7 +58,6 @@ async function collectAndSendContact(type) {
         await setContact(newContact);
         showAlert("Contact updated successfully.");
     }
-    console.log(newContact);
 }
 
 /**
