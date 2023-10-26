@@ -343,11 +343,11 @@
     border: 2px solid var(--white);
 }
 
-.contact-back {
+.contact-btn {
     transition: all 125ms ease-in-out;
 }
 
-.contact-back:hover {
+.contact-btn:hover {
     transition: all 125ms ease-in-out;
     transform: scale(1.1);
 }

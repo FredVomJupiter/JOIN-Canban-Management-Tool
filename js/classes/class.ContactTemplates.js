@@ -35,14 +35,14 @@ class ContactTemplate {
 
     getContactDetails(name, email, phone, color) {
         return `
-            <div class="cursor-pointer flex-row self-start margin-bottom-20 contact-back" onclick="showContactList()"><- back</div>
+            <div class="cursor-pointer flex-row self-start margin-bottom-20 contact-btn" onclick="showContactList()"><- back</div>
             <div class="flex-row gap-25 margin-bottom-20">
                 <div class="flex-row flex-center contact-circle icon-large" style="background:${color}">
                     <span class="title-tiny text-white">${returnInitials(name)}</span>
                 </div>
                 <div class="flex-column gap-10">
                     <span class="title-tiny">${name}</span>
-                    <div class="flex-row gap-10 cursor-pointer" onclick="openAddtaskOverlay('To do')">
+                    <div class="flex-row gap-10 cursor-pointer contact-btn" onclick="addtaskWithContact('${contacts.find(c => c.name == name).id}')">
                         <img class="icon-very-small" src="./assets/img/addtask_blue.svg">
                         <span class="text-normal text-blue">Add task</span>
                     </div>
@@ -51,7 +51,7 @@ class ContactTemplate {
     
             <div class="flex-column flex-start gap-25 margin-bottom-20">
                 <span class="text-larger">Contact Information</span>
-                <div class="flex-row cursor-pointer gap-10" onclick="openEditcontactOverlay('${name}')">
+                <div class="flex-row cursor-pointer gap-10 contact-btn" onclick="openEditcontactOverlay('${name}')">
                     <img class="icon-very-small" src="./assets/img/black_pencil.svg">
                     <span class="text-normal">Edit Contact</span>
                 </div>
