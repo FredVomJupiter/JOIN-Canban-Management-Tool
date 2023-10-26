@@ -136,6 +136,21 @@ async function setSubtask(subtask) {
 }
 
 
+async function setContact(contact) {
+    let response = await fetch(baseUrl + 'contacts/' + contact.id + '/', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(contact)
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    return data;
+}
+
+
 async function createContact(contact) {
     let response = await fetch(baseUrl + 'contacts/', {
         method: 'POST',
