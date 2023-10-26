@@ -26,7 +26,11 @@ function resetAddtaskInputs() {
     document.getElementById('subtaskInput').value = "";
 }
 
-
+/**
+ * Opens the addtask page and prepares the input fields, buttons and selections of addtask page for editing a task.
+ * Sets newTask and newSubtasks variables to match the task to be edited.
+ * @param {*} taskId as string.
+ */
 function prepareEditTask(taskId) {
     hideTaskDetails();
     changeAddtaskBottomButtons(); // change buttons to "Update Task" and remove "Cancel"
@@ -79,6 +83,21 @@ function cancelEditTask() {
  * then calls API for updated data and moves to the board page.
  */
 async function collectValidateSendData(type) {
+    transferInputValues();
+    await handleSubtasks();
+    await handleTask(type);
+    await getSubtasks();
+    await getTasks();
+    clearAddtaskMenu();
+    setTimeout(() => {
+        openPage('board');
+    }, 1000);
+}
+
+/**
+ * Collects the input values from the addtask form and stores them in the newTask object.
+ */
+function transferInputValues() {
     newTask.title = document.getElementById('addtaskMenuTitle').value.trim();
     newTask.description = document.getElementById('addtaskMenuDescription').value.trim();
     newTask.category = document.getElementById('addtaskMenuCategory').value;
@@ -92,6 +111,12 @@ async function collectValidateSendData(type) {
         }
     }
     newTask.due_date = document.getElementById('addtaskMenuDate').value + "T00:00:00Z";
+}
+
+/**
+ * Updates existing subtasks or creates new ones.
+ */
+async function handleSubtasks() {
     await Promise.all(newSubtasks.map(async subtask => {
         if (subtask.id) {
             // if subtask already exists, update it
@@ -101,6 +126,13 @@ async function collectValidateSendData(type) {
             newTask.subtasks.push(response.id);
         }
     }));
+}
+
+/**
+ * Updateds existing taks or creates a new one.
+ * @param {*} type as string. Either "update" or "create".
+ */
+async function handleTask(type) {
     if (type == "update") {
         await setTask(newTask);
         showAlert("Task updated successfully.");
@@ -109,10 +141,4 @@ async function collectValidateSendData(type) {
         await createTask(newTask);
         showAlert("Task created successfully.");
     }
-    await getSubtasks();
-    await getTasks();
-    clearAddtaskMenu();
-    setTimeout(() => {
-        openPage('board');
-    }, 1000);
 }
