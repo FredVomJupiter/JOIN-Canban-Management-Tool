@@ -17,6 +17,7 @@
 }
 
 .summary-tile {
+    transition: all 125ms ease-in-out;
     cursor: pointer;
     min-width: 90px;
     min-height: 90px;
@@ -34,7 +35,7 @@
 }
 
 .summary-tile:hover {
-    transition: all 225ms ease-in-out;
+    transition: all 125ms ease-in-out;
     transform: scale(1.1);
     background: var(--primary-color);
     color: var(--white);
@@ -42,6 +43,7 @@
 }
 
 .summary-tile:hover span {
+    transition: all 125ms ease-in-out;
     color: var(--white);
 }
 
