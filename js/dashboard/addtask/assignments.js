@@ -30,7 +30,9 @@ function resetAssignmentsList(assignmentList) {
         `;
 }
 
-
+/**
+ * Highlichts selected contacts in the input field and displays the user badges (circles) below.
+ */
 function showSelectedContacts() {
     let selected = document.getElementById('addtaskMenuAssigned');
     const selectedOptions = [];
