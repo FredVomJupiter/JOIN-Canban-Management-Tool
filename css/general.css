@@ -136,11 +136,11 @@ body {
 }
 
 .color-primary {
-    color: var(--primary-color) !important;
+    color: var(--primary-color);
 }
 
 .color-secondary {
-    color: var(--secondary-color) !important;
+    color: var(--secondary-color);
 }
 
 .gap-56 {
@@ -173,6 +173,10 @@ body {
 
 .max-height {
     max-height: 100px;
+}
+
+.max-height-375 {
+    max-height: 37.5px;
 }
 
 .padding-20 {
