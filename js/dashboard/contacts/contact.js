@@ -7,6 +7,7 @@ function renderContactList() {
             renderContactsSortedByAlphabet(contactList, letter);
         }
     });
+    showContactList();
 }
 
 
@@ -28,6 +29,19 @@ function renderContactsSortedByAlphabet(contactList, letter) {
     });
 }
 
+/**
+ * Resets the state of the contact page to show the contact list.
+ * Hides the contactForm (create & update) and contactCanvas (details).
+ */
+function showContactList() {
+    let contactList = document.getElementById('contactsInner');
+    contactList.classList.remove('d-none');
+    let contactCanvas = document.getElementById('contactCanvas');
+    contactCanvas.classList.add('d-none');
+    let contactForm = document.getElementById('contactForm');
+    contactForm.classList.add('d-none');
+}
+
 
 function showContact(id) {
     let contact = contacts.find(contact => contact.id == id);
@@ -45,17 +59,12 @@ function drawContactTemplate(contact) {
     contactCanvas.innerHTML = contactTemplate.getContactDetails(contact.name, contact.email, contact.phone, contact.color);
 }
 
-
-function hideContact() {
-    let contactCanvas = document.getElementById('contactCanvas');
-    contactCanvas.classList.add('d-none');
-    let contactList = document.getElementById('contactsInner');
-    contactList.classList.remove('d-none');
-}
-
-
+/**
+ * Sets the background and text color of the selected contact.
+ * @param {*} id as number.
+ */
 function markSelectedContact(id) {
-    renderContactList();
+    unmarkAllContacts();
     let wrapper = document.getElementById(`${id}wrap`);
     wrapper.classList.remove('contact');
     wrapper.classList.add('contact-dark');
@@ -64,13 +73,12 @@ function markSelectedContact(id) {
 }
 
 
-const isValidNewEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
-
-const isValidNewPhone = phone => {
-    const re = /^[0-9]{8,10}$/;
-    return re.test(String(phone));
+function unmarkAllContacts() {
+    for (contact of contacts) {
+        let wrapper = document.getElementById(`${contact.id}wrap`);
+        wrapper.classList.remove('contact-dark');
+        wrapper.classList.add('contact');
+        let name = document.getElementById(`${contact.id}name`);
+        name.classList.remove('text-white');
+    }
 }

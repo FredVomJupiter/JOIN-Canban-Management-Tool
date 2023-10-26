@@ -41,6 +41,7 @@
 
     <!-- Contact Scripts -->
     <script defer src="./js/dashboard/contacts/contact.js"></script>
+    <script defer src="./js/dashboard/contacts/new-contact.js"></script>
 
     <!-- CSS Scripts -->
     <link rel="stylesheet" href="./css/general.css">
@@ -394,7 +395,7 @@
                     <span class="subtitle-light">Better with a team</span>
                 </div>
 
-                <div class="btn-primary cursor-pointer text-bold add-icon">
+                <div class="btn-primary cursor-pointer text-bold add-icon" onclick="openContactForm()">
                     New Contact
                 </div>
 
@@ -406,6 +407,23 @@
 
 
             <div class="flex-column flex-center padding-20 d-none" id="contactCanvas">
+
+            </div>
+
+            <div class="flex-column flex-center width-100 padding-20 gap-25 d-none border-box" id="contactForm">
+                <span class="title-large padding-20" id="newContact">New Contact</span>
+                <span class="title-large padding-20 d-none" id="editContact">Edit Contact</span>
+
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Name" id="contactFormName">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Email" id="contactFormEmail">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Phone" id="contactFormPhone">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Color" id="contactFormColor">
+
+                <div class="flex-row align-left width-100 gap-25">
+                    <div class="btn-secondary cursor-pointer" onclick="closeContactForm()">Cancel</div>
+                    <div class="btn-primary cursor-pointer" id="newContactBtn" onclick="collectAndSendContact('create')">Create Contact</div>
+                    <div class="btn-primary cursor-pointer d-none" id="editContactBtn" onclick="collectAndSendContact('update')">Update Contact</div>
+                </div>
 
             </div>
 
