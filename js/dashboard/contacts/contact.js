@@ -82,3 +82,20 @@ function unmarkAllContacts() {
         name.classList.remove('text-white');
     }
 }
+
+/**
+ * Moves to addtask page with the default new Task containing the selected contact.
+ * @param {*} contactId as number.
+ */
+function addtaskWithContact(contactId) {
+    clearAddtaskMenu();
+    openPage('addtask');
+    newTask.assigned_to.push(Number(contactId));
+    let selected = document.getElementById('addtaskMenuAssigned');
+    for (const option of selected.options) {
+        if (newTask.assigned_to.includes(Number(option.value))) {
+            option.selected = true;
+        }
+    }
+    showSelectedContacts();
+}
