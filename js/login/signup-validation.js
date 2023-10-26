@@ -59,7 +59,7 @@ const validateSignupInputs = () => {
         setError('signupEmailError', 'Email is required');
         correctMail = false;
     } else if (!isValidSignupEmail(emailValue)) {
-        setError('signupEmailError', 'Only valid email formats allowed with @ and ending ".xy(z)"');
+        setError('signupEmailError', 'Format should be like foo@bar.com');
         correctMail = false;
     } else {
         setSuccess('signupEmailError');
