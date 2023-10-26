@@ -6,41 +6,6 @@ class ContactTemplate {
     }
 
 
-    getEditcontactOverlay(name, email, phone) {
-        return `
-            <img class="addcontact-task-close" src="./assets/img/clear.svg" onclick="null">
-            <div class="addcontact-title-container">
-                <img class="addcontact-logo" src="./assets/img/logo_white.svg" alt="logo">
-                <div class="addcontact-title">Edit contact</div>
-                <div class="addcontact-subtitle">Tasks are better with a team</div>
-                <img src="./assets/img/horizontal_blue_line.svg">
-            </div>
-            <div class="addcontact-form">
-                <div class="addcontact-user-badge">
-                    <img src="./assets/img/user_guest.svg">
-                </div>
-                <form class="addcontact-form-right" id="formEditcontact">
-                    <div class="addcontact-form-container">
-                        <input class="addcontact-input-profile" type="text" placeholder="Name" id="editcontactInputName" value="${name}">
-                        <div class="error"></div>
-                    </div>
-                    <div class="addcontact-form-container">
-                        <input class="addcontact-input-email" type="text" placeholder="Email" id="editcontactInputEmail" value="${email}">
-                        <div class="error"></div>
-                    </div>
-                    <div class="addcontact-form-container">
-                        <input class="addcontact-input-phone" type="text" placeholder="Phone" id="editcontactInputPhone" value="${phone}">
-                        <div class="error"></div>
-                    </div>
-                    <div class="addcontact-submit-btns">
-                        <input class="addcontact-create-btn" type="submit" value="Save">
-                    </div>
-                </form>
-            </div>
-        `;
-    }
-
-
     getContactList(contact) {
         return `
             <div class="flex-row padding-20 cursor-pointer gap-25 contact width-100 border-box align-left" id="${contact.id}wrap" onclick="showContact('${contact.id}')">
@@ -70,7 +35,7 @@ class ContactTemplate {
 
     getContactDetails(name, email, phone, color) {
         return `
-            <div class="cursor-pointer flex-row self-start margin-bottom-20 contact-back" onclick="hideContact()"><- back</div>
+            <div class="cursor-pointer flex-row self-start margin-bottom-20 contact-back" onclick="showContactList()"><- back</div>
             <div class="flex-row gap-25 margin-bottom-20">
                 <div class="flex-row flex-center contact-circle icon-large" style="background:${color}">
                     <span class="title-tiny text-white">${returnInitials(name)}</span>
