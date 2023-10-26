@@ -269,6 +269,7 @@ body {
 }
 
 .btn-primary {
+    transition: all 125ms ease-in-out;
     background: var(--primary-color);
     border-radius: 8px;
     font-style: normal;
@@ -288,6 +289,7 @@ body {
 }
 
 .btn-secondary {
+    transition: all 125ms ease-in-out;
     border-radius: 8px;
     font-style: normal;
     font-weight: 700;

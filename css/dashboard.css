@@ -158,11 +158,10 @@
     width: 450px;
     max-width: 550px;
     max-height: 700px;
-    padding: 20px 70px 20px 20px;
+    padding: 30px 70px 30px 20px;
     gap: 25px;
     background: var(--white);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
     z-index: 51;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -223,6 +222,7 @@
 }
 
 .board-taskoverlay-btn {
+    transition: all 125ms ease-in-out;
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -230,6 +230,12 @@
     border-radius: 10px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.board-taskoverlay-btn:hover {
+    transition: all 125ms ease-in-out;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 255, 0.25);
 }
 
 .delete-icon {
@@ -249,19 +255,42 @@
     position: relative;
     width: 150px;
     right: 180px;
-    top: -240px;
+    top: -80px;
     user-select: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
     white-space: nowrap;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 10px 10px;
     border-radius: 10px;
-    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
     background: var(--primary-color);
     color: var(--white);
+}
+
+.moveItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    color: var(--white);
+    border-radius: 10px;
+    background: var(--primary-color);
+    font-size: smaller;
+}
+
+.moveItem-top {
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.moveItem-mid {
+    border-radius: 0px;
+}
+
+.moveItem-bot {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.moveItem:hover {
+    background: var(--secondary-color);
 }
 
 /** Addtask Content **/
@@ -341,7 +370,6 @@
     /** NEW classes **/
     .title-large {
         font-size: 40px;
-        padding: 20px;
     }
 
     .vertical-blue-line {
