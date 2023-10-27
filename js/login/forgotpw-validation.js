@@ -1,44 +1,22 @@
-const forgotpwForm = document.getElementById('forgotpwForm');
 const forgotpwEmail = document.getElementById('forgotpwEmail');
 
 
-forgotpwForm.addEventListener('submit', e => {
-    e.preventDefault();
-    validateForgotpwInputs();
-});
+function validateEmail() {
+    const emailValue = forgotpwEmail.value.trim();
 
-
-const isValidForgotpwEmail = email => {
-    let result = false;
-    users.forEach(user => {
-        if (user.email === email) {
-            userId = user.id; //Set userId to the user with the current email.
-            result = true;
-        }
-    });
-    return result;
+    if (emailValue === '') {
+        showAlert('Please enter your email address');
+    } else if (!isValidForgotpwEmail(emailValue)) {
+        forgotpwEmail.value = '';
+        showAlert('Please enter a valid email address');
+    } else {
+        openPage('login');
+        showAlert(`Please check your inbox for a password reset link.`);
+        forgotpwEmail.value = '';
+    }
 }
 
 
-const validateForgotpwInputs = () => {
-    const emailValue = forgotpwEmail.value.trim();
-
-    let correctMail = false;
-
-    // Validate email
-    if (emailValue === '') {
-        setError(forgotpwEmail, 'Email is required');
-        correctMail = false;
-    } else if (!isValidForgotpwEmail(emailValue)) {
-        setError(forgotpwEmail, 'Wrong Email...');
-        correctMail = false;
-    } else {
-        setSuccess(forgotpwEmail);
-        correctMail = true;
-    }
-
-    // Send message if all inputs are valid (but no actual mail is sent)
-    if (correctMail) {
-        sendMessage('mail');
-    }
-};
+const isValidForgotpwEmail = email => {
+    return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email);
+}

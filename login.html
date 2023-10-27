@@ -19,7 +19,6 @@
     <script src="./js/login/login-users.js"></script>
     <script defer src="./js/login/signup-validation.js"></script>
     <script defer src="./js/login/forgotpw-validation.js"></script>
-    <script defer src="./js/login/resetpw-validation.js"></script>
 
     <!-- Alert message scripts and CSS -->
     <script defer src="./js/dashboard/alert-message.js"></script>
@@ -82,7 +81,7 @@
 
         <!-- Forgotpw Page -->
         <main class="d-none" id="forgotpw">
-            <div class="flex-column flex-center gap-25 card padding-20" id="forgotpwForm">
+            <div class="flex-column flex-center gap-25 card padding-20">
 
                 <div class="bluearrow">
                     <img class="icon-very-small scale cursor-pointer" src="./assets/img/bluearrow.svg"
@@ -103,7 +102,7 @@
                     <input class="input-field mail-icon border-box" type="text" placeholder="Email" id="forgotpwEmail">
                     <div class="error"></div>
                 </div>
-                <div class="btn-primary cursor-pointer" type="submit">Send email</div>
+                <div class="btn-primary cursor-pointer" onclick="validateEmail()">Send email</div>
             </div>
 
         </main>
@@ -150,7 +149,7 @@
 
                 </div>
 
-                <div class="btn-primary cursor-pointer">Sign up</div>
+                <div class="btn-primary cursor-pointer" onclick="">Sign up</div>
 
             </div>
         </main>
