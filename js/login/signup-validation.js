@@ -105,6 +105,7 @@ async function createNewUser() {
     if (response.status == 200) {
         clearSignupForm();
         openPage('login');
+        showAlert('Account created successfully.');
     }
 }
 
