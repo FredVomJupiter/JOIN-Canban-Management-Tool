@@ -9,10 +9,9 @@
 
     <link rel="icon" type="image/x-icon" href="./assets/img/logo_white.svg">
 
+    <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="manifest" href="manifest.json">
-    
-
 
     <!-- defer for those scripts that need to wait for DOM -->
     <script src="./js/classes/class.users.js"></script>
@@ -37,125 +36,74 @@
 
         <!-- Login Mainpage -->
         <main class="" id="login">
-            <!-- Signup oben rechts -->
-            <div class="login-signup-wrap">
-                <span class="login-signup-text">Not a Join user?</span>
-                <button class="login-signup-button" onclick="openPage('signup')">Sign up</button>
-            </div>
 
             <!-- Container in der Mitte -->
-            <div class="login-center-container" id="loginForm">
+            <div class="flex-column flex-center gap-10 card padding-20 margin-bottom-20" id="loginForm">
 
                 <!-- Title -->
-                <div class="login-title-wrap">
-                    <span class="login-title">Log in</span>
-                    <vector class="login-blueline"></vector>
+                <div class="flex-column flex-center gap-10 margin-bottom-20">
+                    <span class="title-medium color-primary">Login</span>
+                    <div class="blueline"></div>
                 </div>
 
                 <!-- Input Felder-->
-                <div class="login-input-wrap">
-                    <div class="login-input-border">
-                        <input class="login-input mail-icon" type="text" placeholder="Email or Name" id="loginEmail">
-                    </div>
+                <div class="flex-column flex-center gap-10 width-100">
+                    <input class="input-field width-100 border-box mail-icon" type="text" placeholder="Name"
+                        id="loginEmail">
                     <div class="error" id="emailError"></div>
-                    <div class="login-input-border">
-                        <input class="login-input pw-icon" type="password" placeholder="Password" id="loginPw">
-                    </div>
+                    <input class="input-field width-100 border-box pw-icon" type="password" placeholder="Password"
+                        id="loginPw">
                     <div class="error" id="passwordError"></div>
                 </div>
 
                 <!-- Optionen forgot/reset -->
-                <div class="login-options-wrap">
-                    <div class="login-options-left">
-                        <input class="login-checkbox" type="checkbox" id="rememberUser">
-                        <span class="login-checkbox-text">Remember me</span>
+                <div class="flex-column flex-center gap-10 width-100 margin-bottom-20">
+                    <div class="flex-row flex-center gap-10 scale">
+                        <input class="input-field cursor-pointer" type="checkbox" id="rememberUser">
+                        <span class="text-small">Remember me</span>
                     </div>
-                    <a class="login-forgotpw-link" onclick="openPage('forgotpw')">Forgot my password</a>
+                    <a class="text-small cursor-pointer text-blue scale" onclick="openPage('forgotpw')">Forgot my
+                        password</a>
                 </div>
 
                 <!-- Buttons unten -->
-                <div class="login-buttons-wrap">
-                    <button class="login-login-button" onclick="loginWithUsernameAndPassword()">Log in</button>
-                    <div class="login-guestlogin-button" onclick="loginWithGuestAccount()">Guest Log in</div>
+                <div class="flex-row flex-center gap-25">
+                    <div class="btn-primary cursor-pointer" onclick="loginWithUsernameAndPassword()">Login</div>
+                    <div class="btn-secondary cursor-pointer" onclick="loginWithGuestAccount()">Guest Login</div>
                 </div>
+            </div>
+
+            <!-- Signup Button -->
+            <div class="flex-row flex-center gap-25">
+                <span class="text-normal">New Account?</span>
+                <div class="btn-primary cursor-pointer" onclick="openPage('signup')">Sign up</div>
             </div>
         </main>
 
         <!-- Forgotpw Page -->
         <main class="d-none" id="forgotpw">
-            <form class="forgotpw-container" id="forgotpwForm">
+            <div class="flex-column flex-center gap-25 card padding-20" id="forgotpwForm">
 
-                <div class="forgotpw-bluearrow" onclick="openPage('login')">
-                    <img src="./assets/img/bluearrow.svg">
+                <div class="bluearrow">
+                    <img class="icon-very-small scale cursor-pointer" src="./assets/img/bluearrow.svg"
+                        onclick="openPage('login')">
                 </div>
 
-                <span class="forgotpw-title">I forgot my password</span>
+                <div class="flex-column flex-center gap-10">
+                    <span class="title-medium color-primary max-width-200 text-center">Forgot your Password?</span>
+                    <div class="blueline"></div>
+                </div>
 
-                <div class="forgotpw-blueline"></div>
-                <span class="forgotpw-text">Don't worry! We will send you an email with the instructions to reset your
+                <span class="text-normal max-width-200 text-center">Don't worry! We will send you an email with the
+                    instructions to reset
+                    your
                     password.
                 </span>
-                <div class="login-input-border">
-                    <input class="login-input mail-icon" type="text" placeholder="Email" id="forgotpwEmail">
+                <div>
+                    <input class="input-field mail-icon border-box" type="text" placeholder="Email" id="forgotpwEmail">
                     <div class="error"></div>
                 </div>
-                <button class="forgotpw-button" type="submit">Send me the mail</button>
-            </form>
-
-            <!-- email confirmation msg -->
-            <div class="forgotpw-confirmation-outer" id="messageMail">
-                <div class="forgotpw-confirmation-border">
-                    <img class="forgotpw-confirmation-icon" src="./assets/img/sent.svg">
-                    <span class="forgotpw-confirmation-text">An E-mail has been sent to you</span>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- Resetpw Page -->
-        <main class="d-none" id="resetpw">
-            <!-- Container Middle -->
-            <div class="resetpw-container">
-
-                <div class="resetpw-arrow-wrap" onclick="openPage('login')">
-                    <img class="resetpw-arrow-img" src="./assets/img/bluearrow.svg">
-                </div>
-
-                <!-- Title container -->
-                <div class="resetpw-title-container">
-                    <span class="resetpw-title">Reset your password</span>
-                    <div class="resetpw-blueline"></div>
-                </div>
-
-                <span class="resetpw-text">Change your account password</span>
-
-                <!-- Input container -->
-                <form class="resetpw-input-wrap" id="resetpwForm">
-                    <div class="login-input-border">
-                        <input class="login-input" type="password" placeholder="New password" id="resetpwP1">
-                        <div class="error"></div>
-                    </div>
-
-                    <div class="login-input-border">
-                        <input class="login-input" type="password" placeholder="Confirm password" id="resetpwP2">
-                        <div class="error"></div>
-                    </div>
-
-                    <!--Continue button -->
-                    <div class="resetpw-btn-wrap">
-                        <button class="resetpw-btn" type="submit">Continue</button>
-                    </div>
-                </form>
-
-
-
-            </div>
-
-            <!-- Confirmation msg for resetpw -->
-            <div class="resetpw-msg-outer" id="messageReset">
-                <div class="resetpw-msg-border">
-                    <span class="resetpw-msg-text">You reset your password</span>
-                </div>
+                <div class="btn-primary cursor-pointer" type="submit">Send email</div>
             </div>
 
         </main>
@@ -163,42 +111,46 @@
         <!-- Signup Page -->
         <main class="d-none" id="signup">
             <!-- Center Box -->
-            <div class="signup-container">
+            <div class="flex-column flex-center card gap-10 padding-20 border-box">
 
-                <div class="signup-bluearrow">
-                    <img class="signup-bluearrow-img" src="./assets/img/bluearrow.svg" alt="bluearrow"
+                <div class="bluearrow">
+                    <img class="icon-very-small scale cursor-pointer" src="./assets/img/bluearrow.svg"
                         onclick="openPage('login')">
                 </div>
 
                 <!-- Title -->
-                <div class="signup-title-wrap">
-                    <span class="signup-title">Sign up</span>
-                    <div class="signup-blueline"></div>
+                <div class="flex-column flex-center gap-10 margin-bottom-20">
+                    <span class="title-medium color-primary">Sign up</span>
+                    <div class="blueline"></div>
                 </div>
 
                 <!-- Input Fields -->
-                <form class="signup-inputs-wrap" id="signupForm">
+                <div class="flex-column flex-center gap-25 margin-bottom-20" id="signupForm">
 
-                    <div class="login-input-border">
-                        <input class="login-input name-icon" type="text" placeholder="Name" id="signupName">
-                    </div>
-                    <div class="error" id="signupNameError"></div>
-                    <div class="login-input-border">
-                        <input class="login-input mail-icon" type="text" placeholder="E-Mail" id="signupEmail">
-                    </div>
-                    <div class="error" id="signupEmailError"></div>
-                    <div class="login-input-border">
-                        <input class="login-input pw-icon" type="password" placeholder="Password" id="signupPw">
-                    </div>
-                    <div class="error" id="signupPwError"></div>
-                    <div class="login-input-border">
-                        <input class="login-input pw-icon" type="password" placeholder="Confirm Password" id="signupConfirm">
+                    <div class="flex-column flex-center">
+                        <input class="input-field name-icon border-box" type="text" placeholder="Name" id="signupName">
+                        <div class="error" id="signupNameError"></div>
                     </div>
 
-                    <div class="signup-button-wrap">
-                        <button class="signup-button" type="submit">Sign up</button>
+                    <div class="flex-column flex-center">
+                        <input class="input-field mail-icon border-box" type="text" placeholder="E-Mail" id="signupEmail">
+                        <div class="error" id="signupEmailError"></div>
                     </div>
-                </form>
+
+                    <div class="flex-column flex-center">
+                        <input class="input-field pw-icon border-box" type="password" placeholder="Password" id="signupPw">
+                        <div class="error" id="signupPwError"></div>
+                    </div>
+
+                    <div class="flex-column flex-center">
+                        <input class="input-field pw-icon border-box" type="password" placeholder="Confirm Password"
+                            id="signupConfirm">
+                        <div class="error" id="signupPwError"></div>
+                    </div>
+
+                </div>
+
+                <div class="btn-primary cursor-pointer">Sign up</div>
 
             </div>
         </main>
