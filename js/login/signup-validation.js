@@ -1,17 +1,7 @@
-const signupForm = document.getElementById('signupForm');
 const signupName = document.getElementById('signupName');
 const signupEmail = document.getElementById('signupEmail');
 const signupPassword = document.getElementById('signupPw');
 const signupPassword2 = document.getElementById('signupConfirm');
-
-/**
- * On submit of signup form, validate inputs.
- */
-signupForm.addEventListener('submit', e => {
-    e.preventDefault();
-    validateSignupInputs();
-});
-
 
 const setError = (element, message) => {
     const errorDisplay = document.getElementById(element);
@@ -48,6 +38,12 @@ const validateSignupInputs = () => {
     // Validate name
     if (nameValue === '') {
         setError('signupNameError', 'Name is required');
+        correctName = false;
+    } else if (nameValue.length < 3) {
+        setError('signupNameError', 'Name must be at least 3 characters long');
+        correctName = false;
+    } else if (nameValue.includes(' ')) {
+        setError('signupNameError', 'Name must be one word');
         correctName = false;
     } else {
         setSuccess('signupNameError');

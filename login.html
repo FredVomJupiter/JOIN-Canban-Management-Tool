@@ -124,24 +124,18 @@
                 </div>
 
                 <!-- Input Fields -->
-                <div class="flex-column flex-center gap-25 margin-bottom-20" id="signupForm">
+                <div class="flex-column flex-center gap-25 margin-bottom-20">
 
-                    <div class="flex-column flex-center">
+                    <div class="flex-column flex-center gap-10">
                         <input class="input-field name-icon border-box" type="text" placeholder="Name" id="signupName">
                         <div class="error" id="signupNameError"></div>
-                    </div>
 
-                    <div class="flex-column flex-center">
                         <input class="input-field mail-icon border-box" type="text" placeholder="E-Mail" id="signupEmail">
                         <div class="error" id="signupEmailError"></div>
-                    </div>
 
-                    <div class="flex-column flex-center">
                         <input class="input-field pw-icon border-box" type="password" placeholder="Password" id="signupPw">
                         <div class="error" id="signupPwError"></div>
-                    </div>
 
-                    <div class="flex-column flex-center">
                         <input class="input-field pw-icon border-box" type="password" placeholder="Confirm Password"
                             id="signupConfirm">
                         <div class="error" id="signupPwError"></div>
@@ -149,7 +143,7 @@
 
                 </div>
 
-                <div class="btn-primary cursor-pointer" onclick="">Sign up</div>
+                <div class="btn-primary cursor-pointer" onclick="validateSignupInputs();">Sign up</div>
 
             </div>
         </main>
