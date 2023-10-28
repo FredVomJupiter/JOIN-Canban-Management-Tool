@@ -53,16 +53,36 @@
     flex-direction: column;
     white-space: nowrap;
     align-items: flex-start;
-    gap: 10px;
     position: relative;
-    top: 80px;
-    right: 130px;
+    top: 100px;
+    right: 210px;
     width: 300px;
-    padding: 10px 10px;
     border-radius: 10px;
     border-top-right-radius: unset;
     background: var(--primary-color);
-    color: white;
+    color: var(--white);
+}
+
+.topnav-item {
+    transition: all 125ms ease-in-out;
+    padding: 10px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.item-top {
+    border-top-left-radius: 10px;
+}
+
+.item-bottom {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.topnav-item:hover {
+    transition: all 125ms ease-in-out;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 /* Media queries */
