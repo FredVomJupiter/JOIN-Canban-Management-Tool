@@ -328,9 +328,10 @@ body {
     border: 1px solid var(--secondary-color);
 }
 
-@media screen and (width > 768px) {
+@media screen and (width > 900px) {
     .container {
         left: 250px;
+        bottom: 1rem;
     }
     
 }

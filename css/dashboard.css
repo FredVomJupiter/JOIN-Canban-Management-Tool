@@ -49,7 +49,7 @@
 
 .summary-tile-middle-line {
     width: 0px;
-    height: 102.02px;
+    height: 50px;
     border: 2px solid var(--grey);
     border-radius: 10px;
 }
@@ -363,10 +363,6 @@
         display: none;
     }
 
-    .summary-tile-middle-line {
-        height: 50px;
-    }
-
     .dropzone {
         height: 100px;
     }
@@ -393,5 +389,39 @@
 
     .dropzone {
         display: none;
+    }
+}
+
+
+@media screen and (width > 900px) {
+
+    .summary-box {
+        width: 500px;
+        height: 500px;
+    }
+
+    .summary-tile {
+        min-width: 120px;
+        min-height: 120px;
+    }
+    
+    .top-tile {
+        max-width: 120px;
+        max-height: 120px;
+    }
+
+    .summary-tile .title-tiny {
+        font-size:  32px;
+    }
+
+    .summary-tile .text-small {
+        font-size:  16px;
+    }
+
+    .board-box {
+        margin-left: 20px;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        flex-wrap: wrap;
     }
 }
