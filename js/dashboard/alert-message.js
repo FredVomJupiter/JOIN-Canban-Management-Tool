@@ -26,11 +26,11 @@ function showAlert(message) {
  * Promts the user to confirm account deletion that lasts for 20 seconds.
  * @returns alert message in div container.
  */
-function showDeleteAlert() {
+function showDeleteAlert(type, id) {
     if (alertTriggered) return;
     let alert = document.createElement("div");
     alert.classList.add("alert-delete");
-    alert.innerHTML = htmlTemplateDeleteAccount();
+    type == "task" ? alert.innerHTML = htmlTemplateDeleteTask(id) : alert.innerHTML = htmlTemplateDeleteAccount();
     document.body.appendChild(alert);
     timeout = setTimeout(() => {
         document.querySelector(".alert-delete").remove();
@@ -44,7 +44,21 @@ function htmlTemplateDeleteAccount() {
         <div class="flex-column flex-center gap-10">
             <span class="text-normal">Are you sure you want to delete your account?</span>
             <div class="flex-row flex-center gap-25">
-                <div class="btn-primary cursor-pointer" onclick="deleteUser()">Yes</div>
+                <div class="btn-primary cursor-pointer" onclick="deleteUser();document.querySelector('.alert-delete').remove();clearTimeout(timeout);">Yes</div>
+                <div class="btn-secondary cursor-pointer" onclick="document.querySelector('.alert-delete').remove(); clearTimeout(timeout);">No</div>
+            </div>
+        </div>
+        `
+}
+
+
+function htmlTemplateDeleteTask(id) {
+    console.log(id);
+    return `
+        <div class="flex-column flex-center gap-10">
+            <span class="text-normal">Are you sure you want to delete this task?</span>
+            <div class="flex-row flex-center gap-25">
+                <div class="btn-primary cursor-pointer" onclick="deleteTask('${id}');document.querySelector('.alert-delete').remove();clearTimeout(timeout);">Yes</div>
                 <div class="btn-secondary cursor-pointer" onclick="document.querySelector('.alert-delete').remove(); clearTimeout(timeout);">No</div>
             </div>
         </div>
