@@ -293,93 +293,102 @@
             <form class="flex-column flex-center gap-10 width-100 border-box" id="addtaskMenu"
                 onclick="stopPropagation(event)">
                 <!-- Content left side -->
-                <div class="flex-column flex-start gap-25">
+                <div class="flex-column flex-start gap-25 addtask-complete">
+                    <div class="addtask-half">
+                        <span class="title-tiny">Title</span>
+                        <input class="input-field width-100 border-box" type="text" id="addtaskMenuTitle"
+                            placeholder="Enter a title">
 
-                    <span class="title-tiny">Title</span>
-                    <input class="input-field width-100 border-box" type="text" id="addtaskMenuTitle"
-                        placeholder="Enter a title">
+                        <span class="title-tiny">Description</span>
+                        <textarea class="input-field width-100 border-box" style="font-family:'Inter';max-height:100px;"
+                            cols="1" rows="2" id="addtaskMenuDescription" placeholder="Enter a description"></textarea>
 
-                    <span class="title-tiny">Description</span>
-                    <textarea class="input-field width-100 border-box" style="font-family:'Inter';max-height:100px;"
-                        cols="1" rows="2" id="addtaskMenuDescription" placeholder="Enter a description"></textarea>
-
-                    <span class="title-tiny">Category</span>
-                    <select class="input-field width-100 border-box" id="addtaskMenuCategory">
-                        <option value="">Select task category</option>
-                        <option value="" onclick="showCreateCategory()">Create new category</option>
-                    </select>
-                    <div class="flex-column gap-10 d-none" id="addtaskCreateCategory">
-                        <input class="input-field width-100 border-box" id="addtaskCreateCategoryInput" placeholder="Name">
-                        <div class="flex-row gap-25">
-                            <div class="btn-primary cursor-pointer" onclick="nextStepCategory()">OK</div>
-                            <div class="btn-secondary cursor-pointer" onclick="cancelCreateCategory()">Cancel</div>
+                        <span class="title-tiny">Category</span>
+                        <select class="input-field width-100 border-box" id="addtaskMenuCategory">
+                            <option value="">Select task category</option>
+                            <option value="" onclick="showCreateCategory()">Create new category</option>
+                        </select>
+                        <div class="flex-column gap-10 d-none" id="addtaskCreateCategory">
+                            <input class="input-field width-100 border-box" id="addtaskCreateCategoryInput"
+                                placeholder="Name">
+                            <div class="flex-row gap-25">
+                                <div class="btn-primary cursor-pointer" onclick="nextStepCategory()">OK</div>
+                                <div class="btn-secondary cursor-pointer" onclick="cancelCreateCategory()">Cancel</div>
+                            </div>
                         </div>
+
+                        <span class="title-tiny">Assigned to</span>
+                        <select class="input-field width-100 max-height border-box" id="addtaskMenuAssigned" multiple>
+                            <option value="" class="text-small" onclick="showSelectedContacts()">Select (command or alt
+                                + left mouse click)</option>
+                            <option value="" onclick="showCreateContact()">Create new contact</option>
+                        </select>
+                        <div class="flex-column gap-10 d-none" id="addtaskCreateContact">
+                            <input class="input-field width-100 border-box" id="addtaskCreateContactInput"
+                                placeholder="Name">
+                            <div class="flex-row gap-25">
+                                <div class="btn-primary cursor-pointer" onclick="nextStepContact()">OK</div>
+                                <div class="btn-secondary cursor-pointer" onclick="cancelCreateContact()">Cancel</div>
+                            </div>
+                        </div>
+                        <div class="flex-row flex-center gap-10" id="displayMenuAssigned">No one assigned yet</div>
                     </div>
 
-                    <span class="title-tiny">Assigned to</span>
-                    <select class="input-field width-100 max-height border-box" id="addtaskMenuAssigned" multiple>
-                        <option value="" class="text-small" onclick="showSelectedContacts()">Select (command or alt + left mouse click)</option>
-                        <option value="" onclick="showCreateContact()">Create new contact</option>
-                    </select>
-                    <div class="flex-column gap-10 d-none" id="addtaskCreateContact">
-                        <input class="input-field width-100 border-box" id="addtaskCreateContactInput" placeholder="Name">
-                        <div class="flex-row gap-25">
-                            <div class="btn-primary cursor-pointer" onclick="nextStepContact()">OK</div>
-                            <div class="btn-secondary cursor-pointer" onclick="cancelCreateContact()">Cancel</div>
-                        </div>
-                    </div>
-                    <div class="flex-row flex-center gap-10" id="displayMenuAssigned">No one assigned yet</div>
 
                     <!-- Content right side -->
-                    <span class="title-tiny">Due date</span>
-                    <input class="input-field width-100 border-box" style="font-family:'Inter';" type="date"
-                        id="addtaskMenuDate">
+                    <div class="addtask-half">
+                        <span class="title-tiny">Due date</span>
+                        <input class="input-field width-100 border-box" style="font-family:'Inter';" type="date"
+                            id="addtaskMenuDate">
 
-                    <span class="title-tiny">Prio</span>
-                    <div class="flex-row flex-center gap-10" id="addtaskMenuPrio">
-                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
-                            onclick="setPriority('High', event.target)" id="btnHigh">
-                            <span class="text-normal">High</span>
-                            <img class="icon-very-small" src="./assets/img/priohigh.svg">
+                        <span class="title-tiny">Prio</span>
+                        <div class="flex-row flex-center gap-10" id="addtaskMenuPrio">
+                            <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
+                                onclick="setPriority('High', event.target)" id="btnHigh">
+                                <span class="text-normal">High</span>
+                                <img class="icon-very-small" src="./assets/img/priohigh.svg">
+                            </div>
+                            <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
+                                onclick="setPriority('Medium', event.target)" id="btnMedium">
+                                <span class="text-normal">Medium</span>
+                                <img class="icon-very-small" src="./assets/img/priomedium.svg">
+                            </div>
+                            <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
+                                onclick="setPriority('Low', event.target)" id="btnLow">
+                                <span class="text-normal">Low</span>
+                                <img class="icon-very-small" src="./assets/img/priolow.svg">
+                            </div>
                         </div>
-                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
-                            onclick="setPriority('Medium', event.target)" id="btnMedium">
-                            <span class="text-normal">Medium</span>
-                            <img class="icon-very-small" src="./assets/img/priomedium.svg">
+
+                        <span class="title-tiny">Subtasks</span>
+                        <input class="input-field width-100 border-box" name="subtask" type="text"
+                            placeholder="Add new subtask" id="subtaskInput" maxlength="100">
+                        <div class="btn-primary cursor-pointer d-none" id="addSubtask" onclick="addSubtask()">Add
+                            Subtask</div>
+                        <div class="flex-column flex-center gap-10" id="subtaskList">No subtasks yet
                         </div>
-                        <div class="btn-secondary cursor-pointer flex-row flex-center gap-10 priority-btn"
-                            onclick="setPriority('Low', event.target)" id="btnLow">
-                            <span class="text-normal">Low</span>
-                            <img class="icon-very-small" src="./assets/img/priolow.svg">
+
+                        <!-- Buttons bottom right -->
+                        <div class="flex-row flex-center gap-25" id="addtaskButtons">
+                            <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="clearAddtaskMenu()">
+                                Clear
+                            </div>
+                            <div class="btn-primary cursor-pointer text-bold check-icon"
+                                onclick="collectValidateSendData('create')">
+                                Add Task
+                            </div>
+                        </div>
+                        <div class="flex-row flex-center gap-25 d-none" id="edittaskButtons">
+                            <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="cancelEditTask()">
+                                Cancel
+                            </div>
+                            <div class="btn-primary cursor-pointer text-bold check-icon"
+                                onclick="collectValidateSendData('update')">
+                                Update Task
+                            </div>
                         </div>
                     </div>
 
-                    <span class="title-tiny">Subtasks</span>
-                    <input class="input-field width-100 border-box" name="subtask" type="text" placeholder="Add new subtask"
-                        id="subtaskInput" maxlength="100">
-                    <div class="btn-primary cursor-pointer d-none" id="addSubtask" onclick="addSubtask()">Add Subtask</div>
-                    <div class="flex-column flex-center gap-10" id="subtaskList">No subtasks yet
-                    </div>
-
-                    <!-- Buttons bottom right -->
-                    <div class="flex-row flex-center gap-25" id="addtaskButtons">
-                        <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="clearAddtaskMenu()">
-                            Clear
-                        </div>
-                        <div class="btn-primary cursor-pointer text-bold check-icon"
-                            onclick="collectValidateSendData('create')">
-                            Add Task
-                        </div>
-                    </div>
-                    <div class="flex-row flex-center gap-25 d-none" id="edittaskButtons">
-                        <div class="btn-secondary cursor-pointer text-bold clear-icon" onclick="cancelEditTask()">
-                            Cancel
-                        </div>
-                        <div class="btn-primary cursor-pointer text-bold check-icon"
-                            onclick="collectValidateSendData('update')">
-                            Update Task
-                        </div>
-                    </div>
 
                 </div>
 
@@ -408,7 +417,7 @@
             </div>
 
 
-            <div class="flex-column flex-center padding-20 d-none" id="contactCanvas">
+            <div class="flex-column flex-center padding-20 d-none contact-details" id="contactCanvas">
 
             </div>
 
@@ -416,15 +425,21 @@
                 <span class="title-large padding-20" id="newContact">New Contact</span>
                 <span class="title-large padding-20 d-none" id="editContact">Edit Contact</span>
 
-                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Name" id="contactFormName">
-                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Email" id="contactFormEmail">
-                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Phone" id="contactFormPhone">
-                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Color" id="contactFormColor">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Name"
+                    id="contactFormName">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Email"
+                    id="contactFormEmail">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Phone"
+                    id="contactFormPhone">
+                <input class="input-field width-100 max-height-375 border-box" type="text" placeholder="Color"
+                    id="contactFormColor">
 
                 <div class="flex-row align-left width-100 gap-25">
                     <div class="btn-secondary cursor-pointer" onclick="closeContactForm()">Cancel</div>
-                    <div class="btn-primary cursor-pointer" id="newContactBtn" onclick="collectAndSendContact('create')">Create Contact</div>
-                    <div class="btn-primary cursor-pointer d-none" id="editContactBtn" onclick="collectAndSendContact('update')">Update Contact</div>
+                    <div class="btn-primary cursor-pointer" id="newContactBtn"
+                        onclick="collectAndSendContact('create')">Create Contact</div>
+                    <div class="btn-primary cursor-pointer d-none" id="editContactBtn"
+                        onclick="collectAndSendContact('update')">Update Contact</div>
                 </div>
 
             </div>

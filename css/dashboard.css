@@ -297,6 +297,14 @@
 }
 
 /** Addtask Content **/
+.addtask-half {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    width: 100%;
+}
+
 .category-icon {
     margin-left: 140px;
 }
@@ -423,5 +431,61 @@
         flex-direction: row !important;
         align-items: flex-start !important;
         flex-wrap: wrap;
+    }
+
+    #contacts {
+        flex-direction: row !important;
+    }
+
+    .contact-details {
+        margin-top: 10%;
+    }
+
+    .contact-btn {
+        font-size: 20px;
+    }
+
+    .contact-details .text-small {
+        font-size: 16px;
+    }
+
+    .contact-details .title-tiny {
+        font-size: 32px;
+    }
+
+    #contactForm {
+        max-width: 500px;
+    }
+
+    #legal {
+        margin-top: 20px;
+        max-width: 500px;
+    }
+
+    #help {
+        margin-top: 20px;
+        max-width: 500px;
+    }
+}
+
+
+@media screen and (width > 1200px) {
+    .addtask-complete {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .addtask-half {
+        display: flex;
+        width: 400px;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 25px !important;
+    }
+}
+
+@media screen and (width > 400px) and (height > 600px) {
+    .overlay-container {
+        border-radius: 30px;
     }
 }
