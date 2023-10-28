@@ -40,7 +40,11 @@ function greetUser() {
 
 function showDeletePromt() {
     openSignout(); // close the small menu on the top right corner of the page.
-    showDeleteAlert("account");
+    if (loggedUser.username != 'guest') {
+        showDeleteAlert("account");
+    } else {
+        showAlert("You cannot delete the guest account.");
+    }
 }
 
 /**
