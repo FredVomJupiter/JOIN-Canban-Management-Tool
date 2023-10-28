@@ -1,7 +1,6 @@
 let pages = [
     "login",
-    "signup",
-    "forgotpw"
+    "signup"
 ]
 
 
