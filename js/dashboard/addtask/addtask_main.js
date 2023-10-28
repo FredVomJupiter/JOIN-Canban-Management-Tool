@@ -89,9 +89,7 @@ async function collectValidateSendData(type) {
     await getSubtasks();
     await getTasks();
     clearAddtaskMenu();
-    setTimeout(() => {
-        openPage('board');
-    }, 1000);
+    openPage('board');
 }
 
 /**
