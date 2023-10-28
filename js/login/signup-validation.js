@@ -96,6 +96,8 @@ async function createNewUser() {
     }).catch(error => { console.log(error) });
     let json = await response.json();
     if (response.status != 200) {
+        showAlert(json.message);
+        json.message.includes('Email') ? signupEmail.value = "" : clearSignupForm();
         return;
     }
     if (response.status == 200) {
