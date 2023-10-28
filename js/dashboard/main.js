@@ -40,7 +40,7 @@ function greetUser() {
 
 function showDeletePromt() {
     openSignout(); // close the small menu on the top right corner of the page.
-    showDeleteAlert();
+    showDeleteAlert("account");
 }
 
 /**
@@ -241,6 +241,27 @@ async function deleteUser() {
     let data = await response.json();
     if (data.message == 'Account deleted.') {
         handleLogout();
+        return data;
+    }
+    return data;
+}
+
+
+async function deleteTask(id) {
+    let response = await fetch(baseUrl + 'todos/' + id + '/', {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+            'Authorization': " Token " + token,
+            'Content-Type': 'application/json'
+        },
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    if (data.message == 'Task deleted.') {
+        await getTasks();
+        hideTaskDetails();
+        openPage('board');
+        showAlert("Task deleted successfully.");
         return data;
     }
     return data;
