@@ -103,7 +103,7 @@ async function createNewUser() {
     if (response.status == 200) {
         clearSignupForm();
         openPage('login');
-        showAlert('Account created successfully.');
+        showAlert('Success! Check your mailbox for the activation link.');
     }
 }
 

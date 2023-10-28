@@ -38,6 +38,27 @@ function greetUser() {
 }
 
 
+function showDeletePromt() {
+    openSignout(); // close the small menu on the top right corner of the page.
+    showDeleteAlert();
+}
+
+/**
+ * Removes the alert promt and the token, then shows success message and redirects to login page.
+ */
+function handleLogout() {
+    document.querySelector('.alert-delete').remove();
+    localStorage.removeItem('token');
+    let overlay = document.createElement('div');
+    overlay.classList.add('overlay-background');
+    document.body.appendChild(overlay);
+    showAlert('Your Account has been deleted.');
+    setTimeout(() => {
+        window.open('./login.html', '_self');
+    }, 3000);
+}
+
+
 //
 // API CALLS START HERE
 //
@@ -207,5 +228,20 @@ async function createTask() {
         body: JSON.stringify(newTask)
     }).catch(error => { console.log(error) });
     let data = await response.json();
+    return data;
+}
+
+
+async function deleteUser() {
+    let response = await fetch(baseUrl + 'delete-account/' + loggedUser.id, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: { 'Authorization': " Token " + token },
+    }).catch(error => { console.log(error) });
+    let data = await response.json();
+    if (data.message == 'Account deleted.') {
+        handleLogout();
+        return data;
+    }
     return data;
 }
