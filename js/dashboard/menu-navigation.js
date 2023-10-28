@@ -43,7 +43,7 @@ function openSignout() {
  * Redirects to Login page after successful logout.
  */
 async function logout() {
-    let response = await fetch('http://127.0.0.1:8000/' + 'logout/', {
+    let response = await fetch('https://frederi1c.pythonanywhere.com/' + 'logout/', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Authorization': " Token " + token},

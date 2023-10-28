@@ -1,4 +1,4 @@
-const baseUrl = 'http://127.0.0.1:8000/';
+const baseUrl = 'https://frederi1c.pythonanywhere.com/';
 
 /**
  * Handling login credentials if user has checked the checkbox to remember his credentials.

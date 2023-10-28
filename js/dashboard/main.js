@@ -2,7 +2,7 @@ let taskTemplate = new TaskTemplate();
 let taskDetailTemplate = new TaskDetailTemplates();
 let contactTemplate = new ContactTemplate();
 
-const baseUrl = 'http://127.0.0.1:8000/api/v1/';
+const baseUrl = 'https://frederi1c.pythonanywhere.com/api/v1/';
 const token = localStorage.getItem('token').replace(/"/g, '');
 
 /**
