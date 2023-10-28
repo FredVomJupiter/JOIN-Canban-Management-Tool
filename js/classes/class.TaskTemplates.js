@@ -206,7 +206,7 @@ class TaskTemplate {
             ${this.getOverlaySubtasksPercentage(task)}
             ${this.getOverlaySubtasks(task)}
             <div class="board-taskoverlay-btnwrap">
-                <div class="board-taskoverlay-btn delete-icon" onclick="deleteTask('${taskId}')"></div>
+                <div class="board-taskoverlay-btn delete-icon" onclick="showDeleteTaskPromt('${taskId}')"></div>
                 <div class="board-taskoverlay-btn move-icon" onclick="showMoveList()"></div>
                 <div class="board-taskoverlay-btn edit-icon" onclick="prepareEditTask('${taskId}')"></div>
                 <div class="board-taskoverlay-moveMenu flex-column cursor-pointer align-left border-box d-none" id="moveList">
