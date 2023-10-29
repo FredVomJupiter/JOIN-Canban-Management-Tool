@@ -3,6 +3,10 @@
  * @param {*} contactId as number.
  */
 function showEditContact(contactId) {
+    if (contacts.find(contact => contact.id == contactId).user.id != loggedUser.id) {
+        showAlert("You can ony edit your own contacts.");
+        return;
+    }
     toggleContactForm();
     newContact = contacts.find(contact => contact.id == contactId);
     transferContactDataToForm(contact);
