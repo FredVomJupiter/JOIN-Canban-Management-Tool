@@ -51,7 +51,6 @@ function showDeletePromt() {
  * Removes the alert promt and the token, then shows success message and redirects to login page.
  */
 function handleLogout() {
-    document.querySelector('.alert-delete').remove();
     localStorage.removeItem('token');
     let overlay = document.createElement('div');
     overlay.classList.add('overlay-background');
