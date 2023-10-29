@@ -25,7 +25,7 @@ function renderContactsSortedByAlphabet(contactList, letter) {
     let filteredContacts = filterContactByLetter(contacts, letter);
     contactList.innerHTML += contactTemplate.getContactLetter(letter);
     filteredContacts.forEach(contact => {
-        contactList.innerHTML += contactTemplate.getContactList(contact);
+        contact.user.id == loggedUser.id ? contactList.innerHTML += contactTemplate.getContactList(contact) : null;
     });
 }
 
