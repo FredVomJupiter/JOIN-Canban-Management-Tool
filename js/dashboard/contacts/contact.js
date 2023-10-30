@@ -76,10 +76,12 @@ function markSelectedContact(id) {
 function unmarkAllContacts() {
     for (contact of contacts) {
         let wrapper = document.getElementById(`${contact.id}wrap`);
-        wrapper.classList.remove('contact-dark');
-        wrapper.classList.add('contact');
-        let name = document.getElementById(`${contact.id}name`);
-        name.classList.remove('text-white');
+        if (wrapper != null) {
+            wrapper.classList.remove('contact-dark');
+            wrapper.classList.add('contact');
+            let name = document.getElementById(`${contact.id}name`);
+            name.classList.remove('text-white');
+        }
     }
 }
 
