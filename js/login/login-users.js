@@ -1,5 +1,12 @@
 const baseUrl = 'https://frederi1c.pythonanywhere.com/';
 
+// Adding Enter key for login
+window.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        loginWithUsernameAndPassword();
+    }
+});
+
 /**
  * Handling login credentials if user has checked the checkbox to remember his credentials.
  */
