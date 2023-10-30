@@ -19,7 +19,7 @@ class TaskTemplate {
                 <div>
                     <div class="flex-column gap-10">
                         <span class="text-bold">${task.title}</span>
-                        <span class="text-grey">${task.description}</span>
+                        <span class="text-grey overflow-anywhere">${task.description}</span>
                     </div>
                 </div>
                 ${this.getProgressbar(task)}
