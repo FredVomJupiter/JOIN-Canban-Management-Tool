@@ -13,6 +13,6 @@ All accounts can see all todos, categories, subtasks and contacts. However, upda
 
 3) The board contains the actual kanban board with tasks attached like sticky notes. Here you can view, drag and drop, create new, delete, edit and search tasks (CRUD).
 
-4) In the add task section, you can add new tasks without using the board-overlay.
+4) In the add task section, you can add new tasks.
 
 5) Finally, the contacts page gives you an overview of existing contacts. Here you can add new and edit existing contacts. Deleting contacts is not possible.
