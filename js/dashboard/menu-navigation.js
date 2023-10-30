@@ -46,14 +46,12 @@ async function logout() {
     let response = await fetch('https://frederi1c.pythonanywhere.com/' + 'logout/', {
         method: 'POST',
         credentials: 'include',
-        headers: { 'Authorization': " Token " + token},
+        headers: { 'Authorization': " Token " + token },
     }).catch(error => { console.log(error) });
-    if (response.status === 200) {
-        document.cookie = "csrftoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        localStorage.removeItem('username');
-        localStorage.removeItem('token');
-        window.open('./login.html', '_self'); // Redirect to Login page
-    }
+    document.cookie = "csrftoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
+    window.open('./login.html', '_self'); // Redirect to Login page
 }
 
 
