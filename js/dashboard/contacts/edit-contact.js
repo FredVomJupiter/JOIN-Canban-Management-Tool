@@ -9,7 +9,7 @@ function showEditContact(contactId) {
     }
     toggleContactForm();
     newContact = contacts.find(contact => contact.id == contactId);
-    transferContactDataToForm(contact);
+    transferContactDataToForm(newContact);
     changeContactBtnAndTitle(); // change buttons to "Update Contact"
 }
 
