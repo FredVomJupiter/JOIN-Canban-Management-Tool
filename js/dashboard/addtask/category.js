@@ -19,8 +19,15 @@ function resetCategoriesList(categoryList) {
     categoryList.innerHTML = "";
     categoryList.innerHTML = `
         <option value="">Select task category</option>
-        <option value="" onclick="showCreateCategory()">Create new category</option>
+        <option value="">Create new category</option>
         `;
+}
+
+
+function checkCategorySelection() {
+    let categoryList = document.getElementById('addtaskMenuCategory');
+    let selectedCategory = categoryList.options[categoryList.selectedIndex].innerHTML;
+    selectedCategory === "Create new category" ? showCreateCategory() : null;
 }
 
 

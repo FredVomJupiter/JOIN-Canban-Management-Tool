@@ -304,9 +304,9 @@
                             cols="1" rows="2" id="addtaskMenuDescription" placeholder="Enter a description"></textarea>
 
                         <span class="title-tiny">Category</span>
-                        <select class="input-field width-100 border-box" id="addtaskMenuCategory">
+                        <select class="input-field width-100 border-box" id="addtaskMenuCategory" onchange="checkCategorySelection()">
                             <option value="">Select task category</option>
-                            <option value="" onclick="showCreateCategory()">Create new category</option>
+                            <option value="">Create new category</option>
                         </select>
                         <div class="flex-column gap-10 d-none" id="addtaskCreateCategory">
                             <input class="input-field width-100 border-box" id="addtaskCreateCategoryInput"
