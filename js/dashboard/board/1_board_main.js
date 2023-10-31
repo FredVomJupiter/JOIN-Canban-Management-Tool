@@ -50,3 +50,8 @@ function addDropzones() {
 function returnInitials(name) {
     return name.charAt(0) + name.charAt(name.indexOf(" ") + 1);
 }
+
+
+function returnOwner(id) {
+    if (id == loggedUser.id) { return "You" } else { return "Someone else" }
+}

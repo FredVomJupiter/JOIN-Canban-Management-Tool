@@ -19,7 +19,7 @@ class TaskTemplate {
                 <div>
                     <div class="flex-column gap-10">
                         <span class="text-bold">${task.title}</span>
-                        <span class="text-grey overflow-anywhere">${task.description}</span>
+                        <span class="text-grey overflow-anywhere max-height-375 overflow-y-hidden">${task.description}</span>
                     </div>
                 </div>
                 ${this.getProgressbar(task)}
@@ -31,6 +31,7 @@ class TaskTemplate {
                         ${this.getPriority(task)}
                     </div>
                 </div>
+                <div class="text-small">created by: ${returnOwner(task.user)} </div>
             </div>
         `
     }

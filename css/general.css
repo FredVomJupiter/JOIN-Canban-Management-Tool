@@ -179,6 +179,10 @@ body {
     max-height: 37.5px;
 }
 
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
 .padding-20 {
     padding: 20px;
 }
