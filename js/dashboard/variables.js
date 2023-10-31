@@ -11,3 +11,6 @@ let newContact = new Contact(null, null, null, null);
 let newCategory = new Category(null, null);
 let newSubtasks = [];
 let newTask = new Task(null, null, null, "Todo", null, "Low", [], []);
+
+// User greeting
+let greeted = false;

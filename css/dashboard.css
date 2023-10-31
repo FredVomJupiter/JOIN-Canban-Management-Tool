@@ -72,6 +72,30 @@
     background-image: url("../assets/img/done_white.svg");
 }
 
+.greeting-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 1);
+    z-index: 100;
+    animation: greeting 3s ease-in-out;
+}
+
+@keyframes greeting {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 /* Board: One column for: done, feedback, progress & todo */
 .dropzone {
     width: 250px;
