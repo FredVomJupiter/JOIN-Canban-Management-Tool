@@ -1,9 +1,6 @@
 // User greeting
 let greeted = false;
 
-
-startAnimation();
-
 /**
  * Once on startup, a animation is shown to greet the user.
  */
