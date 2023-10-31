@@ -1,7 +1,7 @@
 let step = 0;
 
 
-function getInputValue() {
+function getInputValueAssign() {
     return document.getElementById('addtaskCreateContactInput').value.trim();
 }
 
@@ -104,12 +104,12 @@ function nextStepContact() {
 
 
 function collectName() {
-    if (hasNoInputValue() || getInputValue() < 3) {
+    if (hasNoInputValue() || getInputValueAssign() < 3) {
         showAlert("Please enter min 3 characters.");
         step--;
         return;
     }
-    newContact.name = getInputValue();
+    newContact.name = getInputValueAssign();
     newContact.user = loggedUser;
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact email');
     document.getElementById('addtaskCreateContactInput').value = "";
@@ -117,36 +117,36 @@ function collectName() {
 
 
 function collectEmail() {
-    if (hasNoInputValue() || !isValidEmail(getInputValue())) {
+    if (hasNoInputValue() || !isValidEmail(getInputValueAssign())) {
         showAlert("Please enter a valid email example@this.com");
         step--;
         return;
     }
-    newContact.email = getInputValue();
+    newContact.email = getInputValueAssign();
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact phone');
     document.getElementById('addtaskCreateContactInput').value = "";
 }
 
 
 function collectPhone() {
-    if (hasNoInputValue() || !isValidPhone(getInputValue())) {
+    if (hasNoInputValue() || !isValidPhone(getInputValueAssign())) {
         showAlert("Please enter a 8-10 digit phone number.");
         step--;
         return;
     }
-    newContact.phone = getInputValue();
+    newContact.phone = getInputValueAssign();
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact color');
     document.getElementById('addtaskCreateContactInput').value = "";
 }
 
 
 function collectColor() {
-    if (hasNoInputValue() || invalidColor()) {
+    if (hasNoInputValue() || invalidColor(getInputValueAssign())) {
         showAlert("Please enter a valid color (e.g. red).");
         step--;
         return;
     }
-    newContact.color = getInputValue();
+    newContact.color = getInputValueAssign();
     createContactInAddtask();
 }
 
@@ -163,10 +163,10 @@ function hasNoInputValue() {
  * If the color is invalid, the div element will have the color white.
  * @returns true if the color is invalid
  */
-function invalidColor() {
+function invalidColor(color) {
     let test = document.createElement('div');
     test.style.color = "white";
-    test.style.color = getInputValue();
+    test.style.color = color;
     return test.style.color == "white" ? true : false;
 }
 

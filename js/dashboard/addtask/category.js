@@ -59,8 +59,8 @@ function nextStepCategory() {
 
 
 function collectCategoryName() {
-    if (hasNoInputValueCat()) {
-        showAlert("Please enter a name.");
+    if (hasNoInputValueCat() || getInputValueCat().length < 3) {
+        showAlert("Please enter min 3 characters.");
         stepCategory--;
         return;
     }
@@ -73,8 +73,8 @@ function collectCategoryName() {
 
 
 function collectCategoryColor() {
-    if (hasNoInputValueCat()) {
-        showAlert("Please enter a color.");
+    if (hasNoInputValueCat() || isValidColor(getInputValueCat())) {
+        showAlert("Please enter a valid color (e.g. green).");
         stepCategory--;
         return;
     }
