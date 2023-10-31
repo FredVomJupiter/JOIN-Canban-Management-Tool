@@ -318,10 +318,9 @@
                         </div>
 
                         <span class="title-tiny">Assigned to</span>
-                        <select class="input-field width-100 max-height border-box" id="addtaskMenuAssigned" multiple>
-                            <option value="" class="text-small" onclick="showSelectedContacts()">Select (command or alt
-                                + left mouse click)</option>
-                            <option value="" onclick="showCreateContact()">Create new contact</option>
+                        <select class="input-field width-100 max-height border-box" id="addtaskMenuAssigned" multiple onchange="checkAssignedSelection()">
+                            <option value="" class="text-small">Select (command or alt + left mouse click)</option>
+                            <option value="">Create new contact</option>
                         </select>
                         <div class="flex-column gap-10 d-none" id="addtaskCreateContact">
                             <input class="input-field width-100 border-box" id="addtaskCreateContactInput"

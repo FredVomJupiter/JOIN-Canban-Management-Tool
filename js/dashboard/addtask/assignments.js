@@ -1,5 +1,10 @@
 let step = 0;
 
+
+function getInputValue() {
+    return document.getElementById('addtaskCreateContactInput').value.trim();
+}
+
 /**
  * Renders the assignments as options in the add task section.
  */
@@ -13,7 +18,6 @@ function renderAssignments() {
         let option = document.createElement('option');
         option.value = contact.id;
         option.text = contact.name + " (" + contact.color + ")";
-        option.setAttribute('onclick', 'showSelectedContacts()');
         assignmentList.appendChild(option);
     });
 }
@@ -25,8 +29,8 @@ function renderAssignments() {
 function resetAssignmentsList(assignmentList) {
     assignmentList.innerHTML = "";
     assignmentList.innerHTML = `
-        <option value="" class="text-small" onclick="showSelectedContacts()">Select (command or alt + left mouse click)</option>
-        <option value="" onclick="showCreateContact()">Create new contact</option>
+        <option value="" class="text-small">Select (command or alt + left mouse click)</option>
+        <option value="">Create new contact</option>
         `;
 }
 
@@ -52,6 +56,18 @@ function showSelectedContacts() {
             let contactColor = contacts.find(c => c.id == contact).color;
             displayMenuAssigned.innerHTML += `<span class="board-circle text-white" style='background:${contactColor}'>${returnInitials(contactName)}</span>`;
         });
+    }
+}
+
+
+function checkAssignedSelection() {
+    let selected = document.getElementById('addtaskMenuAssigned');
+    if (selected.options.selectedIndex == 1) {
+        showCreateContact();
+    } else if (selected.options.selectedIndex == 0) {
+        showSelectedContacts();
+    } else {
+        showSelectedContacts();
     }
 }
 
@@ -88,13 +104,12 @@ function nextStepContact() {
 
 
 function collectName() {
-    if (hasNoInputValue()) {
-        showAlert("Please enter a name.");
+    if (hasNoInputValue() || getInputValue() < 3) {
+        showAlert("Please enter min 3 characters.");
         step--;
         return;
     }
-    let name = document.getElementById('addtaskCreateContactInput').value;
-    newContact.name = name.trim();
+    newContact.name = getInputValue();
     newContact.user = loggedUser;
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact email');
     document.getElementById('addtaskCreateContactInput').value = "";
@@ -102,39 +117,36 @@ function collectName() {
 
 
 function collectEmail() {
-    if (hasNoInputValue()) {
-        showAlert("Please enter an email.");
+    if (hasNoInputValue() || !isValidEmail(getInputValue())) {
+        showAlert("Please enter a valid email example@this.com");
         step--;
         return;
     }
-    let email = document.getElementById('addtaskCreateContactInput').value;
-    newContact.email = email.trim();
+    newContact.email = getInputValue();
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact phone');
     document.getElementById('addtaskCreateContactInput').value = "";
 }
 
 
 function collectPhone() {
-    if (hasNoInputValue()) {
-        showAlert("Please enter a phone number.");
+    if (hasNoInputValue() || !isValidPhone(getInputValue())) {
+        showAlert("Please enter a 8-10 digit phone number.");
         step--;
         return;
     }
-    let phone = document.getElementById('addtaskCreateContactInput').value;
-    newContact.phone = phone.trim();
-    document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact color (e.g. red)');
+    newContact.phone = getInputValue();
+    document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact color');
     document.getElementById('addtaskCreateContactInput').value = "";
 }
 
 
 function collectColor() {
-    if (hasNoInputValue()) {
-        showAlert("Please enter a color.");
+    if (hasNoInputValue() || invalidColor()) {
+        showAlert("Please enter a valid color (e.g. red).");
         step--;
         return;
     }
-    let color = document.getElementById('addtaskCreateContactInput').value;
-    newContact.color = color.trim();
+    newContact.color = getInputValue();
     createContactInAddtask();
 }
 
@@ -143,7 +155,19 @@ function collectColor() {
  * @returns true if input value is empty
  */
 function hasNoInputValue() {
-    return document.getElementById('addtaskCreateContactInput').value.trim() == "" ? true : false;
+    return getInputValue() == "" ? true : false;
+}
+
+/**
+ * Checks user input for a valid color with a dummy div element.
+ * If the color is invalid, the div element will have the color white.
+ * @returns true if the color is invalid
+ */
+function invalidColor() {
+    let test = document.createElement('div');
+    test.style.color = "white";
+    test.style.color = getInputValue();
+    return test.style.color == "white" ? true : false;
 }
 
 /**
