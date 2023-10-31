@@ -40,6 +40,10 @@ function showCreateCategory() {
     createCategory.classList.add('d-none');
     let createCategoryInput = document.getElementById('addtaskCreateCategory');
     createCategoryInput.classList.remove('d-none');
+    let progress = document.getElementById('categoryStatus');
+    progress.innerHTML = "";
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("last");
 }
 
 
@@ -72,6 +76,10 @@ function collectCategoryName() {
     newCategory.user = loggedUser;
     document.getElementById('addtaskCreateCategoryInput').value = "";
     document.getElementById('addtaskCreateCategoryInput').placeholder = "Enter a category color";
+    let progress = document.getElementById('categoryStatus');
+    progress.innerHTML = "";
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawTodo("last");
 }
 
 
@@ -85,7 +93,10 @@ function collectCategoryColor() {
     createCategoryInAddtask();
 }
 
-
+/**
+ * Checks the input value of the category input field.
+ * @returns true if the input value is empty.
+ */
 function hasNoInputValueCat() {
     return getInputValueCat() === "" ? true : false;
 }

@@ -151,3 +151,34 @@ async function handleTask(type) {
         showAlert("Task created successfully.");
     }
 }
+
+/**
+ * Used to visualize the progress of user input in assignments & category.
+ * @returns a string with the html for the progress bar.
+ */
+function drawProgress() {
+    return `
+    <div class="icon-very-small flex-center done-icon" style="background-color:var(--primary-color);border-radius:50%;border:1px solid var(--primary-color)">
+    </div>
+    <div class="dark-line"></div>
+    `
+}
+
+/**
+ * Used to visualize the progress of user input in assignments & category.
+ * @returns a string with the html for the progress bar.
+ */
+function drawTodo(type) {
+    if (type == "middle") {
+        return `
+        <div class="icon-very-small flex-center" style="background-color:var(--primary-color);border-radius:50%;border:1px solid var(--primary-color)">
+        </div>
+        <div class="dark-line"></div>
+        `
+    } else if (type == "last") {
+        return `
+        <div class="icon-very-small flex-center" style="background-color:var(--primary-color);border-radius:50%;border:1px solid var(--primary-color)">
+        </div>
+        `
+    }
+}

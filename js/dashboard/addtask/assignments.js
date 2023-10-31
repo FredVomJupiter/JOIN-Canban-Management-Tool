@@ -77,6 +77,12 @@ function checkAssignedSelection() {
 function showCreateContact() {
     document.getElementById('addtaskMenuAssigned').classList.add('d-none');
     document.getElementById('addtaskCreateContact').classList.remove('d-none');
+    let progress = document.getElementById('assignedStatus');
+    progress.innerHTML = "";
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("last");
 }
 
 /**
@@ -113,6 +119,12 @@ function collectName() {
     newContact.user = loggedUser;
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact email');
     document.getElementById('addtaskCreateContactInput').value = "";
+    let progress = document.getElementById('assignedStatus');
+    progress.innerHTML = "";
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("last");
 }
 
 
@@ -125,6 +137,12 @@ function collectEmail() {
     newContact.email = getInputValueAssign();
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact phone');
     document.getElementById('addtaskCreateContactInput').value = "";
+    let progress = document.getElementById('assignedStatus');
+    progress.innerHTML = "";
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawTodo("middle");
+    progress.innerHTML += drawTodo("last");
 }
 
 
@@ -137,6 +155,12 @@ function collectPhone() {
     newContact.phone = getInputValueAssign();
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Enter contact color');
     document.getElementById('addtaskCreateContactInput').value = "";
+    let progress = document.getElementById('assignedStatus');
+    progress.innerHTML = "";
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawProgress();
+    progress.innerHTML += drawTodo("last");
 }
 
 

@@ -82,6 +82,12 @@ body {
     align-items: flex-start;
 }
 
+.flex-start-alt {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .flex-space-between {
     display: flex;
     justify-content: space-between;
@@ -278,6 +284,18 @@ body {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.dark-line {
+    border: 2px solid var(--primary-color);
+    height: 0px;
+    width: 10px;
+}
+
+.green-line {
+    border: 2px solid #00FF00;
+    height: 0px;
+    width: 10px;
 }
 
 .btn-primary {
