@@ -84,6 +84,7 @@ function cancelEditTask() {
  */
 async function collectValidateSendData(type) {
     transferInputValues();
+    if (hasMissingInputs()) { showAlert("Please fill out the form."); return; }
     await handleSubtasks();
     await handleTask(type);
     await getSubtasks();
@@ -109,6 +110,16 @@ function transferInputValues() {
         }
     }
     newTask.due_date = document.getElementById('addtaskMenuDate').value + "T00:00:00Z";
+}
+
+
+function hasMissingInputs() {
+    if (newTask.title == "" || newTask.description == "" || newTask.due_date == "" || newTask.category == "" || newTask.assigned_to.length == 0) {
+        return true;
+    } else if (newTask.title == null || newTask.description == null || newTask.due_date == null || newTask.category == null) {
+        return true;
+    }
+    return false;
 }
 
 /**
