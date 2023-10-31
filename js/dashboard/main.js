@@ -35,7 +35,6 @@ function greetUser() {
     let greeting = document.getElementById('username');
     greeting.innerHTML = "";
     greeting.innerHTML = loggedUser.username;
-    startAnimation(); // In greeting-animation.js
 }
 
 
