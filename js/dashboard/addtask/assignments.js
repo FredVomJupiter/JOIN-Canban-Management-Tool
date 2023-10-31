@@ -94,6 +94,9 @@ function cancelCreateContact() {
     document.getElementById('addtaskCreateContactInput').setAttribute('placeholder', 'Name');
     document.getElementById('addtaskMenuAssigned').classList.remove('d-none');
     document.getElementById('addtaskCreateContact').classList.add('d-none');
+    // Reset the select field to default.
+    let selected = document.getElementById('addtaskMenuAssigned');
+    selected.options.selectedIndex = 0;
 }
 
 /**
