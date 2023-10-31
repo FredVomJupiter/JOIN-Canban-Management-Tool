@@ -76,7 +76,7 @@ function collectCategoryName() {
 
 
 function collectCategoryColor() {
-    if (hasNoInputValueCat() || isValidColor(getInputValueCat())) {
+    if (hasNoInputValueCat() || invalidColor(getInputValueCat())) {
         showAlert("Please enter a valid color (e.g. green).");
         stepCategory--;
         return;
