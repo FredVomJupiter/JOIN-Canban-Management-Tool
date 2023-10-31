@@ -55,6 +55,8 @@ function cancelCreateCategory() {
     createCategoryInput.classList.add('d-none');
     document.getElementById('addtaskCreateCategoryInput').value = "";
     document.getElementById('addtaskCreateCategoryInput').setAttribute('placeholder', 'Name');
+    // Reset the select field to default.
+    createCategory.selectedIndex = 0;
 }
 
 
