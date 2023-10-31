@@ -155,7 +155,7 @@ function collectColor() {
  * @returns true if input value is empty
  */
 function hasNoInputValue() {
-    return getInputValue() == "" ? true : false;
+    return getInputValueAssign() == "" ? true : false;
 }
 
 /**
