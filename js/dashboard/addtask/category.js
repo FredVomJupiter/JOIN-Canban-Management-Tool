@@ -1,5 +1,9 @@
 let stepCategory = 0;
 
+function getInputValueCat() {
+    return document.getElementById('addtaskCreateCategoryInput').value.trim();
+}
+
 /**
  * Renders the categories as options in the add task section.
  */
@@ -64,8 +68,7 @@ function collectCategoryName() {
         stepCategory--;
         return;
     }
-    let categoryName = document.getElementById('addtaskCreateCategoryInput').value;
-    newCategory.name = categoryName.trim();
+    newCategory.name = getInputValueCat();
     newCategory.user = loggedUser;
     document.getElementById('addtaskCreateCategoryInput').value = "";
     document.getElementById('addtaskCreateCategoryInput').placeholder = "Enter a category color";
@@ -78,14 +81,13 @@ function collectCategoryColor() {
         stepCategory--;
         return;
     }
-    let categoryColor = document.getElementById('addtaskCreateCategoryInput').value;
-    newCategory.color = categoryColor.trim();
+    newCategory.color = getInputValueCat();
     createCategoryInAddtask();
 }
 
 
 function hasNoInputValueCat() {
-    return document.getElementById('addtaskCreateCategoryInput').value.trim() === "" ? true : false;
+    return getInputValueCat() === "" ? true : false;
 }
 
 
