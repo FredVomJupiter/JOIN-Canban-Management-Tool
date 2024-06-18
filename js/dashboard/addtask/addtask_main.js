@@ -114,6 +114,9 @@ function transferInputValues() {
 
 
 function sanitizeInput(input) {
+
+    console.log("sanitizing dangerous stuff");
+
     const patterns = [
         /javascript:/gi,   // matches "javascript:" (case insensitive)
         /href/gi,          // matches "href" (case insensitive)
@@ -126,12 +129,12 @@ function sanitizeInput(input) {
         /eval\(/gi         // matches "eval(" (case insensitive)
     ];
 
-    let sanitized = input;
+    let sanitized = "";
     patterns.forEach(pattern => {
-        sanitized = sanitized.replace(pattern, "");
+        sanitized = input.replace(pattern, "");
     });
 
-    return input.trim();
+    return sanitized.trim();
 }
 
 
