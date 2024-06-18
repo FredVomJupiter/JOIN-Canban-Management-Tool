@@ -97,8 +97,8 @@ async function collectValidateSendData(type) {
  * Collects the input values from the addtask form and stores them in the newTask object.
  */
 function transferInputValues() {
-    newTask.title = document.getElementById('addtaskMenuTitle').value.trim();
-    newTask.description = document.getElementById('addtaskMenuDescription').value.trim();
+    newTask.title = sanitizeInput(document.getElementById('addtaskMenuTitle').value);
+    newTask.description = sanitizeInput(document.getElementById('addtaskMenuDescription').value);
     newTask.category = document.getElementById('addtaskMenuCategory').value;
     let selected = document.getElementById('addtaskMenuAssigned');
     for (const option of selected.options) {
@@ -110,6 +110,28 @@ function transferInputValues() {
         }
     }
     newTask.due_date = document.getElementById('addtaskMenuDate').value + "T00:00:00Z";
+}
+
+
+function sanitizeInput(input) {
+    const patterns = [
+        /javascript:/gi,   // matches "javascript:" (case insensitive)
+        /href/gi,          // matches "href" (case insensitive)
+        /<a/gi,            // matches "<a" (case insensitive)
+        /<script/gi,       // matches "<script" (case insensitive)
+        /<\/script>/gi,    // matches "</script>" (case insensitive)
+        /on\w+=/gi,        // matches event handlers like "onclick=", "onload=", etc. (case insensitive)
+        /document\./gi,    // matches "document." (case insensitive)
+        /window\./gi,      // matches "window." (case insensitive)
+        /eval\(/gi         // matches "eval(" (case insensitive)
+    ];
+
+    let sanitized = input;
+    patterns.forEach(pattern => {
+        sanitized = sanitized.replace(pattern, "");
+    });
+
+    return input.trim();
 }
 
 
